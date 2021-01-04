@@ -1,7 +1,7 @@
 ---
 title: Recuperar e modificar dados
-description: No .NET Framework, o Provedor de Dados Microsoft SqlClient para SQL Server serve como uma ponte entre um aplicativo e uma fonte de dados para ler e atualizar dados.
-ms.date: 11/13/2020
+description: No .NET, o Provedor de Dados Microsoft SqlClient para SQL Server serve como uma ponte entre um aplicativo e uma fonte de dados para ler e atualizar dados.
+ms.date: 11/30/2020
 ms.assetid: 722e7f87-3691-46c6-87e8-7d159722d675
 ms.prod: sql
 ms.prod_service: connectivity
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: d6e4d6c298c632c446e1671b5d9adabaa19e0776
-ms.sourcegitcommit: c127c0752e84cccd38a7e23ac74c0362a40f952e
+ms.openlocfilehash: c3cf3766ffc6c8acf6025b58aa0adbaafafa2188
+ms.sourcegitcommit: 2add15a99df7b85d271adb261523689984dfd134
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761484"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97038954"
 ---
 # <a name="retrieving-and-modifying-data-in-adonet"></a>Recuperar e modificar dados no ADO.NET
 
@@ -41,6 +41,10 @@ Contém os tópicos que descrevem como criar comandos e construtores de comandos
 
 [DataAdapters e DataReaders](dataadapters-datareaders.md)  
 Contém os tópicos que descrevem DataReaders, DataAdapters, parâmetros, manipulação de eventos DataAdapter e execução de operações em lote.
+
+[Transações e simultaneidade](transactions-and-concurrency.md) Contém tópicos que descrevem como executar transações locais, transações distribuídas e trabalhar com a simultaneidade otimista.
+
+[Como recuperar informações de esquema de banco de dados](retrieving-database-schema-information.md) descreve como obter os bancos de dados ou os catálogos, as tabelas e as exibições disponíveis em um banco de dados, restrições existentes para tabelas e outras informações de esquema de uma fonte de dados.
 
 ## <a name="see-also"></a>Confira também
 

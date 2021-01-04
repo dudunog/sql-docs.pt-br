@@ -8,12 +8,12 @@ ms.reviewer: mikeray
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.prod: sql
-ms.openlocfilehash: 2bd589ebacd9ea35e15881eaaeb022d4f2302986
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+ms.openlocfilehash: e0c68752d21de5945c06433af8c08f6208322f7c
+ms.sourcegitcommit: 18e2f0706e03d0b2b6324845244fbafaa077a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91988022"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97103161"
 ---
 # <a name="configure-advanced-data-security-for-azure-arc-enabled-sql-server-instance"></a>Configurar a segurança de dados avançada para a instância do SQL Server habilitado para o Azure Arc
 
@@ -50,17 +50,17 @@ A próxima etapa só será necessária se você ainda não tiver configurado o a
 
 1. Para obter mais detalhes, confira [Gerenciamento de extensão com o Azure Arc](/azure/azure-arc/servers/manage-vm-extensions)
 
-## <a name="enable-advanced-data-security"></a>Habilitar a segurança de dados avançada
+## <a name="enable-azure-defender"></a>Habilitar o Azure Defender
 
-Em seguida, você precisará habilitar a segurança de dados avançada para a instância do SQL Server.
+Em seguida, você precisará habilitar o Azure Defender para a instância do SQL Server.
 
 1. Acesse a Central de Segurança e abra a página **Preços e configurações** na barra lateral.
 
 1. Selecione o workspace que você configurou para a extensão MMA na etapa anterior
 
-1. Selecione **Padrão**. Verifique se a opção de **SQL Servers no Computador (Versão prévia)** está habilitada.
+1. Selecione **Azure Defender Ativado**. Verifique se a opção para **SQL Servers em computadores** está ativada.
 
-   ![Atualizar o workspace](media/configure-advanced-data-security/upgrade-log-analytics-workspace.png)
+   ![Atualizar o workspace](media/configure-advanced-data-security/enable-azure-defender.png)
 
  > [!NOTE]
    > A primeira verificação para gerar a avaliação de vulnerabilidades ocorrerá em até 24 horas depois que a segurança de dados avançada for habilitada. Depois disso, as verificações automáticas serão executadas todas as semanas aos domingos.

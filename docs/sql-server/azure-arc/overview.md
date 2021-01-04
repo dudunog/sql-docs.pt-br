@@ -5,16 +5,16 @@ description: Gerenciar instâncias do SQL Server com SQL Server habilitado para 
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mikeray
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.custom: references_regions
-ms.openlocfilehash: 59a3dab4136749f85e1f752ee823f8815080fd76
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+ms.openlocfilehash: c1ba7f7552b5050e3c1fa7bc765acfa431f3df30
+ms.sourcegitcommit: 18e2f0706e03d0b2b6324845244fbafaa077a8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91987982"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97103141"
 ---
 # <a name="azure-arc-enabled-sql-server-preview"></a>SQL Server habilitado para Azure Arc (versão prévia)
 
@@ -43,8 +43,9 @@ O SQL Server habilitado para Azure Arc dá suporte ao SQL Server 2012 ou posteri
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-Para conectar as instâncias do SQL Server e a hospedagem ao Azure Arc, você precisa ter uma conta com privilégios para executar as seguintes ações:
-   * Microsoft.AzureData/*
+Para conectar as instâncias do SQL Server e o computador de hospedagem ao Azure Arc, você precisa ter uma conta com privilégios para executar as seguintes ações:
+   * Microsoft.AzureArcData/sqlServerInstances/read
+   * Microsoft.AzureArcData/sqlServerInstances/write
    * Microsoft.HybridCompute/machines/read
    * Microsoft.HybridCompute/machines/write
    * Microsoft.GuestConfiguration/guestConfigurationAssignments/read
@@ -58,6 +59,10 @@ Antes de configurar seus computadores e instâncias do SQL Server com o Azure Ar
 ### <a name="networking-configuration-and-resource-providers"></a>Configuração de rede e provedores de recursos
 
 Examine [a configuração de rede, os provedores de segurança e o protocolo TLS](/azure/azure-arc/servers/agent-overview#prerequisites) necessários para o Connected Machine Agent.
+
+O provedor de recursos `Microsoft.AzureArcData` é necessário para conectar as instâncias do SQL Server ao Azure Arc. Confira as instruções de registro do provedor de recursos na seção [Pré-requisitos](connect.md#prerequisites).
+
+Se você já tiver instâncias do SQL Server conectadas ao Azure Arc, siga estas etapas para migrar os recursos existentes do **SQL Server – Azure Arc** para o novo namespace.
 
 ### <a name="supported-azure-regions"></a>Regiões do Azure com suporte
 
