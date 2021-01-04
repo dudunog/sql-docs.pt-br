@@ -11,13 +11,13 @@ helpviewer_keywords:
 ms.assetid: 2bcacab2-3a4f-4aae-b123-19d756b9b9ed
 author: maggiesMSFT
 ms.author: maggies
-monikerRange: '>=sql-server-2016 <=sql-server-2016||=sqlallproducts-allversions'
-ms.openlocfilehash: fe50faeeb134ca9162f5de25b6c775d3b6eea829
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+monikerRange: '>=sql-server-2016 <=sql-server-2016'
+ms.openlocfilehash: 8224c126d9f23cb5f13c517400ec79e04d127ff5
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91986943"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97466607"
 ---
 # <a name="performance-counters---reportserver-service--performance-objects"></a>Contadores de desempenho – serviço ReportServer, objetos de desempenho
   Este tópico descreve contadores de desempenho para os objetos de desempenho **ReportServer:Service** e **ReportServerSharePoint:Service** que fazem parte de uma implantação do [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] .  
@@ -38,7 +38,7 @@ ms.locfileid: "91986943"
  [!INCLUDE[applies](../../includes/applies-md.md)] [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)].  
   
 ##  <a name="reportserverservice-performance-counters-native-mode-report-server"></a><a name="bkmk_ReportServer"></a> Contadores de Desempenho ReportServer:Service (servidor de relatório no modo nativo)  
- O objeto de desempenho **ReportServer:Service** inclui uma coleção de contadores para acompanhar os eventos relativos ao HTTP e à memória de uma instância do servidor de relatório. Esse objeto aparece uma vez para cada instância do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] no computador, e é possível adicionar ou remover contadores do objeto para cada instância. Os contadores da instância padrão aparecem no formato **ReportServer:Service**. Os contadores das instâncias nomeadas são exibidos no formato **ReportServer$\<***instance_name***>:Service**.  
+ O objeto de desempenho **ReportServer:Service** inclui uma coleção de contadores para acompanhar os eventos relativos ao HTTP e à memória de uma instância do servidor de relatório. Esse objeto aparece uma vez para cada instância do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] no computador, e é possível adicionar ou remover contadores do objeto para cada instância. Os contadores da instância padrão aparecem no formato **ReportServer:Service**. Os contadores das instâncias nomeadas são exibidos no formato **ReportServer$\<**_instance_name_*_>:Service_* .  
   
  O objeto de desempenho **ReportServer:Service** era novo no [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] e ele fornece um subconjunto de contadores que foram incluídos no IIS (Serviços de Informações da Internet) e no [!INCLUDE[vstecasp](../../includes/vstecasp-md.md)] nas versões anteriores do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]. Esses novos contadores são específicos do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)]e controlam eventos relacionados ao HTTP do servidor de relatório, como solicitações, conexões e tentativas de logon. Adicionalmente, ele inclui contadores para controlar eventos de gerenciamento de memória.  
   

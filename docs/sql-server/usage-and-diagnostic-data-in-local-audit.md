@@ -13,13 +13,13 @@ helpviewer_keywords:
 ms.assetid: a0665916-7789-4f94-9086-879275802cf3
 author: MashaMSFT
 ms.author: mathoma
-monikerRange: '>=sql-server-2016||=sqlallproducts-allversions'
-ms.openlocfilehash: bd75bde9e125ffc99f1af6f382aa91d2f1e0caf7
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+monikerRange: '>=sql-server-2016'
+ms.openlocfilehash: f927e003673cb4397250fe532d57452ddb4e6445
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91987262"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97474557"
 ---
 # <a name="local-audit-for-sql-server-usage-and-diagnostic-data-collection-ceip"></a>Auditoria local para coleta de dados de diagnóstico e uso do SQL Server (Programa de Aperfeiçoamento da Experiência do Usuário)
 
@@ -27,7 +27,7 @@ ms.locfileid: "91987262"
 
 ## <a name="introduction"></a>Introdução
 
-O Microsoft SQL Server contém recursos habilitados para Internet que podem coletar e enviar à Microsoft informações sobre seu computador ou dispositivo. Isso é chamado de *informações padrão do computador*. O componente de auditoria local da [Coleta Dados de Diagnóstico e Uso do SQL Server](usage-and-diagnostic-data-configuration-for-sql-server.md) grava dados coletados pelo serviço em uma pasta designada, que representa os dados (logs) que serão enviados à Microsoft. A finalidade da auditoria local é permitir que os clientes vejam todos os dados que a Microsoft coleta com esse recurso, para fins de conformidade, regulatórios ou de validação de privacidade.  
+O Microsoft SQL Server contém recursos habilitados para Internet que podem coletar e enviar à Microsoft informações sobre seu computador ou dispositivo. Isso é chamado de *informações padrão do computador*. O componente de auditoria local da [Coleta Dados de Diagnóstico e Uso do SQL Server](usage-and-diagnostic-data-configuration-for-sql-server.md) grava dados coletados pelo serviço em uma pasta designada, que representa os dados (logs) que serão enviados à Microsoft. A finalidade da auditoria local é permitir que os clientes vejam todos os dados que a Microsoft coleta com esse recurso, para fins de conformidade, regulatórios ou de validação de privacidade.  
 
 Para o SQL Server 2016 CU2 e CU3, a auditoria Local é configurável no nível da instância no Mecanismo de Banco de Dados do SQL Server e o SSAS (Analysis Services). Para o SQL Server 2016 CU4, 2016 SP1 e versões mais recentes, a auditoria local também está habilitada para o SSIS (SQL Server Integration Services). Outros componentes do SQL Server que são instalados durante a instalação e as ferramentas do SQL Server que são baixadas ou instaladas após a instalação não têm o recurso de auditoria local para coleta de dados de diagnóstico e uso.
 
@@ -44,7 +44,7 @@ A seguir estão os pré-requisitos para habilitar a auditoria local em cada inst
 
 1. A instância está corrigida para o SQL Server 2016 RTM CU2 ou posterior. Para o Integration Services, o patch da instância é aplicado ao SQL 2016 RTM CU4, ao SQL 2016 SP1 ou a versões mais recentes.
 
-1. O usuário deve ser um administrador do sistema ou ter uma função com acesso para adicionar e modificar a Chave do Registro, criar pastas, gerenciar a segurança das pastas e parar/iniciar um Serviço do Windows.  
+1. O usuário deve ser um administrador do sistema ou ter uma função com acesso para adicionar e modificar a Chave do Registro, criar pastas, gerenciar a segurança das pastas e parar/iniciar um Serviço do Windows.  
 
 ## <a name="pre-configuration-steps-prior-to-turning-on-local-audit"></a>Etapas de pré-configuração antes de ativar a auditoria local
 
@@ -73,7 +73,7 @@ Execute as seguintes etapas para obter a conta de logon do serviço do Programa 
 
 ### <a name="configure-a-new-folder-for-the-local-audit-files"></a>Configurar uma nova pasta para os arquivos de auditoria local.    
 
-Crie uma nova pasta (diretório da auditoria local) em que a auditoria local gravará os logs. Por exemplo, o caminho completo para o Diretório da auditoria local para uma instância padrão do mecanismo de banco de dados é: *C:\\SQLCEIPAudit\\MSSQLSERVER\\DB\\* . 
+Crie uma nova pasta (diretório da auditoria local) em que a auditoria local gravará os logs. Por exemplo, o caminho completo para o Diretório da auditoria local para uma instância padrão do mecanismo de banco de dados é: *C:\\SQLCEIPAudit\\MSSQLSERVER\\DB\\* . 
  
   >[!NOTE] 
   >Configure o caminho do diretório da auditoria local fora do caminho de instalação do SQL Server para evitar que a funcionalidade de auditoria e a aplicação de patches causem problemas com o SQL Server.
@@ -108,23 +108,23 @@ Crie uma nova pasta (diretório da auditoria local) em que a auditoria local gra
 
 1. Navegue até o caminho do CPE apropriado:
 
-   | Versão | ***Mecanismo de banco de dados*** – chave do Registro |
+   | Versão | **_Mecanismo de banco de dados_* _ – chave do Registro |
    | :------ | :----------------------------- |
-   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL**13**.*nome da instância*\\CPE |
-   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL**14**.*nome da instância*\\CPE |
-   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL**15**.*Your-Instance-Name*\\CPE |
+   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL_ *13**.* Nome-da-Instância*\\CPE |
+   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL **14**.*nome da instância*\\CPE |
+   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQL **15**.*Your-Instance-Name*\\CPE |
    | &nbsp; | &nbsp; |
 
-   | Versão | ***Analysis Services*** – chave do Registro |
+   | Versão | ***Analysis Services** _ – chave do Registro |
    | :------ | :------------------------------- |
-   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS**13**.*nome da instância*\\CPE |
-   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS**14**.*nome da instância*\\CPE |
-   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS**15**.*Your-Instance-Name*\\CPE |  
+   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS_ *13**.* Nome-da-Instância*\\CPE |
+   | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS **14**.*nome da instância*\\CPE |
+   | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSAS **15**.*Your-Instance-Name*\\CPE |  
    | &nbsp; | &nbsp; |
 
-   | Versão | ***Integration Services*** – chave do Registro |
+   | Versão | ***Integration Services** _ – chave do Registro |
    | :------ | :---------------------------------- |
-   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\**130** |
+   | 2016    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\_ *130** |
    | 2017    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\**140** |
    | 2019    | HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft SQL Server\\**150** |
    | &nbsp; | &nbsp; |
@@ -137,7 +137,7 @@ Crie uma nova pasta (diretório da auditoria local) em que a auditoria local gra
 
 Depois de concluir as etapas de pré-configuração, você pode ativar a auditoria local. Para fazer isso, use uma conta de administrador do sistema ou com uma função semelhante com acesso para modificar chaves de registro para ativar ou desativar a auditoria local seguindo as etapas abaixo. 
 
-1. Inicie o **regedit**.  
+1. Inicie o **regedit**.  
 
 1. Navegue até o [caminho](#create-a-registry-key-setting-to-configure-local-audit-target-directory) do CPE apropriado. 
 
@@ -173,9 +173,9 @@ A auditoria local produzirá um arquivo de log por dia. Os arquivos de log estar
 
 ## <a name="maintenance"></a>Manutenção 
 
-1. Para limitar o uso do espaço em disco pelos arquivos gravados pela auditoria local, configure uma política ou um trabalho regular para limpar o Diretório da auditoria local para remover arquivos antigos e desnecessários.  
+1. Para limitar o uso do espaço em disco pelos arquivos gravados pela auditoria local, configure uma política ou um trabalho regular para limpar o Diretório da auditoria local para remover arquivos antigos e desnecessários.  
 
-2. Proteja o caminho do Diretório da auditoria local para que ele seja acessível apenas para as pessoas apropriadas. Observe que os arquivos de log contêm as informações descritas em [Como configurar o SQL Server 2016 para enviar comentários à Microsoft](https://support.microsoft.com/kb/3153756). O acesso a este arquivo deve impedir que a maioria dos membros de sua organização o leiam.  
+2. Proteja o caminho do Diretório da auditoria local para que ele seja acessível apenas para as pessoas apropriadas. Observe que os arquivos de log contêm as informações descritas em [Como configurar o SQL Server 2016 para enviar comentários à Microsoft](https://support.microsoft.com/kb/3153756). O acesso a este arquivo deve impedir que a maioria dos membros de sua organização o leiam.  
 
 ## <a name="data-dictionary-of-local-audit-output-data-structure"></a>Dicionário de dados da estrutura de dados de saída da auditoria local 
 
@@ -188,9 +188,9 @@ A auditoria local produzirá um arquivo de log por dia. Os arquivos de log estar
 - **data** contêm a saída da execução da consulta correspondente que levou **queryTimeInTicks**.
 - **queryIdentifiers** para consultas T-SQL têm a definição da consulta T-SQL armazenada na consulta.
 
-| Hierarquia lógica de informações da auditoria local | Colunas relacionadas |
+| Hierarquia lógica de informações da auditoria local | Colunas relacionadas |
 | ------ | -------|
-| Cabeçalho | emitTime, schemaVersion 
+| Cabeçalho | emitTime, schemaVersion 
 | Computador | operatingSystem 
 | Instância | instanceUniqueID, correlationID, clientVersion 
 | Session | sessionID, traceName 
@@ -199,12 +199,12 @@ A auditoria local produzirá um arquivo de log por dia. Os arquivos de log estar
 
 ### <a name="namevalue-pairs-definition-and-examples"></a>Definição e exemplos de pares nome/valor 
 
-As colunas listadas abaixo representam a ordem da saída de arquivos da auditoria local. Hash unidirecional com SHA 256 é usado para valores mantidos em anonimato para várias das colunas abaixo.  
+As colunas listadas abaixo representam a ordem da saída de arquivos da auditoria local. Hash unidirecional com SHA 256 é usado para valores mantidos em anonimato para várias das colunas abaixo.  
 
 | Nome | Descrição | Valores de exemplo
 |-------|--------| ----------|
 |instanceUniqueID| Identificador da instância em anonimato | 888770C4D5A8C6729F76F33D472B28883AE518C92E1999888B171A085059FD 
-|schemaVersion| Versão do esquema do SQLCEIP |  3 
+|schemaVersion| Versão do esquema do SQLCEIP |  3 
 |emitTime |Hora de emissão do ponto de dados em UTC | 2016-09-08T17:20:22.1124269Z 
 |sessionID | Identificador da sessão para o serviço do SQLCEIP | 89decf9a-ad11-485c-94a7-fefb3a02ed86 
 |correlationId | Espaço reservado para um identificador adicional | 0 
@@ -216,7 +216,7 @@ As colunas listadas abaixo representam a ordem da saída de arquivos da auditori
 |queryIdentifier | Um identificador da consulta | SQLServerProperties.002 
 |data   | A saída das informações coletadas em queryIdentifier como uma saída de uma consulta T-SQL, sessão XE ou do aplicativo |  [{"Collation": "SQL_Latin1_General_CP1_CI_AS","SqlFTinstalled": "0" "SqlIntSec": "1","IsSingleUser": "0","SqlFilestreamMode": "0","SqlPbInstalled": "0","SqlPbNodeRole": "","SqlVersionMajor": "13","SqlVersionMinor": "0","SqlVersionBuild": "2161","ProductBuildType": "","ProductLevel": "RTM","ProductUpdateLevel": "CU2","ProductUpdateReference": "KB3182270","ProductRevision": "3","SQLEditionId": "-1534726760","IsClustered": "0","IsHadrEnabled": "0","SqlAdvAInstalled": "0","PacketReceived": "1210","Version": "Microsoft SQL Server 2016 (RTM-CU2) (KB3182270) - 13.0.2161.3 (X64) \n\tSep  7 2016 14:24:16 \n\tCopyright (c) Microsoft Corporation\n\tStandard Edition (64-bit) on Windows Server 2012 R2 Datacenter 6.3 \u003cX64\u003e (Build 9600: ) (Hypervisor)\n"}],
 |Consulta| Se aplicável, a definição da consulta T-SQL relacionada com o queryIdentifier que produz os dados.        Este componente não é carregado pelo serviço do Programa de Aperfeiçoamento da Experiência do Usuário do SQL Server. Ele está incluído na auditoria local apenas como uma referência para os clientes.| SELECT\n      SERVERPROPERTY(\u0027Collation\u0027) AS [Collation],\n      SERVERPROPERTY(\u0027IsFullTextInstalled\u0027) AS [SqlFTinstalled],\n      SERVERPROPERTY(\u0027IsIntegratedSecurityOnly\u0027) AS [SqlIntSec],\n      SERVERPROPERTY(\u0027IsSingleUser\u0027) AS [IsSingleUser],\n      SERVERPROPERTY (\u0027FileStreamEffectiveLevel\u0027) AS [SqlFilestreamMode],\n      SERVERPROPERTY(\u0027IsPolyBaseInstalled\u0027) AS [SqlPbInstalled],\n      SERVERPROPERTY(\u0027PolyBaseRole\u0027) AS [SqlPbNodeRole],\n      SERVERPROPERTY(\u0027ProductMajorVersion\u0027) AS [SqlVersionMajor],\n      SERVERPROPERTY(\u0027ProductMinorVersion\u0027) AS [SqlVersionMinor],\n      SERVERPROPERTY(\u0027ProductBuild\u0027) AS [SqlVersionBuild],\n      SERVERPROPERTY(\u0027ProductBuildType\u0027) AS ProductBuildType,\n      SERVERPROPERTY(\u0027ProductLevel\u0027) AS ProductLevel,\n      SERVERPROPERTY(\u0027ProductUpdateLevel\u0027) AS ProductUpdateLevel,\n      SERVERPROPERTY(\u0027ProductUpdateReference\u0027) AS ProductUpdateReference,\n      RIGHT(CAST(SERVERPROPERTY(\u0027ProductVersion\u0027) AS NVARCHAR(30)),CHARINDEX(\u0027.\u0027, REVERSE(CAST(SERVERPROPERTY(\u0027ProductVersion\u0027) AS NVARCHAR(30)))) - 1) AS ProductRevision,\n      SERVERPROPERTY(\u0027EditionID\u0027) AS SQLEditionId,\n      SERVERPROPERTY(\u0027IsClustered\u0027) AS IsClustered,\n      SERVERPROPERTY(\u0027IsHadrEnabled\u0027) AS IsHadrEnabled,\n      SERVERPROPERTY(\u0027IsAdvancedAnalyticsInstalled\u0027) AS [SqlAdvAInstalled],\n      @@PACK_RECEIVED AS PacketReceived,\n      @@VERSION AS Version
-|queryTimeInTicks | A duração necessária para que a consulta com a seguinte categoria de rastreamento seja executada: (SQLServerXeQueries, SQLServerPeriodicQueries) |  0 
+|queryTimeInTicks | A duração necessária para que a consulta com a seguinte categoria de rastreamento seja executada: (SQLServerXeQueries, SQLServerPeriodicQueries) |  0 
  
 ### <a name="trace-categories"></a>Categorias de rastreamento 
 Atualmente, coletamos as seguintes categorias de rastreamento: 

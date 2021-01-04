@@ -8,13 +8,13 @@ ms.date: 11/05/2019
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: language-extensions
-monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15||=sqlallproducts-allversions'
-ms.openlocfilehash: 40fd6b73bf28b6a201a1c0fedd1624a09d67b9c0
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15'
+ms.openlocfilehash: 344e5f35e35202b6a44a4932db8a27424fdb8753
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935369"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97471797"
 ---
 # <a name="extensibility-architecture-in-sql-server-language-extensions"></a>Arquitetura de extensibilidade nas Extensões de Linguagem do SQL Server
 
@@ -38,15 +38,15 @@ Qualquer linguagem externa com suporte pode ser executada chamando um procedimen
 
 A arquitetura é criada de modo que o código externo é executado em um processo separado do SQL Server, mas com componentes que gerenciam internamente a cadeia de solicitações para dados e operações no SQL Server. 
   
-  ***Arquitetura de componente no Windows:***
+  ***Arquitetura de componente no Windows:** _
 
   ![Arquitetura de componente no Windows](../media/generic-architecture-windows.png "Arquitetura de componente no Windows")
   
-  ***Arquitetura de componente no Linux:***
+  _*_Arquitetura de componente no Linux:_*_
   
   ![Arquitetura de componente no Linux](../media/generic-architecture-linux.png "Arquitetura de componente no Linux")
   
-Os componentes incluem um serviço **Launchpad** usado para invocar tempos de execução externos (por exemplo, Java) e lógica específica da biblioteca para o carregamento de interpretadores e bibliotecas.
+Os componentes incluem um serviço _ *Launchpad** usado para invocar runtimes externos (por exemplo, Java) e a lógica específica da biblioteca para o carregamento de interpretadores e bibliotecas.
 
 <a name="launchpad"></a>
 

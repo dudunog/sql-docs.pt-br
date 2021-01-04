@@ -14,13 +14,13 @@ ms.assetid: 11f2182c-5f71-46f8-8d2b-74f0fc48f2d6
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-monikerRange: = azuresqldb-mi-current || >= sql-server-2016 || = sqlallproducts-allversions
-ms.openlocfilehash: 813740790db9a7f9bb15f8e5d2a003b73ba5a88f
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+monikerRange: = azuresqldb-mi-current || >= sql-server-2016
+ms.openlocfilehash: 96a19ea760409d354390c171965f494f59cdff42
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92037939"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97477027"
 ---
 # <a name="job-activity-monitor"></a>Monitor de Atividade do Trabalho
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -37,19 +37,19 @@ Nome do trabalho.
 **Enabled**  
 Se o trabalho está habilitado (**sim**) ou desabilitado (**não**).  
   
-**Status***  
+**Status** _  
 Status atual do trabalho.  
   
-**Resultado da Última Execução**  
+_ *Resultado da Última Execução**  
 Status do trabalho quando executado pela última vez.  
   
 **Última Execução**  
 Data e hora em que o trabalho foi executado pela última vez, usando a data e hora locais do servidor.  
   
-**Próxima Execução***  
+**Próxima Execução** _  
 Date e hora em que o trabalho está agendado para ser executado usando a data local e hora locais do servidor.  
   
-**Categoria**  
+_ *Categoria**  
 A categoria de trabalho atribuída ao trabalho.  
   
 **Executável**  
@@ -62,7 +62,7 @@ A categoria de trabalho atribuída ao trabalho.
   
 #### <a name="to-open-the-job-activity-monitor"></a>Para abrir o Monitor de Atividade do Trabalho  
   
--   No **Pesquisador de Objetos**, expanda seu servidor, expanda **SQL Server Agent**, clique com o botão direito do mouse em **Monitor de Atividade do Trabalho**e clique em **Exibir Atividade do Trabalho**.  
+-   No **Pesquisador de Objetos**, expanda seu servidor, expanda **SQL Server Agent**, clique com o botão direito do mouse em **Monitor de Atividade do Trabalho** e clique em **Exibir Atividade do Trabalho**.  
   
 ## <a name="see-also"></a>Consulte Também  
 [Monitorar Atividade do Trabalho](../../ssms/agent/monitor-job-activity.md)  

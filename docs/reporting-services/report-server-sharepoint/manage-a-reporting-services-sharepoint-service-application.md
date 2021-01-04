@@ -8,13 +8,13 @@ ms.technology: report-server-sharepoint
 ms.topic: conceptual
 author: maggiesMSFT
 ms.author: maggies
-monikerRange: '>=sql-server-2016 <=sql-server-2016||=sqlallproducts-allversions'
-ms.openlocfilehash: 5de7b0a5b155c519a7a7d24331fb9ad2dc571e3e
-ms.sourcegitcommit: 66a0672e47415dbd5cfd8d19075102c8c3973e70
+monikerRange: '>=sql-server-2016 <=sql-server-2016'
+ms.openlocfilehash: cbc258c5da9252a4463caf4b9b096c5a899d9e0a
+ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83764933"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97409682"
 ---
 # <a name="manage-a-reporting-services-sharepoint-service-application"></a>Gerenciar um aplicativo de serviço do SharePoint no Reporting Services
 
@@ -93,7 +93,7 @@ ms.locfileid: "83764933"
 |Configuração|Comentários|  
 |-------------|--------------|  
 |Habilitar Download do Construtor de Relatórios|O padrão é TRUE.<br /><br /> Especifica se os clientes podem ver o botão para baixar o aplicativo de construtor de relatórios.|  
-|URL de Inicialização do Construtor de Relatórios|Especifique uma URL personalizada quando o servidor de relatórios não usar a URL padrão do Construtor de Relatórios. Essa configuração é opcional. Se você não especificar um valor, a URL padrão será usada, o que inicia o Construtor de Relatórios. Para iniciar o Construtor de Relatórios 3.0 como um aplicativo ClickOnce, insira o seguinte valor: https://\<nomedocomputador>/ReportServer/ReportBuilder/ReportBuilder_3_0_0_0.application.|  
+|URL de Inicialização do Construtor de Relatórios|Especifique uma URL personalizada quando o servidor de relatórios não usar a URL padrão do Construtor de Relatórios. Essa configuração é opcional. Se você não especificar um valor, a URL padrão será usada, o que inicia o Construtor de Relatórios. Para iniciar o Construtor de Relatórios 3.0 como um aplicativo ClickOnce, insira o seguinte valor: https://\<computername>/ReportServer/ReportBuilder/ReportBuilder_3_0_0_0.application.|  
 |Habilitar Impressão de Cliente|O padrão é TRUE.<br /><br /> Especifica se os usuários podem baixar o controle do cliente, que fornece opções de impressão.|  
 |Editar Tempo Limite da Sessão|O padrão é 7200 segundos.|  
 |Editar Limite de Cache de Sessão|O padrão é 5.|  
@@ -147,7 +147,7 @@ Get-SPRSServiceApplication | select typename, name, service, ueaccountname
  Selecione para especificar uma conta.  
   
  **Conta**  
- Insira uma conta de usuário de domínio do Windows. Use este formato: *\<domain>\\<user account\>* .  
+ Insira uma conta de usuário de domínio do Windows. Use este formato: *\<domain>\\<conta de usuário\>* .  
   
  **Senha**  
  Digite a senha.  

@@ -7,46 +7,58 @@ ms.date: 08/26/2020
 ms.topic: how-to
 author: garyericson
 ms.author: garye
-monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15||=azuresqldb-mi-current||=sqlallproducts-allversions'
-ms.openlocfilehash: b77fb8eac5b2c14bb181e2e10d9a32721ccec42b
-ms.sourcegitcommit: 82b92f73ca32fc28e1948aab70f37f0efdb54e39
+monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15||=azuresqldb-mi-current'
+ms.openlocfilehash: cd0528125a4bd74b259fd02facb0589f4e123aad
+ms.sourcegitcommit: 8a8c89b0ff6d6dfb8554b92187aca1bf0f8bcc07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94870387"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617545"
 ---
 # <a name="install-python-packages-with-sqlmlutils"></a>Instalar pacotes de Python com sqlmlutils
 
 [!INCLUDE [SQL Server 2019 SQL MI](../../includes/applies-to-version/sqlserver2019-asdbmi.md)]
 
-::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15||=sqlallproducts-allversions"
+::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15"
 Este artigo descreve como usar funções no pacote [**sqlmlutils**](https://github.com/Microsoft/sqlmlutils) para instalar novos pacotes do Python em uma instância dos [Serviços de Machine Learning do SQL Server](../sql-server-machine-learning-services.md) e em [Clusters de Big Data](../../big-data-cluster/machine-learning-services.md). Os pacotes que você instalar poderão ser usados em scripts de Python em execução no banco de dados usando a instrução T-SQL [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
 ::: moniker-end
 
-::: moniker range="=azuresqldb-mi-current||=sqlallproducts-allversions"
+::: moniker range="=azuresqldb-mi-current"
 Este artigo descreve como usar funções no pacote [**sqlmlutils**](https://github.com/Microsoft/sqlmlutils) para instalar novos pacotes do Python em uma instância dos [Serviços de Machine Learning da Instância Gerenciada de SQL do Azure](/azure/azure-sql/managed-instance/machine-learning-services-overview). Os pacotes que você instalar poderão ser usados em scripts de Python em execução no banco de dados usando a instrução T-SQL [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
 ::: moniker-end
 
 Para obter mais informações sobre a localização e os caminhos de instalação do pacote, confira [Obter informações do pacote de Python](../package-management/python-package-information.md).
 
-::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15||=sqlallproducts-allversions"
+::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15"
 > [!NOTE]
-> O pacote **sqlmlutils** descrito neste artigo é usado para adicionar pacotes do Python ao SQL Server 2019 ou posterior. Para o SQL Server 2017 e anterior, consulte [Instalar pacotes com ferramentas do Python](./install-python-packages-standard-tools.md?view=sql-server-2017).
+> O pacote **sqlmlutils** descrito neste artigo é usado para adicionar pacotes do Python ao SQL Server 2019 ou posterior. Para o SQL Server 2017 e anterior, consulte [Instalar pacotes com ferramentas do Python](./install-python-packages-standard-tools.md?view=sql-server-2017&preserve-view=true).
 ::: moniker-end
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15||=sqlallproducts-allversions"
+::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15"
 + Você precisa ter os [Serviços de Machine Learning do SQL Server](../install/sql-machine-learning-services-windows-install.md) instalados com a opção de linguagem do Python.
 ::: moniker-end
 
 + Instale o [Azure Data Studio](../../azure-data-studio/what-is.md) no computador cliente que você usa para se conectar ao SQL Server. Você pode usar outras ferramentas de consulta ou gerenciamento de banco de dados, mas este artigo pressupõe o uso do Azure Data Studio.
 
-+ Instale o kernel do Python no Azure Data Studio. Instale e use o Python na linha de comando. O ideal é usar um ambiente de desenvolvimento do Python, como o [Visual Studio Code](https://code.visualstudio.com/download) com a [Extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
++ Instale o kernel do Python no Azure Data Studio. Instale e use também o Python na linha de comando. Você pode usar um ambiente de desenvolvimento alternativo do Python, como o [Visual Studio Code](https://code.visualstudio.com/download) com a [Extensão do Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+
+  A versão do Python no computador cliente precisa corresponder à versão do Python no servidor, e os pacotes que você instalar precisarão corresponder à versão existente do Python.
+  Para obter mais informações sobre qual versão do Python está incluída em cada versão do SQL Server, confira [Versões do Python e do R](../sql-server-machine-learning-services.md#versions).
+  
+  Para verificar a versão do Python em uma instância específica do SQL Server, use o comando T-SQL a seguir.
+
+  ```sql
+  EXECUTE sp_execute_external_script
+    @language = N'Python',
+    @script = N'
+  import sys
+  print(sys.version)
+  '
+  ```
 
 ### <a name="other-considerations"></a>Outras considerações
-
-+ Os pacotes precisam estar em conformidade com a versão existente do Python, e a versão do Python no servidor precisa corresponder à versão do Python no computador cliente. Para saber mais sobre qual versão do Python está incluída em cada versão do SQL Server, confira as [versões Python e R](../sql-server-machine-learning-services.md#versions). Para confirmar a versão do Python em uma instância SQL específica, confira [Exibir a versão do Python](python-package-information.md#bkmk_SQLPythonVersion).
 
 + A biblioteca de pacotes de Python está localizada na pasta Arquivos de Programas de sua instância do SQL Server e, por padrão, a instalação nessa pasta requer permissões de administrador. Para obter mais informações, confira [Localização da biblioteca de pacotes](../package-management/python-package-information.md#default-python-library-location).
 
@@ -106,7 +118,7 @@ No exemplo a seguir, você adicionará o pacote [text-tools](https://pypi.org/pr
 
 Se o computador cliente que você usa para se conectar ao SQL Server tiver acesso à Internet, você poderá usar **sqlmlutils** para localizar o pacote **text-tools** e qualquer dependência pela Internet e, em seguida, instalar o pacote em uma instância do SQL Server remotamente.
 
-::: moniker range=">=sql-server-ver15||=sqlallproducts-allversions"
+::: moniker range=">=sql-server-ver15"
 
 1. No computador cliente, abra o **Python** ou um ambiente de Python.
 
@@ -114,7 +126,7 @@ Se o computador cliente que você usa para se conectar ao SQL Server tiver acess
 
 ::: moniker-end
 
-::: moniker range=">=sql-server-linux-ver15||=azuresqldb-mi-current||=sqlallproducts-allversions"
+::: moniker range=">=sql-server-linux-ver15||=azuresqldb-mi-current"
 
 1. No computador cliente, abra o **Python** ou um ambiente de Python.
 
@@ -148,13 +160,13 @@ Use **sqlmlutils** para instalar cada pacote (arquivo WHL) encontrado na pasta l
 
 Neste exemplo, **text-tools** não tem dependências, portanto, há apenas um arquivo da pasta `text-tools` para instalação. Por outro lado, um pacote como **scikit-plot** tem 11 dependências, de modo que você encontraria 12 arquivos na pasta (o pacote **scikit-plot** e os 11 pacotes dependentes) e instalaria cada um deles.
 
-::: moniker range=">=sql-server-ver15||=sqlallproducts-allversions"
+::: moniker range=">=sql-server-ver15"
 
 Execute o script Python a seguir. Substitua o caminho do arquivo real e o nome do pacote, bem como suas informações de conexão de banco de dados SQL Server (se você usar a autenticação do Windows, não precisará dos parâmetros `uid` e `pwd`). Repita a instrução `sqlmlutils.SQLPackageManager` para cada arquivo de pacote na pasta.
 
 ::: moniker-end
 
-::: moniker range=">=sql-server-linux-ver15||=sqlallproducts-allversions"
+::: moniker range=">=sql-server-linux-ver15||=azuresqldb-mi-current"
 
 Execute o script Python a seguir. Substitua o caminho de arquivo real e o nome do pacote, bem como suas informações de conexão de Banco de Dados do SQL Server. Repita a instrução `sqlmlutils.SQLPackageManager` para cada arquivo de pacote na pasta.
 
@@ -188,6 +200,17 @@ Se quiser remover o pacote **text-tools**, use o comando de Python a seguir no c
 
 ```python
 sqlmlutils.SQLPackageManager(connection).uninstall("text-tools")
+```
+
+## <a name="more-sqlmlutils-functions"></a>Mais funções do sqlmlutils
+
+O pacote **sqlmlutils** contém várias funções para gerenciar pacotes do Python e para criar, gerenciar e executar procedimentos armazenados e consultas em um SQL Server. Para obter detalhes, confira o [arquivo LEIAME sqlmlutils do Python](https://github.com/microsoft/sqlmlutils/tree/master/Python).
+
+Para obter informações sobre qualquer função do **sqlmlutils**, use a função **help** do Python. Por exemplo:
+
+```Python
+import sqlmlutils
+help(SQLPackageManager.install)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

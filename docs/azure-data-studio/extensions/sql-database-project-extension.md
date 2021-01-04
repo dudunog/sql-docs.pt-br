@@ -8,13 +8,13 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: maghan
 ms.custom: ''
-ms.date: 10/22/2020
-ms.openlocfilehash: e4030cac39eca0d57af3bf2bcefad293e83971c2
-ms.sourcegitcommit: a2182276ba00c48dc1475b9c7dfa45179d4416dc
+ms.date: 12/15/2020
+ms.openlocfilehash: 7b52827de249153adc54d148ead5d93a015d152d
+ms.sourcegitcommit: 866554663ca3191748b6e4eb4d8d82fa58c4e426
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94704161"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559088"
 ---
 # <a name="sql-database-projects-extension-preview"></a>Extensão de Projetos de Banco de Dados SQL (versão prévia)
 
@@ -61,6 +61,31 @@ Assista a este vídeo rápido de 10 minutos para obter uma introdução à exten
 - Tarefas (build/publicação) não são definidas pelo usuário.
 - Destinos de publicação são definidos pelo DacFx.
 - O suporte ao ambiente WSL é limitado.
+
+## <a name="workspace"></a>Workspace
+Os projetos de banco de dados SQL no Azure Data Studio estão contidos em um workspace lógico.  Um workspace gerencia as pastas visíveis no painel do Explorer, bem como os projetos visíveis no painel Projeto. A adição e a remoção de projetos por meio de um workspace podem ser feitas por meio da interface do Azure Data Studio no painel Projetos. No entanto, as configurações de um workspace podem ser editadas manualmente no arquivo `.code-workspace`, se necessário.
+
+No arquivo `.code-workspace` de exemplo abaixo, a matriz `folders` lista todas as pastas incluídas no painel do Explorer, e a matriz `dataworkspace.projects` em `settings` lista todos os projetos do SQL incluídos no painel Projetos.
+
+```json
+{
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "name": "WideWorldImportersDW",
+            "path": "..\\WideWorldImportersDW"
+        }
+    ],
+    "settings": {
+        "dataworkspace.projects": [
+            "AdventureWorksLT.sqlproj",
+            "..\\WideWorldImportersDW\\WideWorldImportersDW.sqlproj"
+        ]
+    }
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

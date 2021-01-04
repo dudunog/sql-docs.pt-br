@@ -4,34 +4,55 @@ description: Notas sobre a versão mais recentes
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mikeray
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.topic: conceptual
 ms.prod: sql
-ms.openlocfilehash: 3dcbc6b17d5abe87aabe923d70746d65595b9de6
-ms.sourcegitcommit: dc3ea1696b8a4332934568439aed6cce4e9737eb
+ms.openlocfilehash: 4d3890a29905057eb800fac823d27f149adb2ac0
+ms.sourcegitcommit: 866554663ca3191748b6e4eb4d8d82fa58c4e426
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93244648"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559248"
 ---
 # <a name="release-notes---azure-arc-enabled-sql-server-preview"></a>Notas sobre a versão – SQL Server habilitado para Azure Arc (versão prévia)
 
 > [!NOTE]
 > Como uma versão prévia do recurso, a tecnologia apresentada neste artigo está sujeita aos [Termos de uso complementares para versões prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="september-2020"></a>Setembro de 2020
+## <a name="december-2020"></a>Dezembro de 2020
 
-O SQL Server habilitado para Azure Arc foi lançado na versão prévia pública. O SQL Server habilitado para Azure Arc estende os serviços do Azure para instâncias do SQL Server hospedadas fora do Azure no datacenter do cliente, na borda ou em um ambiente de várias nuvens.
+### <a name="breaking-change"></a>Alteração da falha
 
-Para conhecer os detalhes, confira [Visão geral do SQL Server habilitado para Azure Arc](overview.md)
+Esta versão apresenta um [provedor de recursos](/azure/azure-resource-manager/management/azure-services-resource-providers) atualizado chamado `Microsoft.AzureArcData`. Para continuar usando o SQL Server habilitado para Azure Arc, registre esse provedor de recursos. Confira as instruções de registro do provedor de recursos na seção [pré-requisitos](connect.md#prerequisites).
+
+Se você tiver recursos existentes do SQL Server – Azure Arc, use estas etapas para migrá-los para o namespace Microsoft.AzureArcData.
+
+1. Inicie o [Cloud Shell](https://shell.azure.com/). Para obter detalhes, [leia mais sobre o PowerShell no Cloud Shell](https://aka.ms/pscloudshell/docs).
+
+2. Carregue o script no shell usando o seguinte comando:
+
+    ```console
+    curl https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/manage/azure-arc-enabled-sql-server/migrate-to-azure-arc-data.ps1 -o migrate-to-azure-arc-data.ps1
+    ```
+3. Execute o script.  
+
+    ```console
+   ./migrate-to-azure-arc-data.ps1
+    ```
+
+> [!NOTE]
+> - Para colar os comandos no shell, use `Ctrl-Shift-V` no Windows ou `Cmd-v` no MacOS.
+> - O script será carregado diretamente na pasta base associada à sua sessão do Cloud Shell.
+> - O script solicitará o nome do grupo de recursos e imprimirá uma mensagem quando a migração for concluída.
+
+### <a name="other-changes"></a>Outras alterações
+
+* A propriedade *TCPPorts* no tipo de recurso **SQL Server – Azure Arc** foi renomeado para *TCPStaticPorts*
+* As permissões necessárias não são tão amplas quanto costumavam ser. Confira a seção [Permissão necessária](overview.md#required-permissions) para obter detalhes.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-Os seguintes problemas se aplicam à versão de setembro:
-
-* A folha **Registrar o SQL Server habilitado para Azure Arc** não dá suporte à configuração de marcas personalizadas. Para adicionar marcas personalizadas, abra o recurso **SQL Server – Azure Arc** após o registro e altere as Marcas na página **Visão geral**.
-
-* Conectar instâncias do SQL Server ao Azure Arc requer uma conta com um conjunto amplo de permissões. Para conhecer os detalhes, confira [Permissões necessárias](overview.md#required-permissions).
+* A propriedade *CreateTime* não será adicionada a nenhum recurso recém-criado no namespace AzureArcData, incluindo os recursos **SQL Server – Azure Arc**.
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -44,6 +65,20 @@ A atualização de outubro inclui os seguintes aprimoramentos:
 ### <a name="known-issues"></a>Problemas conhecidos
 
 Os seguintes problemas se aplicam à versão de outubro:
+
+* Conectar instâncias do SQL Server ao Azure Arc requer uma conta com um conjunto amplo de permissões. Para conhecer os detalhes, confira [Permissões necessárias](overview.md#required-permissions).
+
+## <a name="september-2020"></a>Setembro de 2020
+
+O SQL Server habilitado para Azure Arc foi lançado na versão prévia pública. O SQL Server habilitado para Azure Arc estende os serviços do Azure para instâncias do SQL Server hospedadas fora do Azure no datacenter do cliente, na borda ou em um ambiente de várias nuvens.
+
+Para conhecer os detalhes, confira [Visão geral do SQL Server habilitado para Azure Arc](overview.md)
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+Os seguintes problemas se aplicam à versão de setembro:
+
+* A folha **Registrar o SQL Server habilitado para Azure Arc** não dá suporte à configuração de marcas personalizadas. Para adicionar marcas personalizadas, abra o recurso **SQL Server – Azure Arc** após o registro e altere as Marcas na página **Visão geral**.
 
 * Conectar instâncias do SQL Server ao Azure Arc requer uma conta com um conjunto amplo de permissões. Para conhecer os detalhes, confira [Permissões necessárias](overview.md#required-permissions).
 

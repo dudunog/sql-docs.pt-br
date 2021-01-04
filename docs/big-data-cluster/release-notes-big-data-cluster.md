@@ -9,12 +9,12 @@ ms.date: 10/19/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: b3265c99e185f4a8fcbe68e400ab1277b1e72671
-ms.sourcegitcommit: 0c0e4ab90655dde3e34ebc08487493e621f25dda
+ms.openlocfilehash: f328e136bc0b07f23083153277ac98588702b373
+ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96442884"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97489656"
 ---
 # <a name="sql-server-2019-big-data-clusters-release-notes"></a>Notas sobre a versão de Clusters de Big Data do SQL Server 2019
 
@@ -191,6 +191,12 @@ A GDR1 (Versão de Distribuição Geral 1) do SQL Server 2019 – apresenta a di
 [!INCLUDE [sql-server-servicing-updates-version-15](../includes/sql-server-servicing-updates-version-15.md)]
 
 ## <a name="known-issues"></a>Problemas conhecidos
+
+### <a name="msdtc-capabilities-can-not-be-enabled-for-sql-server-master-instance-running-within-bdc"></a>As funcionalidades do MSDTC não podem ser habilitadas para a instância mestra do SQL Server em execução no BDC
+
+- **Versões afetadas**: todas as configurações de implantação de cluster de Big Data, independentemente da versão.
+
+- **Problema e impacto sobre o cliente**: com o SQL Server implantado no BDC como a instância mestra do SQL Server, o recurso do MSDTC não pode ser habilitado. Não há nenhuma solução alternativa para esse problema.
 
 ### <a name="ha-sql-server-database-encryption-key-encryptor-rotation"></a>Rotação do criptografador de chave de Criptografia de Banco de Dados SQL Server de HA
 
