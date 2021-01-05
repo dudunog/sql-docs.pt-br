@@ -6,7 +6,7 @@ ms.date: 03/07/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - database mirroring [SQL Server], security
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 1c846950-0a2d-45df-b0d5-193e455f7cd5
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: dd7bdb74f679f32132361aac5c2b751b9bda9494
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: dc4e8fb6adfbad8fc1c338a717bee625b216740c
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85756465"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97640642"
 ---
 # <a name="start-the-configuring-database-mirroring-security-wizard"></a>Iniciar o Assistente para Configurar Segurança de Espelhamento de Banco de Dados
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -29,9 +29,9 @@ ms.locfileid: "85756465"
   
 1.  Depois de se conectar à instância do servidor principal, no Pesquisador de Objetos, clique no nome do servidor para expandir a árvore do servidor.  
   
-2.  Expanda os **Bancos de Dados**e selecione o banco de dados a ser espelhado.  
+2.  Expanda os **Bancos de Dados** e selecione o banco de dados a ser espelhado.  
   
-3.  Clique com o botão direito do mouse no banco de dados, selecione **Tarefas**e clique em **Espelhar**. Isso abre a página [Espelhamento](../../relational-databases/databases/database-properties-mirroring-page.md) da caixa de diálogo **Propriedades do Banco de Dados** .  
+3.  Clique com o botão direito do mouse no banco de dados, selecione **Tarefas** e clique em **Espelhar**. Isso abre a página [Espelhamento](../../relational-databases/databases/database-properties-mirroring-page.md) da caixa de diálogo **Propriedades do Banco de Dados** .  
   
 4.  Clique em **Configurar Segurança**.  
   

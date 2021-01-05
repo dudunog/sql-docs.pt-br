@@ -9,12 +9,12 @@ ms.reviewer: alayu, maghan, sstein
 ms.topic: quickstart
 author: sunilagarwal
 ms.author: sunila
-ms.openlocfilehash: fddbceec338a05d693fd9d1e039d08e271bbc01f
-ms.sourcegitcommit: 610e3ebe21ac6575850a29641a32f275e71557e3
+ms.openlocfilehash: 389c8b745a3768f63e2f702a7f48e8c110262fb7
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91785002"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637703"
 ---
 # <a name="quickstart-use-azure-data-studio-to-connect-and-query-postgresql"></a>Início Rápido: Usar o Azure Data Studio para conectar-se ao PostgreSQL e consultá-lo
 
@@ -24,7 +24,7 @@ Este guia de início rápido mostra como usar o Azure Data Studio para conectar-
 
 Para concluir este guia de início rápido, você precisa do Azure Data Studio, da extensão PostgreSQL para Azure Data Studio e acesso a um servidor PostgreSQL.
 
-- [Instale o Azure Data Studio](./download-azure-data-studio.md?view=sql-server-ver15).
+- [Instale o Azure Data Studio](./download-azure-data-studio.md).
 - [Instalar extensão do PostgreSQL para o Azure Data Studio](./extensions/postgres-extension.md).
 - [Instalar o PostgreSQL](https://www.postgresql.org/download/). (Como alternativa, você pode criar um banco de dados Postgres na nuvem usando [az postgres up](/azure/postgresql/quickstart-create-server-up-azure-cli)). 
 

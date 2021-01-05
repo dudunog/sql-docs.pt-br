@@ -13,17 +13,17 @@ ms.assetid: 29816a41-f105-4414-8be1-070675d62e84
 author: jaszymas
 ms.author: jaszymas
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: c18b6842139e5a4f5f0261761fa93cc42d3a506c
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 506abf476e04ab1a40059d04031949fa80b31acf
+ms.sourcegitcommit: 866554663ca3191748b6e4eb4d8d82fa58c4e426
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97405478"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559318"
 ---
 # <a name="configure-column-encryption-using-always-encrypted-with-a-dac-package"></a>Configurar a criptografia de coluna usando o Always Encrypted com um pacote de DAC 
 [!INCLUDE [SQL Server Azure SQL Database](../../../includes/applies-to-version/sql-asdb.md)]
 
-Um [pacote de DAC (aplicativo da camada de dados)](../../data-tier-applications/data-tier-applications.md), também conhecido como DACPAC, é uma unidade portátil de implantação de banco de dados do SQL Server que define todos os objetos do SQL Server, incluindo tabelas e colunas dentro das tabelas. Quando você publica um DACPAC em um banco de dados (ao atualizar um banco de dados usando um DACPAC), o esquema do banco de dados de destino é atualizado para corresponder ao esquema no DACPAC. Publique um DACPAC usando o [Assistente para Atualizar Aplicativo da Camada de Dados](../../data-tier-applications/upgrade-a-data-tier-application.md#UsingDACUpgradeWizard) no SQL Server Management Studio, no [PowerShell](../../data-tier-applications/upgrade-a-data-tier-application.md#UpgradeDACPowerShell) ou no [sqlpackage](../../../tools/sqlpackage.md#publish-parameters-properties-and-sqlcmd-variables).
+Um [pacote de DAC (aplicativo da camada de dados)](../../data-tier-applications/data-tier-applications.md), também conhecido como DACPAC, é uma unidade portátil de implantação de banco de dados do SQL Server que define todos os objetos do SQL Server, incluindo tabelas e colunas dentro das tabelas. Quando você publica um DACPAC em um banco de dados (ao atualizar um banco de dados usando um DACPAC), o esquema do banco de dados de destino é atualizado para corresponder ao esquema no DACPAC. Publique um DACPAC usando o [Assistente para Atualizar Aplicativo da Camada de Dados](../../data-tier-applications/upgrade-a-data-tier-application.md#UsingDACUpgradeWizard) no SQL Server Management Studio, no [PowerShell](../../data-tier-applications/upgrade-a-data-tier-application.md#UpgradeDACPowerShell) ou no [sqlpackage](../../../tools/sqlpackage/sqlpackage-publish.md).
 
 Este artigo aborda considerações especiais sobre a atualização de um banco de dados quando o DACPAC e/ou o banco de dados de destino contêm colunas protegidas com o [Always Encrypted](always-encrypted-database-engine.md). Se o esquema de criptografia para uma coluna no DACPAC é diferente do esquema de criptografia para uma coluna existente no banco de dados de destino, a publicação do DACPAC resulta na criptografia, na descriptografia ou na nova criptografia dos dados armazenados na coluna. Confira a tabela a seguir para obter detalhes.
 

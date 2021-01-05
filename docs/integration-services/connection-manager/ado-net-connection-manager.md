@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: fc5daa2f-0159-4bda-9402-c87f1035a96f
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 7009bdcb9ef2d740a200d8edad74e7559882d7c5
-ms.sourcegitcommit: c7f40918dc3ecdb0ed2ef5c237a3996cb4cd268d
+ms.openlocfilehash: 8c2efe0145643f3f9e969c298e76115967477019
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91726704"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637432"
 ---
 # <a name="adonet-connection-manager"></a>Gerenciador de conexões ADO.NET
 
@@ -110,7 +110,7 @@ Para usar a autenticação de identidade gerenciada para a Instância Gerenciada
     
 1. [Provisione um administrador do Azure Active Directory](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance) para a instância gerenciada no portal do Azure, caso ainda não tenha feito isso. O administrador do Azure AD pode ser um usuário ou um grupo do Azure AD. Se você conceder uma função de administrador ao grupo com a identidade gerenciada, ignore as etapas 2 a 4. O administrador terá acesso completo ao banco de dados.
 
-1. [Crie logons](../../t-sql/statements/create-login-transact-sql.md?view=azuresqldb-mi-current) para a identidade gerenciada do data factory. No SSMS (SQL Server Management Studio), conecte-se à sua Instância Gerenciada usando uma conta do SQL Server que seja um **sysadmin**. No banco de dados **mestre**, execute o seguinte T-SQL:
+1. [Crie logons](../../t-sql/statements/create-login-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true) para a identidade gerenciada do data factory. No SSMS (SQL Server Management Studio), conecte-se à sua Instância Gerenciada usando uma conta do SQL Server que seja um **sysadmin**. No banco de dados **mestre**, execute o seguinte T-SQL:
 
     ```sql
     CREATE LOGIN [your data factory name] FROM EXTERNAL PROVIDER;
@@ -122,7 +122,7 @@ Para usar a autenticação de identidade gerenciada para a Instância Gerenciada
     CREATE USER [your data factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. Conceda à identidade gerenciada do data factory as permissões necessárias, como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para mais opções, confira [este documento](../../t-sql/statements/alter-role-transact-sql.md?view=azuresqldb-mi-current).
+1. Conceda à identidade gerenciada do data factory as permissões necessárias, como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para mais opções, confira [este documento](../../t-sql/statements/alter-role-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true).
 
     ```sql
     ALTER ROLE [role name e.g., db_owner] ADD MEMBER [your data factory name];

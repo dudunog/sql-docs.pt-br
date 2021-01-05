@@ -37,12 +37,12 @@ ms.assetid: 29ddac46-7a0f-4151-bd94-75c1908c89f8
 author: markingmyname
 ms.author: maghan
 monikerRange: '>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-current||=azuresqldb-mi-current||=azure-sqldw-latest||>=aps-pdw-2016'
-ms.openlocfilehash: 0e0cf7b17061340f347af536cad762f63cc38ef3
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 08ea5c807e6a8b6bb2d53286bf7a338ee9ba70d2
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489062"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637262"
 ---
 # <a name="create-database"></a>CREATE DATABASE
 
@@ -61,13 +61,13 @@ Para obter mais informações sobre as convenções de sintaxe, consulte [Conven
         **_\* SQL Server \*_** &nbsp;
     :::column-end:::
     :::column:::
-        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current)
+        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current)
+        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest)
+        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)
     :::column-end:::
     :::column:::
         [Analytics Platform<br />System (PDW)](create-database-transact-sql.md?view=aps-pdw-2016&preserve-view=true)
@@ -869,10 +869,10 @@ GO
         **_\* Banco de Dados SQL \*_**
     :::column-end:::
     :::column:::
-        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current)
+        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest)
+        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)
     :::column-end:::
     :::column:::
         [Analytics Platform<br />System (PDW)](create-database-transact-sql.md?view=aps-pdw-2016&preserve-view=true)
@@ -1155,7 +1155,7 @@ Os bancos de dados no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] tem 
 
 `MAXSIZE` fornece a capacidade de limitar o tamanho do banco de dados. Se o tamanho do banco de dados atingir seu `MAXSIZE`, você receberá o código de erro 40544. Quando isso ocorre, você não pode inserir ou atualizar dados nem criar novos objetos (como tabelas, procedimentos armazenados, exibições e funções). No entanto, você ainda pode ler e excluir dados, truncar tabelas, descartar tabelas e índices e reconstruir índices. É possível atualizar `MAXSIZE` para um valor maior que o tamanho atual do banco de dados ou excluir alguns dados para liberar espaço de armazenamento. Pode haver um atraso máximo de quinze minutos para que você possa inserir novos dados.
 
-Para alterar o tamanho, edição ou valores objetivos de serviço posteriormente, use [ALTER DATABASE – Banco de Dados SQL do Azure](../../t-sql/statements/alter-database-transact-sql.md?view=azuresqldb-currentls).
+Para alterar o tamanho, edição ou valores objetivos de serviço posteriormente, use [ALTER DATABASE – Banco de Dados SQL do Azure](../../t-sql/statements/alter-database-transact-sql.md?view=azuresqldb-current&preserve-view=true).
 
 O argumento `CATALOG_COLLATION` só está disponível durante a criação do banco de dados.
 
@@ -1285,7 +1285,7 @@ CREATE DATABASE test_zone_redundancy
 ## <a name="see-also"></a>Confira também
 
 - [sys.dm_database_copies – Banco de Dados SQL do Azure](../../relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database.md)
-- [ALTER DATABASE – Banco de Dados SQL do Azure](alter-database-transact-sql.md?view=azuresqldb-currentls)
+- [ALTER DATABASE – Banco de Dados SQL do Azure](alter-database-transact-sql.md?view=azuresqldb-current&preserve-view=true)
 
 ::: moniker-end
 ::: moniker range="=azuresqldb-mi-current"
@@ -1295,13 +1295,13 @@ CREATE DATABASE test_zone_redundancy
         [SQL Server](create-database-transact-sql.md?view=sql-server-ver15&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current)
+        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current&preserve-view=true)
     :::column-end:::
     :::column:::
         **_\* Instância Gerenciada de SQL \*_**
     :::column-end:::
     :::column:::
-        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest)
+        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)
     :::column-end:::
     :::column:::
         [Analytics Platform<br />System (PDW)](create-database-transact-sql.md?view=aps-pdw-2016&preserve-view=true)
@@ -1347,7 +1347,7 @@ A seguir estão as limitações de `CREATE DATABASE`:
 - `WITH`não há suporte para as opções.
 
   > [!TIP]
-  > Como alternativa, use [ALTER DATABASE](../../t-sql/statements/alter-database-transact-sql.md?view=azuresqldb-mi-current). após `CREATE DATABASE` para definir opções de banco de dados e para adicionar arquivos.
+  > Como alternativa, use [ALTER DATABASE](../../t-sql/statements/alter-database-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true). após `CREATE DATABASE` para definir opções de banco de dados e para adicionar arquivos.
 
 ## <a name="permissions"></a>Permissões
 
@@ -1369,7 +1369,7 @@ CREATE DATABASE TestDB1;
 
 ## <a name="see-also"></a>Confira também
 
-Confira [ALTER DATABASE](alter-database-transact-sql.md?view=azuresqldb-mi-current)
+Confira [ALTER DATABASE](alter-database-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true)
 
 ::: moniker-end
 ::: moniker range="=azure-sqldw-latest"
@@ -1379,10 +1379,10 @@ Confira [ALTER DATABASE](alter-database-transact-sql.md?view=azuresqldb-mi-curre
         [SQL Server](create-database-transact-sql.md?view=sql-server-ver15&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current)
+        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current)
+        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true)
     :::column-end:::
     :::column:::
         **_\* Azure Synapse<br />Analytics \*_**
@@ -1456,7 +1456,7 @@ SERVICE_OBJECTIVE Especifica o tamanho da computação (objetivo do serviço). P
 
 Use [DATABASEPROPERTYEX](../../t-sql/functions/databasepropertyex-transact-sql.md) para ver as propriedades do banco de dados.
 
-Use [ALTER DATABASE – Azure Synapse Analytics](../../t-sql/statements/alter-database-transact-sql.md?view=aps-pdw-2016-au7) para alterar o tamanho máximo ou os valores objetivos de serviço posteriormente.
+Use [ALTER DATABASE – Azure Synapse Analytics](../../t-sql/statements/alter-database-transact-sql.md?view=aps-pdw-2016-au7&preserve-view=true) para alterar o tamanho máximo ou os valores objetivos de serviço posteriormente.
 
 O Azure Synapse é definido como COMPATIBILITY_LEVEL 130 e não pode ser alterado. Para obter mais detalhes, confira [Improved Query Performance with Compatibility Level 130 in Azure SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-compatibility-level-query-performance-130/) (Melhor desempenho de consulta com o nível de compatibilidade 130 no Banco de Dados SQL do Azure).
 
@@ -1499,7 +1499,7 @@ CREATE DATABASE TestDW COLLATE Latin1_General_100_CI_AS_KS_WS
 
 ## <a name="see-also"></a>Consulte Também
 
-- [ALTER DATABASE – Azure Synapse Analytics](../../t-sql/statements/alter-database-transact-sql.md?view=aps-pdw-2016-au7)
+- [ALTER DATABASE – Azure Synapse Analytics](../../t-sql/statements/alter-database-transact-sql.md?view=aps-pdw-2016-au7&preserve-view=true)
 - [CREATE TABLE – Azure Synapse Analytics](../../t-sql/statements/create-table-azure-sql-data-warehouse.md)
 - [DROP DATABASE – Transact-SQL](../../t-sql/statements/drop-database-transact-sql.md)
 
@@ -1511,13 +1511,13 @@ CREATE DATABASE TestDW COLLATE Latin1_General_100_CI_AS_KS_WS
         [SQL Server](create-database-transact-sql.md?view=sql-server-ver15&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current)
+        [Banco de Dados SQL](create-database-transact-sql.md?view=azuresqldb-current&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current)
+        [Instância Gerenciada de SQL](create-database-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true)
     :::column-end:::
     :::column:::
-        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest)
+        [Azure Synapse<br />Analytics](create-database-transact-sql.md?view=azure-sqldw-latest&preserve-view=true)
     :::column-end:::
     :::column:::
         **_\* Analytics Platform<br />System (PDW) \*_**
@@ -1652,7 +1652,7 @@ CREATE DATABASE mytest
 
 ## <a name="see-also"></a>Consulte Também
 
-- [ALTER DATABASE – Analytics Platform System](../../t-sql/statements/alter-database-transact-sql.md?view=aps-pdw-2016-au7)
+- [ALTER DATABASE – Analytics Platform System](../../t-sql/statements/alter-database-transact-sql.md?view=aps-pdw-2016-au7&preserve-view=true)
 - [DROP DATABASE](../../t-sql/statements/drop-database-transact-sql.md)
 
 ::: moniker-end

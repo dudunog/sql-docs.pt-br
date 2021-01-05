@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 91e3622e-4b1a-439a-80c7-a00b90d66979
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: bdeaca276e64ec436b3ee39cc97439bbdc25aa98
-ms.sourcegitcommit: c7f40918dc3ecdb0ed2ef5c237a3996cb4cd268d
+ms.openlocfilehash: 7c50a2e201bcba99299998dc232e1246005eb168
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91719303"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97639157"
 ---
 # <a name="ole-db-connection-manager"></a>Gerenciador de conexões OLE DB
 
@@ -112,7 +112,7 @@ Para usar a autenticação de identidade gerenciada para a Instância Gerenciada
     
 1. [Provisione um administrador do Azure Active Directory](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance) para a instância gerenciada no portal do Azure, caso ainda não tenha feito isso. O administrador do Azure AD pode ser um usuário ou um grupo do Azure AD. Se você conceder uma função de administrador ao grupo com a identidade gerenciada, ignore as etapas 2 a 4. O administrador terá acesso completo ao banco de dados.
 
-1. [Crie logons](../../t-sql/statements/create-login-transact-sql.md?view=azuresqldb-mi-current) para a identidade gerenciada do data factory. No SSMS (SQL Server Management Studio), conecte-se à sua Instância Gerenciada usando uma conta do SQL Server que seja um **sysadmin**. No banco de dados **mestre**, execute o seguinte T-SQL:
+1. [Crie logons](../../t-sql/statements/create-login-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true) para a identidade gerenciada do data factory. No SSMS (SQL Server Management Studio), conecte-se à sua Instância Gerenciada usando uma conta do SQL Server que seja um **sysadmin**. No banco de dados **mestre**, execute o seguinte T-SQL:
 
     ```sql
     CREATE LOGIN [your data factory name] FROM EXTERNAL PROVIDER;
@@ -124,7 +124,7 @@ Para usar a autenticação de identidade gerenciada para a Instância Gerenciada
     CREATE USER [your data factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. Conceda à identidade gerenciada do data factory as permissões necessárias, como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para mais opções, confira [este documento](../../t-sql/statements/alter-role-transact-sql.md?view=azuresqldb-mi-current).
+1. Conceda à identidade gerenciada do data factory as permissões necessárias, como faria normalmente para usuários do SQL e outros. Execute o código a seguir. Para mais opções, confira [este documento](../../t-sql/statements/alter-role-transact-sql.md?view=azuresqldb-mi-current&preserve-view=true).
 
     ```sql
     ALTER ROLE [role name e.g., db_owner] ADD MEMBER [your data factory name];
@@ -136,7 +136,7 @@ Em seguida, configure o provedor OLE DB para o gerenciador de conexões OLE DB. 
     > [!NOTE]
     >  Outros provedores na lista suspensa podem não dar suporte à autenticação da identidade gerenciada.
     
-- **Configurar no runtime.** Ao executar o pacote por meio do [SSMS (SQL Server Management Studio) ](../ssis-quickstart-run-ssms.md) ou da [atividade Executar Pacote SSIS do Azure Data Factory](/azure/data-factory/how-to-invoke-ssis-package-ssis-activity), localize a propriedade do gerenciador de conexões **ConnectionString** para o gerenciador de conexões OLE DB. Atualize a propriedade de conexão `Provider` para `MSOLEDBSQL` (ou seja, driver do OLE DB para SQL Server).
+- **Configurar no runtime.** Ao executar o pacote por meio do [SSMS (SQL Server Management Studio)](../ssis-quickstart-run-ssms.md) ou da [atividade Executar Pacote SSIS do Azure Data Factory](/azure/data-factory/how-to-invoke-ssis-package-ssis-activity), localize a propriedade do gerenciador de conexões **ConnectionString** para o gerenciador de conexões OLE DB. Atualize a propriedade de conexão `Provider` para `MSOLEDBSQL` (ou seja, driver do OLE DB para SQL Server).
     ```vb
     Data Source=serverName;Initial Catalog=databaseName;Provider=MSOLEDBSQL;...
     ```

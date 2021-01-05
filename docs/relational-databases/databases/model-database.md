@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: 4e4f739b-fd27-4dce-8be6-3d808040d8d7
 author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 0e1af46a47e6e0e09c8e538fed06ecd1eb1ccc41
-ms.sourcegitcommit: c5078791a07330a87a92abb19b791e950672e198
+ms.openlocfilehash: 01d5e44a93776560b5e89c0dc03a36b780f7ab8d
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "88465407"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637687"
 ---
 # <a name="model-database"></a>Banco de dados modelo
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "88465407"
 |Dados primários|modeldev|model.mdf|Aumento automático de 64 MB até que o disco fique cheio.|  
 |Log|modellog|modellog.ldf|Aumento automático de 64 MB para um máximo de 2 terabytes.|  
 
-Para o SQL Server 2014, confira [modelo de Banco de Dados](/previous-versions/sql/2014/relational-databases/databases/model-database?view=sql-server-2014) para valores de crescimento de arquivo padrão.  
+Para o SQL Server 2014, confira [modelo de Banco de Dados](/previous-versions/sql/2014/relational-databases/databases/model-database?view=sql-server-2014&preserve-view=true) para valores de crescimento de arquivo padrão.  
 
  Para mover o banco de dados **model** ou os arquivos de log, veja [Mover bancos de dados do sistema](../../relational-databases/databases/move-system-databases.md).  
   

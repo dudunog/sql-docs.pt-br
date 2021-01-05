@@ -10,12 +10,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: 24fef9f2290a85a8e87e8b3b3dd2098b31a9d792
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 868c7685c59ae1ccf43057fdd03dfbb0b5bdaf21
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489613"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637298"
 ---
 # <a name="deploy-sql-server-big-data-cluster-with-azure-data-studio-notebook"></a>Implantar um cluster de Big Data do SQL Server com o notebook do Azure Data Studio
 
@@ -23,7 +23,7 @@ ms.locfileid: "97489613"
 
 O [!INCLUDE[sql-server-2019](../includes/sssqlv15-md.md)] fornece uma extensão para o Azure Data Studio que inclui notebooks de implantação. Um notebook de implantação inclui documentação e código que você pode usar no Azure Data Studio para criar um cluster de Big Data do SQL Server.
 
-Implementados inicialmente como um projeto de software livre, os [notebooks](../azure-data-studio/notebooks/notebooks-guidance.md) foram implementados no [Azure Data Studio](../azure-data-studio/download-azure-data-studio.md?view=sql-server-ver15). Você pode usar markdown de texto nas células de texto e um dos kernels disponíveis para escrever código nas células de código.
+Implementados inicialmente como um projeto de software livre, os [notebooks](../azure-data-studio/notebooks/notebooks-guidance.md) foram implementados no [Azure Data Studio](../azure-data-studio/download-azure-data-studio.md). Você pode usar markdown de texto nas células de texto e um dos kernels disponíveis para escrever código nas células de código.
 
 Você pode usar notebooks para implantar clusters de Big Data para o [!INCLUDE[sql-server-2019](../includes/sssqlv15-md.md)].
 
