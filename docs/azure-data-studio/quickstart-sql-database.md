@@ -9,12 +9,12 @@ author: yualan
 ms.author: alayu
 ms.custom: seodec18; sqlfreshmay19; seo-lt-2019
 ms.date: 05/14/2019
-ms.openlocfilehash: 7eb89be3b94565f7a8642dad893642176a22822b
-ms.sourcegitcommit: fb8724fb99c46ecf3a6d7b02a743af9b590402f0
+ms.openlocfilehash: c168ceb916ac1b65f4e6d45c9ee1054b15b0cb75
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92439290"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97637653"
 ---
 # <a name="quickstart-use-azure-data-studio-to-connect-and-query-azure-sql-database"></a>Início Rápido: use o Azure Data Studio para se conectar e consultar e o Banco de Dados SQL do Azure
 
@@ -24,7 +24,7 @@ Neste guia de início rápido, você usará o Azure Data Studio para conectar-se
 
 Para concluir este guia de início rápido, você precisa do Azure Data Studio e do servidor do Banco de Dados SQL do Azure.
 
-- [Instalar o Azure Data Studio](./download-azure-data-studio.md?view=sql-server-ver15)
+- [Instalar o Azure Data Studio](./download-azure-data-studio.md)
 
 Se você não tiver um SQL Server do Azure, conclua um dos seguintes guias de início rápido do Banco de Dados SQL do Azure. Lembre-se do nome do servidor totalmente qualificado e das credenciais de entrada para etapas posteriores:
 
@@ -37,7 +37,7 @@ Se você não tiver um SQL Server do Azure, conclua um dos seguintes guias de in
 
 Use o Azure Data Studio para estabelecer uma conexão com o servidor do Banco de Dados SQL do Azure.
 
-1. Na primeira vez que você executar o Azure Data Studio, a página **inicial** deverá abrir. Se você não vir a página **Bem-vindo** , selecione **Ajuda** > **Bem-vindo** . Selecione **Nova Conexão** para abrir o painel de **Conexão** :
+1. Na primeira vez que você executar o Azure Data Studio, a página **inicial** deverá abrir. Se você não vir a página **Bem-vindo**, selecione **Ajuda** > **Bem-vindo**. Selecione **Nova Conexão** para abrir o painel de **Conexão**:
    
    ![Captura de tela mostrando a caixa de diálogo Bem-vindo(a) ao Azure Delta Studio com a opção Nova conexão em destaque.](media/quickstart-sql-database/new-connection-icon.png)
 
@@ -45,7 +45,7 @@ Use o Azure Data Studio para estabelecer uma conexão com o servidor do Banco de
 
    | Configuração       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nome do servidor** | O nome do servidor totalmente qualificado | Algo como: **servername.database.windows.net** . |
+   | **Nome do servidor** | O nome do servidor totalmente qualificado | Algo como: **servername.database.windows.net**. |
    | **Autenticação** | Logon do SQL| Este tutorial usa a autenticação do SQL. |
    | **Nome de usuário** | O nome de usuário da conta do administrador do servidor | O nome de usuário da conta usada para criar o servidor. |
    | **Senha (Logon do SQL)** | A senha da conta do administrador do servidor | A senha da conta usada para criar o servidor. |
@@ -55,19 +55,19 @@ Use o Azure Data Studio para estabelecer uma conexão com o servidor do Banco de
 
    ![Captura de tela da página Conexão do Azure Data Studio.](media/quickstart-sql-database/new-connection-screen.png)  
 
-3. Selecione **Conectar** .
+3. Selecione **Conectar**.
 
 4. Se o servidor não tiver uma regra de firewall que permita que o Azure Data Studio se conecte, o formulário **Criar nova regra de firewall** será aberto. Preencha o formulário para criar uma nova regra de firewall. Para obter detalhes, confira [Regras de firewall](/azure/sql-database/sql-database-firewall-configure).
 
    ![Nova regra de firewall](media/quickstart-sql-database/firewall.png)  
 
-Depois de se conectar com êxito, o servidor será aberto na barra lateral **SERVIDORES** .
+Depois de se conectar com êxito, o servidor será aberto na barra lateral **SERVIDORES**.
 
 ## <a name="create-the-tutorial-database"></a>Criar o banco de dados do tutorial
 
 As seções a seguir criam o banco de dados TutorialDB que é usado em outros tutoriais do Azure Data Studio.
 
-1. Clique com o botão direito do mouse no SQL Server do Azure na barra lateral **SERVIDORES** e selecione **Nova Consulta** .
+1. Clique com o botão direito do mouse no SQL Server do Azure na barra lateral **SERVIDORES** e selecione **Nova Consulta**.
 
 1. Cole esse SQL no editor de consultas.
 
@@ -84,13 +84,13 @@ As seções a seguir criam o banco de dados TutorialDB que é usado em outros tu
    GO
    ```
 
-1. Na barra de ferramentas, selecione **Executar** . As notificações aparecem no painel **MENSAGENS** mostrando o progresso da consulta.
+1. Na barra de ferramentas, selecione **Executar**. As notificações aparecem no painel **MENSAGENS** mostrando o progresso da consulta.
 
 ## <a name="create-a-table"></a>Criar uma tabela
 
-O editor de consultas está conectado ao banco de dados **mestre** , mas queremos criar uma tabela no banco de dados **TutorialDB** . 
+O editor de consultas está conectado ao banco de dados **mestre**, mas queremos criar uma tabela no banco de dados **TutorialDB**. 
 
-1. Conecte-se ao banco de dados **TutorialDB** .
+1. Conecte-se ao banco de dados **TutorialDB**.
 
    ![Alterar contexto](media/quickstart-sql-database/change-context2.png)
 
@@ -98,7 +98,7 @@ O editor de consultas está conectado ao banco de dados **mestre** , mas queremo
 
 1. Crie uma tabela `Customers`. 
 
-   Substitua a consulta anterior no editor de consultas por esta e selecione **Executar** .
+   Substitua a consulta anterior no editor de consultas por esta e selecione **Executar**.
 
    ```sql
    -- Create a new table called 'Customers' in schema 'dbo'
@@ -120,7 +120,7 @@ O editor de consultas está conectado ao banco de dados **mestre** , mas queremo
 
 ## <a name="insert-rows-into-the-table"></a>Inserir linhas na tabela
 
-Substitua a consulta anterior por esta e selecione **Executar** .
+Substitua a consulta anterior por esta e selecione **Executar**.
 
    ```sql
    -- Insert rows into table 'Customers'
@@ -136,7 +136,7 @@ Substitua a consulta anterior por esta e selecione **Executar** .
 
 ## <a name="view-the-result"></a>Exibir o resultado
 
-Substitua a consulta anterior por esta e selecione **Executar** .
+Substitua a consulta anterior por esta e selecione **Executar**.
 
    ```sql
    -- Select rows from table 'Customers'

@@ -2,7 +2,7 @@
 description: backupset (Transact-SQL)
 title: conjunto de backup (Transact-SQL) | Microsoft Docs
 ms.custom: ''
-ms.date: 06/10/2016
+ms.date: 12/24/2020
 ms.prod: sql
 ms.prod_service: database-engine, pdw
 ms.reviewer: ''
@@ -21,12 +21,12 @@ ms.assetid: 6ff79bbf-4acf-4f75-926f-38637ca8a943
 author: markingmyname
 ms.author: maghan
 monikerRange: '>=aps-pdw-2016||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 3271963cf5a07e88b6209bd2b7316ab40f43bc05
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 7653ad7ed1d69e7de97e66d1003d6f131be45142
+ms.sourcegitcommit: d8a9ad86401bff422d506078c6200494c795e7c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97461527"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97765198"
 ---
 # <a name="backupset-transact-sql"></a>backupset (Transact-SQL)
 [!INCLUDE [sql-asdbmi-pdw](../../includes/applies-to-version/sql-asdbmi-pdw.md)]
@@ -35,7 +35,6 @@ ms.locfileid: "97461527"
   
  Essa tabela é armazenada no banco de dados **msdb** .  
 
-  
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
 |**backup_set_id**|**int**|Número de identificação exclusivo de conjunto de backup que o identifica. Identidade, chave primária.|  
@@ -102,10 +101,10 @@ ms.locfileid: "97461527"
 |**encryptor_thumbprint**|**varbinary(20)**|A impressão digital do criptografador que pode ser usada para localizar o certificado ou chave assimétrica no banco de dados. Quando o backup não tiver sido criptografado, esse valor será NULL.|  
 |**encryptor_type**|**nvarchar(32)**|O tipo de criptografador usado: Certificado ou Chave Assimétrica. . Quando o backup não tiver sido criptografado, esse valor será NULL.|  
   
-## <a name="remarks"></a>Comentários  
- RESTOre VERIFYONLY de *backup_device* com LOADHISTORY popula a coluna da tabela **backupmediaset** com os valores apropriados do cabeçalho conjunto de mídias.  
-  
- Para reduzir o número de linhas nesta tabela e em outras tabelas de backup e histórico, execute o procedimento armazenado [sp_delete_backuphistory](../../relational-databases/system-stored-procedures/sp-delete-backuphistory-transact-sql.md) .  
+## <a name="remarks"></a>Comentários
+- RESTOre VERIFYONLY de *backup_device* com LOADHISTORY popula a coluna da tabela **backupmediaset** com os valores apropriados do cabeçalho conjunto de mídias.  
+- Para reduzir o número de linhas nesta tabela e em outras tabelas de backup e histórico, execute o procedimento armazenado [sp_delete_backuphistory](../../relational-databases/system-stored-procedures/sp-delete-backuphistory-transact-sql.md) .  
+- Para o SQL Instância Gerenciada, a tabela backupset mostra apenas o histórico de backup para [backups somente cópia](../../relational-databases/backup-restore/copy-only-backups-sql-server.md)iniciados pelo usuário. A tabela backupset não mostra o histórico de backup para backups automáticos executados pelo serviço. 
   
 ## <a name="see-also"></a>Consulte Também  
  [Backup e restauração de tabelas &#40;Transact-SQL&#41;](../../relational-databases/system-tables/backup-and-restore-tables-transact-sql.md)   

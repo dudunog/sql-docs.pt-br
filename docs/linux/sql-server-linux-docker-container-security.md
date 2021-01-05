@@ -4,18 +4,18 @@ description: Entenda as diferentes maneiras de proteger contêineres do SQL Serv
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: vanto
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 09/07/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
 moniker: '>= sql-server-linux-2017 || >= sql-server-2017 '
-ms.openlocfilehash: 6e4aa3285f8f74dc9eaa46c52c64ee281f839edf
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 88c179b1a17dd84dc33c2ae77979507e82b7a55a
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489806"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878743"
 ---
 # <a name="secure-sql-server-docker-containers"></a>Proteger contêineres do SQL Server no Docker
 
@@ -193,7 +193,7 @@ Siga as seções \"Registrar o certificado no computador cliente\" e \"Cadeias d
 <!--SQL Server 2019 on Linux-->
 ::: moniker range=">= sql-server-linux-ver15 || >= sql-server-ver15 "
 
-- Comece a usar as imagens de contêiner do SQL Server 2019 no Docker acompanhando o [guia de início rápido](quickstart-install-connect-docker.md?view=sql-server-ver15)
+- Comece a usar as imagens de contêiner do SQL Server 2019 no Docker acompanhando o [guia de início rápido](quickstart-install-connect-docker.md)
 
 ::: moniker-end
 

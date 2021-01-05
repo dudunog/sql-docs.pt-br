@@ -11,12 +11,12 @@ ms.topic: conceptual
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 4d94afd3698b8911288ee7794d8ee32cdc1b0f3f
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a9fc87cef0244afc4459c789f94855c0c0530ddd
+ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480147"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697118"
 ---
 # <a name="columnstore-indexes---what39s-new"></a>Índices columnstore – novidades
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -38,13 +38,13 @@ ms.locfileid: "97480147"
 |Especificação do índice columnstore durante a criação de uma tabela|||sim|sim|sim|sim|sim|  
 |Suporte a índices columnstore pelo Always On|sim|sim|sim|sim|sim|sim|sim| 
 |Suporte ao índice columnstore não clusterizado somente leitura pelo secundário legível Always On|sim|sim|sim|sim|sim|sim|sim|  
-|Suporte ao índice columnstore atualizável pelo secundário legível Always On|||sim||simsim|||  
+|Suporte ao índice columnstore atualizável pelo secundário legível Always On|||sim||sim|||  
 |Índice columnstore não clusterizado somente leitura no heap ou árvore B|sim|sim|sim <sup>1</sup>|sim <sup>1</sup>|sim <sup>1</sup>|sim <sup>1</sup>|sim <sup>1</sup>|  
 |Índice columnstore não clusterizado atualizável no heap ou árvore B|||sim|sim|sim|sim|sim|  
 |Índices adicionais de árvore B permitidos em um heap ou árvore B com um índice columnstore não clusterizado|sim|sim|sim|sim|sim|sim|sim|  
-|Índice columnstore clusterizado e atualizável||sim|sim|sim||simsim|sim|  
-|Índice de árvore B em um índice columnstore clusterizado|||sim|sim||simsim|sim|  
-|Índice columnstore em uma tabela com otimização de memória|||sim|sim||simsim|sim|  
+|Índice columnstore clusterizado e atualizável||sim|sim|sim||sim|sim|  
+|Índice de árvore B em um índice columnstore clusterizado|||sim|sim||sim|sim|  
+|Índice columnstore em uma tabela com otimização de memória|||sim|sim||sim|sim|  
 |Suporte ao uso de uma condição filtrada pela definição de índice columnstore não clusterizado|||sim|sim|sim|sim|sim|  
 |Opção de atraso de compactação para índices columnstore em `CREATE TABLE` e `ALTER TABLE`|||sim|sim|sim|sim|sim|
 |O índice columnstore pode ter uma coluna computada não persistente||||sim|sim|||   
