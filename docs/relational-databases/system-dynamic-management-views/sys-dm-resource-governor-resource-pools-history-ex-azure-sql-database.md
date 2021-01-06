@@ -2,7 +2,7 @@
 description: sys.dm_resource_governor_resource_pools_history_ex (Transact-SQL)
 title: sys.dm_resource_governor_resource_pools_history_ex (Transact-SQL) | Microsoft Docs
 ms.custom: ''
-ms.date: 03/27/2019
+ms.date: 01/05/2021
 ms.prod: sql
 ms.prod_service: sql-database
 ms.reviewer: ''
@@ -21,19 +21,19 @@ ms.assetid: ''
 author: joesackmsft
 ms.author: josack
 monikerRange: =azuresqldb-current
-ms.openlocfilehash: 8aafaca36fb5ef1d96ddbd9f369a3ba4f06a596d
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 32082b09a5e583e68f2f06794d80d1d3f21b4e76
+ms.sourcegitcommit: 11ca2305a8d7e420daf772eb97861706c9e08e31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484578"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97928435"
 ---
 # <a name="sysdm_resource_governor_resource_pools_history_ex-transact-sql"></a>sys.dm_resource_governor_resource_pools_history_ex (Transact-SQL)
 
 [!INCLUDE[appliesto-xx-asdb-xxxx-xxx-md](../../includes/appliesto-xx-asdb-xxxx-xxx-md.md)]
 
-Retorna o instantâneo em um intervalo de 20 segundos para os últimos 32 minutos (128 Recs no total) de estatísticas de pools de recursos para um banco de dados SQL do Azure.  
-  
+Cada linha representa um instantâneo periódico de estatísticas do pool de recursos no banco de dados SQL do Azure. Um instantâneo é obtido quando o mecanismo de banco de dados é iniciado e a cada segundos depois. O intervalo entre o instantâneo atual e o anterior pode variar e é fornecido na `duration_ms` coluna. Os instantâneos mais recentes disponíveis são retornados, até 128 instantâneos para cada pool de recursos.
+
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
 |**pool_id**|INT|ID do pool de recursos. Não permite valor nulo.

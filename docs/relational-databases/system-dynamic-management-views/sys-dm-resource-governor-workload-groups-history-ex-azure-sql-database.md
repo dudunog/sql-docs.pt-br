@@ -2,7 +2,7 @@
 description: sys.dm_resource_governor_workload_groups_history_ex (Banco de Dados SQL do Azure)
 title: sys.dm_resource_governor_workload_groups_history_ex (banco de dados SQL do Azure) | Microsoft Docs
 ms.custom: ''
-ms.date: 05/22/2019
+ms.date: 01/05/2021
 ms.prod: sql
 ms.reviewer: ''
 ms.technology: system-objects
@@ -19,17 +19,17 @@ helpviewer_keywords:
 - sys.dm_resource_governor_workload_groups_history_ex dynamic management view
 author: joesackmsft
 ms.author: josack
-ms.openlocfilehash: d761d1ca80037e26f8757ec681929dd5356b182f
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+ms.openlocfilehash: 69f310b699e59845dbd62a908a6a49bfb6efb42f
+ms.sourcegitcommit: 11ca2305a8d7e420daf772eb97861706c9e08e31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834400"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97928445"
 ---
 # <a name="sysdm_resource_governor_workload_groups_history_ex-azure-sql-database"></a>sys.dm_resource_governor_workload_groups_history_ex (Banco de Dados SQL do Azure)
 [!INCLUDE[Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/asdb-asdbmi.md)]
 
-Retorna o instantâneo a um intervalo de 20 segundos para os últimos 32 minutos (128 segundos no total) de estatísticas de pools de recursos para um banco de dados SQL do Azure.
+Cada linha representa um instantâneo periódico das estatísticas do grupo de carga de trabalho no banco de dados SQL do Azure. Um instantâneo é obtido quando o mecanismo de banco de dados é iniciado e a cada segundos depois. O intervalo entre o instantâneo atual e o anterior pode variar e é fornecido na `duration_ms` coluna. Os instantâneos mais recentes disponíveis são retornados, até 128 instantâneos para cada grupo de carga de trabalho.
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
