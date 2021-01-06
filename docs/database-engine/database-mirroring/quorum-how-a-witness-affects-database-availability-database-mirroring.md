@@ -6,7 +6,7 @@ ms.date: 03/01/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - quorum [SQL Server], database mirroring
@@ -22,12 +22,12 @@ helpviewer_keywords:
 ms.assetid: a62d9dd7-3667-4751-a294-a61fc9caae7c
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: c28e70d2f66dffc00ff2ac9138f97dc8d0e08991
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: f30f336ade4b3ab911d6ed365ddfa637230ea02e
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85789660"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641312"
 ---
 # <a name="quorum-how-a-witness-affects-database-availability-database-mirroring"></a>Quorum: Como uma testemunha afeta a disponibilidade do banco de dados ( Espelhamento de banco de dados)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -99,7 +99,7 @@ ms.locfileid: "85789660"
   
  ![Como a testemunha e os parceiros cooperam](../../database-engine/database-mirroring/media/dbm-quorum-scenarios.gif "Como a testemunha e os parceiros cooperam")  
   
- O cenário 1 mostra como, depois que o servidor principal (**Partner_A**) falha, a testemunha e o espelho concordam que o principal, **Partner_A**, não está mais disponível e formam quorum. O espelho, **Partner_B** , assume a função principal. O failover automático ocorre e o **Partner_B**coloca sua cópia do banco de dados online. Em seguida, **Partner_B** deixa de funcionar e o banco de dados fica offline. Posteriormente, o antigo servidor principal, **Partner_A**, reconecta-se à testemunha readquirindo quorum. Porém, ao comunicar-se com a testemunha, **Partner_A** toma conhecimento de que não pode colocar a sua cópia do banco de dados online porque **Partner_B** agora detém a função principal. Quando o **Partner_B** reassocia-se à sessão, coloca o banco de dados online novamente.  
+ O cenário 1 mostra como, depois que o servidor principal (**Partner_A**) falha, a testemunha e o espelho concordam que o principal, **Partner_A**, não está mais disponível e formam quorum. O espelho, **Partner_B** , assume a função principal. O failover automático ocorre e o **Partner_B** coloca sua cópia do banco de dados online. Em seguida, **Partner_B** deixa de funcionar e o banco de dados fica offline. Posteriormente, o antigo servidor principal, **Partner_A**, reconecta-se à testemunha readquirindo quorum. Porém, ao comunicar-se com a testemunha, **Partner_A** toma conhecimento de que não pode colocar a sua cópia do banco de dados online porque **Partner_B** agora detém a função principal. Quando o **Partner_B** reassocia-se à sessão, coloca o banco de dados online novamente.  
   
  No cenário 2, a testemunha perde quorum, enquanto os parceiros, **Partner_A** e **Partner_B**, retêm quorum entre si e o banco de dados permanece online. Então, os parceiros também perdem quorum e o banco de dados fica offline. Mais tarde, o servidor principal, **Partner_A**, reconecta-se à testemunha, recuperando quorum. A testemunha confirma se **Partner_A** ainda detém a função principal, e **Partner_A** coloca o banco de dados online.  
   

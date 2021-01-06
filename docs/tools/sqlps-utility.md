@@ -15,19 +15,19 @@ ms.assetid: 4b2515a6-12c3-44fb-b263-1c567681cd2b
 author: markingmyname
 ms.author: maghan
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017'
-ms.openlocfilehash: 85f3fd590ee204cac018cffd59d0ba180831d8df
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: b7f709d7884748d24467ea8825d40775a6a4dc2d
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97476517"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642248"
 ---
 # <a name="sqlps-utility"></a>Utilitário sqlps
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
   O utilitário **sqlps** inicia uma sessão do Windows PowerShell 2.0 com os cmdlets e o provedor do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] PowerShell carregados e registrados. Você pode inserir comandos ou scripts do PowerShell que usam os componentes do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] PowerShell para trabalhar com instâncias do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] e seus objetos.  
   
 > [!IMPORTANT]  
->  [!INCLUDE[ssNoteDepFutureAvoid](../includes/ssnotedepfutureavoid-md.md)] Use o módulo **sqlps** do PowerShell. Para saber mais sobre o módulo **sqlps** , veja [Import the SQLPS Module](../powershell/download-sql-server-ps-module.md?view=sql-server-ver15).  
+>  [!INCLUDE[ssNoteDepFutureAvoid](../includes/ssnotedepfutureavoid-md.md)] Use o módulo **sqlps** do PowerShell. Para saber mais sobre o módulo **sqlps** , veja [Import the SQLPS Module](../powershell/download-sql-server-ps-module.md).  
   
 ## <a name="syntax"></a>Sintaxe  
   
@@ -123,5 +123,5 @@ sqlps -NoExit -Command "&{.\MyFolder.MyScript.ps1}"
   
 ## <a name="see-also"></a>Consulte Também  
  [Habilitar ou desabilitar um protocolo de rede de servidor](../database-engine/configure-windows/enable-or-disable-a-server-network-protocol.md)   
- [SQL Server PowerShell](../powershell/sql-server-powershell.md?view=sql-server-ver15)  
+ [SQL Server PowerShell](../powershell/sql-server-powershell.md)  
   

@@ -6,7 +6,7 @@ ms.date: 05/17/2016
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - Windows authentication [SQL Server]
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 143c68a5-589f-4e7f-be59-02707e1a430a
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: ff824174a3c9f806267e5b2a6a58e056fb57d513
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 7584e4611d957f48efcb73d12b5965f0a4727b45
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85643413"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642009"
 ---
 # <a name="configure-database-mirroring"></a>Configure o espelhamento do banco de dados
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -71,7 +71,7 @@ ms.locfileid: "85643413"
   
      A sintaxe para um endereço de rede do servidor é a seguinte:  
   
-     TCP<b>\://</b> _\<system-address\>_ <b>\:</b> _\<port\>_  
+     TCP <b>\://</b> _\<system-address\>_ <b>\:</b> _\<port\>_  
   
      em que _\<system-address>_ é uma cadeia de caracteres que identifica sem ambiguidade o sistema de computador de destino e _\<port>_ é o número da porta usado pelo ponto de extremidade de espelhamento da instância do servidor parceiro. Para obter mais informações, consulte [Especificar um endereço de rede do servidor &#40;Espelhamento de banco de dados&#41;](../../database-engine/database-mirroring/specify-a-server-network-address-database-mirroring.md).  
   

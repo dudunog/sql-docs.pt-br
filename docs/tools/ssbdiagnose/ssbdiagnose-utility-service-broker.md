@@ -26,12 +26,12 @@ ms.author: maghan
 ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 03/14/2017
-ms.openlocfilehash: 2457f180cef24b13568a6718128efa78635c3e41
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 8590f3677d27c367782999877cb6892251785278
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88714254"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641270"
 ---
 # <a name="ssbdiagnose-utility-service-broker"></a>Utilitário ssbdiagnose (Service Broker)
 
@@ -291,7 +291,7 @@ WHERE database_id = DB_ID();
   
  A lista não inclui elementos de bancos de dados que não são cobertos pelas opções de conexão. Por exemplo, suponhamos que você use **-ID** para especificar uma ID de conversa, mas forneça somente uma cláusula **runtimeconnectionoptions** para o banco de dados iniciador e não para o banco de dados de destino. **ssbdiagnose** não incluirá o identificador de conversa de destino em sua lista de IDs, somente a ID da conversa e o identificador da conversa do iniciador.  
   
- O**ssbdiagnose** monitora os eventos de [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)] dos bancos de dados cobertos por **runtimeconnectionoptions** e **baseconnectionoptions**. Ele procura eventos do [!INCLUDE[ssSB](../../includes/sssb-md.md)] que indicam que um erro foi encontrado por um ou mais IDs do [!INCLUDE[ssSB](../../includes/sssb-md.md)] na lista de runtime. O**ssbdiagnose** também procura eventos de erro do [!INCLUDE[ssSB](../../includes/sssb-md.md)] no nível do sistema não especificamente associados a nenhum grupo de conversa.  
+ O **ssbdiagnose** monitora os eventos de [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)] dos bancos de dados cobertos por **runtimeconnectionoptions** e **baseconnectionoptions**. Ele procura eventos do [!INCLUDE[ssSB](../../includes/sssb-md.md)] que indicam que um erro foi encontrado por um ou mais IDs do [!INCLUDE[ssSB](../../includes/sssb-md.md)] na lista de runtime. O **ssbdiagnose** também procura eventos de erro do [!INCLUDE[ssSB](../../includes/sssb-md.md)] no nível do sistema não especificamente associados a nenhum grupo de conversa.  
   
  Se **ssbdiagnose** localizar erros na conversa, o utilitário relatar a causa raiz dos eventos executando também um relatório de configuração. **ssbdiagnose** usa os metadados dos bancos de dados para tentar determinar as instâncias, as IDs do [!INCLUDE[ssSB](../../includes/sssb-md.md)] , os bancos de dados, os serviços e os contratos usados pela conversa. Em seguida, executa um relatório de configuração que usa todas as informações disponíveis.  
   
@@ -310,7 +310,7 @@ WHERE database_id = DB_ID();
  Relata um problema que está impedindo o **ssbdiagnose** de concluir uma análise de configuração ou de monitorar conversas.  
   
 ## <a name="sqlcmd-environment-variables"></a>Variáveis de ambiente sqlcmd  
- O utilitário **ssbdiagnose** dá suporte às variáveis de ambiente SQLCMDSERVER, SQLCMDUSER, SQLCMDPASSWORD e SQLCMDLOGINTIMOUT que também são usadas pelo utilitário **sqlcmd** . Você pode definir as variáveis de ambiente usando o comando SET de prompt de comando ou o comando **setvar** em scripts [!INCLUDE[tsql](../../includes/tsql-md.md)] que executa com o uso de **sqlcmd**. Para obter mais informações sobre como usar **setvar** no **sqlcmd**, veja [Usar sqlcmd com variáveis de script](../../ssms/scripting/sqlcmd-use-with-scripting-variables.md?view=sql-server-ver15).  
+ O utilitário **ssbdiagnose** dá suporte às variáveis de ambiente SQLCMDSERVER, SQLCMDUSER, SQLCMDPASSWORD e SQLCMDLOGINTIMOUT que também são usadas pelo utilitário **sqlcmd** . Você pode definir as variáveis de ambiente usando o comando SET de prompt de comando ou o comando **setvar** em scripts [!INCLUDE[tsql](../../includes/tsql-md.md)] que executa com o uso de **sqlcmd**. Para obter mais informações sobre como usar **setvar** no **sqlcmd**, veja [Usar sqlcmd com variáveis de script](../../ssms/scripting/sqlcmd-use-with-scripting-variables.md).  
   
 ## <a name="permissions"></a>Permissões  
  Em cada cláusula **connectionoptions** , o logon especificado com **-E** ou **-U** deve ser membro da função de servidor fixa **sysadmin** na instância especificada em **-S**.  

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: a690aec2-056b-40bc-8cab-c694bd2d6d62
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: a3dc21f30222704622f86732c11bd5f1db7b46d1
-ms.sourcegitcommit: 768f046107642f72693514f51bf2cbd00f58f58a
+ms.openlocfilehash: 6411d6f3810153614de0e60e9b20555e061836e3
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87112025"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641595"
 ---
 # <a name="troubleshoot-reports-map-reports-report-builder-and-ssrs"></a>Solucionar problemas de relatórios: Relatórios de mapa (Construtor de Relatórios e SSRS)
   Os problemas com mapas em um relatório paginado do [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] podem ocorrer quando você adiciona um mapa ou camada do mapa ao relatório, quando você personaliza um mapa existente ou camada do mapa em seu relatório, quando visualiza um mapa em um relatório ou quando publica um relatório com um mapa. Use este tópico para ajudar a solucionar esses problemas.  
@@ -44,7 +44,7 @@ ms.locfileid: "87112025"
   
 1.  Carregue ou publique os arquivos ESRI .shp e .dbf no servidor de relatório.  
   
-2.  No relatório, no painel Mapa no modo Design, selecione a camada tem dados inseridos e abra as propriedades de **Dados da Camada** . Em **Usar dados espaciais de**, selecione **Link para Arquivo de Forma ESRI**e vá para a pasta no servidor de relatório que contém os Arquivos de Forma ESRI, selecione-a e clique em OK.  
+2.  No relatório, no painel Mapa no modo Design, selecione a camada tem dados inseridos e abra as propriedades de **Dados da Camada** . Em **Usar dados espaciais de**, selecione **Link para Arquivo de Forma ESRI** e vá para a pasta no servidor de relatório que contém os Arquivos de Forma ESRI, selecione-a e clique em OK.  
   
 3.  Salve o relatório. Os dados inseridos para a camada que você alterou foram removidos da definição de relatório.  
   
@@ -137,7 +137,7 @@ ms.locfileid: "87112025"
   
 -   **Transparência.** Você pode especificar a transparência de cada camada do mapa de modo independente. Os valores padrão de transparência são diferentes de acordo com o modo como você adiciona uma camada. Uma transparência de 0% significa que a camada é opaca e nenhum outro dado da camada será exibido através deste. Para permitir que outros dados apareçam através de uma camada existente, ajuste o valor para um percentual mais alto que apresente o efeito desejado.  
   
--   **Visibilidade.** A visibilidade de uma camada é definida como **Visível**, **Oculta**ou **ZoomBased**, com base no nível de zoom do visor do mapa. Os intervalos máximo e mínimo do nível de zoom também podem ser especificados. A visibilidade pode se basear em uma expressão que seja avaliada para um desses valores.  
+-   **Visibilidade.** A visibilidade de uma camada é definida como **Visível**, **Oculta** ou **ZoomBased**, com base no nível de zoom do visor do mapa. Os intervalos máximo e mínimo do nível de zoom também podem ser especificados. A visibilidade pode se basear em uma expressão que seja avaliada para um desses valores.  
   
     > [!TIP]  
     >  Você pode alternar a visibilidade de cada camada no painel Mapa. Quando você estiver criando cada camada, alterne todas as outras camadas para determinar se o problema vem de uma camada individual ou se decorre de problemas de transparência entre camadas.  
@@ -207,6 +207,6 @@ ms.locfileid: "87112025"
   
 ## <a name="see-also"></a>Consulte Também  
  [Mapas &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/maps-report-builder-and-ssrs.md)   
- [Solução de problemas do Construtor de Relatórios](/previous-versions/sql/2014/reporting-services/troubleshoot-report-builder?view=sql-server-2014)  
+ [Solução de problemas do Construtor de Relatórios](/previous-versions/sql/2014/reporting-services/troubleshoot-report-builder?view=sql-server-2014&preserve-view=true)  
   
   

@@ -12,12 +12,12 @@ ms.assetid: ea21c73c-40e8-4c54-83d4-46ca36b2cf73
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: '>= aps-pdw-2016 || = azure-sqldw-latest'
-ms.openlocfilehash: fdadefa5b898a2b37c7e5a7f087c429ccc6b8d4f
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: bf8ef986da54559c5928677643f6bd99c63c2266
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97438954"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643012"
 ---
 # <a name="create-table-azure-synapse-analytics"></a>CREATE TABLE (Azure Synapse Analytics)
 
@@ -172,7 +172,7 @@ Cria uma ou mais partições da tabela. Essas partições são fatias horizontai
 
 ### <a name="ordered-clustered-columnstore-index-option"></a>Opção de índice columnstore clusterizado ordenado 
 
-O CCI (índice columnstore clusterizado) é o padrão para a criação de tabelas no [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)].  Os dados em CCI não são classificados antes de serem compactados em segmentos columnstore.  Ao criar um CCI com ORDER, os dados são classificados antes de serem adicionados a segmentos de índice e o desempenho da consulta pode ser melhorado. Veja [Ajuste de desempenho com índice columnstore clusterizado ordenado](/azure/sql-data-warehouse/performance-tuning-ordered-cci?view=azure-sqldw-latest) para obter detalhes.  
+O CCI (índice columnstore clusterizado) é o padrão para a criação de tabelas no [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)].  Os dados em CCI não são classificados antes de serem compactados em segmentos columnstore.  Ao criar um CCI com ORDER, os dados são classificados antes de serem adicionados a segmentos de índice e o desempenho da consulta pode ser melhorado. Veja [Ajuste de desempenho com índice columnstore clusterizado ordenado](/azure/sql-data-warehouse/performance-tuning-ordered-cci?view=azure-sqldw-latest&preserve-view=true) para obter detalhes.  
 
 Um CCI pode ser criado em colunas de qualquer tipo de dados compatível com o [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)], exceto por colunas de cadeia de caracteres.  
 
@@ -596,4 +596,4 @@ WITH
 [CREATE TABLE AS SELECT &#40;Azure Synapse Analytics&#41;](../../t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md)   
 [DROP TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/drop-table-transact-sql.md)   
 [ALTER TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/alter-table-transact-sql.md)   
-[sys.index_columns &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-index-columns-transact-sql.md?view=azure-sqldw-latest) 
+[sys.index_columns &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-index-columns-transact-sql.md) 

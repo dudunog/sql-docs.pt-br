@@ -7,26 +7,26 @@ ms.date: 03/12/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
-ms.openlocfilehash: d0cd1e6c7af5fd4d2f8742e88b4b8853645fe5a7
-ms.sourcegitcommit: 22102f25db5ccca39aebf96bc861c92f2367c77a
+ms.openlocfilehash: 9ec5d4f34d299876614383c79fb79f2c2be9114d
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92115432"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97641263"
 ---
 # <a name="whats-new-for-sql-server-2019-on-linux"></a>Novidades do SQL Server 2019 no Linux
 
 [!INCLUDE [SQL Server - Linux](../includes/applies-to-version/sql-linux.md)]
 
-Este artigo descreve os principais recursos e serviços disponíveis para o SQL Server 2019 em execução no Linux. Para saber mais sobre os downloads de pacotes e problemas conhecidos, confira as [Notas sobre a versão](sql-server-linux-release-notes-2019.md?view=sql-server-linux-ver15).
+Este artigo descreve os principais recursos e serviços disponíveis para o SQL Server 2019 em execução no Linux. Para saber mais sobre os downloads de pacotes e problemas conhecidos, confira as [Notas sobre a versão](sql-server-linux-release-notes-2019.md).
 
 ## <a name="ubuntu-1804-supported"></a>Ubuntu 18.04 com suporte
 
-Do SQL Server 2019 CU3 em diante, agora há suporte para Ubuntu 18.04. Confira nosso guia de início rápido em [Como instalar o SQL Server e criar um banco de dados no Ubuntu](quickstart-install-connect-ubuntu.md?view=sql-server-linux-ver15).
+Do SQL Server 2019 CU3 em diante, agora há suporte para Ubuntu 18.04. Confira nosso guia de início rápido em [Como instalar o SQL Server e criar um banco de dados no Ubuntu](quickstart-install-connect-ubuntu.md?view=sql-server-linux-ver15&preserve-view=true).
 
 ## <a name="rhel-8-supported"></a>RHEL 8 com suporte
 
-Do SQL Server 2019 CU1 em diante, há suporte para o RHEL 8. Confira nosso guia de início rápido em [Como instalar o SQL Server e criar um banco de dados no Red Hat](quickstart-install-connect-red-hat.md?view=sql-server-linux-ver15).
+Do SQL Server 2019 CU1 em diante, há suporte para o RHEL 8. Confira nosso guia de início rápido em [Como instalar o SQL Server e criar um banco de dados no Red Hat](quickstart-install-connect-red-hat.md?view=sql-server-linux-ver15&preserve-view=true).
 
 ## <a name="updates"></a>Atualizações
 
@@ -48,12 +48,12 @@ As atualizações foram feitas no SQL Server 2019 no Linux:
 
 Para instalar o SQL Server em Linux, use um dos seguintes tutoriais:
 
-- [Instalação no Red Hat Enterprise Linux](quickstart-install-connect-red-hat.md?view=sql-server-linux-ver15)
-- [Instalação no SUSE Linux Enterprise Server](quickstart-install-connect-suse.md?view=sql-server-linux-ver15)
-- [Instalar no Ubuntu](quickstart-install-connect-ubuntu.md?view=sql-server-linux-ver15)
-- [Executar no Docker](quickstart-install-connect-docker.md?view=sql-server-linux-ver15)
+- [Instalação no Red Hat Enterprise Linux](quickstart-install-connect-red-hat.md?view=sql-server-linux-ver15&preserve-view=true)
+- [Instalação no SUSE Linux Enterprise Server](quickstart-install-connect-suse.md?view=sql-server-linux-ver15&preserve-view=true)
+- [Instalar no Ubuntu](quickstart-install-connect-ubuntu.md?view=sql-server-linux-ver15&preserve-view=true)
+- [Executar no Docker](quickstart-install-connect-docker.md?view=sql-server-linux-ver15&preserve-view=true)
 - [Provisionar uma VM SQL no Azure](/azure/virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine?toc=/sql/toc/toc.json)
 
-Para obter respostas a perguntas frequentes, confira as [Perguntas frequentes sobre o SQL Server em Linux](sql-server-linux-faq.md). Para ver outras melhorias introduzidas no SQL Server 2019, confira [Novidades do SQL Server 2019](../sql-server/what-s-new-in-sql-server-ver15.md?view=sql-server-ver15).
+Para obter respostas a perguntas frequentes, confira as [Perguntas frequentes sobre o SQL Server em Linux](sql-server-linux-faq.md). Para ver outras melhorias introduzidas no SQL Server 2019, confira [Novidades do SQL Server 2019](../sql-server/what-s-new-in-sql-server-ver15.md?view=sql-server-ver15&preserve-view=true).
 
 [!INCLUDE[get-help-options](../includes/paragraph-content/get-help-options.md)]

@@ -6,7 +6,7 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - database mirroring [SQL Server], interoperability
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 53e98134-e274-4dfd-8b72-0cc0fd5c800e
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: fd18ca39f11525f3fd91f759ff34f4ce6ebd0dbb
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 4f15bfe798c4fdec07be55f9dbb871c2980bc777
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85789704"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642058"
 ---
 # <a name="database-mirroring-and-log-shipping-sql-server"></a>Espelhamento de banco de dados e envio de logs (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "85789704"
   
  Durante uma sessão de envio de logs, os trabalhos de backup no banco de dados primário criam backups de log em uma pasta de backup. Nessa pasta, os backups são copiados por trabalhos de cópia dos servidores secundários. Para obterem êxito, os trabalhos de backup e de cópia devem ter acesso à pasta de backup de envio de logs. Para maximizar a disponibilidade do servidor primário, recomendamos que a pasta de backup seja estabelecida em um local de backup compartilhado em um computador host separado. Assegure de que todos os servidores de envio de logs, inclusive o servidor espelho/primário, possam acessar o local de backup compartilhado (conhecido como um *compartilhamento de backup*).  
   
- Para permitir que o envio de logs continue depois que houver falha no espelhamento de banco de dados, você também deverá configurar o servidor espelho como um servidor primário, usando a mesma configuração utilizada para o primário, no banco de dados principal. O banco de dados espelho está no estado de restauração, o que impede que os trabalhos de backup façam o backup do log no banco de dados espelho. Isso assegura que o banco de dados espelho/primário não interfira no banco de dados principal/primário cujos backups de log estão sendo copiados atualmente por servidores secundários. Para evitar alertas falsos, depois que o trabalho de backup é executado no banco de dados espelho/primário, ele emite uma mensagem para a tabela**log_shipping_monitor_history_detail** e o trabalho de agente retorna um status de êxito.  
+ Para permitir que o envio de logs continue depois que houver falha no espelhamento de banco de dados, você também deverá configurar o servidor espelho como um servidor primário, usando a mesma configuração utilizada para o primário, no banco de dados principal. O banco de dados espelho está no estado de restauração, o que impede que os trabalhos de backup façam o backup do log no banco de dados espelho. Isso assegura que o banco de dados espelho/primário não interfira no banco de dados principal/primário cujos backups de log estão sendo copiados atualmente por servidores secundários. Para evitar alertas falsos, depois que o trabalho de backup é executado no banco de dados espelho/primário, ele emite uma mensagem para a tabela **log_shipping_monitor_history_detail** e o trabalho de agente retorna um status de êxito.  
   
  O banco de dados espelho/primário está inativo na sessão de envio de logs. Porém, se houver falha no espelhamento, o banco de dados espelho anterior ficará online como o banco de dados principal. Nessa altura, aquele banco de dados também fica ativo como o banco de dados primário de envio de logs. Os trabalhos de backup de envio de logs que não puderam enviar previamente o log de envio naquele banco de dados, começam a enviar o log. Reciprocamente, um failover faz com que o banco de dados principal/primário anterior se torne o novo banco de dados espelho/primário e entre em estado de restauração, e os trabalhos de backup naquele banco de dados interrompam o backup de log.  
   
@@ -63,7 +63,7 @@ ms.locfileid: "85789704"
  Ao usar um monitor de envio de logs local, torna-se desnecessária qualquer consideração especial para acomodar esse cenário. Para obter informações sobre como usar uma instância de monitoramento remoto com esse cenário, consulte "O Impacto do espelhamento de banco de dados em uma instância de monitoramento remoto", mais adiante neste tópico.  
   
 ## <a name="failing-over-from-the-principal-to-the-mirror-database"></a>Failover do banco de dados principal para o banco de dados espelho  
- A figura a seguir mostra como o envio de logs e o espelhamento de banco dados trabalham juntos quando o espelhamento está sendo executado em modo de alta segurança com failover automático. Inicialmente, o **Server_A** é o servidor principal do espelhamento e o servidor primário do envio de logs. O**Server_B** é o servidor espelho, mas também está configurado como um servidor primário, só que inativo no momento. O**Server_C** e o **Server_D** são servidores de envio de logs secundários. Para maximizar a disponibilidade da sessão de envio de logs, o local de backup fica em um diretório de compartilhamento em um computador host separado.  
+ A figura a seguir mostra como o envio de logs e o espelhamento de banco dados trabalham juntos quando o espelhamento está sendo executado em modo de alta segurança com failover automático. Inicialmente, o **Server_A** é o servidor principal do espelhamento e o servidor primário do envio de logs. O **Server_B** é o servidor espelho, mas também está configurado como um servidor primário, só que inativo no momento. O **Server_C** e o **Server_D** são servidores de envio de logs secundários. Para maximizar a disponibilidade da sessão de envio de logs, o local de backup fica em um diretório de compartilhamento em um computador host separado.  
   
  ![Envio de logs e espelhamento de banco de dados](../../database-engine/database-mirroring/media/logshipping-and-dbm-automatic-failover.gif "Envio de logs e espelhamento de banco de dados")  
   
