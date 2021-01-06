@@ -6,19 +6,19 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - database mirroring [SQL Server], sessions
 ms.assetid: 7cb418d6-dce1-4a0d-830e-9c5ccfe3bd72
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 5dc5aae2308f0f2cada44175ebcef691894720f4
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: ece2afa5381b2692c3cb3b99358fc02891e75e97
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85754705"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644295"
 ---
 # <a name="establish-database-mirroring-session---windows-authentication"></a>Estabelecer a sessão de espelhamento de banco de dados – Autenticação do Windows
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -43,16 +43,16 @@ ms.locfileid: "85754705"
   
 1.  Depois de se conectar à instância do servidor principal, no Pesquisador de Objetos, clique no nome do servidor para expandir a árvore do servidor.  
   
-2.  Expanda os **Bancos de Dados**e selecione o banco de dados a ser espelhado.  
+2.  Expanda os **Bancos de Dados** e selecione o banco de dados a ser espelhado.  
   
-3.  Clique com o botão direito do mouse no banco de dados, selecione **Tarefas**e clique em **Espelhar**. Isso abre a página **Espelhamento** da caixa de diálogo **Propriedades do Banco de Dados** .  
+3.  Clique com o botão direito do mouse no banco de dados, selecione **Tarefas** e clique em **Espelhar**. Isso abre a página **Espelhamento** da caixa de diálogo **Propriedades do Banco de Dados** .  
   
 4.  Para começar a configurar o espelhamento, clique no botão **Configurar Segurança** para iniciar o Assistente para Configurar Segurança de Espelhamento de Banco de Dados.  
   
     > [!NOTE]  
     >  Durante uma sessão de espelhamento de banco de dados você pode usar esse assistente só para adicionar ou alterar a instância do servidor testemunha.  
   
-5.  A opção Assistente para Configurar Segurança de Espelhamento de Banco de Dados cria o ponto de extremidade de espelhamento de banco de dados (se não existir nenhum) em cada instância do servidor e insere os endereços de rede do servidor no campo correspondente à função da instância do servidor (**Principal**, **Espelho**ou **Testemunha**).  
+5.  A opção Assistente para Configurar Segurança de Espelhamento de Banco de Dados cria o ponto de extremidade de espelhamento de banco de dados (se não existir nenhum) em cada instância do servidor e insere os endereços de rede do servidor no campo correspondente à função da instância do servidor (**Principal**, **Espelho** ou **Testemunha**).  
   
     > [!IMPORTANT]  
     >  Ao criar um ponto de extremidade, o Assistente para Configurar Segurança de Espelhamento de Banco de Dados sempre usa a Autenticação do Windows. Antes de você poder usar o assistente com autenticação baseada em certificado, o ponto de extremidade do espelhamento deve ser configurado para usar certificados em cada uma das instâncias do servidor. Além disso, todos os campos da caixa de diálogo **Contas de Serviço** do assistente devem permanecer em branco. Para obter informações sobre como criar um ponto de extremidade de espelhamento de banco de dados para usar certificados, veja [CREATE ENDPOINT &#40;Transact-SQL&#41;](../../t-sql/statements/create-endpoint-transact-sql.md).  

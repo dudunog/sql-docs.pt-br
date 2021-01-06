@@ -6,7 +6,7 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - monitoring [SQL Server], database mirroring
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: a7b1b9b0-7c19-4acc-9de3-3a7c5e70694d
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: f8479b88d100f9687469ad615d0b92c50aedb6ad
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 9b77b54ba48dc2c3820d055227411f61983b1a7c
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85771825"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644275"
 ---
 # <a name="monitoring-database-mirroring-sql-server"></a>Monitorando o espelhamento de banco de dados (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -102,7 +102,7 @@ ms.locfileid: "85771825"
   
  A tabela de status pode ser atualizada automática ou manualmente por um administrador de sistema, com um intervalo de atualização mínimo de 15 segundos. O mínimo de 15 segundos evita que instâncias de servidor sejam sobrecarregadas com solicitações de status.  
   
- A tabela de status é automaticamente atualizada tanto pelo Monitor de Espelhamento de Banco de Dados quanto pelo trabalho de monitor de espelhamento de banco de dados, se estiverem sendo executados. O**Trabalho de Monitor de Espelhamento de Banco de Dados** atualiza a tabela a cada minuto, por padrão (um administrador do sistema pode especificar um período de atualização de 1 a 120 minutos). O Monitor de Espelhamento de Banco de Dados, ao contrário, atualiza a tabela automaticamente a cada 30 segundos. Para essas atualizações, o **Trabalho de Monitor de Espelhamento de Banco de Dados** e o Monitor de Espelhamento de Banco de Dados chamam **sp_dbmmonitorupdate**.  
+ A tabela de status é automaticamente atualizada tanto pelo Monitor de Espelhamento de Banco de Dados quanto pelo trabalho de monitor de espelhamento de banco de dados, se estiverem sendo executados. O **Trabalho de Monitor de Espelhamento de Banco de Dados** atualiza a tabela a cada minuto, por padrão (um administrador do sistema pode especificar um período de atualização de 1 a 120 minutos). O Monitor de Espelhamento de Banco de Dados, ao contrário, atualiza a tabela automaticamente a cada 30 segundos. Para essas atualizações, o **Trabalho de Monitor de Espelhamento de Banco de Dados** e o Monitor de Espelhamento de Banco de Dados chamam **sp_dbmmonitorupdate**.  
   
  Na primeira vez que o **sp_dbmmonitorupdate** é executado, ele cria a tabela de **status de espelhamento de banco de dados** e a função de banco de dados fixa **dbm_monitor** no banco de dados **msdb** . Normalmente,**sp_dbmmonitorupdate** atualiza o status de espelhamento inserindo uma nova linha na tabela de status para cada banco de dados espelho na instância de servidor; para obter mais informações, veja “Tabela de status de espelhamento de banco de dados”, mais adiante neste tópico. Esse procedimento também avalia a métrica de desempenho nas linhas novas e faz o truncamento de linhas mais antigas do que o período de retenção atual (o padrão é 7 dias). Para obter mais informações, veja [sp_dbmmonitorupdate &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-dbmmonitorupdate-transact-sql.md).  
   
@@ -110,7 +110,7 @@ ms.locfileid: "85771825"
 >  A menos que o Monitor de Espelhamento de Banco de Dados esteja sendo usado no momento por um membro da função de servidor fixa **sysadmin** , a tabela de status só será automaticamente atualizada se o **Trabalho de Monitor de Espelhamento de Banco de Dados** existir e se o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Agent estiver sendo executado.  
   
 #### <a name="database-mirroring-monitor-job"></a>Trabalho do Monitor de Espelhamento de Banco de Dados  
- O trabalho de monitor de espelhamento de banco de dados, **Trabalho de Monitor de Espelhamento de Banco de Dados**, opera independentemente do Monitor de Espelhamento de Banco de Dados. O**Trabalho de Monitor de Espelhamento de Banco de Dados** será criado automaticamente somente se [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] for usado para iniciar uma sessão de espelhamento. Se os comandos ALTER DATABASE *database_name* SET PARTNER forem sempre usados para iniciar um espelhamento, o trabalho só existirá se o administrador de sistema executar o procedimento armazenado **sp_dbmmonitoraddmonitoring** .  
+ O trabalho de monitor de espelhamento de banco de dados, **Trabalho de Monitor de Espelhamento de Banco de Dados**, opera independentemente do Monitor de Espelhamento de Banco de Dados. O **Trabalho de Monitor de Espelhamento de Banco de Dados** será criado automaticamente somente se [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] for usado para iniciar uma sessão de espelhamento. Se os comandos ALTER DATABASE *database_name* SET PARTNER forem sempre usados para iniciar um espelhamento, o trabalho só existirá se o administrador de sistema executar o procedimento armazenado **sp_dbmmonitoraddmonitoring** .  
   
  Depois que o **Trabalho de Monitor de Espelhamento de Banco de Dados** for criado, e supondo-se que o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Agent esteja sendo executado, o trabalho será chamado a cada minuto, por padrão. Em seguida, o trabalho chama o procedimento armazenado do sistema **sp_dbmmonitorupdate** .  
   
@@ -295,11 +295,11 @@ ms.locfileid: "85771825"
   
  Os seguintes eventos estão disponíveis para o espelhamento de banco de dados:  
   
--   Classe de evento**Database Mirroring State Change**  
+-   Classe de evento **Database Mirroring State Change**  
   
      Isso indica quando o estado de espelhamento de um banco de dados espelho muda. Para obter mais informações, consulte [Database Mirroring State Change Event Class](../../relational-databases/event-classes/database-mirroring-state-change-event-class.md).  
   
--   Classe de evento**Audit Database Mirroring Login**  
+-   Classe de evento **Audit Database Mirroring Login**  
   
      Informa mensagens de auditoria relacionadas à segurança de transporte do espelhamento de banco de dados. Para obter mais informações, consulte [Audit Database Mirroring Login Event Class](../../relational-databases/event-classes/audit-database-mirroring-login-event-class.md).  
   

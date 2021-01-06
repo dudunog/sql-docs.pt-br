@@ -12,12 +12,12 @@ author: markingmyname
 ms.author: maghan
 ms.custom: seo-lt-2019
 ms.date: 03/01/2017
-ms.openlocfilehash: 3d89bd7873c50ea35ea5e0516fe7e0ee0a421f70
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 50658797fd2a012503dc6669e5613ebd8ba4c5bd
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88713754"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644339"
 ---
 # <a name="export-a-trace-template-sql-server-profiler"></a>Exportar um modelo de rastreamento (SQL Server Profiler)
 
@@ -27,9 +27,9 @@ Este tópico descreve como exportar um modelo de rastreamento existente para ser
   
 ### <a name="to-export-a-trace-template"></a>Para exportar um modelo de rastreamento  
   
-1.  No menu **Arquivo** , aponte para **Modelos**e clique em **Exportar Modelo**.  
+1.  No menu **Arquivo** , aponte para **Modelos** e clique em **Exportar Modelo**.  
   
-2.  Na caixa de diálogo **Selecionar Nome do Modelo** , selecione o modelo a exportar na lista **Selecionar nome do modelo**e clique em **OK**.  
+2.  Na caixa de diálogo **Selecionar Nome do Modelo** , selecione o modelo a exportar na lista **Selecionar nome do modelo** e clique em **OK**.  
   
      A caixa de diálogo **Salvar como** é exibida.  
   
@@ -37,7 +37,7 @@ Este tópico descreve como exportar um modelo de rastreamento existente para ser
   
 ## <a name="see-also"></a>Consulte Também  
  [Criar um modelo de rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/create-a-trace-template-sql-server-profiler.md)   
- [Modificar um modelo de rastreamento &#40;SQL Server Profiler&#41;](./modify-trace-templates.md?view=sql-server-ver15)   
+ [Modificar um modelo de rastreamento &#40;SQL Server Profiler&#41;](./modify-trace-templates.md)   
  [Derivar um modelo de um rastreamento em execução &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/derive-a-template-from-a-running-trace-sql-server-profiler.md)   
  [Derivar um modelo de um arquivo ou de uma tabela de rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/derive-a-template-from-a-trace-file-or-trace-table-sql-server-profiler.md)   
  [SQL Server Profiler](../../tools/sql-server-profiler/sql-server-profiler.md)  

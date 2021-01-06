@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 03af2a8544763aab7609fd713790622bbb1bfef4
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 808acdf89350f539f03f6fdc75f2f7a5ed5b7707
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96419757"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771608"
 ---
 # <a name="data-type-mappings-in-adonet"></a>Mapeamentos de tipo de dados no ADO.NET
 
@@ -40,5 +40,7 @@ Em vez de depender do tipo de dados inferido, você pode usar os métodos acessa
 
 ## <a name="see-also"></a>Confira também
 
-- [Tipos de dados do SQL Server e ADO.NET](./sql/sql-server-data-types.md)
-- [Configurar parâmetros](configure-parameters.md)
+- [Tipos de dados do SQL Server e do ADO.NET](./sql/sql-server-data-types.md)
+- [Configurando parâmetros](configure-parameters.md)
+- [Recuperar informações de esquema de banco de dados](retrieving-database-schema-information.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

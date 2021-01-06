@@ -12,12 +12,12 @@ author: markingmyname
 ms.author: maghan
 ms.custom: seo-lt-2019
 ms.date: 05/01/2020
-ms.openlocfilehash: 485bb37dee0c118cf313bd7b3740b56c41e20c90
-ms.sourcegitcommit: a9f16d7819ed0e2b7ad8f4a7d4d2397437b2bbb2
+ms.openlocfilehash: 3169f8fbbc86fc95a62631c0cc93d77b6a46b0a4
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88713774"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643378"
 ---
 # <a name="sql-server-profiler"></a>SQL Server Profiler
 
@@ -118,7 +118,7 @@ Um modelo define a configuração padrão para um rastreamento. Especificamente,
 
 ### <a name="trace"></a>Trace
 
-Um rastreamento captura dados segundo classes de evento, colunas de dados e filtros selecionados. Por exemplo, você pode criar um rastreamento para monitorar erros de exceção. Para tanto, deve-se selecionar a classe de evento **Exception** e as colunas de dados **Error**, **State**e **Severity** . É preciso coletar os dados dessas três colunas para que os dados produzidos pelo rastreamento façam sentido. Em seguida, você pode executar um rastreamento configurado dessa forma e coletar dados sobre todo evento **Exception** que ocorrer no servidor. O rastreamento pode ser salvo ou utilizado para análise imediata. Rastreamentos podem ser reproduzidos em data posterior, embora certos eventos, como **Exception** , nunca sejam reproduzidos. Você também pode salvar o rastreamento como um modelo, para criar rastreamentos semelhantes no futuro.  
+Um rastreamento captura dados segundo classes de evento, colunas de dados e filtros selecionados. Por exemplo, você pode criar um rastreamento para monitorar erros de exceção. Para tanto, deve-se selecionar a classe de evento **Exception** e as colunas de dados **Error**, **State** e **Severity** . É preciso coletar os dados dessas três colunas para que os dados produzidos pelo rastreamento façam sentido. Em seguida, você pode executar um rastreamento configurado dessa forma e coletar dados sobre todo evento **Exception** que ocorrer no servidor. O rastreamento pode ser salvo ou utilizado para análise imediata. Rastreamentos podem ser reproduzidos em data posterior, embora certos eventos, como **Exception** , nunca sejam reproduzidos. Você também pode salvar o rastreamento como um modelo, para criar rastreamentos semelhantes no futuro.  
 
 O [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] dispõe de duas formas de rastrear uma instância de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]: rastreando com [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)] ou usando os procedimentos armazenados do sistema.  
 
@@ -164,7 +164,7 @@ Se não houver um filtro definido, serão retornados todos os eventos das classe
 |Descreve como reproduzir até um cursor.|[Reproduzir para um cursor &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/replay-to-a-cursor-sql-server-profiler.md)|  
 |Descreve como reproduzir um script do [!INCLUDE[tsql](../../includes/tsql-md.md)].|[Reproduzir um script Transact-SQL &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/replay-a-transact-sql-script-sql-server-profiler.md)|  
 |Descreve como criar um modelo de rastreamento.|[Criar um modelo de rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/create-a-trace-template-sql-server-profiler.md)|  
-|Descreve como modificar um modelo de rastreamento.|[Modificar um modelo de rastreamento &#40;SQL Server Profiler&#41;](./modify-trace-templates.md?view=sql-server-ver15)|  
+|Descreve como modificar um modelo de rastreamento.|[Modificar um modelo de rastreamento &#40;SQL Server Profiler&#41;](./modify-trace-templates.md)|  
 |Descreve como definir opções de rastreamento globais.|[Definir opções de rastreamento globais &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/set-global-trace-options-sql-server-profiler.md)|  
 |Descreve como localizar um valor ou uma coluna de dados durante um rastreamento.|[Localizar um valor ou coluna de dados durante um rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/find-a-value-or-data-column-while-tracing-sql-server-profiler.md)|  
 |Descreve como derivar um modelo a partir de um rastreamento em execução.|[Derivar um modelo de um rastreamento em execução &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/derive-a-template-from-a-running-trace-sql-server-profiler.md)|  
@@ -173,7 +173,7 @@ Se não houver um filtro definido, serão retornados todos os eventos das classe
 |Descreve como exportar um modelo de rastreamento.|[Exportar um modelo de rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/export-a-trace-template-sql-server-profiler.md)|  
 |Descreve como importar um modelo de rastreamento.|[Importar um modelo de rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/import-a-trace-template-sql-server-profiler.md)|  
 |Descreve como extrair um script de um rastreamento.|[Extrair um script de um rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/extract-a-script-from-a-trace-sql-server-profiler.md)|  
-|Descreve como correlacionar um rastreamento com dados de log de desempenho do Windows.|[Correlacionar um rastreamento com dados do log de desempenho do Windows &#40;SQL Server Profiler&#41;](./correlate-a-trace-with-windows-performance-log-data.md?view=sql-server-ver15)|  
+|Descreve como correlacionar um rastreamento com dados de log de desempenho do Windows.|[Correlacionar um rastreamento com dados do log de desempenho do Windows &#40;SQL Server Profiler&#41;](./correlate-a-trace-with-windows-performance-log-data.md)|  
 |Descreve como organizar colunas exibidas em um rastreamento.|[Organizar colunas exibidas em um rastreamento &#40;SQL Server Profiler&#41;](../../tools/sql-server-profiler/organize-columns-displayed-in-a-trace-sql-server-profiler.md)|  
 |Descreve como iniciar o [!INCLUDE[ssSqlProfiler](../../includes/sssqlprofiler-md.md)].|[Iniciar o SQL Server Profiler](../../tools/sql-server-profiler/start-sql-server-profiler.md)|  
 |Descreve como salvar rastreamentos e rastrear modelos.|[Salvar rastreamentos e modelos de rastreamento](../../tools/sql-server-profiler/save-traces-and-trace-templates.md)|  

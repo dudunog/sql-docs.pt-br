@@ -6,7 +6,7 @@ ms.date: 03/07/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - witness [SQL Server], establishing
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 4b5ecffd-f025-4ab7-b69d-8958c6477127
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 4cf7d77550f96c72867ecc8133df3cb4f64b7300
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 397a7b11c5188a94186f1618ced09cf2043bec5a
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85763927"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97643612"
 ---
 # <a name="add-or-replace-a-database-mirroring-witness-sql-server-management-studio"></a>Adicionar ou substituir uma testemunha de espelhamento de banco de dados (SQL Server Management Studio)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,15 +32,15 @@ ms.locfileid: "85763927"
   
 1.  Depois de se conectar à instância do servidor principal, no Pesquisador de Objetos, clique no nome do servidor para expandir a árvore do servidor.  
   
-2.  Expanda **Bancos de Dados**e selecione o banco de dados principal da sessão para a qual você está adicionando ou substituindo uma testemunha.  
+2.  Expanda **Bancos de Dados** e selecione o banco de dados principal da sessão para a qual você está adicionando ou substituindo uma testemunha.  
   
-3.  Clique com o botão direito do mouse no banco de dados, selecione **Tarefas**e clique em **Espelhar**. Isso abre a página **Espelhamento** da caixa de diálogo **Propriedades do Banco de Dados** .  
+3.  Clique com o botão direito do mouse no banco de dados, selecione **Tarefas** e clique em **Espelhar**. Isso abre a página **Espelhamento** da caixa de diálogo **Propriedades do Banco de Dados** .  
   
 4.  Clique em **Configurar Segurança**.  
   
 5.  Se a tela de boas-vindas do **Assistente para Configurar Segurança de Espelhamento de Banco de Dados** for exibida, clique em **Avançar**.  
   
-6.  Na caixa de diálogo **Incluir Servidor Testemunha** , clique em **Sim**e, em seguida, clique em **Avançar**.  
+6.  Na caixa de diálogo **Incluir Servidor Testemunha** , clique em **Sim** e, em seguida, clique em **Avançar**.  
   
 7.  Na caixa de diálogo **Selecionar Servidores a Serem Configurados** , a caixa de seleção **Instância do servidor testemunha** é marcada automaticamente. Clique em **Próximo**.  
   
@@ -56,7 +56,7 @@ ms.locfileid: "85763927"
   
     -   Se as instâncias de servidor usarem todas a mesma conta de serviço, deixe os campos em branco.  
   
-    -   Se a instância do servidor testemunha usar uma conta de serviço diferente de qualquer um dos parceiros, preencha os campos **Principal**, **Espelho**e **Testemunha** com o nome de conta:  
+    -   Se a instância do servidor testemunha usar uma conta de serviço diferente de qualquer um dos parceiros, preencha os campos **Principal**, **Espelho** e **Testemunha** com o nome de conta:  
   
          *DOMAINNAME* **\\** *username*  
   

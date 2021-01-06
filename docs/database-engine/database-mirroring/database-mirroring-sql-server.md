@@ -6,7 +6,7 @@ ms.date: 05/16/2016
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - partners [SQL Server]
@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: a7f95ddc-5154-4ed5-8117-c9fcf2221f13
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: c1b95d55a979738f787e4814a9f40f929c521868
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 906dc46e076ce49242ecb0aa416d13cbb770147e
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85754729"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644416"
 ---
 # <a name="database-mirroring-sql-server"></a>Espelhamento de banco de dados (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "85754729"
 > [!NOTE]  
 >  [!INCLUDE[ssNoteDepFutureAvoid](../../includes/ssnotedepfutureavoid-md.md)] Em vez disso, use [!INCLUDE[ssHADR](../../includes/sshadr-md.md)].  
   
- O*Espelhamento de banco de dados* é uma solução para aumentar a disponibilidade de um banco de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . O espelhamento é implementado por base de banco de dados e só funciona com bancos de dados que usam o modelo de recuperação completa.  
+ O *Espelhamento de banco de dados* é uma solução para aumentar a disponibilidade de um banco de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . O espelhamento é implementado por base de banco de dados e só funciona com bancos de dados que usam o modelo de recuperação completa.  
   
 > [!IMPORTANT]  
 >  Para obter informações sobre o suporte para espelhamento de banco de dados, restrições, pré-requisitos, recomendações sobre como configurar servidores de parceiro e recomendações sobre como implantar o espelhamento de banco de dados, veja [Pré-requisitos, restrições e recomendações para espelhamento de banco de dados](../../database-engine/database-mirroring/prerequisites-restrictions-and-recommendations-for-database-mirroring.md).  
@@ -117,7 +117,7 @@ ms.locfileid: "85754729"
   
   
 ##  <a name="overview-of-database-mirroring"></a><a name="HowWorks"></a> Visão geral do espelhamento de banco de dados  
- O espelhamento de banco de dados mantém duas cópias de um único banco de dados que devem estar localizadas em instâncias do servidor diferentes do [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)]. Geralmente, essas instâncias do servidor estão em localidades diferentes dos computadores. Iniciar o espelhamento de banco de dados em um banco de dados inicia uma relação, conhecida como uma *sessão de espelhamento de banco de dados*entre essas instâncias de servidor.  
+ O espelhamento de banco de dados mantém duas cópias de um único banco de dados que devem estar localizadas em instâncias do servidor diferentes do [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)]. Geralmente, essas instâncias do servidor estão em localidades diferentes dos computadores. Iniciar o espelhamento de banco de dados em um banco de dados inicia uma relação, conhecida como uma *sessão de espelhamento de banco de dados* entre essas instâncias de servidor.  
   
  Uma instância do servidor atua como banco de dados para clientes ( *servidor principal*). A outra instância funciona como servidor em espera ativa ou passiva ( *servidor espelho*), dependendo da configuração e do estado da sessão de espelhamento. Quando uma sessão de espelhamento de banco de dados é sincronizada, o espelhamento de banco de dados fornece um servidor em espera ativa que oferece suporte rápido a failover , sem que haja perda de dados de transações confirmadas. Quando a sessão não é sincronizada, o servidor espelho fica, normalmente, disponível como servidor em espera passiva (com possível perda de dados).  
   
@@ -212,7 +212,7 @@ ms.locfileid: "85754729"
 |`SSInstance_2`|Partner (parceiro)|Witness (testemunha)|Partner (parceiro)|Partner (parceiro)|  
 |`SSInstance_3`|Partner (parceiro)|Partner (parceiro)|Witness (testemunha)|Witness (testemunha)|  
   
- A figura a seguir ilustra duas instâncias de servidor que estão participando como parceiros de duas sessões de espelhamento. Uma sessão destina-se a um banco de dados chamado **Db_1**e a outra, a um banco de dados chamado **Db_2**.  
+ A figura a seguir ilustra duas instâncias de servidor que estão participando como parceiros de duas sessões de espelhamento. Uma sessão destina-se a um banco de dados chamado **Db_1** e a outra, a um banco de dados chamado **Db_2**.  
   
  ![Duas instâncias de servidor em duas sessões simultâneas](../../database-engine/database-mirroring/media/dbm-concurrent-sessions.gif "Duas instâncias de servidor em duas sessões simultâneas")  
   

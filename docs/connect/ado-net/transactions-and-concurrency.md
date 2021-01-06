@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: a30a3d3184c411fc0b54c0e26330a8fb138ffdae
-ms.sourcegitcommit: 2add15a99df7b85d271adb261523689984dfd134
+ms.openlocfilehash: 2a00ef1ec1f2f5d8ee892289021f42cb139b5a12
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051238"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771280"
 ---
 # <a name="transactions-and-concurrency"></a>Transações e simultaneidade
 
@@ -35,16 +35,16 @@ As transações que envolvem diferentes gerenciadores de recursos, como uma tran
 
 ## <a name="in-this-section"></a>Nesta seção
 
- [Transações locais](local-transactions.md)  
- Demonstra como executar transações em um banco de dados.  
+[Transações locais](local-transactions.md)  
+Demonstra como executar transações em um banco de dados.  
   
- [Transações distribuídas](distributed-transactions.md)  
- Descreve como executar transações distribuídas no ADO.NET.  
+[Transações distribuídas](distributed-transactions.md)  
+Descreve como executar transações distribuídas no ADO.NET.  
   
- [Integração de System.Transactions com SQL Server](system-transactions-integration-with-sql-server.md)  
- Descreve a integração do <xref:System.Transactions> com o SQL Server para trabalhar com transações distribuídas.  
+[Integração de System.Transactions com SQL Server](system-transactions-integration-with-sql-server.md)  
+Descreve a integração do <xref:System.Transactions> com o SQL Server para trabalhar com transações distribuídas.  
   
- [Simultaneidade otimista](optimistic-concurrency.md) Descreve a simultaneidade otimista e pessimista e como você pode testar violações de simultaneidade.  
+[Simultaneidade otimista](optimistic-concurrency.md) Descreve a simultaneidade otimista e pessimista e como você pode testar violações de simultaneidade.  
 
 ## <a name="see-also"></a>Confira também
 
@@ -52,4 +52,5 @@ As transações que envolvem diferentes gerenciadores de recursos, como uma tran
 - [Como se conectar à fonte de dados](connecting-to-data-source.md)
 - [Comandos e parâmetros](commands-parameters.md)
 - [DataAdapters e DataReaders](dataadapters-datareaders.md)
+- [DbProviderFactories](dbproviderfactories.md)
 - [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

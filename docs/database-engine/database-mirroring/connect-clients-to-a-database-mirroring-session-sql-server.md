@@ -6,7 +6,7 @@ ms.date: 03/14/2017
 ms.prod: sql
 ms.prod_service: high-availability
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: database-mirroring
 ms.topic: conceptual
 helpviewer_keywords:
 - partners [SQL Server], connecting clients to
@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: 0d5d2742-2614-43de-9ab9-864addb6299b
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 8da63d8ff15d03b55586a72a578d6074fa2a5473
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 680273a6bab1283be56d130c84b4c156d8fcd280
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85789766"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644322"
 ---
 # <a name="connect-clients-to-a-database-mirroring-session-sql-server"></a>Conectar clientes a uma sessão de espelhamento de banco de dados (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -175,7 +175,7 @@ Server=123.34.45.56,4724;
   
  Por exemplo, se usar o período de intervalo de logon padrão de 15 segundos, *LoginTimeout* *= 15*. Nesse caso, os tempos de nova tentativa alocados nos primeiros três turnos são os seguintes:  
   
-|Round|Cálculo de*RetryTime*|Tempo de nova tentativa por tentativa|  
+|Round|Cálculo de *RetryTime*|Tempo de nova tentativa por tentativa|  
 |-----------|-----------------------------|----------------------------|  
 |1|0 **+(** 0,08 **&#42;** 15 **)**|1,2 segundos|  
 |2|1,2 **+(** 0,08 **&#42;** 15 **)**|2,4 segundos|  
