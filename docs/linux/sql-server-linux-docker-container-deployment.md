@@ -4,7 +4,7 @@ description: Explore como o SQL Server pode ser implantado em contêineres do Do
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: vanto
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 09/07/2020
 ms.topic: conceptual
 ms.prod: sql
@@ -12,12 +12,12 @@ ms.technology: linux
 ms.assetid: 82737f18-f5d6-4dce-a255-688889fdde69
 moniker: '>= sql-server-linux-2017 || >= sql-server-2017 '
 zone_pivot_groups: cs1-command-shell
-ms.openlocfilehash: 6fbf5782ff67b3406cffad808b27c47112a48d97
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: e4524dccd4241a2400e8bf1be76bbc326149a8c6
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489856"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878773"
 ---
 # <a name="deploy-and-connect-to-sql-server-docker-containers"></a>Implantar contêineres do SQL Server no Docker e conectar-se a eles
 
@@ -433,7 +433,7 @@ Isso atualiza a imagem do SQL Server para os novos contêineres que você criar,
 <!--SQL Server 2019 on Linux-->
 ::: moniker range=">= sql-server-linux-ver15 || >= sql-server-ver15 "
 
-- Comece a usar as imagens de contêiner do SQL Server 2019 no Docker acompanhando o [guia de início rápido](quickstart-install-connect-docker.md?view=sql-server-ver15)
+- Comece a usar as imagens de contêiner do SQL Server 2019 no Docker acompanhando o [guia de início rápido](quickstart-install-connect-docker.md)
 
 ::: moniker-end
 

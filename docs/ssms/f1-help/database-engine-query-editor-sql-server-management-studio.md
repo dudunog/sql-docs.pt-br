@@ -41,14 +41,14 @@ ms.assetid: 05cfae9b-96d5-4a35-a098-0bc3a548bcfc
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-ms.custom: seo-lt-2019, contperfq1
+ms.custom: seo-lt-2019, contperf-fy21q1
 ms.date: 08/28/2020
-ms.openlocfilehash: 7450a77549d05dab5a024b39be6d2b4aef6c09de
-ms.sourcegitcommit: b3a711a673baebb2ff10d7142b209982b46973ae
+ms.openlocfilehash: 87fd12a17b86a47e6fec1b235ae9e9a21fde6e45
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364824"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878942"
 ---
 # <a name="sql-server-management-studio-ssms-query-editor"></a>Editor de Consulta do SSMS (SQL Server Management Studio)
 
@@ -158,7 +158,7 @@ Você também pode retornar os resultados para texto selecionando Ctrl+D ou no [
 
 ### <a name="results-to-file-using-the-editor-toolbar"></a>Resultados em Arquivo usando a barra de ferramentas do editor
 
-Quando a consulta é executada, a caixa de diálogo **Salvar Resultados** é exibida. Em **Salvar em** , selecione a pasta na qual você deseja salvar o arquivo. Em **Nome do arquivo** , digite o nome do arquivo e selecione **Salvar** para salvar os resultados da consulta como um arquivo de **Relatório** com a extensão .rpt. Para opções avançadas, selecione a seta para baixo no botão **Salvar** e selecione **Salvar com Codificação**.
+Quando a consulta é executada, a caixa de diálogo **Salvar Resultados** é exibida. Em **Salvar em**, selecione a pasta na qual você deseja salvar o arquivo. Em **Nome do arquivo**, digite o nome do arquivo e selecione **Salvar** para salvar os resultados da consulta como um arquivo de **Relatório** com a extensão .rpt. Para opções avançadas, selecione a seta para baixo no botão **Salvar** e selecione **Salvar com Codificação**.
 
 Você também pode retornar os resultados para texto selecionando Ctrl+Shift+F ou no [menu de contexto](#results-using-the-context-menu).
 
@@ -188,7 +188,7 @@ Abre uma caixa de diálogo que você pode usar para especificar valores para par
 
 ## <a name="context-menu"></a>Menu de contexto
 
-Você pode acessar o menu de contexto *clicando com o botão direito do mouse* em qualquer lugar no editor de consultas. As opções no menu de contexto são semelhantes à Barra de Ferramentas do Editor SQL. Com o menu de contexto, você vê as mesmas opções que **Conectar** e **Executar** , mas também tem outras opções listadas como **Inserir Snippet** e **Envolver Com**.
+Você pode acessar o menu de contexto *clicando com o botão direito do mouse* em qualquer lugar no editor de consultas. As opções no menu de contexto são semelhantes à Barra de Ferramentas do Editor SQL. Com o menu de contexto, você vê as mesmas opções que **Conectar** e **Executar**, mas também tem outras opções listadas como **Inserir Snippet** e **Envolver Com**.
 
 ![Opções](media/database-engine-query-editor-sql-server-management-studio/context-menu.png)
 
@@ -264,7 +264,7 @@ Você pode selecionar qualquer uma das opções desejadas de *Resultado* no menu
 
 - **Resultados em Grade** – Retorna os resultados da consulta como uma ou mais grades na janela **Resultados**.
 
-- **Resultados em Arquivo** – Quando a consulta é executada, a caixa de diálogo **Salvar Resultados** é exibida. Em **Salvar em** , selecione a pasta na qual você deseja salvar o arquivo. Em **Nome do arquivo** , digite o nome do arquivo e selecione **Salvar** para salvar os resultados da consulta como um arquivo de **Relatório** com a extensão .rpt. Para opções avançadas, selecione a seta para baixo no botão **Salvar** e selecione **Salvar com Codificação**.
+- **Resultados em Arquivo** – Quando a consulta é executada, a caixa de diálogo **Salvar Resultados** é exibida. Em **Salvar em**, selecione a pasta na qual você deseja salvar o arquivo. Em **Nome do arquivo**, digite o nome do arquivo e selecione **Salvar** para salvar os resultados da consulta como um arquivo de **Relatório** com a extensão .rpt. Para opções avançadas, selecione a seta para baixo no botão **Salvar** e selecione **Salvar com Codificação**.
 
 ### <a name="properties-window-using-the-context-menu"></a>Janela Propriedades usando o menu de contexto
 

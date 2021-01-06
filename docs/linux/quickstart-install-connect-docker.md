@@ -1,7 +1,7 @@
 ---
 title: 'Docker: Instalar contêineres para o SQL Server em Linux'
 description: Este guia de início rápido mostra como usar o Docker para executar as imagens de contêiner do SQL Server 2017 e 2019. Em seguida, ele mostra como criar e consultar um banco de dados com sqlcmd.
-ms.custom: seo-lt-2019, contperfq1
+ms.custom: seo-lt-2019, contperf-fy21q1
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: vanto
@@ -13,12 +13,12 @@ ms.prod_service: linux
 ms.assetid: 82737f18-f5d6-4dce-a255-688889fdde69
 monikerRange: '>= sql-server-linux-2017 || >= sql-server-2017'
 zone_pivot_groups: cs1-command-shell
-ms.openlocfilehash: 94ca368b7eaf9b9ad37107c01eb84e239d5fb3c0
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 615e3d2ec9c64be70535c9a45a9f31e94d34b139
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97490026"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878756"
 ---
 # <a name="quickstart-run-sql-server-container-images-with-docker"></a>Início Rápido: Executar imagens de contêiner do SQL Server com o Docker
 [!INCLUDE [SQL Server - Linux](../includes/applies-to-version/sql-linux.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "97490026"
 Neste guia de início rápido, você usará o Docker para efetuar pull e executar a imagem de contêiner do SQL Server 2017, ou seja, a [mssql-server-linux](https://hub.docker.com/_/microsoft-mssql-server). Em seguida, você se conectará à ferramenta **sqlcmd** para criar seu primeiro banco de dados e executar consultas.
 
 > [!TIP]
-> Se quiser executar contêineres do SQL Server 2019, confira a [versão do SQL Server 2019 deste artigo](quickstart-install-connect-docker.md?view=sql-server-linux-ver15).
+> Se quiser executar contêineres do SQL Server 2019, confira a [versão do SQL Server 2019 deste artigo](quickstart-install-connect-docker.md?view=sql-server-linux-ver15&preserve-view=true).
 
 ::: moniker-end
 <!--SQL Server 2019 on Linux-->
@@ -87,7 +87,7 @@ Antes de iniciar as etapas a seguir, verifique se você selecionou o shell de su
    ::: zone-end
 
    > [!TIP]
-   > Se quiser executar contêineres do SQL Server 2019, confira a [versão do SQL Server 2019 deste artigo](quickstart-install-connect-docker.md?view=sql-server-linux-ver15#pullandrun2019).
+   > Se quiser executar contêineres do SQL Server 2019, confira a [versão do SQL Server 2019 deste artigo](quickstart-install-connect-docker.md?view=sql-server-linux-ver15&preserve-view=true#pullandrun2019).
 
    O comando anterior efetua pull da imagem de contêiner mais recente do SQL Server 2017. Se você quiser efetuar pull de uma imagem específica, adicione dois-pontos e o nome da marca (por exemplo, `mcr.microsoft.com/mssql/server:2017-GA-ubuntu`). Para ver todas as imagens disponíveis, confira [a página do Docker Hub do mssql-server](https://hub.docker.com/r/microsoft/mssql-server).
 

@@ -4,19 +4,19 @@ description: Explore as diferentes técnicas de solução de problemas que você
 author: vin-yu
 ms.author: vinsonyu
 ms.reviewer: vanto
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 09/07/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
 moniker: '>= sql-server-linux-2017 || >= sql-server-2017'
 zone_pivot_groups: cs1-command-shell
-ms.openlocfilehash: 051dbe0d44cbd798653632df114beb6727f1c9af
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: d94ae00cb8f3581be51f53d999068e60c4d5b7f1
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489816"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878765"
 ---
 # <a name="troubleshooting-sql-server-docker-containers"></a>Solução de problemas de contêineres do SQL Server no Docker
 
@@ -252,7 +252,7 @@ Agora, você pode executar comandos como se estivesse executando-os no terminal 
 <!--SQL Server 2019 on Linux-->
 ::: moniker range=">= sql-server-linux-ver15 || >= sql-server-ver15 "
 
-- Comece a usar as imagens de contêiner do SQL Server 2019 no Docker acompanhando o [guia de início rápido](quickstart-install-connect-docker.md?view=sql-server-ver15).
+- Comece a usar as imagens de contêiner do SQL Server 2019 no Docker acompanhando o [guia de início rápido](quickstart-install-connect-docker.md).
 
 ::: moniker-end
 
