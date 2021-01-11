@@ -2,27 +2,35 @@
 title: 'Início Rápido: Backup e restauração do serviço de armazenamento de Blobs do Azure'
 description: 'Início Rápido: saiba como gravar backups e fazer restaurações no Serviço de Armazenamento de Blobs do Azure. Crie um contêiner de Blob do Azure, grave um backup e, então, restaure.'
 ms.custom: seo-dt-2019
-ms.date: 04/09/2018
+ms.date: 12/21/2020
 ms.prod: sql
-ms.prod_service: database-engine
+ms.technology: backup-restore
+ms.prod_service: backup-restore
 ms.reviewer: ''
-ms.technology: performance
 ms.topic: quickstart
-ms.assetid: 9e1d94ce-2c93-45d1-ae2a-2a7d1fa094c4
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.openlocfilehash: faf3ccecd17ece2b66371d81a68589f184fe48a0
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: d27f53f80c8f987106f90816a4566339d777e6f6
+ms.sourcegitcommit: bb54e4c9dd8c97365b7a96dfcd557b8b86d06978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96506402"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97736894"
 ---
 # <a name="quickstart-sql-backup-and-restore-to-azure-blob-storage-service"></a>Início Rápido: Backup e restauração do SQL no serviço de armazenamento de Blob do Azure
-[!INCLUDE[tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md.md](../includes/tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md.md)]
+
+[!INCLUDE [sqlserver2016-asdbmi](../includes/applies-to-version/sqlserver2016-asdbmi.md)]
+
 Este início rápido ajuda você a compreender como gravar backups e fazer restaurações no Serviço de Armazenamento de Blobs do Azure.  O artigo explica como criar um Contêiner de Blob do Azure, gravar um backup no serviço blob e, em seguida, executar uma restauração.
+
+> [!NOTE]
+> O SQL Server 2012 SP1 CU2 introduziu o suporte para backup no Armazenamento de Blobs do Azure. O SQL Server 2014 e anterior não dá suporte à SAS (Assinatura de Acesso Compartilhado) descrita neste artigo de início rápido.
+>
+> Para o SQL Server 2014 e anterior, use o [Tutorial: Backup e restauração do SQL Server 2014 no Armazenamento de Blobs do Microsoft Azure](/previous-versions/sql/2014/relational-databases/backup-restore/sql-server-backup-to-url).
+>
   
-## <a name="prerequisites"></a>Pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este início rápido, você deve estar familiarizado com os conceitos de backup e restauração do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] e a sintaxe do T-SQL.  Você precisará ter uma conta de armazenamento do Azure, o SSMS (SQL Server Management Studio) e o acesso a um servidor que execute o SQL Server ou a Instância Gerenciada de SQL do Azure. Além disso, a conta de usuário usada para emitir os comandos BACKUP e RESTORE deve estar na função de banco de dados **db_backupoperator** com as permissões **Alterar qualquer credencial**. 
 
 - Obtenha uma [conta do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) gratuita.
@@ -214,12 +222,12 @@ Nesta etapa, restaure o banco de dados usando a GUI no SQL Server Management Stu
 
    ![Selecionar o arquivo de restauração](media/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service/select-restore-file.png)
 
-1. Clique em **OK** para fechar a caixa de diálogo **Selecionar dispositivos de backup**. 
-1. Selecione **OK** para restaurar o banco de dados. 
+1. Clique em **OK** para fechar a caixa de diálogo **Selecionar dispositivos de backup**.
+1. Selecione **OK** para restaurar o banco de dados.
 
 # <a name="transact-sql"></a>[Transact-SQL](#tab/tsql)
 
-Para restaurar seu banco de dados local do armazenamento de Blob do Azure, modifique o comando Transact-SQL a seguir para usar sua própria conta de armazenamento e, em seguida, execute-o em uma nova janela de consulta. 
+Para restaurar seu banco de dados local do armazenamento de Blob do Azure, modifique o comando Transact-SQL a seguir para usar sua própria conta de armazenamento e, em seguida, execute-o em uma nova janela de consulta.
 
 ```sql
 USE [master]

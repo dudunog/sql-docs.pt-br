@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: c3cf3766ffc6c8acf6025b58aa0adbaafafa2188
-ms.sourcegitcommit: 2add15a99df7b85d271adb261523689984dfd134
+ms.openlocfilehash: 4275b7de0f31d03aa36ef31d8801fcdc0e9ec853
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97038954"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771527"
 ---
 # <a name="retrieving-and-modifying-data-in-adonet"></a>Recuperar e modificar dados no ADO.NET
 
@@ -42,9 +42,35 @@ Contém os tópicos que descrevem como criar comandos e construtores de comandos
 [DataAdapters e DataReaders](dataadapters-datareaders.md)  
 Contém os tópicos que descrevem DataReaders, DataAdapters, parâmetros, manipulação de eventos DataAdapter e execução de operações em lote.
 
-[Transações e simultaneidade](transactions-and-concurrency.md) Contém tópicos que descrevem como executar transações locais, transações distribuídas e trabalhar com a simultaneidade otimista.
+[Transações e simultaneidade](transactions-and-concurrency.md)  
+Contém os tópicos que descrevem como executar transações locais, transações distribuídas e trabalho com concorrência otimista.
 
-[Como recuperar informações de esquema de banco de dados](retrieving-database-schema-information.md) descreve como obter os bancos de dados ou os catálogos, as tabelas e as exibições disponíveis em um banco de dados, restrições existentes para tabelas e outras informações de esquema de uma fonte de dados.
+[Recuperar informações de esquema de banco de dados](retrieving-database-schema-information.md)  
+Descreve como obter bancos de dados ou catálogos disponíveis, tabelas e modos de exibição em um banco de dados, restrições existentes para tabelas e outras informações de esquema de uma fonte de dados.
+
+[DbProviderFactories](dbproviderfactories.md)  
+Descreve o modelo de fábrica do provedor e demonstra como usar as classes base no namespace `System.Data.Common`.  
+
+[Recuperar valores de identidade ou numeração automática](retrieve-identity-or-autonumber-values.md)  
+Fornece um exemplo de mapeamento dos valores gerados para uma coluna de **identidade** em uma tabela do SQL Server para uma coluna de uma linha inserida em uma tabela. Discute como mesclar valores de identidade em `DataTable`.  
+  
+[Recuperar dados binários](retrieve-binary-data.md)  
+Descreve como recuperar dados binários ou grandes estruturas de dados usando o `CommandBehavior`.`SequentialAccess` para modificar o comportamento padrão de um `DataReader`.  
+  
+[Modificar dados com procedimentos armazenados](modify-data-with-stored-procedures.md)  
+Descreve como usar parâmetros de entrada e de saída de procedimentos armazenados para inserir uma linha em um banco de dados, retornando um novo valor de identidade.  
+
+[Rastreamento de dados no SqlClient](data-tracing.md)  
+Descreve como o Provedor de Dados do Microsoft SqlClient para o SQL Server fornece a funcionalidade interna de rastreamento de dados.  
+  
+[Contadores de desempenho do SqlClient](performance-counters.md)  
+Descreve os contadores de desempenho disponíveis para o Provedor de Dados do Microsoft SqlClient para o SQL Server.  
+  
+[Programação assíncrona](asynchronous-programming.md)  
+Descreve o suporte à programação assíncrona do Provedor de Dados do Microsoft SqlClient do SQL Server.  
+  
+[Suporte a streaming no SqlClient](sqlclient-streaming-support.md)  
+Explica como criar aplicativos que transmitem dados do SQL Server sem precisar carregá-los completamente na memória.  
 
 ## <a name="see-also"></a>Confira também
 

@@ -5,7 +5,7 @@ ms.custom: seodec18
 ms.date: 05/17/2016
 ms.prod: sql
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: availability-groups
 ms.topic: how-to
 helpviewer_keywords:
 - Transparent Data Encryption, AlwaysOn Availability Groups
@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 09eb6ebc-3051-4fff-86a5-93524507b1fc
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 2569f44e4642df714c8108b6540b81d013d30b82
-ms.sourcegitcommit: 54cd97a33f417432aa26b948b3fc4b71a5e9162b
+ms.openlocfilehash: 8001dbf4a5799d275bced4f565ee00a7a70d6c61
+ms.sourcegitcommit: 44eebb659f9b226c08aea6c31a909b22ad4fec60
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94584288"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860591"
 ---
 # <a name="add-an-encrypted-database-to-an-always-on-availability-group"></a>Adicionar um banco de dados criptografado em um grupo de disponibilidade Always On
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -33,15 +33,13 @@ ms.locfileid: "94584288"
   
      Para tornar um banco de dados descriptografado elegível para adição a um grupo de disponibilidade usando o assistente:  
   
-    1.  Crie um backup de log do banco de dados primário.  
+    1.  Crie um backup completo do banco de dados primário. 
   
-    2.  Crie um backup completo do banco de dados primário.  
+    2.  Crie um backup de log do banco de dados primário.  
   
     3.  Restaure o backup do banco de dados na instância de servidor que hospeda a réplica secundária.  
-  
-    4.  Crie um novo backup de log a partir do banco de dados primário.  
-  
-    5.  Restaure esse backup de log no banco de dados secundário.  
+    
+    4.  Restaure o backup de log no banco de dados secundário.  
   
 ##  <a name="related-tasks"></a><a name="RelatedTasks"></a> Tarefas relacionadas  
   

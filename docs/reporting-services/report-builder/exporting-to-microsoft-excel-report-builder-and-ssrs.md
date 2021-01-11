@@ -1,7 +1,7 @@
 ---
 title: Como exportar para o Microsoft Excel (Construtor de Relatórios) | Microsoft Docs
 description: No Construtor de Relatórios, a extensão de renderização do Excel renderiza um relatório paginado no formato Office Open XML para uso com o Microsoft Excel.
-ms.date: 01/09/2017
+ms.date: 12/23/2020
 ms.prod: reporting-services
 ms.prod_service: reporting-services-native
 ms.technology: report-builder
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 74f726fc-2167-47af-9093-1644e03ef01f
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 865caa0938aa89feacbb5e330eb38f292039446c
-ms.sourcegitcommit: ff82f3260ff79ed860a7a58f54ff7f0594851e6b
+ms.openlocfilehash: 4e8b43d3e9e772b06961602bf2d8bd69aa51216e
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80342898"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878849"
 ---
 # <a name="exporting-to-microsoft-excel-report-builder-and-ssrs"></a>Exporting to Microsoft Excel (Report Builder and SSRS)
   A extensão da renderização do Excel [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] gera um relatório paginado do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] para o formato [!INCLUDE[ofprexcel](../../includes/ofprexcel-md.md)] (.xslx). Com a extensão de renderização do Excel, a largura de colunas em Excel reflete com maior precisão a largura de colunas em relatórios.  
@@ -47,7 +47,7 @@ ms.locfileid: "80342898"
   
 -   Se o item de relatório que controla se outro item está alternado não estiver na linha ou coluna anterior ou posterior do item que está sendo alternado, a estrutura de tópicos também será desabilitada.  
   
- Para obter mais detalhes sobre as limitações do Excel, consulte [Especificações e limites do Excel](https://support.office.com/article/Excel-specifications-and-limits-CA36E2DC-1F09-4620-B726-67C00B05040F).  
+ Para obter mais detalhes sobre as limitações do Excel, consulte [Especificações e limites do Excel](https://support.microsoft.com/en-us/office/excel-specifications-and-limits-1672b34d-7043-467e-8e27-269d656771c3).  
   
 ### <a name="sizes-of-excel-2003-xls-files"></a>Tamanhos de arquivos do Excel 2003 (.xls)  
   
@@ -194,11 +194,11 @@ ms.locfileid: "80342898"
  Se nenhuma correspondência for encontrada, o Excel usará o tamanho de página padrão para a impressora. Se a altura do papel for maior que a largura, a orientação será definida como Retrato; caso contrário, será Paisagem.  
   
 ##  <a name="worksheet-tab-names"></a><a name="WorksheetTabNames"></a> Nomes de guia de planilha  
- Quando você exporta um relatório para o Excel, as páginas do relatório criadas por quebras de página são exportadas para planilhas diferentes. Se você forneceu um nome de página inicial para o relatório, cada planilha da pasta de trabalho do Excel terá seu nome por padrão. O nome aparece na guia da planilha. No entanto, como cada planilha em uma pasta de trabalho deve ter um nome exclusivo, um número inteiro iniciado em 1 e incrementado em 1 é anexado ao nome de página inicial para cada planilha adicional. Por exemplo, se o nome da página inicial é **Relatório de Vendas por Ano Fiscal**, a segunda planilha será denominada **Relatório de Vendas por Ano Fiscal1**, a terceira **Relatório de Vendas por Ano Fiscal2**e assim por diante.  
+ Quando você exporta um relatório para o Excel, as páginas do relatório criadas por quebras de página são exportadas para planilhas diferentes. Se você forneceu um nome de página inicial para o relatório, cada planilha da pasta de trabalho do Excel terá seu nome por padrão. O nome aparece na guia da planilha. No entanto, como cada planilha em uma pasta de trabalho deve ter um nome exclusivo, um número inteiro iniciado em 1 e incrementado em 1 é anexado ao nome de página inicial para cada planilha adicional. Por exemplo, se o nome da página inicial é **Relatório de Vendas por Ano Fiscal**, a segunda planilha será denominada **Relatório de Vendas por Ano Fiscal1**, a terceira **Relatório de Vendas por Ano Fiscal2** e assim por diante.  
   
- Se todas as páginas de relatório criadas por quebras de páginas fornecerem novos nomes de página, cada planilha terá o nome de página associado. No entanto, esses nomes de páginas talvez não sejam exclusivos. Se os nomes de páginas não forem exclusivos, as planilhas serão nomeadas da mesma maneira que as páginas iniciais. Por exemplo, se o nome de página de dois grupos for **Vendas para NW**, uma guia de planilha terá o nome **Vendas para NW**e a outra **Vendas para NW1**.  
+ Se todas as páginas de relatório criadas por quebras de páginas fornecerem novos nomes de página, cada planilha terá o nome de página associado. No entanto, esses nomes de páginas talvez não sejam exclusivos. Se os nomes de páginas não forem exclusivos, as planilhas serão nomeadas da mesma maneira que as páginas iniciais. Por exemplo, se o nome de página de dois grupos for **Vendas para NW**, uma guia de planilha terá o nome **Vendas para NW** e a outra **Vendas para NW1**.  
   
- Se o relatório não fornecer um nome de página inicial, nem nomes de páginas relacionados às quebras de página, as guias de planilha terão os nomes padrão **Planilha1**, **Planilha2**e assim por diante.  
+ Se o relatório não fornecer um nome de página inicial, nem nomes de páginas relacionados às quebras de página, as guias de planilha terão os nomes padrão **Planilha1**, **Planilha2** e assim por diante.  
   
  O Reporting Services fornece propriedades a serem definidas em relatórios, regiões de dados, grupos e retângulos para ajudá-lo a criar relatórios que possam ser exportados para o Excel da maneira desejada. Para obter mais informações, consulte [Paginação no Reporting Services &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/pagination-in-reporting-services-report-builder-and-ssrs.md).  
   
@@ -249,7 +249,7 @@ ms.locfileid: "80342898"
   
  O esboço de mapa de documento é renderizado como um esboço de Excel recolhível. A estrutura do esboço corresponde à estrutura aninhada do mapa de documento. O estado de expansão ou de recolhimento do esboço se inicia ao segundo nível.  
   
- O nó raiz do mapa é o nome de relatório, o \<*reportname*>.rdl e não é interativo. A fonte dos links do mapa do documento é Arial, 10pt.  
+ O nó raiz do mapa é o nome de relatório, o \<*reportname*>.rdl, e não é interativo. A fonte dos links do mapa do documento é Arial, 10pt.  
   
 ### <a name="drillthrough-links"></a>Links de detalhamento  
  Os links de detalhamento que aparecem nas caixas de texto são renderizados como hiperlinks Excel na célula em que o texto é renderizado. Os links de detalhamento para imagens e gráficos são renderizados como hiperlinks do Excel na imagem quando renderizada. Quando clicado, o link de detalhamento abre o navegador padrão do cliente e navega para a exibição do HTML de destino.  

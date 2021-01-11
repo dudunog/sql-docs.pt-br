@@ -2,7 +2,7 @@
 title: Resource Governor | Microsoft Docs
 description: Saiba mais sobre o recurso Resource Governor do SQL Server, que limita a quantidade de CPU, a E/S física e a memória que as solicitações recebidas de aplicativos podem usar.
 ms.custom: ''
-ms.date: 03/14/2017
+ms.date: 12/21/2020
 ms.prod: sql
 ms.reviewer: ''
 ms.technology: performance
@@ -13,17 +13,20 @@ helpviewer_keywords:
 ms.assetid: 2bc89b66-e801-45ba-b30d-8ed197052212
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 29d63602d4e3553ee2e5f1cb9053e445265fd301
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 6b5f22541039f781e49615b5e8916d138a5c375b
+ms.sourcegitcommit: bb54e4c9dd8c97365b7a96dfcd557b8b86d06978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96506531"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97736884"
 ---
 # <a name="resource-governor"></a>Administrador de Recursos
-[!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
+[!INCLUDE [SQL Server SQL MI](../../includes/appliesto-ss-xxxx-xxxx-xxx-md.md)]
   O Resource Governor do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] é um recurso que você pode usar para gerenciar a carga de trabalho e o consumo de recursos do sistema do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. O Resource Governor permite que você especifique os limites na quantidade de CPU, E/S física e memória que solicitações recebidas de aplicativos podem usar.  
   
+> [!NOTE]
+> Embora o [Banco de Dados SQL do Azure utilize o Resource Governor](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/) (entre outras técnicas) para gerenciar recursos, não há suporte para a configuração do usuário de pools de recursos personalizados e grupos de carga de trabalho no Banco de Dados SQL do Azure. O Azure Synapse Analytics tem uma implementação diferente de comportamento semelhante à do Resource Governor por meio do [recurso Classificação de Carga de Trabalho](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-classification).
+
 ## <a name="benefits-of-resource-governor"></a>Benefícios do Administrador de Recursos  
  O Administrador de Recursos permite gerenciar cargas de trabalho e recursos do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] especificando limites de consumo de recursos por solicitações de entrada. No contexto do Administrador de Recursos, carga de trabalho é um conjunto de consultas ou solicitações de tamanho similar que podem e devem, ser tratadas como uma única entidade. Não se trata de um requisito, mas quanto mais uniforme for o padrão de uso dos recursos de uma carga de trabalho, maior a probabilidade de obter benefícios derivados do Administrador de Recursos. Limites de recurso podem ser reconfigurados em tempo real, com impacto mínimo sobre as cargas de trabalho que se encontram em execução.  
   
@@ -61,8 +64,8 @@ ms.locfileid: "96506531"
   
 -   **Classificação.** O processo de Classificação atribui sessões de entrada a um grupo de cargas de trabalho baseado nas características da sessão. Você pode personalizar a lógica de classificação gravando uma função definida pelo usuário, chamado de função de classificador. O Administrador de Recursos também oferece suporte à função de classificação definida pelo usuário para implementar as regras de classificação. Para obter mais informações, consulte [Função de classificação do Administrador de Recursos](../../relational-databases/resource-governor/resource-governor-classifier-function.md).  
   
-> [!NOTE]  
->  O Administrador de Recursos não impõe nenhum controle em uma conexão de administrador dedicada (DAC). Não é necessário classificar as consultas de DAC que executam no grupo de carga de trabalho interno e no pool de recursos.  
+> [!NOTE]
+> O Administrador de Recursos não impõe nenhum controle em uma conexão de administrador dedicada (DAC). Não é necessário classificar as consultas de DAC que executam no grupo de carga de trabalho interno e no pool de recursos.  
   
  No contexto do Administrador de Recursos, é possível tratar os conceitos anteriores como componentes. A ilustração a seguir mostra esses componentes e suas relações conforme surgem no ambiente do mecanismo de banco de dados. Do ponto de vista do processamento, o fluxo simplificado é o seguinte:  
   

@@ -2,7 +2,7 @@
 title: Melhores práticas com o Repositório de Consultas | Microsoft Docs
 description: Conheça as melhores práticas para usar o Repositório de Consultas do SQL Server com sua carga de trabalho, como usar o SQL Server Management Studio e a Análise de Desempenho de Consultas mais recentes.
 ms.custom: ''
-ms.date: 09/02/2020
+ms.date: 12/23/2020
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.technology: performance
@@ -13,12 +13,12 @@ ms.assetid: 5b13b5ac-1e4c-45e7-bda7-ebebe2784551
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: d71da2a6d0bcc0cb43529331116acdbb4a6d8136
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a973fd5ec66f101c162e35baec0269f7b6d3d601
+ms.sourcegitcommit: d8a9ad86401bff422d506078c6200494c795e7c0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97418427"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97765205"
 ---
 # <a name="best-practices-with-query-store"></a>Melhores prática com o Repositório de Consultas
 
@@ -124,7 +124,7 @@ ALTER DATABASE [QueryStoreDB]
 SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 90));
 ```
 
-**Modo de limpeza com base em tamanho**: especifica se ocorre uma limpeza automática dos dados quando o tamanho dos dados do Repositório de Consultas se aproxima do limite. Ative a limpeza com base no tamanho para que o repositório de consultas seja sempre executado no modo de leitura-gravação e colete sempre os dados mais recentes.
+**Modo de limpeza com base em tamanho**: especifica se ocorre uma limpeza automática dos dados quando o tamanho dos dados do Repositório de Consultas se aproxima do limite. Ative a limpeza com base no tamanho para que o repositório de consultas seja sempre executado no modo de leitura-gravação e colete sempre os dados mais recentes.  Observe que não há nenhuma garantia sob cargas de trabalho pesadas de que a limpeza do Repositório de Consultas manterá de maneira consistente o tamanho dos dados abaixo do limite. É possível que a limpeza de dados automática fique para trás e alterne (temporariamente) para o modo somente leitura.
 
 ```sql
 ALTER DATABASE [QueryStoreDB]

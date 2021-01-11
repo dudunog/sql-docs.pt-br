@@ -1,6 +1,6 @@
 ---
 title: Habilitar conexões criptografadas | Microsoft Docs
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.date: 08/29/2019
 ms.prod: sql
 ms.prod_service: security
@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: e1e55519-97ec-4404-81ef-881da3b42006
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: d147177be88db5bba50955711a8585ff11d872d9
-ms.sourcegitcommit: 2f868a77903c1f1c4cecf4ea1c181deee12d5b15
+ms.openlocfilehash: b18a3131329e0485221a0ae2cdaafd0726a4f31c
+ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91670957"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97878944"
 ---
 # <a name="enable-encrypted-connections-to-the-database-engine"></a>Habilitar conexões criptografadas com o Mecanismo de Banco de Dados
 
@@ -71,7 +71,7 @@ A habilitação da criptografia TLS aumenta a segurança dos dados transmitidos 
  O cliente deve poder verificar a propriedade do certificado usado pelo servidor. Se o cliente tiver o certificado de chave pública da autoridade de certificação que assinou o certificado de servidor, nenhuma outra configuração será necessária. [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows inclui os certificados de chave pública de muitas autoridades de certificação. Se o certificado do servidor foi assinado por uma autoridade de certificação pública ou privada para a qual o cliente não tem o certificado de chave pública, será necessário instalar o certificado de chave pública da autoridade de certificação que assinou o certificado do servidor.  
   
 > [!NOTE]  
-> Para usar critografia com um cluster de failover, você deve instalar o certificado de servidor com o nome DNS completamente qualificado do servidor virtual em todos os nós no cluster de failover. Por exemplo, se houver um cluster de dois nós, com nós ***test1.\*\<your company>\*.com*** e ***test2.\*\<your company>\*.com*** e você tiver um servidor virtual nomeado ***virtsql***, terá de instalar um certificado para ***virtsql.\*\<your company>\*.com*** em ambos os nós. É possível definir o valor da opção **ForceEncryption** na caixa de propriedade **Protocolos para virtsql** de **Configuração de Rede do SQL Server** como **Sim**.
+> Para usar critografia com um cluster de failover, você deve instalar o certificado de servidor com o nome DNS completamente qualificado do servidor virtual em todos os nós no cluster de failover. Por exemplo, se você tiver um cluster de dois nós, com nós chamados **_test1.\_\<your company>\*.com*** e **_test2.\_\<your company>\*.com***, e tiver um servidor virtual chamado **_virtsql_*_, precisará instalar um certificado para _ *_virtsql.\_\<your company>\*.com*** nos dois nós. É possível definir o valor da opção **ForceEncryption** na caixa de propriedade **Protocolos para virtsql** de **Configuração de Rede do SQL Server** como **Sim**.
 
 > [!NOTE]
 > Ao criar conexões criptografadas para um indexador do Azure Search para [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] em uma VM do Azure, confira [Configurar uma conexão de um indexador do Azure Search para SQL Server em uma VM do Azure](/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers). 
@@ -104,23 +104,23 @@ Com [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)], o gerenciamento 
 
 Se estiver usando [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] por meio do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] e o SQL Server Configuration Manager para [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] não estiver disponível, siga estas etapas:
 
-1. No menu **Iniciar** , clique em **Executar**e na caixa **Abrir** , digite **MMC** e clique em **OK**.  
+1. No menu **Iniciar** , clique em **Executar** e na caixa **Abrir** , digite **MMC** e clique em **OK**.  
   
 2. No console do MMC, no menu **Arquivo** , clique em **Adicionar/Remover Snap-in**.  
   
 3. Na caixa de diálogo **Adicionar/Remover Snap-in** , clique em **Adicionar**.  
   
-4. Na caixa de diálogo **Adicionar Snap-in Autônomo** , clique em **Certificados**e em **Adicionar**.  
+4. Na caixa de diálogo **Adicionar Snap-in Autônomo** , clique em **Certificados** e em **Adicionar**.  
   
-5. Na caixa de diálogo **Snap-in de certificados** , clique em **Conta de computador**e em **Concluir**.  
+5. Na caixa de diálogo **Snap-in de certificados** , clique em **Conta de computador** e em **Concluir**.  
   
 6. Na caixa de diálogo **Adicionar Snap-in Autônomo** , clique em **Fechar.**  
   
 7. Na caixa de diálogo **Adicionar/Remover Snap-in** , clique em **OK**.  
   
-8. No snap-in de **Certificados** , expanda **Certificados**, expanda **Pessoal**, clique com o botão direito do mouse em **Certificados**, aponte para **Todas as Tarefas**e clique em **Importar**.  
+8. No snap-in de **Certificados** , expanda **Certificados**, expanda **Pessoal**, clique com o botão direito do mouse em **Certificados**, aponte para **Todas as Tarefas** e clique em **Importar**.  
 
-9. Clique com o botão direito do mouse no certificado importado, aponte para **Todas as Tarefas**e clique em **Gerenciar Chaves Privadas**. Na caixa de diálogo **Segurança**, adicione a permissão de leitura para a conta de usuário usada pela conta de serviço do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
+9. Clique com o botão direito do mouse no certificado importado, aponte para **Todas as Tarefas** e clique em **Gerenciar Chaves Privadas**. Na caixa de diálogo **Segurança**, adicione a permissão de leitura para a conta de usuário usada pela conta de serviço do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
   
 10. Complete o **Assistente para Importação de Certificados**, para adicionar um certificado ao computador e feche o console MMC. Para obter mais informações sobre como adicionar um certificado a um computador, consulte sua documentação do Windows.  
 
@@ -136,9 +136,9 @@ Se estiver usando o [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] por meio d
 
 ## <a name="export-server-certificate"></a>Exportar certificado do servidor  
   
-1. No snap-in de **Certificados** , localize o certificado na pasta **Certificados** / **Pessoal** , clique com o botão direito do mouse em **Certificado**, aponte para **Todas as Tarefas**e clique em **Exportar**.  
+1. No snap-in de **Certificados** , localize o certificado na pasta **Certificados** / **Pessoal** , clique com o botão direito do mouse em **Certificado**, aponte para **Todas as Tarefas** e clique em **Exportar**.  
   
-2. Complete o **Assistente para Exportação de Certificados**armazenando o arquivo de certificado em um local conveniente.  
+2. Complete o **Assistente para Exportação de Certificados** armazenando o arquivo de certificado em um local conveniente.  
   
 ## <a name="configure-server"></a>Configurar servidor
 
@@ -151,7 +151,7 @@ Configure o servidor para forçar conexões criptografadas.
   
 2. Na caixa de diálogo **Propriedades** de **Protocolos para** _\<instance name>_ , na guia **Certificado**, selecione o certificado desejado na lista suspensa da caixa **Certificado** e clique em **OK**.  
   
-3. Na guia **Sinalizadores** , na caixa **ForceEncryption** , selecione **Sim**e clique em **OK** para fechar a caixa de diálogo.  
+3. Na guia **Sinalizadores** , na caixa **ForceEncryption** , selecione **Sim** e clique em **OK** para fechar a caixa de diálogo.  
   
 4. Reinicie o serviço [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .  
 
@@ -174,7 +174,7 @@ Configure o cliente para solicitar conexões criptografadas.
   
 Para criptografar uma conexão de [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)]:  
 
-1. Na barra de ferramentas do Pesquisador de Objetos, clique em **Conectar**e clique em **Mecanismo de Banco de Dados**.  
+1. Na barra de ferramentas do Pesquisador de Objetos, clique em **Conectar** e clique em **Mecanismo de Banco de Dados**.  
   
 2. Na caixa de diálogo **Conectar ao Servidor** , complete as informações de conexão e clique em **Opções**.  
   

@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: b1427fa78e52c985478996bfb41cb7a20e1ee608
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 772ecef470b69a34e4bd4b0eba2ca60255657eaf
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96428169"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771418"
 ---
 # <a name="executing-a-command"></a>Executando um comando
 
@@ -34,7 +34,7 @@ O Provedor de Dados do Microsoft SqlClient para SQL Server tem um objeto <xref:M
 |`ExecuteNonQuery`|Executa um comando que não retorna nenhuma linha.|  
 |`ExecuteXMLReader`|Retorna um <xref:System.Xml.XmlReader>. Disponível somente para um objeto do `SqlCommand`.|
 
- Cada objeto de comando fortemente tipado também dá suporte a uma enumeração de <xref:System.Data.CommandType> que especifica como uma cadeia de caracteres de comando é interpretada, conforme descrito na tabela a seguir.
+Cada objeto de comando fortemente tipado também dá suporte a uma enumeração de <xref:System.Data.CommandType> que especifica como uma cadeia de caracteres de comando é interpretada, conforme descrito na tabela a seguir.
 
 |CommandType|Descrição|
 |-----------------|-----------------|  
@@ -55,8 +55,10 @@ O código de exemplo a seguir demonstra como criar um objeto <xref:Microsoft.Dat
 
 [!INCLUDE[appliesto-netfx-xxxx-xxxx-md](../../includes/appliesto-netfx-xxxx-xxxx-md.md)]
 
-O Provedor de Dados do Microsoft SqlClient para SQL Server adiciona **contadores de desempenho** para permitir que você detecte problemas intermitentes relacionados a execuções de comandos com falha.
+O Provedor de Dados do Microsoft SqlClient para SQL Server adiciona **contadores de desempenho** para permitir que você detecte problemas intermitentes relacionados a execuções de comandos com falha. Para obter mais informações, confira [Contadores de desempenho do SqlClient](performance-counters.md).
 
 ## <a name="see-also"></a>Confira também
 
 - [Comandos e parâmetros](commands-parameters.md)
+- [DataAdapters e DataReaders](dataadapters-datareaders.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

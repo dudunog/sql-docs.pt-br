@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: a24241d3ef66739a85422397426278738987bf15
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 14442892bc59fc733c6a67153832b95c3f368b95
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96428180"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771443"
 ---
 # <a name="configuring-parameters"></a>Configurar parâmetros
 
@@ -31,7 +31,7 @@ Os comandos parametrizados também podem melhorar o desempenho de execução da 
 
 Um objeto <xref:System.Data.Common.DbParameter> pode ser criado usando o construtor ou adicionando-o ao <xref:System.Data.Common.DbCommand.DbParameterCollection%2A> chamando o método `Add` da coleção <xref:System.Data.Common.DbParameterCollection>. O método `Add` utilizará como entrada argumentos de construtor ou um objeto de parâmetro existente, dependendo do provedor de dados.
 
-## <a name="supplying-the-parameterdirection-property"></a>Fornecer a propriedade ParameterDirection
+## <a name="supply-the-parameterdirection-property"></a>Fornecer a propriedade ParameterDirection
 
 Ao adicionar parâmetros, você deverá fornecer uma propriedade <xref:System.Data.ParameterDirection> para parâmetros diferentes dos parâmetros de entrada. A tabela a seguir mostra os valores `ParameterDirection` que você pode usar com a enumeração <xref:System.Data.ParameterDirection>.
 
@@ -42,11 +42,11 @@ Ao adicionar parâmetros, você deverá fornecer uma propriedade <xref:System.Da
 |<xref:System.Data.ParameterDirection.Output>|O parâmetro é um parâmetro de saída.|
 |<xref:System.Data.ParameterDirection.ReturnValue>|O parâmetro representa um valor de retorno de uma operação como um procedimento armazenado, uma função interna ou uma função definida pelo usuário.|
 
-## <a name="working-with-parameter-placeholders"></a>Trabalhar com espaços reservados de parâmetro
+## <a name="work-with-parameter-placeholders"></a>Trabalhar com espaços reservados de parâmetro
 
 A sintaxe para espaços reservados de parâmetro depende da fonte de dados. O Provedor de Dados do Microsoft SqlClient para SQL Server lida com a nomenclatura e a especificação de parâmetros e espaços reservados de parâmetros de maneira diferente. O provedor de dados do SqlClient usa parâmetros nomeados no formato `@`*nomedoparâmetro*.
 
-## <a name="specifying-parameter-data-types"></a>Especificar tipos de dados de parâmetros
+## <a name="specify-parameter-data-types"></a>Especificar tipos de dados de parâmetro
 
 O tipo de dados de um parâmetro é específico para o Provedor de Dados do Microsoft SqlClient para SQL Server. Especificar o tipo converte o valor de `Parameter` para o tipo de Provedor de Dados Microsoft SqlClient para SQL Server antes de transmitir o valor à fonte de dados. Você também pode especificar o tipo de um `Parameter` genericamente definindo a propriedade `DbType` de um objeto `Parameter` para um <xref:System.Data.DbType> específico.
 
@@ -89,7 +89,7 @@ O tipo de objeto `Parameter` do Provedor de Dados do Microsoft SqlClient para SQ
 > [!NOTE]
 > Quando você envia um valor de parâmetro nulo para o servidor, deve especificar <xref:System.DBNull>, não `null` (`Nothing` no Visual Basic). O valor nulo no sistema é um objeto vazio que não tem nenhum valor. <xref:System.DBNull> é usado para representar valores nulos.
 
-## <a name="deriving-parameter-information"></a>Derivar informações de parâmetro
+## <a name="derive-parameter-information"></a>Obter informações do parâmetro
 
 Os parâmetros também podem ser derivados de um procedimento armazenado usando a classe `DbCommandBuilder`. A classe `SqlCommandBuilder` fornece um método estático, `DeriveParameters`, que preenche automaticamente a coleção de parâmetros de um objeto de comando que usa informações de parâmetro de um procedimento armazenado. Observe que `DeriveParameters` substitui qualquer informação de parâmetro existente para o comando.
 
@@ -123,4 +123,6 @@ Este exemplo demonstra como chamar um procedimento armazenado do SQL Server no b
 ## <a name="see-also"></a>Confira também
 
 - [Comandos e parâmetros](commands-parameters.md)
+- [DataAdapters e DataReaders](dataadapters-datareaders.md)
 - [Mapeamentos de tipo de dados no ADO.NET](data-type-mappings-ado-net.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

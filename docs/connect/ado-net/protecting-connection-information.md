@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 146063d665b89a8541c34d9cc3b0b6da3939d801
-ms.sourcegitcommit: 7a3fdd3f282f634f7382790841d2c2a06c917011
+ms.openlocfilehash: 1d170d712269bf169d069ef7b93f975de855f8ec
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563092"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771398"
 ---
 # <a name="protecting-connection-information"></a>Proteger informações de conexão
 
@@ -27,7 +27,7 @@ A proteção do acesso à fonte de dados é essencial para a segurança do aplic
 
 As vulnerabilidades de segurança envolvendo cadeias de conexão podem surgir com base no tipo de autenticação usado, em como as cadeias de conexão são persistidas na memória e no disco e nas técnicas usadas para construí-los em tempo de execução.
 
-## <a name="use-windows-authentication"></a>Usar Autenticação do Windows
+## <a name="use-windows-authentication"></a>Usar a Autenticação do Windows
 
 Para ajudar a limitar o acesso a sua fonte de dados, você deverá proteger as informações de conexão como a identificação do usuário, senha e nome da fonte de dados. Para evitar expor as informações do usuário, recomendamos usar a autenticação do Windows (às vezes chamada de *segurança integrada*) sempre que for possível. A autenticação do Windows é especificada em uma cadeia de conexão usando as palavras-chave `Integrated Security` ou `Trusted_Connection`, eliminando a necessidade de usar uma identificação de usuário e senha. Ao usar a autenticação do Windows, os usuários são autenticados pelo Windows e o acesso ao servidor e os recursos de banco de dados são determinados concedendo permissões a usuários e grupos do Windows.
 
@@ -41,15 +41,15 @@ Para situações onde não é possível usar a autenticação do Windows, você 
 
 A conta de identidade fixa deve ser uma conta de privilégios baixos que tem concedidas somente as permissões necessárias no banco de dados. Além disso, você deve criptografar o arquivo de configuração de modo que o nome de usuário e a senha não sejam expostos em texto não criptografado.
 
-## <a name="avoid-injection-attacks-with-connection-string-builders"></a>Evite ataques de injeção com construtores de cadeia de conexão
+## <a name="avoid-injection-attacks-with-connection-string-builders"></a>Evitar ataques de injeção com os construtores de cadeia de conexão
 
 Um ataque de injeção de cadeia de conexão pode ocorrer quando a concatenação dinâmica de cadeia de caracteres é usada para criar cadeias de conexão com base na entrada do usuário. Se a entrada do usuário não for validada e o texto mal-intencionado ou caracteres não forem escapados, um invasor poderá acessar dados confidenciais ou outros recursos no servidor. Para resolver esse problema, o Provedor de Dados Microsoft SqlClient para SQL Server introduziu uma nova classe de construtor de cadeia de conexão para validar a sintaxe da cadeia de conexão e garantir que parâmetros adicionais não sejam introduzidos. Para obter mais informações, confira [Construtores de cadeias de conexão](connection-string-builders.md).
 
-## <a name="use-persist-security-infofalse"></a>Use segurança de persistência Info=False
+## <a name="use-persist-security-infofalse"></a>Usar "Informações de Persistência de Segurança=false"
 
 O valor padrão para `Persist Security Info` é falso; nós recomendamos usar esta opção em todas as cadeias de conexão. Configurar `Persist Security Info` como `true` ou `yes` permite informações confidenciais de segurança, incluindo a identificação de usuário e a senha, para serem obtidas de uma conexão depois que ela tiver sido aberta. Quando `Persist Security Info` for definido como `false` ou `no`, as informações de segurança serão descartadas após serem usadas para abrir a conexão, garantindo que uma fonte não confiável não tenha acesso a informações confidenciais de segurança.
 
-## <a name="encrypt-configuration-files"></a>Criptografe arquivos de configuração
+## <a name="encrypt-configuration-files"></a>Criptografar arquivos de configuração
 
 [!INCLUDE[appliesto-netfx-netcore-xxxx-md](../../includes/appliesto-netfx-netcore-xxxx-md.md)]
 
@@ -58,3 +58,4 @@ Você também pode armazenar cadeias de conexão em arquivos de configuração, 
 ## <a name="see-also"></a>Confira também
 
 - [Criptografar informações de configuração usando configuração protegida](/previous-versions/aspnet/53tyfkaw(v=vs.100)).
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)
