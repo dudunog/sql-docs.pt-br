@@ -25,12 +25,12 @@ ms.assetid: ddcef3a6-0341-43e0-ae73-630484b7b398
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: c07ce738ea3364cba27cd2872894ff4701f41dfe
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 5dd2c6c6f33f9a115196d9a2afc3ca700b3a4631
+ms.sourcegitcommit: a81823f20262227454c0b5ce9c8ac607aaf537e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97476677"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97684203"
 ---
 # <a name="select---over-clause-transact-sql"></a>SELECT – Cláusula OVER (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -110,15 +110,95 @@ OVER ( [ PARTITION BY value_expression ] [ order_by_clause ] )
 [!INCLUDE[sql-server-tsql-previous-offline-documentation](../../includes/sql-server-tsql-previous-offline-documentation.md)]
 
 ## <a name="arguments"></a>Argumentos
- PARTITION BY  
+
+As funções da janela podem ter os seguintes argumentos na cláusula `OVER`:
+- [PARTITION BY](#partition-by) divide o conjunto de resultados da consulta em partições.
+- [ORDER BY](#order-by) define a ordem lógica das linhas dentro de cada partição do conjunto de resultados. 
+- [ROWS/RANGE](#rows-or-range) limita as linhas dentro da partição com a especificação de pontos iniciais e finais na partição. Isso requer o argumento `ORDER BY`, e o valor padrão é do início da partição até o elemento atual se o argumento `ORDER BY` for especificado.
+
+Se você não especificar nenhum argumento, as funções da janela serão aplicadas em todo o conjunto de resultados.
+```sql
+select 
+      object_id
+    , [min] = min(object_id) over()
+    , [max] = max(object_id) over()
+from sys.objects
+```
+ 
+|object_id | min | max |
+|---|---|---|
+| 3 | 3 | 2139154666 |
+| 5 | 3 | 2139154666 |
+| ... | ... | ... |
+| 2123154609 |  3 | 2139154666 |
+| 2139154666 |  3 | 2139154666 |
+
+### <a name="partition-by"></a>PARTITION BY  
  Divide o conjunto de resultados da consulta em partições. A função de janela é aplicada separadamente a cada partição e a computação é reiniciada para cada partição.  
+
+```sqlsyntax
+PARTITION BY *value_expression* 
+```
+ 
+ Se PARTITION BY não for especificado, a função tratará todas as linhas da consulta como uma única partição.
+A função será aplicada a todas as linhas da partição se você não especificar a cláusula `ORDER BY`.
   
- *value_expression*  
- Especifica a coluna pela qual o conjunto de linhas é particionado. *value_expression* apenas pode se referir a colunas disponibilizadas pela cláusula FROM. *value_expression* não pode se referir a expressões ou aliases na lista de seleção. *value_expression* pode ser uma expressão de coluna, subconsulta escalar, função escalar ou variável definida pelo usuário.  
+#### <a name="partition-by-value_expression"></a>PARTITION BY *value_expression*  
+ Especifica a coluna pela qual o conjunto de linhas é particionado. *value_expression* apenas pode se referir a colunas disponibilizadas pela cláusula FROM. *value_expression* não pode se referir a expressões ou aliases na lista de seleção. *value_expression* pode ser uma expressão de coluna, subconsulta escalar, função escalar ou variável definida pelo usuário. 
+ 
+ ```sql
+ select 
+      object_id, type
+    , [min] = min(object_id) over(partition by type)
+    , [max] = max(object_id) over(partition by type)
+from sys.objects
+```
+
+|object_id | type | min | max |
+|---|---|---|---|
+| 68195293  | PK    | 68195293  | 711673583 |
+| 631673298 | PK    | 68195293  | 711673583 |
+| 711673583 | PK    | 68195293  | 711673583 |
+| ... | ... | ... |
+| 3 | S | 3 | 98 |
+| 5 | S |   3   | 98 |
+| ... | ... | ... |
+| 98    | S |   3   | 98 |
+| ... | ... | ... |
   
- \<ORDER BY clause>  
- Define a ordem lógica das linhas dentro de cada partição do conjunto de resultados. Ou seja, especifica a ordem lógica na qual functioncalculation da janela é executado.  
-  
+### <a name="order-by"></a>ORDER BY  
+
+```sqlsyntax
+ORDER BY *order_by_expression* [COLLATE *collation_name*] [ASC|DESC]  
+```
+
+ Define a ordem lógica das linhas dentro de cada partição do conjunto de resultados. Ou seja, ela especificará a ordem lógica em que o cálculo da função da janela será executado. 
+ - Caso não seja especificada, a ordem padrão será `ASC` e a função da janela usará todas as linhas na partição.
+ - Se for especificada, e ROWS/RANGE não for especificada, o `RANGE UNBOUNDED PRECEDING AND CURRENT ROW` padrão será usado como padrão para o quadro de janela pelas funções que podem aceitar a especificação ROWS/RANGE opcional (por exemplo `min` ou `max`). 
+ 
+```sql
+select 
+      object_id, type
+    , [min] = min(object_id) over(partition by type order by object_id)
+    , [max] = max(object_id) over(partition by type order by object_id)
+from sys.objects
+```
+
+|object_id | type | min | max |
+|---|---|---|---|
+| 68195293  | PK    | 68195293  | 68195293 |
+| 631673298 | PK    | 68195293  | 631673298 |
+| 711673583 | PK    | 68195293  | 711673583 |
+| ... | ... | ... |
+| 3 | S | 3 | 3 |
+| 5 | S |   3 | 5 |
+| 6 | S |   3 | 6 |
+| ... | ... | ... |
+| 97    | S |   3 | 97 |
+| 98    | S |   3 | 98 |
+| ... | ... | ... |
+
+
  *order_by_expression*  
  Especifica uma coluna ou expressão na qual ordenar. *order_by_expression* apenas pode se referir a colunas disponibilizadas pela cláusula FROM. Um número inteiro não pode ser especificado para representar um nome de coluna ou alias.  
   
@@ -128,17 +208,40 @@ OVER ( [ PARTITION BY value_expression ] [ order_by_clause ] )
  **ASC** | DESC  
  Define que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. ASC é a ordem de classificação padrão. Valores nulos são tratados como os menores valores possíveis.  
   
- ROWS | RANGE  
+### <a name="rows-or-range"></a>LINHAS OU INTERVALO  
 **Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior. 
   
  Limita mais as linhas dentro da partição com a especificação de pontos iniciais e finais na partição. Isso é feito pela especificação de um intervalo de linhas em relação à linha atual por associação lógica ou associação física. A associação física é obtida com o uso de uma cláusula ROWS.  
   
  A cláusula ROWS limita as linhas dentro de uma partição especificando um número fixo de linhas antes ou depois da linha atual. Alternativamente, a cláusula RANGE limita as linhas logicamente dentro de uma partição especificando um intervalo de valores em relação ao valor na linha atual. As linhas precedentes e seguintes são definidas com base na classificação na cláusula ORDER BY. O quadro de janela "RANGE ... CURRENT ROW…" inclui todas as linhas que têm os mesmos valores na expressão ORDER BY da linha atual. Por exemplo, ROWS BETWEEN 2 PRECEDING AND CURRENT ROW significa que a janela de linhas em que a função funciona tem três linhas de tamanho, iniciando com 2 linhas antes e incluindo a linha atual.  
+ 
+```sql
+select
+      object_id
+    , [preceding]   = count(*) over(order by object_id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW )
+    , [central] = count(*) over(order by object_id ROWS BETWEEN 2 PRECEDING AND 2 FOLLOWING )
+    , [following]   = count(*) over(order by object_id ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING)
+from sys.objects
+order by object_id asc
+```
+
+|object_id | precedência | central | após |
+|---|---|---|---|
+| 3 | 1 | 3 | 156 |
+| 5 | 2 | 4 | 155 |
+| 6 | 3 | 5 | 154 |
+| 7 | 4 | 5 | 153 |
+| 8 | 5 | 5 | 152 |
+| ...   | ...   | ...   | ... |
+| 2112726579    | 153   | 5 | 4 |
+| 2119678599    | 154   | 5 | 3 |
+| 2123154609    | 155   | 4 | 2 |
+| 2139154666    | 156   | 3 | 1 | 
   
 > [!NOTE]  
 >  ROWS ou RANGE requer que a cláusula ORDER BY seja especificada. Se ORDER BY contiver várias expressões de ordem, CURRENT ROW FOR RANGE considerará todas as colunas na lista ORDER BY ao determinar a linha atual.  
   
- UNBOUNDED PRECEDING  
+#### <a name="unbounded-preceding"></a>UNBOUNDED PRECEDING  
 **Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior.  
   
  Especifica que a janela inicia na primeira linha da partição. UNBOUNDED PRECEDING só pode ser especificado como ponto de partida da janela.  
@@ -146,17 +249,20 @@ OVER ( [ PARTITION BY value_expression ] [ order_by_clause ] )
  \<unsigned value specification> PRECEDING  
  Especificado com \<unsigned value specification> para indicar o número de linhas ou valores que precederão a linha atual. Essa especificação não é permitida para RANGE.  
   
- CURRENT ROW  
+#### <a name="current-row"></a>CURRENT ROW  
 **Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior. 
   
  Especifica que a janela inicia ou termina na linha atual quando usada com ROWS ou o valor atual quando usado com RANGE. CURRENT ROW pode ser especificado como um ponto de partida e ponto final.  
   
- BETWEEN \<window frame bound > AND \<window frame bound >  
+#### <a name="between-and"></a>BETWEEN AND  
 **Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior. 
   
+```sqlsyntax
+BETWEEN <window frame bound > AND <window frame bound >  
+```
  Usado com ROWS ou RANGE para especificar os pontos de limite inferiores (inicial) e superiores (finais) da janela. \<window frame bound> define o ponto de partida do limite e \<window frame bound> define o ponto de término do limite. O limite superior não pode ser menor que o limite inferior.  
   
- UNBOUNDED FOLLOWING  
+#### <a name="unbounded-following"></a>UNBOUNDED FOLLOWING  
 **Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior. 
   
  Especifica que a janela termina na última linha da partição. UNBOUNDED FOLLOWING só pode ser especificado como ponto de extremidade da janela. Por exemplo RANGE BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING define uma janela que inicia com a linha atual e termina com a última linha da partição.  

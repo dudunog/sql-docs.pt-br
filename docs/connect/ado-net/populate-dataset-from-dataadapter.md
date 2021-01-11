@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: c632d83b092f5f68ce5bbca32d4315821252603c
-ms.sourcegitcommit: c127c0752e84cccd38a7e23ac74c0362a40f952e
+ms.openlocfilehash: e6c50bf7255dc77edfd0b93e03dedeec83ed4c4d
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96772160"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771495"
 ---
 # <a name="populate-a-dataset-from-a-dataadapter"></a>Preencher um DataSet de um DataAdapter
 
@@ -52,13 +52,13 @@ O exemplo de código a seguir cria uma instância de um <xref:Microsoft.Data.Sql
 
 Se o `DataAdapter` encontrar vários conjuntos de resultados, criará várias tabelas no `DataSet`. As tabelas recebem um nome padrão incremental correspondente a Table *N*, começando com "Table" para o primeiro item (Table0). Se um nome de tabela for passado como argumento para o método `Fill`, as tabelas receberão um nome padrão incremental correspondente a TableName *N*, começando com "TableName" para o primeiro item (TableName0).  
   
-## <a name="populating-a-dataset-from-multiple-dataadapters"></a>Preenchendo um DataSet por meio de vários DataAdapters  
+## <a name="populate-a-dataset-from-multiple-dataadapters"></a>Preencher um DataSet por vários DataAdapters  
 
- Vários objetos `DataAdapter` podem ser usados com `DataSet`. Cada `DataAdapter` pode ser usado para preencher um ou mais objetos `DataTable` e resolver atualizações de volta para a fonte de dados relevante. Os objetos `DataRelation` e `Constraint` podem ser adicionados ao `DataSet` localmente, o que permite relacionar dados de fontes de dados não semelhantes. Por exemplo, um `DataSet` pode conter dados de um banco de dados Microsoft SQL Server, um banco de dados IBM DB2 exposto por meio do OLE DB e uma fonte de dados que transmite XML. Um ou mais objetos `DataAdapter` podem administrar a comunicação para cada fonte de dados.  
+Vários objetos `DataAdapter` podem ser usados com `DataSet`. Cada `DataAdapter` pode ser usado para preencher um ou mais objetos `DataTable` e resolver atualizações de volta para a fonte de dados relevante. Os objetos `DataRelation` e `Constraint` podem ser adicionados ao `DataSet` localmente, o que permite relacionar dados de fontes de dados não semelhantes. Por exemplo, um `DataSet` pode conter dados de um banco de dados Microsoft SQL Server, um banco de dados IBM DB2 exposto por meio do OLE DB e uma fonte de dados que transmite XML. Um ou mais objetos `DataAdapter` podem administrar a comunicação para cada fonte de dados.  
   
 ### <a name="example"></a>Exemplo  
 
- O exemplo de código a seguir preenche uma lista de clientes do banco de dados `Northwind` no Microsoft SQL Server, e uma lista de pedidos do banco de dados `Northwind` armazenado no Microsoft Access 2000. As tabelas preenchidas estão relacionadas com um `DataRelation`, e a lista de clientes é exibida com os pedidos para aquele cliente.
+O exemplo de código a seguir preenche uma lista de clientes do banco de dados `Northwind` no Microsoft SQL Server e uma lista de pedidos do banco de dados `Northwind` armazenado no Microsoft Access. As tabelas preenchidas estão relacionadas com um `DataRelation`, e a lista de clientes é exibida com os pedidos para aquele cliente.
 
 [!code-csharp[SqlDataAdapter_FillDataSet#2](~/../sqlclient/doc/samples/SqlDataAdapter_FillDataSet.cs#2)]
 

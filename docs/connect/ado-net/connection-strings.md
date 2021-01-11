@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: e37d77304644d1adb50bb195dd32d4c4e1222c09
-ms.sourcegitcommit: 192f6a99e19e66f0f817fdb1977f564b2aaa133b
+ms.openlocfilehash: 257ed7d43f8ab204c7c7e7575c69251be6f2efdf
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126332"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771614"
 ---
 # <a name="connection-strings-in-adonet"></a>Cadeias de conexão no ADO.NET
 
@@ -69,7 +69,7 @@ Todas as cadeias de conexão compartilham a mesma sintaxe básica descrita acima
 
 Erros de digitação podem causar problemas. Por exemplo, `Integrated Security=true` é válido, mas `IntegratedSecurity=true` gera um erro.
 
-As cadeias de conexão construídas manualmente em tempo de execução a partir de uma entrada de usuário não validada são vulneráveis a ataques de injeção de cadeia de caracteres, colocando em risco a segurança da fonte de dados. Para resolver esses problemas, o [construtor de cadeias de conexão](connection-string-builders.md) foi criado. Esse construtor expõe parâmetros como propriedades fortemente tipadas e torna possível validar a cadeia de conexão antes que ela seja enviada para a fonte de dados.
+As cadeias de conexão construídas manualmente no tempo de execução por uma entrada de usuário não validada são vulneráveis a ataques de injeção de cadeia de caracteres, colocando em risco a segurança na fonte de dados. Para resolver esses problemas, a classe <xref:Microsoft.Data.SqlClient.SqlConnectionStringBuilder> foi criada. Esta classe [construtor da cadeia de conexão](connection-string-builders.md) expõe parâmetros como propriedades fortemente tipadas e torna possível validar a cadeia de conexão antes que ela seja enviada para a fonte de dados.
 
 ## <a name="in-this-section"></a>Nesta seção
 
@@ -84,3 +84,7 @@ Descreve como configurar cadeias de conexão específicas do provedor para `SqlC
 
 [Proteger informações de conexão](protecting-connection-information.md)\
 Demonstra técnicas para proteger informações usadas para se conectar a uma fonte de dados.
+
+## <a name="see-also"></a>Confira também
+
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

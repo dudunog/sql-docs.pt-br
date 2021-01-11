@@ -15,22 +15,21 @@ helpviewer_keywords:
 ms.assetid: 7d8c4684-9eb1-4791-8c3b-0f0bb15d9634
 author: rothja
 ms.author: jroth
-ms.openlocfilehash: 55bb82e19a97a91dbe00b44b195e74a250ddf1dc
-ms.sourcegitcommit: 7f76975c29d948a9a3b51abce564b9c73d05dcf0
+ms.openlocfilehash: f90e59f3e54b69a98e7ca058da971677faaafd0d
+ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96900950"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697106"
 ---
 # <a name="about-change-data-capture-sql-server"></a>Sobre o change data capture (SQL Server)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
 
-> [!NOTE]
-> Agora o CDC é compatível com o SQL Server 2017 no Linux a partir do CU18 e o SQL Server 2019 no Linux.
 
-  Os registros do Change Data Capture inserem, atualizam e excluem atividades aplicadas a uma tabela do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . Ele também disponibiliza os detalhes das mudanças em um formato relacional facilmente utilizável. As informações de coluna e os metadados exigidos para a aplicação de alterações em um ambiente de destino são capturados para as linhas modificadas e armazenados nas tabelas de alteração que espelham a estrutura da coluna das tabelas de origem rastreadas. As funções avaliadas da tabela são fornecidas para permitir acesso sistemático aos dados de alteração pelos consumidores.  
+
+  Os registros do Change Data Capture inserem, atualizam e excluem atividades aplicadas a uma tabela do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Ele também disponibiliza os detalhes das mudanças em um formato relacional facilmente utilizável. As informações de coluna e os metadados exigidos para a aplicação de alterações em um ambiente de destino são capturados para as linhas modificadas e armazenados nas tabelas de alteração que espelham a estrutura da coluna das tabelas de origem rastreadas. As funções avaliadas da tabela são fornecidas para permitir acesso sistemático aos dados de alteração pelos consumidores.  
   
- Um bom exemplo de um consumidor de dados visado por esta tecnologia é uma extração, transformação e aplicativo de carregamento (ETL). Um aplicativo ETL carrega incrementalmente dados de alteração das tabelas de origem de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para um data warehouse ou data mart. Embora a representação das tabelas de fonte dentro do data warehouse deva refletir as alterações nessas tabelas de origem, uma tecnologia ponta-a-ponta que atualize uma réplica da origem não é apropriada. Em vez disso, é necessário um fluxo seguro de dados de alteração, estruturado de forma que consumidores possam aplicá-lo às representações dos dados de destino. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] a captura de dados de alterações fornece essa tecnologia.  
+ Um bom exemplo de um consumidor de dados que esta tecnologia busca é um aplicativo ETL (extração, transformação e carregamento). Um aplicativo ETL carrega incrementalmente dados de alteração das tabelas de origem de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para um data warehouse ou data mart. Embora a representação das tabelas de fonte dentro do data warehouse deva refletir as alterações nessas tabelas de origem, uma tecnologia ponta-a-ponta que atualize uma réplica da origem não é apropriada. Em vez disso, é necessário um fluxo seguro de dados de alteração, estruturado de forma que consumidores possam aplicá-lo às representações dos dados de destino. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] a captura de dados de alterações fornece essa tecnologia.  
   
 ## <a name="change-data-capture-data-flow"></a>Fluxo de dados do Change Data Capture  
  A ilustração seguinte mostra o fluxo de dados principal para a captura de dados de alteração.  
@@ -58,7 +57,7 @@ ms.locfileid: "96900950"
   
  No alto nível, conforme o processo de captura confirma cada novo lote de dados de alteração, novas entradas são adicionadas ao **cdc.lsn_time_mapping** para cada transação que tem entradas da tabela de alteração. Na tabela de mapeamento, um número da sequência do log de confirmação (LSN) e um tempo de confirmação da transação (colunas start_lsn e tran_end_time, respectivamente) são mantidos. O valor máximo de LSN que é encontrado em **cdc.lsn_time_mapping** representa a marca d’água superior da janela de validade do banco de dados. Seu tempo de confirmação correspondente é usado como a base da qual a limpeza baseada em retenção calcula uma nova marca d'água inferior.  
   
- Como o processo de captura extrai dados de alteração de um log de transação, há um built em latência entre a hora em que uma alteração é confirmada para uma tabela de origem e a hora em que a alteração é exibida dentro de sua tabela de alteração associada. Embora essa latência seja normalmente pequena, nunca é demais lembrar que os dados de alteração não ficam disponíveis até que o processo de captura processe as entradas de log relacionadas.  
+ Como o processo de captura extrai dados de alteração de um log de transação, há uma latência integrada entre a hora em que uma alteração é confirmada para uma tabela de origem e a hora em que a alteração é exibida dentro de sua tabela de alteração associada. Embora essa latência seja normalmente pequena, nunca é demais lembrar que os dados de alteração não ficam disponíveis até que o processo de captura processe as entradas de log relacionadas.  
   
 ## <a name="change-data-capture-validity-interval-for-a-capture-instance"></a>Intervalo de validade de captura de dados de alterações para uma instância de captura  
  Embora seja comum a coincidência entre o intervalo de validade de banco de dados e o intervalo de validade de uma instância de captura individual, isso não é sempre verdadeiro. O intervalo de validade da instância de captura começa quando o processo de captura reconhece a instância de captura e inicia o registro de alterações associadas a sua tabela de alterações. Como resultado, se forem criadas instâncias de captura em horas diferentes, cada uma terá um ponto de extremidade inferior diferente inicialmente. A coluna start_lsn do conjunto de resultados que é retornado por [sys.sp_cdc_help_change_data_capture](../../relational-databases/system-stored-procedures/sys-sp-cdc-help-change-data-capture-transact-sql.md) mostra o ponto de extremidade inferior atual de cada instância de captura definida. Quando um processo de limpeza limpa as entradas da tabela de alterações, ele ajusta os valores de start_lsn para todas as instâncias de captura para refletir a nova marca d'água inferior em dados de alteração disponíveis. Somente essas instâncias de captura que têm valores start_lsn que sejam atualmente menores que a nova marca d'água inferior são ajustadas. Com o tempo, se nenhuma nova instância de captura for criada, os intervalos de validade para todas as instâncias individuais tenderão a coincidir com o intervalo de validade do banco de dados.  
@@ -85,7 +84,7 @@ ms.locfileid: "96900950"
 > [!IMPORTANT]  
 >  Ambas as instâncias da lógica de captura exigem que o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Agent esteja em execução para que o processo seja executado.  
   
- A principal tarefa do processo de captura é verificar o log e gravar dados da coluna e informações relacionadas à transação nas tabelas de alteração do change data capture. Para garantir um limite consistente transacionalmente entre todas as tabelas de alteração de captura de dados de alteração preenchidas, o processo de captura abre e confirma sua própria transação em cada ciclo de verificação. Ele detecta quando tabelas são recém-habilitadas para a captura de dados de alteração e automaticamente os inclui no conjunto de tabelas ativamente monitoradas para as entradas de alteração no log. De modo semelhante, a desabilitação da captura de dados de alteração também será detectadas, fazendo com que a tabela de origem seja removida do conjunto de tabelas monitoradas ativamente para dados de alteração. Quando o processamento para uma seção de log é concluído, o processo de captura emite um sinal para a lógica de truncamento do log de servidor, que usa essa informação para identificar entradas de log qualificadas para truncamento.  
+ A principal tarefa do processo de captura é verificar o log e gravar dados da coluna e informações relacionadas à transação nas tabelas de alteração do Change Data Capture. Para garantir um limite consistente transacionalmente entre todas as tabelas de alteração de captura de dados de alteração preenchidas, o processo de captura abre e confirma sua própria transação em cada ciclo de verificação. Ele detecta quando tabelas são recém-habilitadas para a captura de dados de alteração e automaticamente os inclui no conjunto de tabelas ativamente monitoradas para as entradas de alteração no log. De modo semelhante, a desabilitação da captura de dados de alteração também será detectadas, fazendo com que a tabela de origem seja removida do conjunto de tabelas monitoradas ativamente para dados de alteração. Quando o processamento para uma seção de log é concluído, o processo de captura emite um sinal para a lógica de truncamento do log de servidor, que usa essa informação para identificar entradas de log qualificadas para truncamento.  
   
 > [!NOTE]  
 >  Quando um banco de dados está habilitado para captura de dados de alteração, mesmo que o modo de recuperação esteja definido como recuperação simples, o ponto de truncamento do log não avançará até que todas as alterações marcadas para captura tenham sido coletadas pelo processo de captura. Se o processo de captura não estiver sendo executado e houver alterações a serem coletadas, a execução de CHECKPOINT não truncará o log.  
@@ -138,9 +137,20 @@ CREATE TABLE T1(
      C2 NVARCHAR(10) collate Chinese_PRC_CI_AI --Unicode data type, CDC works well with this data type)
 ```
 
-## <a name="columnstore-indexes"></a>Índices columnstore
+## <a name="limitations"></a>Limitações
 
+O Change Data Capture tem as seguintes limitações: 
+
+**Linux**   
+Agora o CDC é compatível com o SQL Server 2017 no Linux a partir do CU18 e o SQL Server 2019 no Linux.
+
+**Índices columnstore**   
 A captura de dados de alterações não pode ser habilitada em tabelas com um índice columnstore clusterizado. Começando no SQL Server 2016, ela pode ser habilitada em tabelas com um índice columnstore não clusterizado.
+
+**Alternância de partição com variáveis**   
+Não há suporte para o uso de variáveis com a alternância de partição em bancos de dados ou tabelas com o CDC (Change Data Capture) para a instrução `ALTER TABLE ... SWITCH TO ... PARTITION ...`. Confira as [limitações de alternância de partição](../replication/publish/replicate-partitioned-tables-and-indexes.md#replication-support-for-partition-switching) para saber mais. 
+
+
 
 ## <a name="see-also"></a>Consulte Também  
  [Controle de alterações de dados &#40;SQL Server&#41;](../../relational-databases/track-changes/track-data-changes-sql-server.md)   

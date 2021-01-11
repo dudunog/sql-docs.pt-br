@@ -5,7 +5,7 @@ ms.custom: seodec18
 ms.date: 05/18/2016
 ms.prod: sql
 ms.reviewer: ''
-ms.technology: high-availability
+ms.technology: availability-groups
 ms.topic: how-to
 helpviewer_keywords:
 - Availability Groups [SQL Server], interoperability
@@ -13,12 +13,12 @@ helpviewer_keywords:
 ms.assetid: 55b345fe-2eb9-4b04-a900-63d858eec360
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 864fca7c1d2983bec6296f1e82304cff31f658cb
-ms.sourcegitcommit: 54cd97a33f417432aa26b948b3fc4b71a5e9162b
+ms.openlocfilehash: f07f8eaa1dc5657c2dfdb296bc9efffec9b308b2
+ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94584190"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697128"
 ---
 # <a name="manage-a-replicated-publisher-database-as-part-of-an-always-on-availability-group"></a>Gerenciar um banco de dados Publicador replicado como parte de um grupo de disponibilidade Always On
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -99,6 +99,27 @@ ms.locfileid: "94584190"
     ```  
   
      Neste momento, a cópia do banco de dados publicado pode ser retida ou removida.  
+
+## <a name="remove-original-publisher"></a>Remover fornecedor original
+
+Pode haver instâncias (substituir servidor mais antigo, upgrade do sistema operacional etc.) nas quais você deseja remover um fornecedor original de um grupo de disponibilidade Always On. Siga as etapas nesta seção para remover o fornecedor do grupo de disponibilidade. 
+
+Suponha que você tenha os servidores N1, N2 e D1, em que N1 e N2 sejam a réplica primária e secundária do grupo de disponibilidade AG1, N1 é o fornecedor original de uma publicação transacional e D1 é o distribuidor. Você gostaria de substituir o fornecedor original N1 pelo novo fornecedor N3. 
+
+Para remover o fornecedor, siga estas etapas: 
+
+1. Instale e configure o SQL Server no nó N3. A versão do SQL Server deve ser a mesma do fornecedor original. 
+1. No servidor do distribuidor D1, adicione N3 como um fornecedor usando [sp_adddistpublisher](../../../relational-databases/system-stored-procedures/sp-adddistpublisher-transact-sql.md). 
+1. Configure N3 como um fornecedor com D1 como seu distribuidor. 
+1. Adicione N3 como uma réplica ao grupo de disponibilidade AG1. 
+1. Na réplica N3, verifique se os assinantes de push da publicação aparecem como servidores vinculados. Use o [sp_addlinkedserver](../../../relational-databases/system-stored-procedures/sp-addlinkedserver-transact-sql.md) ou SQL Server Management Studio. 
+1. Depois que N3 for sincronizado, reprovará o grupo de disponibilidade para o N3 como primário. 
+1. Remova N1 do grupo de disponibilidade AG1. 
+
+Considere também o seguinte:
+- Não remova o servidor remoto para o fornecedor original (neste caso, N1) ou quaisquer metadados associados a ele pelo distribuidor, mesmo que o servidor não possa mais ser acessado. Os metadados de servidor para o fornecedor original são necessários no distribuidor para atender consultas de metadados de publicação. Sem isso, a replicação falhará. 
+- Para o SQL Server 2014, depois que o fornecedor original for removido, você não poderá usar o nome do fornecedor original para administrar a replicação no Replication Monitor. Se você tentar registrar novas réplicas como fornecedor no Replication Monitor, as informações não serão mostradas, pois não há metadados associados a ela. Para administrar a replicação nesse cenário, você terá que clicar com o botão direito do mouse em publicações e assinaturas individuais no SSMS (SQL Server Management Studio).
+- Para o SQL Server 2016 SP2-CU3, o SQL Server 2017 CU6 e posterior, registre o ouvinte do fornecedor do grupo de disponibilidade no Replication Monitor para administrar a replicação usando SQL Server Management Studio versão 17.7 e superior. 
   
 ##  <a name="related-tasks"></a><a name="RelatedTasks"></a> Tarefas relacionadas  
   

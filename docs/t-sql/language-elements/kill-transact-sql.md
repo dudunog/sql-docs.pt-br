@@ -35,12 +35,12 @@ ms.assetid: 071cf260-c794-4b45-adc0-0e64097938c0
 author: rothja
 ms.author: jroth
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a42d01bead1a5d3882dcce0df67cda7785724b5e
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 13afe3aa357bfd968874ae1f89bf0720c39fe49c
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97466147"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97644445"
 ---
 # <a name="kill-transact-sql"></a>KILL (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -56,7 +56,8 @@ KILL encerra uma conexão normal que, internamente, interrompe as transações q
 ```syntaxsql  
 -- Syntax for SQL Server  
   
-KILL { session ID | UOW } [ WITH STATUSONLY ]   
+KILL { session ID [ WITH STATUSONLY ] | UOW [ WITH STATUSONLY | COMMIT | ROLLBACK ] }    
+
 ```  
   
 ```syntaxsql  
@@ -69,26 +70,37 @@ KILL 'session_id'
 [!INCLUDE[sql-server-tsql-previous-offline-documentation](../../includes/sql-server-tsql-previous-offline-documentation.md)]
 
 ## <a name="arguments"></a>Argumentos
-_session ID_  
-É a ID da sessão do processo a ser encerrado. _session ID_ é um inteiro exclusivo (**int**) que é atribuído a cada conexão de usuário quando esta é estabelecida. O valor do ID de sessão está vinculado à conexão pela duração da conexão. Quando a conexão for finalizada, o valor inteiro será liberado e poderá ser reatribuído a uma nova conexão.  
+
+_ID da sessão_   
+É a ID da sessão do processo a ser encerrado. `session_id` é um inteiro exclusivo (**int**) que é atribuído a cada conexão de usuário quando esta é estabelecida. O valor do ID de sessão está vinculado à conexão pela duração da conexão. Quando a conexão for finalizada, o valor inteiro será liberado e poderá ser reatribuído a uma nova conexão.  
+
 A seguinte consulta pode ajudá-lo a identificar o `session_id` que você deseja encerrar:  
+
  ```sql  
  SELECT conn.session_id, host_name, program_name,
      nt_domain, login_name, connect_time, last_request_end_time 
 FROM sys.dm_exec_sessions AS sess
 JOIN sys.dm_exec_connections AS conn
     ON sess.session_id = conn.session_id;
+
 ```  
+
+
+_UOW_   
+Identifica a ID da UOW (Unidade de Trabalho) de transações distribuídas. _UOW_ é um GUID que pode ser obtido na coluna request_owner_guid da exibição de gerenciamento dinâmico `sys.dm_tran_locks`. _UOW_ também pode ser obtido no log de erros ou por meio do monitor do MS DTC. Para obter mais informações sobre como monitorar transações distribuídas, consulte a documentação do MS DTC.  
   
-_UOW_  
-**Aplica-se a**: [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] e posterior
-  
-Identifica a ID da UOW (Unidade de Trabalho) de transações distribuídas. _UOW_ é um GUID que pode ser obtido na coluna request_owner_guid da exibição de gerenciamento dinâmico sys.dm_tran_locks. _UOW_ também pode ser obtido no log de erros ou por meio do monitor do MS DTC. Para obter mais informações sobre como monitorar transações distribuídas, consulte a documentação do MS DTC.  
-  
-Use KILL _UOW_ para interromper transações distribuídas órfãs. Essas transações não são associadas a qualquer ID de sessão real, mas em vez disso, são associadas artificialmente à ID de sessão = '-2'. Esse ID de sessão facilita a identificação de transações órfãs pela consulta da coluna de ID de sessão nas exibições de gerenciamento dinâmico sys.dm_tran_locks, sys.dm_exec_sessions ou sys.dm_exec_requests.  
-  
-WITH STATUSONLY  
-Gera um relatório de progresso sobre uma _ID de sessão_ ou _UOW_ especificada que está sendo revertida devido a uma instrução KILL anterior. KILL WITH STATUSONLY não encerra nem reverte a _ID de sessão_ ou _UOW_. O comando exibe somente o progresso atual da reversão.  
+Use KILL \<UOW> para interromper transações distribuídas não resolvidas. Essas transações não são associadas a qualquer ID de sessão real, mas em vez disso, são associadas artificialmente à ID de sessão = '-2'. A ID da sessão facilita a identificação de transações não resolvidas por meio de consulta da coluna de ID da sessão em exibições de gerenciamento dinâmico `sys.dm_tran_locks`,` sys.dm_exec_sessions`, ou `sys.dm_exec_requests`.  
+
+_WITH STATUSONLY_   
+É usado para gerar um relatório de progresso para um _UOW_ ou `session_id` especificados que estejam sendo revertidos devido a uma instrução KILL anterior. O KILL WITH STATUSONLY não termina ou reverte o UOW ou a ID de sessão. O comando exibe somente o progresso atual da reversão.
+
+_WITH COMMIT_   
+É usado para encerrar uma transação distribuída com commit. Aplicável somente a transações distribuídas, especifique um _UOW_ para usar essa opção.  Confira [transações distribuídas](../../database-engine/availability-groups/windows/configure-availability-group-for-distributed-transactions.md#manage-unresolved-transactions) para obter mais informações.
+
+_WITH ROLLBACK_   
+É usado para encerrar uma transação distribuída com reversão. Aplicável somente a transações distribuídas, especifique um _UOW_ para usar essa opção.  Confira [transações distribuídas](../../database-engine/availability-groups/windows/configure-availability-group-for-distributed-transactions.md#manage-unresolved-transactions) para obter mais informações.
+
+
   
 ## <a name="remarks"></a>Comentários  
 KILL normalmente é usado para encerrar um processo que está bloqueando outros processos importantes com bloqueios. KILL também pode ser usada para interromper um processo que está executando uma consulta que está usando recursos necessários do sistema. Os processos do sistema e os processos executando um procedimento armazenado estendido não podem ser encerrados.  

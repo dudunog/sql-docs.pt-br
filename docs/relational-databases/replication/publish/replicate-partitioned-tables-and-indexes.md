@@ -18,12 +18,12 @@ ms.assetid: c9fa81b1-6c81-4c11-927b-fab16301a8f5
 author: MashaMSFT
 ms.author: mathoma
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016
-ms.openlocfilehash: 70df27b530fe6afb40f296afdc012ac2c40500a9
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 75c0f38e67fd4d02791c5d2b953f4354a5945dc2
+ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97468937"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697139"
 ---
 # <a name="replicate-partitioned-tables-and-indexes"></a>Replicar tabelas e índices particionados
 [!INCLUDE[sql-asdbmi](../../../includes/applies-to-version/sql-asdbmi.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "97468937"
 |Função de partição|CREATE PARTITION FUNCTION|  
 |Esquema de partição|CREATE PARTITION SCHEME|  
   
- O primeiro conjunto de propriedades relacionadas ao particionamento são as opções de esquema de artigo que determinam se os objetos de particionamento devem ser copiados para o Assinante. Essas opções de esquema podem ser definidas das seguintes formas:  
+ As propriedades de particionamento são as opções de esquema de artigo que determinam se os objetos de particionamento devem ser copiados para o Assinante. Essas opções de esquema podem ser definidas das seguintes formas:  
   
 -   Na página **Propriedades do Artigo** do Assistente para Nova Publicação ou na caixa de Propriedades de Publicação. Para copiar os objetos listados na tabela anterior, especifique um valor de **true** para as propriedades **Copiar esquemas de particionamento de tabela** e **Copiar esquemas de particionamento de índice**. Para obter informações sobre como acessar a página **Propriedades do artigo**, consulte [Exibir e modificar as propriedades da publicação](../../../relational-databases/replication/publish/view-and-modify-publication-properties.md).  
   
@@ -61,15 +61,40 @@ ms.locfileid: "97468937"
   
 -   Se o Assinante tiver uma definição diferente para a tabela particionada da definição do Publicador, o Agente de Distribuição falhará ao tentar aplicar as alterações no Assinante.  
   
- Apesar destes possíveis problemas, a alternância de partição pode ser habilitada para replicação transacional. Antes de habilitá-la, verifique se todas as tabelas que estão envolvidas na alternância de partição existem no Publicador e no Assinante e verifique se as definições de tabela e de partição são iguais.  
+Apesar destes possíveis problemas, a alternância de partição pode ser habilitada para replicação transacional. Antes de habilitá-la, verifique se todas as tabelas que estão envolvidas na alternância de partição existem no Publicador e no Assinante e verifique se as definições de tabela e de partição são iguais.  
   
- Quando as partições têm o esquema de partição exato nos publicadores e assinantes, você pode ativar o *allow_partition_switch* junto com *replication_partition_switch* , que somente replicará a instrução switch da partição para o assinante. Você também pode ativar o *allow_partition_switch* sem replicar o DDL. Isto é útil no caso em que você deseja reverter meses antigos da partição, mas persistir a partição replicada no local durante outro ano para fins de backup no assinante.  
+Quando as partições têm o esquema de partição exato nos publicadores e assinantes, você pode ativar o *allow_partition_switch* junto com *replication_partition_switch*, que somente replicará a instrução switch da partição para o assinante. Você também pode ativar o *allow_partition_switch* sem replicar o DDL. Isto é útil no caso em que você deseja reverter meses antigos da partição, mas persistir a partição replicada no local durante outro ano para fins de backup no assinante.  
   
- Se você habilitar a alternância de partição no SQL Server 2008 R2 até a versão atual, talvez também seja necessário realizar operações de divisão e mesclagem em um futuro próximo. Antes de executar uma operação de divisão ou mesclagem em uma tabela replicada, certifique-se de que a partição em questão não tenha nenhum comando replicado pendente. Você também deve garantir que nenhuma operação DML seja executada na partição durante as operações de divisão e mesclagem. Se houver transações não processadas pelo leitor de log, ou se as operações DML forem executadas em uma partição de uma tabela replicada enquanto uma operação de divisão ou mesclagem é executada (envolvendo a mesma partição), isso pode levar a um erro de processamento com o agente de leitor de log. Para corrigir o erro, talvez isso exija uma reinicialização da assinatura.  
-  
-> [!WARNING]  
->  Você não deveria habilitar o switch de partição para publicações ponto a ponto, devido à coluna oculta que é usada para detectar e resolver conflitos.  
-  
+Se você habilitar a alternância de partição no SQL Server 2008 R2 até a versão atual, talvez também seja necessário realizar operações de divisão e mesclagem em um futuro próximo. Antes de executar uma operação de divisão ou mesclagem em uma tabela replicada ou habilitada para CDA, verifique se a partição em questão não tem nenhum comando replicado pendente. Você também deve garantir que nenhuma operação DML seja executada na partição durante as operações de divisão e mesclagem. Se houver transações não processadas pelo leitor de log ou pelo trabalho de captura de CDA, ou se as operações DML forem executadas em uma partição de uma tabela replicada ou habilitada para CDA enquanto uma operação de divisão ou mesclagem é executada (envolvendo a mesma partição), isso pode levar a um erro de processamento (erro 608 – Nenhuma entrada do catálogo foi encontrada para a ID de partição) com o agente de leitor de log ou do trabalho de captura de CDA. Para corrigir o erro, talvez seja preciso reinicializar a assinatura ou desabilitar a CDA nessa tabela ou banco de dados. 
+
+### <a name="unsupported-scenarios"></a>Cenários sem suporte
+
+Os seguintes cenários não têm suporte ao usar a replicação com a alternância de partição: 
+
+**Replicação ponto a ponto**   
+Não há suporte para a replicação ponto a ponto com a alternância de partição. 
+
+**Uso de variáveis com alternância de partição**   
+
+Não há suporte para o uso de variáveis com a alternância de partição em tabelas publicadas com replicação transacional ou CDA (captura de dados de alterações) para a instrução `ALTER TABLE ... SWITCH TO ... PARTITION ...`.
+
+Por exemplo, o seguinte código de alternância de partição não funcionará com a CDA habilitada no banco de dados ou com a TabelaA particionando em uma publicação transacional: 
+
+```sql
+DECLARE @SomeVariable INT = $PARTITION.pf_test(10);
+ALTER TABLE dbo.TableA
+SWITCH TO dbo.TableB 
+PARTITION @SomeVariable;
+```
+
+Em vez disso, alterne sua partição usando a função de partição diretamente, como no seguinte exemplo: 
+
+```sql
+ALTER TABLE NonPartitionedTable 
+SWITCH TO PartitionedTable PARTITION $PARTITION.pf_test(10);
+```
+
+
 ### <a name="enabling-partition-switching"></a>Habilitando a alternância de partição  
  As propriedades a seguir para publicações transacionais permitem que os usuários controlem o comportamento da alternância de partição em um ambiente replicado:  
   

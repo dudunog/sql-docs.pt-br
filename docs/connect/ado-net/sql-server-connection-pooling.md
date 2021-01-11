@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: ef687114ff2ceceabc1ed87d67a4585a5846029d
-ms.sourcegitcommit: 7a3fdd3f282f634f7382790841d2c2a06c917011
+ms.openlocfilehash: a878d8250a3e402cd1043dc289eb1712af45f385
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563072"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771517"
 ---
 # <a name="sql-server-connection-pooling-adonet"></a>Pool de conexões do SQL Server (ADO.NET)
 
@@ -41,7 +41,7 @@ O pooling de conexões pode melhorar significativamente o desempenho e a escalab
 > [!NOTE]
 > O mecanismo "`blocking period`" não se aplica ao SQL Server do Azure por padrão. Esse comportamento pode ser alterado modificando a propriedade <xref:Microsoft.Data.SqlClient.PoolBlockingPeriod> em <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString>, exceto para *.NET Standard*.
 
-## <a name="pool-creation-and-assignment"></a>Criação e atribuição de pools
+## <a name="pool-creation-and-assignment"></a>Criação e atribuições do pool
 
 Quando uma conexão é aberta pela primeira vez, um pool de conexões é criado com base em um algoritmo compatível exato que associa o pool à cadeia de conexão na conexão. Cada pool de conexões é associado a uma cadeia de conexão distinta. Se a cadeia de conexão não for uma correspondência exata de um pool existente, quando uma nova conexão for aberta, um novo pool será criado.
 
@@ -59,7 +59,7 @@ No exemplo de C# a seguir, três novos objetos <xref:Microsoft.Data.SqlClient.Sq
 
 [!code-csharp[SqlConnection_Pooling#1](~/../sqlclient/doc/samples/SqlConnection_Pooling.cs#1)]
 
-## <a name="adding-connections"></a>Adicionando conexões
+## <a name="add-connections"></a>Adicionar conexões
 
 Um pool de conexões é criado para cada cadeia de conexão exclusiva. Quando um pool é criado, vários objetos de conexão são criados e adicionados ao pool para que o requisito de tamanho mínimo de pool seja atendido. As conexões são adicionadas ao pool conforme necessário, até o tamanho máximo de pool especificado (**100 é o padrão**). As conexões são retornadas para o pool quando fechadas ou descartadas.
 
@@ -75,7 +75,7 @@ O pool de conexões atende às solicitações de conexões realocando-as à medi
 
 Para obter mais informações sobre os eventos associados à abertura e ao fechamento de conexões, confira [Classe de Evento Audit Login](/sql/relational-databases/event-classes/audit-login-event-class) e [Classe de Evento Audit Logout](/sql/relational-databases/event-classes/audit-logout-event-class) na documentação do SQL Server.
 
-## <a name="removing-connections"></a>Removendo conexões
+## <a name="remove-connections"></a>Remover conexões
 
 O pooler de conexões remove uma conexão do pool após ela estar ociosa por aproximadamente **oito** minutos ou caso detecte que a conexão com o servidor foi interrompida.
 
@@ -84,32 +84,32 @@ O pooler de conexões remove uma conexão do pool após ela estar ociosa por apr
 
 Se uma conexão com um servidor desapareceu, ela pode ser removida do pool mesmo se o pooler de conexões não tiver detectado a conexão interrompida e a marcado como inválida. Este é o caso porque a sobrecarga de verificar se a conexão ainda é válida eliminaria os benefícios de se ter um pooler, provocando outra viagem de ida e volta ao servidor. Quando isso ocorrer, a primeira tentativa de usar a conexão detectará que a conexão foi interrompida e uma exceção será gerada.
 
-## <a name="clearing-the-pool"></a>Limpando o pool
+## <a name="clear-the-pool"></a>Limpar o poll
 
 O Provedor de Dados Microsoft SqlClient para SQL Server introduziu dois novos métodos para limpar o pool: <xref:Microsoft.Data.SqlClient.SqlConnection.ClearAllPools%2A> e <xref:Microsoft.Data.SqlClient.SqlConnection.ClearPool%2A>. `ClearAllPools` limpa os pools de conexões de um provedor específico e `ClearPool` limpa o pool de conexões associado a uma conexão específica.
 
 > [!NOTE]
 > Se houver conexões em uso no momento da chamada, elas serão devidamente marcadas. Quando fechadas, serão descartadas, em vez de retornadas ao pool.
 
-## <a name="transaction-support"></a>Suporte a transações
+## <a name="transaction-support"></a>Suporte à transação
 
 As conexões são removidas do pool e atribuídas com base no contexto de transação. A menos que `Enlist=false` seja especificado na cadeia de conexão, o pool de conexões verifica se a conexão está inscrita no contexto de <xref:System.Transactions.Transaction.Current%2A>. Quando uma conexão é fechada e retornada ao pool com uma transação `System.Transactions` inscrita, ela é reservada para que a próxima solicitação desse pool de conexões com a mesma transação `System.Transactions` seja retornada à mesma conexão, se disponível. Se uma solicitação desse tipo for emitida, e não houver conexões agrupadas disponíveis, uma conexão será removida da parte não transacionada do pool e depois inscrita. Se não houver conexões disponíveis em nenhuma área do pool, uma nova conexão será criada e inscrita.
 
 Quando uma conexão for fechada, ela será retornada ao pool e à subdivisão apropriada com base no contexto de transação. Portanto, é possível fechar a conexão sem gerar erros, mesmo que uma transação distribuída ainda esteja pendente. Isso permite confirmar ou anular a transação distribuída posteriormente.
 
-## <a name="controlling-connection-pooling-with-connection-string-keywords"></a>Controlando o pool de conexões com palavras-chave de cadeias de conexão
+## <a name="control-connection-pooling-with-connection-string-keywords"></a>Controlar o pooling de conexão com palavras-chave da cadeia de conexão
 
 A propriedade `ConnectionString` do objeto <xref:Microsoft.Data.SqlClient.SqlConnection> dá suporte a pares chave-valor de cadeias de conexão que podem ser usados para ajustar o comportamento da lógica do pool de conexões. Para obter mais informações, consulte <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A>.
 
-## <a name="pool-fragmentation"></a>Fragmentação de pool
+## <a name="pool-fragmentation"></a>Fragmentação do pool
 
 A fragmentação de pool é um problema comum em muitos aplicativos da Web nos quais o aplicativo pode criar um grande número de pools que não são liberados até que o processo seja encerrado. Isso deixa um grande número de conexões abertas e consumindo memória, o que resulta em baixo desempenho.
 
-### <a name="pool-fragmentation-due-to-integrated-security"></a>Fragmentação de pool devido à segurança integrada
+### <a name="pool-fragmentation-due-to-integrated-security"></a>Fragmentação do pool devido à segurança integrada
 
 As conexões são agrupadas de acordo com a cadeia de conexão e a identidade do usuário. Portanto, se você usa autenticação Básica ou autenticação do Windows no site, bem como um logon de segurança integrada, pode obter um pool por usuário. Embora isso melhore o desempenho de solicitações de bancos de dados subsequentes feitas por um único usuário, esse usuário não pode aproveitar as vantagens das conexões feitas por outros usuários. Isso também resulta em, pelo menos, uma conexão por usuário com o servidor de banco de dados. Trata-se de um efeito colateral de uma arquitetura de aplicativo Web específico que os desenvolvedores devem ponderar em relação aos requisitos de segurança e auditoria.
 
-### <a name="pool-fragmentation-due-to-many-databases"></a>Fragmentação de pool devido a vários bancos de dados
+### <a name="pool-fragmentation-due-to-many-databases"></a>Fragmentação do pool devido a muitos bancos de dados
 
 Vários provedores de serviços de Internet hospedam vários sites em um único servidor. Eles podem usar um único banco de dados para confirmar um logon de autenticação de formulários e para abrir uma conexão com um banco de dados específico desse usuário ou grupo de usuários. A conexão com o banco de dados de autenticação é agrupada e usada por todos. Entretanto, há um pool de conexões separado para cada banco de dados, que aumenta o número de conexões com o servidor.
 
@@ -119,11 +119,11 @@ O fragmento de código a seguir demonstra como criar uma conexão inicial com o 
 
 [!code-csharp[SqlConnection_Pooling_Use_Statement#1](~/../sqlclient/doc/samples/SqlConnection_Pooling_Use_Statement.cs#1)]
 
-## <a name="application-roles-and-connection-pooling"></a>Funções de aplicativo e pool de conexões
+## <a name="application-roles-and-connection-pooling"></a>Funções de aplicativo e pooling de conexões
 
 Depois de ativada uma função de aplicativo do SQL Server ao chamar o procedimento armazenado do sistema `sp_setapprole`, o contexto de segurança dessa conexão não pode ser redefinido. Entretanto, se o pool estiver habilitado, a conexão será retornada a ele e ocorrerá um erro quando a conexão agrupada for reutilizada.
 
-### <a name="application-role-alternatives"></a>Alternativas a funções de aplicativo
+### <a name="application-role-alternatives"></a>Alternativas de função de aplicativo
 
 Recomendamos que você aproveite todas as vantagens dos mecanismos de segurança que podem ser usados no lugar de funções de aplicativo.
 
@@ -131,3 +131,5 @@ Recomendamos que você aproveite todas as vantagens dos mecanismos de segurança
 
 - [Pool de conexões](connection-pooling.md)
 - [SQL Server e ADO.NET](./sql/index.md)
+- [contador de desempenho no SqlClient](performance-counters.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

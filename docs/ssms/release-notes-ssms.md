@@ -10,13 +10,13 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: maghan
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 4569c61552a03e928d01e47940ae02e7fee9dcec
-ms.sourcegitcommit: eeb30d9ac19d3ede8d07bfdb5d47f33c6c80a28f
+ms.date: 12/17/2020
+ms.openlocfilehash: 346e964b30f76bf79c20d6f348636a626a8beee2
+ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523075"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97642363"
 ---
 # <a name="release-notes-for-sql-server-management-studio-ssms"></a>Notas sobre a versão do SQL Server Management Studio (SSMS)
 
@@ -26,9 +26,89 @@ Este artigo fornece detalhes sobre atualizações, aprimoramentos e correções 
 
 ## <a name="current-ssms-release"></a>Versão atual do SSMS
 
+### <a name="188"></a>18,8
+
+![baixar](media/download-icon.png) [Baixar o SSMS 18.8](download-sql-server-management-studio-ssms.md)
+
+- Número da versão: 18.8
+- Número de build: 15.0.18369.0
+- Data de lançamento: 17 de dezembro de 2020
+
+[Chinês (Simplificado)](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x804) | [Chinês (Tradicional)](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x404) | [Inglês (Estados Unidos)](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x409) | [Francês](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x40c) | [Alemão](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x407) | [Italiano](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x410) | [Japonês](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x411) | [Coreano](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x412) | [Português (Brasil)](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x416) | [Russo](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x419) | [Espanhol](https://go.microsoft.com/fwlink/?linkid=2151644&clcid=0x40a)
+
+O SSMS 18.8 é a última versão de GA (disponibilidade geral) do SSMS. Se você precisar de uma versão anterior do SSMS, veja [versões anteriores do SSMS](release-notes-ssms.md#previous-ssms-releases).
+
+#### <a name="whats-new-in-188"></a>Novidades da versão 18.8
+
+[!INCLUDE [ssms-ads-install](../includes/ssms-azure-data-studio-install.md)]
+
+| Novo item | Detalhes |
+|----------|---------|
+| Integração da instalação do Azure Data Studio | A instalação do SSMS também instala o Azure Data Studio 1.25.1. |
+| Serviços de análise | Adição de suporte para workspaces do Power BI Premium Gen2. |
+| Auditoria | Adição de suporte para EXTERNAL_MONITOR e "auditoria de operador".  Veja a configuração [documentação](https://docs.microsoft.com/azure/azure-sql/managed-instance/auditing-configure) para obter mais informações. |
+| Integration Services | Assistente de criação de IR aprimorado, de modo que a criação de SSISDB é opcional ao criar o IR do SSIS |
+
+#### <a name="bug-fixes-in-188"></a>Correções de bug da versão 18.8
+
+| Novo item | Detalhes |
+|----------|---------|
+| Acessibilidade | Correção de problemas que afetam o Narrador na caixa de diálogo ProgressReport |
+| Monitor de Atividade | Correção de um problema em que o menu de contexto "Editar Texto da Consulta" na grade "Consultas Caras Ativas" não estava funcionando |
+| Always Encrypted | Correção de um problema em que o SSMS poderia gerar um erro de runtime ("Classe não encontrada") |
+| Dimensionamento/DPI Alto | Tela em 4k aprimorada da caixa de diálogo ProgressReport |
+| Dimensionamento/DPI Alto | Correção de um problema no formulário "Novo agendamento – Pacote" no Integration Services |
+| SSMS geral |  Correção deum problema em que o SSMS poderia gerar um erro ao tentar exibir as propriedades de uma coluna com uma semente de identidade ou um incremento de identidade que excede o tamanho de um bigint.
+| SSMS geral | Correção de uma falha no SSMS causada por um item de menu "Modelos de Exportação de Projetos..." não destinado a ser exibido |
+| SSMS geral | Correção de um problema que poderia fazer o SSMS falhar ao enumerar backups em uma pasta |
+| SSMS geral | Mitigação de um problema que estava fazendo o SSMS perder identificadores e memória ao exibir resultados de consultas |
+| SSMS geral | Correção de um problema em que os usuários não podiam criar o índice columnstore clusterizado para colunas de tipos específicos (UniqueIdentifier no SQL 2014 e posterior, VarCharMax/NVarCharMax/VarBinaryMax no SQL 2017 e posterior) |
+| SSMS geral | Correção de um grande problema pendente em que a reordenação de colunas XML na "Grade de Resultados" não estava funcionando. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035/suggestions/32890930) |
+| SSMS geral | Correção do problema em que o SSMS estava exibindo incorretamente um aviso "o controle de alterações não dá suporte para um banco de dados com objetos com otimização de memória" |
+| Assistente para Gerar Scripts | Correção de um bug que inibia a enumeração de objetos do banco de dados no SQL Server 2014 e mais antigos. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/41885587). |
+| Ferramentas de replicação | Correção de um problema em que o SQL Replication Monitor não estava respeitando as configurações de conexão automática, forçando o usuário a se reconectar manualmente todas as vezes. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035/suggestions/40394743) |
+| SMO/script | Correção de um problema ao tentar usar "Gerar script..." em uma exibição criptografada no SQL Azure DB |
+| Interface do usuário do XEvent | Correção de um problema que poderia fazer o SSMS falhar ao alternar de outros aplicativos para o SSMS. |
+| Interface do usuário do XEvent | Reverteu a melhoria da 18.7 que causou um bug na criação do XEvent devido a aspas adicionais. *Essa alteração é temporária e a melhoria retornará em uma versão subsequente sem o bug que a acompanha.* |
+
+#### <a name="known-issues-188"></a>Problemas conhecidos (18.8)
+
+| Novo item | Detalhes | Solução alternativa |
+|----------|---------|------------|
+| Serviços de análise | Erro ao se conectar ao SSAS por meio de msmdpump.dll. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/40144696). | N/D |
+| Analysis Services | Em casos raros, ao usar a configuração de atualização, pode haver um erro "Objeto não definido para a instância de um objeto" ao tentar abrir o editor DAX após a atualização do SSMS. | Desinstalar e reinstalar o SQL Server Management Studio.  Se a reinstalação não solucionar o problema, feche todas as instâncias do SSMS, faça backup e remova `%AppData%\Microsoft\SQL Server Management Studio` e `%LocalAppData%\Microsoft\SQL Server Management Studio`. |
+| SSMS geral | A caixa de diálogo Nova Especificação da Auditoria do Servidor pode fazer com que o SSMS falhe com um erro de violação de acesso. | N/D |
+| SSMS geral | As Extensões do SSMS que usam o SMO precisam ser recompiladas com direcionamento para o novo pacote do SMO v161 específico do SSMS. Uma versão prévia está disponível em https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects.SSMS/ </br></br> As extensões compiladas nas versões 160 anteriores do pacote Microsoft.SqlServer.SqlManagementObjects continuarão funcionando. | N/D |
+| Integration Services | Ao importar ou exportar pacotes no Integration Services ou exportar pacotes no Azure-SSIS Integration Runtime, os scripts são perdidos para pacotes que contêm componentes/tarefas de script. | remova a pasta "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\MSBuild". |
+| Integration Services | As conexões remotas com o Integration Services podem falhar informando que "O serviço especificado não existe como um serviço instalado." em um sistema operacional mais recente. | identifique o local do registro relacionado aos serviços de integração em Computer\HKEY_CLASSES_ROOT\AppID e Computer\HKEY_CLASSES_ROOT\ WOW6432Node\AppID e, dentro desses hives, renomeie a chave do Registro chamada "LocalService" para "LocalService_A" de acordo com a versão específica do serviço de integração que estamos tentando conectar |
+
+
+Veja os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server) para conhecer outros problemas conhecidos e fornecer comentários à equipe do produto.
+
+## <a name="previous-ssms-releases"></a>Versões anteriores do SSMS
+
+[!INCLUDE[ssms-connect-aazure-ad](../includes/ssms-connect-azure-ad.md)]
+
+Baixe versões anteriores do SSMS selecionando o link de download na seção relacionada.
+
+| Versão do SSMS | Número de build | Data de liberação |
+|--------------|--------------|--------------|
+| [18.7.1](#1871) | 15.0.18358.0 | 27 de outubro de 2020 |
+| [18,7](#187) | 15.0.18357.0 | 20 de outubro de 2020 |
+| [18.6](#186) | 15.0.18338.0 | 22 de julho de 2020 |
+| [18.5.1](#1851) | 15.0.18333.0 | 9 de junho de 2020 |
+| [18.5](#185) | 15.0.18330.0 | 7 de abril de 2020 |
+| [18.4](#184) | 15.0.18206.0 | 04 de novembro de 2019 |
+| [18.3.1](#1831) | 15.0.18183.0 | 02 de outubro de 2019 |
+| [18.2](#182) | 15.0.18142.0 | 25 de julho de 2019 |
+| [18.1](#181) | 15.0.18131.0 | 11 de junho de 2019 |
+| [18.0](#180) | 15.0.18118.0 | 24 de abril de 2019 |
+| [17.9.1](#1791) | 14.0.17289.0 | 21 de novembro de 2018 |
+| [16.5.3](#1653) | 13.0.16106.4 | 30 de janeiro de 2017 |
+
 ### <a name="1871"></a>18.7.1
 
-![baixar](media/download-icon.png) [Baixar o SSMS 18.7](download-sql-server-management-studio-ssms.md)
+![baixar](media/download-icon.png) [Baixar o SSMS 18.7](https://go.microsoft.com/fwlink/?linkid=2147207)
 
 - Número da versão: 18.7.1
 - Número de build: 15.0.18358.0
@@ -54,7 +134,7 @@ O SSMS 18.7 é a última versão de GA (disponibilidade geral) do SSMS. Se você
 
 | Novo item | Detalhes | Solução alternativa |
 |----------|---------|------------|
-| Analysis Services | Erro ao se conectar ao SSAS por meio de msmdpump.dll. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/40144696). | N/D |
+| Serviços de análise | Erro ao se conectar ao SSAS por meio de msmdpump.dll. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/40144696). | N/D |
 | Analysis Services | Em casos raros, ao usar a configuração de atualização, pode haver um erro "Objeto não definido para a instância de um objeto" ao tentar abrir o editor DAX após a atualização do SSMS. | Para resolver esse problema, desinstale e reinstale o SSMS. |
 | Editor de Consultas DAX | Abrir o Editor de Consultas DAX causa um erro de "Objeto não definido para a instância de um objeto" | Desinstalar e reinstalar o SQL Server Management Studio.  Se a reinstalação não solucionar o problema, feche todas as instâncias do SSMS, faça backup e remova `%AppData%\Microsoft\SQL Server Management Studio` e `%LocalAppData%\Microsoft\SQL Server Management Studio`. |
 | SSMS geral | A caixa de diálogo Nova Especificação da Auditoria do Servidor pode fazer com que o SSMS falhe com um erro de violação de acesso. | N/D |
@@ -64,31 +144,9 @@ O SSMS 18.7 é a última versão de GA (disponibilidade geral) do SSMS. Se você
 | Integration Services | As conexões remotas com o Integration Services podem falhar informando que "O serviço especificado não existe como um serviço instalado." em um sistema operacional mais recente. | identifique o local do registro relacionado aos serviços de integração em Computer\HKEY_CLASSES_ROOT\AppID e Computer\HKEY_CLASSES_ROOT\ WOW6432Node\AppID e, dentro desses hives, renomeie a chave do Registro chamada "LocalService" para "LocalService_A" de acordo com a versão específica do serviço de integração que estamos tentando conectar |
 | Pesquisador de Objetos | As versões do SSMS anteriores à 18.7 têm uma alteração da falha no Pesquisador de Objetos devido às alterações do mecanismo relacionadas ao [pool de SQL sem servidor do Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview). | Para continuar utilizando o Pesquisador de Objetos no SSMS com o pool de SQL sem servidor do Azure Synapse Analytics, você precisa usar o SSMS 18.7 ou posterior. |
 
-Veja os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server) para conhecer outros problemas conhecidos e fornecer comentários à equipe do produto.
-
-## <a name="previous-ssms-releases"></a>Versões anteriores do SSMS
-
-[!INCLUDE[ssms-connect-aazure-ad](../includes/ssms-connect-azure-ad.md)]
-
-Baixe versões anteriores do SSMS selecionando o link de download na seção relacionada.
-
-| Versão do SSMS | Número de build | Data de liberação |
-|--------------|--------------|--------------|
-| [18,7](#187) | 15.0.18357.0 | 20 de outubro de 2020 |
-| [18.6](#186) | 15.0.18338.0 | 22 de julho de 2020 |
-| [18.5.1](#1851) | 15.0.18333.0 | 9 de junho de 2020 |
-| [18.5](#185) | 15.0.18330.0 | 7 de abril de 2020 |
-| [18.4](#184) | 15.0.18206.0 | 04 de novembro de 2019 |
-| [18.3.1](#1831) | 15.0.18183.0 | 02 de outubro de 2019 |
-| [18.2](#182) | 15.0.18142.0 | 25 de julho de 2019 |
-| [18.1](#181) | 15.0.18131.0 | 11 de junho de 2019 |
-| [18.0](#180) | 15.0.18118.0 | 24 de abril de 2019 |
-| [17.9.1](#1791) | 14.0.17289.0 | 21 de novembro de 2018 |
-| [16.5.3](#1653) | 13.0.16106.4 | 30 de janeiro de 2017 |
-
 ### <a name="187"></a>18,7
 
-![baixar](media/download-icon.png) [Baixar o SSMS 18.7](download-sql-server-management-studio-ssms.md)
+![baixar](media/download-icon.png) [Baixar o SSMS 18.7](https://go.microsoft.com/fwlink/?linkid=2146265)
 
 - Número da versão: 18.7
 - Número de build: 15.0.18357.0
@@ -155,7 +213,7 @@ O SSMS 18.7 é a última versão de GA (disponibilidade geral) do SSMS. Se você
 
 | Novo item | Detalhes | Solução alternativa |
 |----------|---------|------------|
-| Analysis Services | Erro ao se conectar ao SSAS por meio de msmdpump.dll. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/40144696). | N/D |
+| Serviços de análise | Erro ao se conectar ao SSAS por meio de msmdpump.dll. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/40144696). | N/D |
 | Analysis Services | Em casos raros, ao usar a configuração de atualização, pode haver um erro "Objeto não definido para a instância de um objeto" ao tentar abrir o editor DAX após a atualização do SSMS. | Para resolver esse problema, desinstale e reinstale o SSMS. |
 | SSMS geral | A caixa de diálogo Nova Especificação da Auditoria do Servidor pode fazer com que o SSMS falhe com um erro de violação de acesso. | N/D |
 | SSMS geral | As Extensões do SSMS que usam o SMO precisam ser recompiladas com direcionamento para o novo pacote do SMO v161 específico do SSMS. Uma versão prévia está disponível em https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects.SSMS/ </br></br> As extensões compiladas nas versões 160 anteriores do pacote Microsoft.SqlServer.SqlManagementObjects continuarão funcionando. | N/D |
@@ -218,7 +276,7 @@ O SSMS 18.7 é a última versão de GA (disponibilidade geral) do SSMS. Se você
 
 | Novo item | Detalhes | Solução alternativa |
 |----------|---------|------------|
-| Analysis Services | Erro ao se conectar ao SSAS por meio de msmdpump.dll. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/40144696). | N/D |
+| Serviços de análise | Erro ao se conectar ao SSAS por meio de msmdpump.dll. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/40144696). | N/D |
 | SSMS geral | A caixa de diálogo Nova Especificação da Auditoria do Servidor pode fazer com que o SSMS falhe com um erro de violação de acesso. | N/D |
 | SSMS geral | As Extensões do SSMS que usam o SMO precisam ser recompiladas com direcionamento para o novo pacote do SMO v161 específico do SSMS. Uma versão prévia está disponível em https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects.SSMS/ </br></br> As extensões compiladas nas versões 160 anteriores do pacote Microsoft.SqlServer.SqlManagementObjects continuarão funcionando. | N/D |
 | Integration Services | Ao importar ou exportar pacotes no Integration Services ou exportar pacotes no Azure-SSIS Integration Runtime, os scripts são perdidos para pacotes que contêm componentes/tarefas de script. Solução alternativa: remova a pasta "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\MSBuild". | N/D|

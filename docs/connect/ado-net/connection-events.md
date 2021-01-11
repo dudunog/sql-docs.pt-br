@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 67b805e4ec95047b843e6b72ba10dc8fee4688d5
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 8151915dc6c16c6225fec9ab90cb5a88e86b992f
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96419817"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771433"
 ---
 # <a name="connection-events"></a>Eventos de conexão
 
@@ -32,7 +32,7 @@ O Provedor de Dados do Microsoft SqlClient para SQL Server tem objetos **Connect
 |**InfoMessage**|Ocorre quando uma mensagem informativa é retornada de uma fonte de dados. As mensagens informativas são as mensagens de uma fonte de dados que não resultam em uma exceção sendo lançada.|  
 |**StateChange**|Ocorre quando o estado de **Connection** é alterado.|  
 
-## <a name="working-with-the-infomessage-event"></a>Trabalhando com o evento InfoMessage
+## <a name="work-with-the-infomessage-event"></a>Trabalhar com o evento InfoMessage
 
 Você pode recuperar avisos e mensagens informativas de uma fonte de dados do SQL Server usando o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> do objeto <xref:Microsoft.Data.SqlClient.SqlConnection>. Os erros retornados da fonte de dados com um nível de severidade de 11 a 16 geram uma exceção. No entanto, o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> pode ser usado para obter as mensagens da fonte de dados que não estão associadas a um erro. No caso do Microsoft SQL Server, qualquer erro com uma severidade de 10 ou menos é considerado uma mensagem informativa e podem ser capturado usando o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>. Para saber mais, leia o artigo [Severidade dos erros do Mecanismo de Banco de Dados](/sql/relational-databases/errors-events/database-engine-error-severities).
 
@@ -44,7 +44,7 @@ O exemplo de código a seguir mostra como adicionar um manipulador de eventos pa
 
 [!code-csharp[SqlConnection_._InfoMessage#1](~/../sqlclient/doc/samples/SqlConnection_InfoMessage_StateChange.cs#1)]
 
-## <a name="handling-errors-as-infomessages"></a>Tratando erros como InfoMessages
+## <a name="handle-errors-as-infomessages"></a>Tratar erros como InfoMessages
 
 O evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> acionará normalmente apenas para mensagens informativas e de aviso que são enviadas do servidor. No entanto, quando ocorre um erro real, a execução do método **ExecuteNonQuery** ou **ExecuteReader** que iniciou a operação do servidor é interrompida e uma exceção é gerada.
 
@@ -53,7 +53,7 @@ Se você quiser continuar a processar o restante das instruções em um comando 
 > [!NOTE]
 > Um erro com um nível de severidade de 17 ou acima disso faz o servidor parar de processar o comando e deve ser tratado como uma exceção. Nesse caso, uma exceção é gerada independentemente de como o erro é tratado no evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>.
 
-## <a name="working-with-the-statechange-event"></a>Trabalhando com o evento StateChange
+## <a name="work-with-the-statechange-event"></a>Trabalhar com o evento StateChange
 
 O evento **StateChange** ocorre quando o estado de um objeto **Connection** é alterado. O evento **StateChange** recebe <xref:System.Data.StateChangeEventArgs>, que permite determinar a alteração no estado de **Connection** usando as propriedades **OriginalState** e **CurrentState**. A propriedade **OriginalState** é uma enumeração <xref:System.Data.ConnectionState> que indica o estado de **Connection** antes da alteração. **CurrentState** é uma enumeração <xref:System.Data.ConnectionState> que indica o estado de **Connection** após a alteração.
 
@@ -64,3 +64,4 @@ O exemplo de código a seguir usa o evento **StateChange** para gravar uma mensa
 ## <a name="see-also"></a>Confira também
 
 - [Conectar-se a fontes de dados](connecting-to-data-source.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

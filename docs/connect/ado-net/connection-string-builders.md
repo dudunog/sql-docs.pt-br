@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: bdb4294fda1f26ec346f786ec29061f8d4f9ee27
-ms.sourcegitcommit: debaff72dbfae91b303f0acd42dd6d99e03135a2
+ms.openlocfilehash: 38c1ad34fb4819460c08f00da4c1dbd31749b7cb
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96419772"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771426"
 ---
 # <a name="connection-string-builders"></a>Construtores de cadeia de conexão
 
@@ -27,7 +27,7 @@ ms.locfileid: "96419772"
 
 Nas versões anteriores do ADO.NET, não existia a verificação de cadeias de conexão com valores de cadeia concatenados no tempo de compilação. Portanto, no tempo de execução, uma palavra-chave incorreta gerava uma <xref:System.ArgumentException>. O Provedor de Dados do Microsoft SqlClient para SQL Server inclui a classe de construtor de cadeias de conexão fortemente tipada <xref:Microsoft.Data.SqlClient.SqlConnectionStringBuilder?displayProperty=nameWithType>, herdada de <xref:System.Data.Common.DbConnectionStringBuilder>.
 
-## <a name="connection-string-injection-attacks"></a>Ataques de injeção de cadeias de conexão
+## <a name="connection-string-injection-attacks"></a>Ataques de injeção da cadeia de conexão
 
 Um ataque de injeção de cadeia de conexão pode ocorrer quando a concatenação de cadeias dinâmicas é usada para criar cadeias de conexão com base na entrada do usuário. Se a cadeia de caracteres não for validada e o texto mal-intencionado ou os caracteres não forem escapados, um invasor poderá potencialmente acessar dados confidenciais ou outros recursos no servidor. Por exemplo, um invasor pode montar um ataque fornecendo um ponto e vírgula e acrescentando outro valor. A cadeia de conexão é analisada usando um algoritmo "**o último ganha**", e a entrada hostil é substituída por um valor legítimo.
 
@@ -44,7 +44,7 @@ data source=(local);Integrated Security=True;
 initial catalog="AdventureWorks;NewValue=Bad"
 ```
 
-## <a name="building-connection-strings-from-configuration-files"></a>Construindo cadeias de conexão a partir de arquivos de configuração
+## <a name="build-connection-strings-from-configuration-files"></a>Compilar cadeias de conexão de arquivos de configuração
 
 Se determinados elementos de uma cadeia de conexão forem conhecidos antecipadamente, eles poderão ser armazenados em um arquivo de configuração e recuperados em tempo de execução para construir uma cadeia de conexão completa. Por exemplo, o nome do banco de dados pode ser conhecido com antecedência, mas não o nome do servidor. Ou, talvez, você deseje que um usuário forneça um nome e uma senha em tempo de execução, sem que possa injetar outros valores na cadeia de conexão.
 
@@ -74,3 +74,4 @@ Este exemplo demonstra como recuperar uma cadeia de conexão parcial de um arqui
 ## <a name="see-also"></a>Confira também
 
 - [Cadeias de conexão](connection-strings.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

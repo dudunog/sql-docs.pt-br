@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: cb77d01ede16a6fa68aac6dcb49612ad8fd9a191
-ms.sourcegitcommit: 7a3fdd3f282f634f7382790841d2c2a06c917011
+ms.openlocfilehash: b3d92f49fb4eae6184a673ffc25ff6bbdf521626
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563073"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771588"
 ---
 # <a name="establishing-connection"></a>Estabelecer conexão
 
@@ -27,7 +27,7 @@ ms.locfileid: "96563073"
 
 Para se conectar ao Microsoft SQL Server, use o objeto <xref:Microsoft.Data.SqlClient.SqlConnection> do Provedor de Dados Microsoft SqlClient para SQL Server. Para armazenar e recuperar cadeias de conexão com segurança, confira [Proteger informações de conexão](protecting-connection-information.md).
 
-## <a name="closing-connections"></a>Fechando conexões
+## <a name="closing-connections"></a>Fechar conexões
 
 É recomendável sempre fechar a conexão quando você terminar de usá-la para que a conexão possa ser retornada ao pool. O bloco `Using` no Visual Basic ou C# automaticamente descarta a conexão quando o código sai do bloco, mesmo no caso de uma exceção sem tratamento. Confira [Instrução using](/dotnet/csharp/language-reference/keywords/using-statement) e [Instrução Using](/dotnet/visual-basic/language-reference/statements/using-statement) para obter mais informações.
 
@@ -47,7 +47,7 @@ O exemplo de código a seguir demonstra como criar e abrir uma conexão para um 
 
 [!code-csharp[SqlConnection.Open#1](~/../sqlclient/doc/samples/SqlConnection_Open.cs#1)]
 
-### <a name="integrated-security-and-aspnet"></a>Segurança integrada e o ASP.NET
+### <a name="integrated-security-and-aspnet"></a>Segurança integrada e ASP.NET
 
 A Segurança integrada do SQL Server (também conhecida como conexões confiáveis) ajuda a fornecer proteção ao se conectar ao SQL Server, pois não expõe uma ID de usuário e senha na cadeia de conexão e é o método recomendado para autenticar uma conexão. A segurança integrada usa a identidade de segurança atual, ou símbolo, do processo em execução. Para aplicativos da área de trabalho, essa identidade normalmente é a identidade do usuário conectado no momento.
 
@@ -57,3 +57,4 @@ A identidade de segurança para aplicativos ASP.NET pode ser definida para uma d
 
 - [Conectar-se a fontes de dados](connecting-to-data-source.md)
 - [Cadeias de conexão](connection-strings.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

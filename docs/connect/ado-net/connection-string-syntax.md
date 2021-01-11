@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: f61b867b70825595a012b2167d2c63b13409a8e2
-ms.sourcegitcommit: 0c0e4ab90655dde3e34ebc08487493e621f25dda
+ms.openlocfilehash: 42b1f8704be721c0b52b3c42946c9abbf7efd7db
+ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96442819"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97771615"
 ---
 # <a name="connection-string-syntax"></a>Sintaxe de cadeia de conexão
 
@@ -41,7 +41,7 @@ Recomendamos o uso da Autenticação do Windows (às vezes chamada de *seguranç
 |--------------|------------|  
 |`SqlClient`|`Integrated Security=true;`<br /><br /> `-- or --`<br /><br /> `Integrated Security=SSPI;`|  
 
-## <a name="sqlclient-connection-strings"></a>Cadeias de conexão do SqlClient
+## <a name="sqlclient-connection-strings"></a>Cadeias de conexão SqlClient
 
 A sintaxe para uma cadeia de conexão <xref:Microsoft.Data.SqlClient.SqlConnection> está documentada na propriedade <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A?displayProperty=nameWithType>. Você pode usar a propriedade <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A> para obter ou definir uma cadeia de conexão para um banco de dados do SQL Server. As palavras-chave da cadeia de conexão também são mapeadas para as propriedades no <xref:Microsoft.Data.SqlClient.SqlConnectionStringBuilder>.
 
@@ -88,13 +88,13 @@ Você também pode definir a propriedade <xref:Microsoft.Data.SqlClient.SqlConne
 
 A palavra-chave `Type System Version` em um <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A?displayProperty=nameWithType> especifica a representação do lado do cliente de tipos do SQL Server. Consulte <xref:Microsoft.Data.SqlClient.SqlConnection.ConnectionString%2A?displayProperty=nameWithType> para obter mais informações sobre a palavra-chave `Type System Version`.
 
-## <a name="connecting-and-attaching-to-sql-server-express-user-instances"></a>Conectando e anexando a instâncias de usuário do SQL Server Express
+## <a name="connect-and-attach-to-sql-server-express-user-instances"></a>Conectar e anexar as instâncias de usuário do SQL Server Express
 
 As instâncias de usuário são um recurso no SQL Server Express. Elas permitem que um usuário que esteja executando uma conta local do Windows com menos privilégios anexe e execute um banco de dados do SQL Server sem exigir privilégios administrativos. Uma instância de usuário é executada com as credenciais do Windows do usuário, não como um serviço.
 
 Para obter mais informações sobre como trabalhar com instâncias de usuário, confira [Instâncias de usuário do SQL Server Express](./sql/sql-server-express-user-instances.md).
 
-## <a name="using-trustservercertificate"></a>Usando TrustServerCertificate
+## <a name="use-trustservercertificate"></a>Usar o TrustServerCertificate
 
 A palavra-chave `TrustServerCertificate` é válida somente ao se conectar a uma instância do SQL Server com um certificado válido. Quando `TrustServerCertificate` for definida como `true`, a camada de transporte usará TLS/SSL para criptografar o canal, deixando de passar pela cadeia de certificado para validar a confiança.
 
@@ -105,7 +105,7 @@ A palavra-chave `TrustServerCertificate` é válida somente ao se conectar a uma
 > [!NOTE]
 > Se `TrustServerCertificate` estiver definido como `true` e a criptografia estiver ativada, o nível de criptografia especificado no servidor será usado mesmo que `Encrypt` esteja definido como `false` na cadeia de conexão. A conexão falhará se isso for feito de outra maneira.
 
-### <a name="enabling-encryption"></a>Habilitando a criptografia
+### <a name="enable-encryption"></a>Habilitar criptografia
 
 Para habilitar a criptografia quando um certificado não tiver sido provisionado no servidor, as opções **Forçar Criptografia de Protocolo** e **Confiar no Certificado do Servidor** devem ser definidas no SQL Server Configuration Manager. Neste caso, a criptografia usará um certificado do servidor autoassinado sem validação, se nenhum certificado verificável tiver sido provisionado no servidor.
 
@@ -129,3 +129,4 @@ Para obter mais informações, confira [Usando criptografia sem validação](/sq
 
 - [Cadeias de conexão](connection-strings.md)
 - [Conectar-se a fontes de dados](connecting-to-data-source.md)
+- [Microsoft ADO.NET for SQL Server](microsoft-ado-net-sql-server.md)

@@ -2,7 +2,7 @@
 title: Conectando-se a um banco de dados SQL do Azure
 description: Este artigo aborda problemas ao usar o Microsoft JDBC Driver for SQL Server para se conectar a um Banco de Dados SQL do Azure.
 ms.custom: ''
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.prod: sql
 ms.prod_service: connectivity
 ms.reviewer: ''
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 49645b1f-39b1-4757-bda1-c51ebc375c34
 author: David-Engel
 ms.author: v-daenge
-ms.openlocfilehash: bda9c33588c8248d0aff62f555ec46451d0e9e78
-ms.sourcegitcommit: c7f40918dc3ecdb0ed2ef5c237a3996cb4cd268d
+ms.openlocfilehash: 03768a309ac10fc16fd1a743660df6fe74b088e7
+ms.sourcegitcommit: bc8474fa200ef0de7498dbb103bc76e3e3a4def4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91725487"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709665"
 ---
 # <a name="connecting-to-an-azure-sql-database"></a>Conectando-se a um banco de dados SQL do Azure
 
@@ -33,7 +33,7 @@ Este artigo aborda os problemas ocorridos no uso do [!INCLUDE[jdbcNoVersion](../
 ## <a name="details"></a>Detalhes
 
 Ao se conectar a um [!INCLUDE[ssAzure](../../includes/ssazure_md.md)], você deve se conectar ao banco de dados mestre para chamar **SQLServerDatabaseMetaData.getCatalogs**.  
-O [!INCLUDE[ssAzure](../../includes/ssazure_md.md)] não dá suporte ao retorno de todo o conjunto de catálogos em um banco de dados de usuário. **SQLServerDatabaseMetaData.getCatalogs** usa a exibição sys.databases para obter os catálogos. Confira a discussão sobre permissões em [sys.databases (Transact-SQL)](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md) para entender o comportamento de **SQLServerDatabaseMetaData.getCatalogs** em um [!INCLUDE[ssAzure](../../includes/ssazure_md.md)].  
+O [!INCLUDE[ssAzure](../../includes/ssazure_md.md)] não dá suporte ao retorno de todo o conjunto de catálogos em um banco de dados de usuário. **SQLServerDatabaseMetaData.getCatalogs** usa a exibição sys.databases para obter os catálogos. Confira a discussão sobre permissões em [sys.databases (Transact-SQL)](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md) para entender o comportamento do **SQLServerDatabaseMetaData.getCatalogs** em um [!INCLUDE[ssAzure](../../includes/ssazure_md.md)].  
   
 ## <a name="connections-dropped"></a>Conexões descartadas
 
@@ -43,7 +43,13 @@ Ao se conectar a um [!INCLUDE[ssAzure](../../includes/ssazure_md.md)], as conex�
 
 - Ociosas pelo Gateway do SQL do Azure, no qual as mensagens **keepalive** do TCP podem ocorrer (tornando a conexão não ociosa de uma perspectiva do TCP), mas sem uma consulta ativa em 30 minutos. Nesse cenário, o Gateway determina se a conexão TDS é ociosa em 30 minutos e termina a conexão.  
   
-Para evitar a remoção de conexões ociosas por um componente de rede, as configurações do Registro a seguir (ou seus equivalentes em ambientes não Windows) devem ser definidas no sistema operacional no qual o driver foi carregado:  
+Para resolver o segundo ponto e evitar que o gateway encerre conexões ociosas, você poderá:
+
+* Usar a [política de conexão](/azure/azure-sql/database/connectivity-architecture#connection-policy) de **redirecionamento** ao configurar sua fonte de dados do SQL do Azure.
+
+* Manter as conexões ativas por meio de atividade leve. Esse método não é recomendado e só deverá ser usado se não houver outras opções possíveis.
+
+Para abordar o primeiro ponto e evitar a remoção de conexões ociosas por um componente de rede, as seguintes configurações do registro (ou seus equivalentes em ambientes não Windows) devem ser definidas no sistema operacional no qual o driver foi carregado:  
   
 |Configuração do Registro|Valor recomendado|  
 |----------------------|-----------------------|  
@@ -53,7 +59,13 @@ Para evitar a remoção de conexões ociosas por um componente de rede, as confi
   
 Reinicie o computador para que as configurações do Registro tenham efeito.  
 
-Para fazer isso ao executar no Azure, crie uma tarefa de inicialização para adicionar as chaves do Registro.  Por exemplo, adicione a tarefa de inicialização abaixo ao arquivo de definição de serviço:  
+Os valores KeepAlivetime e KeepAliveInterval são em milissegundos. Essas configurações terão o efeito de desconectar uma conexão sem resposta em 10 a 40 segundos. Depois que um pacote keep alive for enviado, se nenhuma resposta for recebida, ele será tentado novamente a cada segundo até 10 vezes. Se nenhuma resposta for recebida durante esse tempo, o soquete do lado do cliente será desconectado. Dependendo do seu ambiente, talvez você queira aumentar o KeepAliveInterval para acomodar as interrupções conhecidas (como migrações de máquina virtual) que podem fazer com que um servidor não responda por mais de 10 segundos.
+
+> [!NOTE]
+> O TcpMaxDataRetransmissions não é controlável no Windows Vista ou no Windows 2008 e superior.
+
+Para realizar esta configuração ao executar no Azure, crie uma tarefa de inicialização para adicionar as chaves do Registro.  Por exemplo, adicione a tarefa de inicialização abaixo ao arquivo de definição de serviço:  
+
 
 ```xml
 <Startup>  
@@ -62,7 +74,7 @@ Para fazer isso ao executar no Azure, crie uma tarefa de inicialização para ad
 </Startup>  
 ```
 
-Depois adicione um arquivo AddKeepAlive.cmd file ao seu projeto. Defina a configuração "Copiar para Diretório de Saída" para Copiar sempre. A seguir, há um exemplo de arquivo AddKeepAlive.cmd:  
+Depois adicione um arquivo AddKeepAlive.cmd file ao seu projeto. Defina a configuração "Copiar para Diretório de Saída" para Copiar sempre. O seguinte script é um exemplo de arquivo AddKeepAlive.cmd:  
 
 ```bat
 if exist keepalive.txt goto done  
