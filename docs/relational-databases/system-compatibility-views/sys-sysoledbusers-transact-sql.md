@@ -19,14 +19,14 @@ helpviewer_keywords:
 - sysoledbusers system table
 - sys.sysoledbusers compatibility view
 ms.assetid: fe924c17-9cad-4b2b-8124-1e0fd82931e3
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 01a2683f063280800606ebd42ba9ce65a286ab82
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 442ca09761a75a5ca53b028bf8ac0a7f58c59314
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88482109"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095431"
 ---
 # <a name="syssysoledbusers-transact-sql"></a>sys.sysoledbusers (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -40,9 +40,9 @@ ms.locfileid: "88482109"
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
 |**rmtsrvid**|**smallint**|Número de identificação de segurança do servidor.|  
-|**rmtloginame**|**nvarchar (** 128 **)**|Nome do logon remoto que o **LoginSid** mapeia para o **rmtservid**vinculado.|  
+|**rmtloginame**|**nvarchar (** 128 **)**|Nome do logon remoto que o **LoginSid** mapeia para o **rmtservid** vinculado.|  
 |**rmtpassword**|**nvarchar (** 128 **)**|Retorna NULL.|  
-|**loginsid**|**varbinary(** 85 **)**|Identificação de segurança do logon local que será mapeado.|  
+|**loginsid**|**varbinary (** 85 **)**|Identificação de segurança do logon local que será mapeado.|  
 |**status**|**smallint**|Se 1, o mapeamento deve usar as credenciais do usuário.|  
 |**changedate**|**datetime**|Data da última alteração feita nas informações do mapeamento.|  
   

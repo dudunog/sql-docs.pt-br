@@ -19,14 +19,14 @@ helpviewer_keywords:
 - sysservers system table
 - sys.sysservers compatibility view
 ms.assetid: d02f186f-c00f-44a6-b38d-dc78a3d2145b
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: ea79d90f7ccb75243246cc64713c746e05c8996c
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 1cf2a9649745eeeb5fbf10667b9849c0c1de5dec
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88475088"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095315"
 ---
 # <a name="syssysservers-transact-sql"></a>sys.sysservers (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "88475088"
 |**ConnectTimeout**|**int**|Configuração de tempo limite para a conexão de servidor.|  
 |**QueryTimeout**|**int**|Configuração de tempo limite para a consultas no servidor.|  
 |**srvnetname**|**char(30)**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  
-|**isremote**|**bit**|1 = Servidor é um servidor remoto.<br /><br /> 0 = Servidor é um servidor vinculado.|  
+|**IsRemote**|**bit**|1 = Servidor é um servidor remoto.<br /><br /> 0 = Servidor é um servidor vinculado.|  
 |**RPC**|**bit**|1 = **sp_serveroption \@ RPC** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ RPC** definido como **false** ou **off**.|  
 |**pub**|**bit**|1 = **sp_serveroption \@ pub** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ pub** definido como **false** ou **off**.|  
 |**sub**|**bit**|1 = **sp_serveroption \@ sub** definida como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ sub** definida como **false** ou **off**.|  
@@ -63,7 +63,7 @@ ms.locfileid: "88475088"
 |**rpcout**|**bit**|1 = **sp_serveroption \@ RPC out** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ RPC out** definido como **false** ou **off**.|  
 |**dataaccess**|**bit**|1 = **sp_serveroption \@ acesso a dados** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ acesso a dados** definido como **falso** ou **desativado**.|  
 |**collationcompatible**|**bit**|1 = **sp_serveroption \@ compatível com agrupamento** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ compatível com agrupamento** definido como **false** ou **off**.|  
-|**sistema**|**bit**|1 = ** \@ sistema sp_serveroption** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ sistema** definido como **false** ou **off**.|  
+|**sistema**|**bit**|1 = **\@ sistema sp_serveroption** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ sistema** definido como **false** ou **off**.|  
 |**useremotecollation**|**bit**|1 = **sp_serveroption \@ agrupamento remoto** definido como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ agrupamento remoto** definido como **falso** ou **desativado**.|  
 |**lazyschemavalidation**|**bit**|1 = **sp_serveroption \@ validação de esquema lenta** definida como **true** ou **on**.<br /><br /> 0 = **sp_serveroption \@ validação de esquema lenta** definida como **false** ou **off**.|  
 |**Agrupamento**|**sysname**|Agrupamento de servidor conforme definido por **sp_serveroption \@ nome do agrupamento**.|  

@@ -1,6 +1,6 @@
 ---
-description: sys. database_audit_specifications (Transact-SQL)
-title: sys. database_audit_specifications (Transact-SQL) | Microsoft Docs
+description: sys.database_audit_specifications (Transact-SQL)
+title: sys.database_audit_specifications (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 04/05/2016
 ms.prod: sql
@@ -18,23 +18,23 @@ dev_langs:
 helpviewer_keywords:
 - sys.database_audit_specifications catalog view
 ms.assetid: bf80e5c6-0588-4eb7-86ff-aa7c73461335
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: a4e3a7d73b8464d11e4ecab1e603805bd9d41a05
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: e88134772509f84eb389b3e55de860fdb59380bd
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89542595"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095559"
 ---
-# <a name="sysdatabase_audit_specifications-transact-sql"></a>sys. database_audit_specifications (Transact-SQL)
+# <a name="sysdatabase_audit_specifications-transact-sql"></a>sys.database_audit_specifications (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Contém informações sobre as especificações de auditoria do banco de dados de uma auditoria do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] em uma instância de servidor. Para obter mais informações, veja [Auditoria do SQL Server &#40;Mecanismo de Banco de Dados&#41;](../../relational-databases/security/auditing/sql-server-audit-database-engine.md).  
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
-|Name|**sysname**|Nome da especificação de auditoria.|  
+|Nome|**sysname**|Nome da especificação de auditoria.|  
 |database_specification_id|**int**|ID da especificação do banco de dados.|  
 |create_date|**datetime**|Data de criação da especificação de auditoria.|  
 |modified_date|**datetime**|Data da última alteração feita na especificação de auditoria.|  

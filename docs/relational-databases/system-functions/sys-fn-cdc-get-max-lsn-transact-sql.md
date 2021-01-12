@@ -19,19 +19,19 @@ helpviewer_keywords:
 - fn_cdc_get_max_lsn
 - sys.fn_cdc_get_max_lsn
 ms.assetid: 93f3a4c8-b91f-4ebb-8e96-9397bb3a1c43
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 314fac004523b27d5766cca264535dcca6dd058e
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 59613b93de2a086bfd4d0bac7fa0f8a8983d8ce5
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88322132"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094979"
 ---
 # <a name="sysfn_cdc_get_max_lsn-transact-sql"></a>sys.fn_cdc_get_max_lsn (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Retorna o LSN (número de sequência de log) máximo da coluna start_lsn na tabela do sistema [CDC. lsn_time_mapping](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md) . É possível usar essa função para retornar o ponto de extremidade superior da linha do tempo de captura de dados de alteração para qualquer instância de captura.  
+  Retorna o LSN (número de sequência de log) máximo da coluna start_lsn na tabela do sistema [CDC.lsn_time_mapping](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md) . É possível usar essa função para retornar o ponto de extremidade superior da linha do tempo de captura de dados de alteração para qualquer instância de captura.  
   
  ![Ícone de link do tópico](../../database-engine/configure-windows/media/topic-link.gif "Ícone de link do tópico") [Convenções da sintaxe Transact-SQL](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
@@ -46,7 +46,7 @@ sys.fn_cdc_get_max_lsn ()
  **binary(10)**  
   
 ## <a name="remarks"></a>Comentários  
- Essa função retorna o LSN máximo na coluna start_lsn da tabela [CDC. lsn_time_mapping](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md) . Como tal, ele é o último LSN processado pelo processo de captura quando as alterações são propagadas para as tabelas de alteração do banco de dados. Ele serve como ponto de extremidade superior de todas as linhas do tempo associadas às instâncias de captura definidas para o banco de dados.  
+ Essa função retorna o LSN máximo na coluna start_lsn da tabela [CDC.lsn_time_mapping](../../relational-databases/system-tables/cdc-lsn-time-mapping-transact-sql.md) . Como tal, ele é o último LSN processado pelo processo de captura quando as alterações são propagadas para as tabelas de alteração do banco de dados. Ele serve como ponto de extremidade superior de todas as linhas do tempo associadas às instâncias de captura definidas para o banco de dados.  
   
  A função é tipicamente usada para obter um ponto de extremidade superior apropriado para um intervalo de consulta.  
   
@@ -78,7 +78,7 @@ GO
 ```  
   
 ## <a name="see-also"></a>Consulte Também  
- [sys. fn_cdc_get_min_lsn &#40;Transact-SQL&#41;](../../relational-databases/system-functions/sys-fn-cdc-get-min-lsn-transact-sql.md)   
+ [&#41;&#40;Transact-SQL de sys.fn_cdc_get_min_lsn ](../../relational-databases/system-functions/sys-fn-cdc-get-min-lsn-transact-sql.md)   
  [O log de transações &#40;SQL Server&#41;](../../relational-databases/logs/the-transaction-log-sql-server.md)  
   
   

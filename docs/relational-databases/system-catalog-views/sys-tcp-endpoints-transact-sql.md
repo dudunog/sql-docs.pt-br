@@ -1,6 +1,6 @@
 ---
 description: sys.tcp_endpoints (Transact-SQL)
-title: sys. tcp_endpoints (Transact-SQL) | Microsoft Docs
+title: sys.tcp_endpoints (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -18,19 +18,19 @@ dev_langs:
 helpviewer_keywords:
 - sys.tcp_endpoints catalog view
 ms.assetid: 43cc3afa-cced-4463-8e97-fbfdaf2e4fa8
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 0b6a262bad2d897725d625df592f5a6a8b712a6c
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: f5717389606bb3b73dc95c6a7eaedd6e03312cfd
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89544995"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094414"
 ---
 # <a name="systcp_endpoints-transact-sql"></a>sys.tcp_endpoints (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Contém uma linha para cada ponto de extremidade TCP presente no sistema. Os pontos de extremidade descritos por **Sys. tcp_endpoints** fornecem um objeto para conceder e revogar o privilégio de conexão. As informações que são exibidas em relação a portas e endereços IP não são usadas para configurar os protocolos e podem não corresponder à configuração de protocolo atual. Para exibir e configurar protocolos, use o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Configuration Manager.  
+  Contém uma linha para cada ponto de extremidade TCP presente no sistema. Os pontos de extremidade descritos por **Sys.tcp_endpoints** fornecem um objeto para conceder e revogar o privilégio de conexão. As informações que são exibidas em relação a portas e endereços IP não são usadas para configurar os protocolos e podem não corresponder à configuração de protocolo atual. Para exibir e configurar protocolos, use o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Configuration Manager.  
   
   
 |Nome da coluna|Tipo de dados|Descrição|  
@@ -41,7 +41,7 @@ ms.locfileid: "89544995"
 |**ip_address**|**nvarchar (45)**|Endereço de IP do ouvinte conforme especificado pela cláusula LISTENER_IP. Permite valor nulo.|  
   
 ## <a name="remarks"></a>Comentários  
- Execute a consulta a seguir para colher informações sobre os pontos de extremidade e conexões. Pontos de extremidade sem conexões atuais ou sem conexões TCP aparecerão com valores NULL. Adicione a **WHERE** cláusula WHERE `WHERE des.session_id = @@SPID` para retornar informações sobre a conexão atual.  
+ Execute a consulta a seguir para colher informações sobre os pontos de extremidade e conexões. Pontos de extremidade sem conexões atuais ou sem conexões TCP aparecerão com valores NULL. Adicione a  cláusula WHERE `WHERE des.session_id = @@SPID` para retornar informações sobre a conexão atual.  
   
 ```  
 SELECT des.login_name, des.host_name, program_name,  dec.net_transport, des.login_time,   

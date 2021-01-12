@@ -17,14 +17,14 @@ helpviewer_keywords:
 - data collector view
 - syscollector_collection_sets view
 ms.assetid: db0def92-f25b-45da-9709-eab972b33800
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: e03a5f7ef7ee05e91b3a3b36798c2cb23a883005
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: cc9b5754c1df9957f1a3e8b5e53d0465690a78a7
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89537909"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094246"
 ---
 # <a name="syscollector_collection_sets-transact-sql"></a>syscollector_collection_sets (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "89537909"
 |upload_job_id|**uniqueidentifier**|Identifica o trabalho de carregamento de coleta. Permite valor nulo.|  
 |logging_level|**smallint**|Especifica o nível de log (0, 1 ou 2). Não permite valor nulo.|  
 |days_until_expiration|**smallint**|O número de dias durante os quais os dados coletados são salvos no data warehouse de gerenciamento. Não permite valor nulo.|  
-|description|**nvarchar(4000)**|Descreve o conjunto de coleta. Permite valor nulo.|  
+|descrição|**nvarchar(4000)**|Descreve o conjunto de coleta. Permite valor nulo.|  
 |dump_on_any_error|**bit**|Ativado (1) ou desativado (0) para indicar se um arquivo de despejo deve ser criado [!INCLUDE[ssIS](../../includes/ssis-md.md)] em qualquer erro. Não permite valor nulo.|  
 |dump_on_codes|**nvarchar(max)**|Contém a lista de [!INCLUDE[ssIS](../../includes/ssis-md.md)] códigos de erro usados para disparar o arquivo de despejo. Permite valor nulo.|  
   

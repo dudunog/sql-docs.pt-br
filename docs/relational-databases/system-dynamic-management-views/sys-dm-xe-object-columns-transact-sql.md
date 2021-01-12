@@ -1,6 +1,6 @@
 ---
 description: sys.dm_xe_object_columns (Transact-SQL)
-title: sys. dm_xe_object_columns (Transact-SQL) | Microsoft Docs
+title: sys.dm_xe_object_columns (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -18,14 +18,14 @@ helpviewer_keywords:
 - sys.dm_xe_object_columns dynamic management view
 - extended events [SQL Server], views
 ms.assetid: d96a14f3-4284-45ff-b1fe-4858e540a013
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 0e381833a5869f20364b7797bb86a1c4e06fed81
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: c5da079cfecbf1ddaa622f05ce71e5c04d63f4f0
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89546340"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095038"
 ---
 # <a name="sysdm_xe_object_columns-transact-sql"></a>sys.dm_xe_object_columns (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "89546340"
 |-----------------|---------------|-----------------|  
 |name|**nvarchar(256)**|O nome da coluna. o nome é exclusivo dentro do objeto. Não permite valor nulo.|  
 |column_id|**int**|O identificador da coluna. column_id é exclusivo dentro do objeto quando usado com column_type. Não permite valor nulo.|  
-|object_name|**nvarchar(256)**|O nome do objeto ao qual a coluna pertence. Há uma relação muitos para um com sys. dm_xe_objects. ID. Não permite valor nulo.|  
+|object_name|**nvarchar(256)**|O nome do objeto ao qual a coluna pertence. Há uma relação muitos para um com sys.dm_xe_objects. ID. Não permite valor nulo.|  
 |object_package_guid|**uniqueidentifier**|O GUID do pacote que contém o objeto. Não permite valor nulo.|  
 |type_name|**nvarchar(256)**|O nome do tipo desta coluna. Não permite valor nulo.|  
 |type_package_guid|**uniqueidentifier**|O GUID do pacote que contém o tipo de dados de coluna. Não permite valor nulo.|  
@@ -47,14 +47,14 @@ ms.locfileid: "89546340"
 |column_value|**nvarchar(256)**|Exibe valores estáticos associados à coluna de objeto. Permite valor nulo.|  
 |funcionalidades|**int**|Um bitmap que descreve as capacidades desta coluna. Permite valor nulo.|  
 |capabilities_desc|**nvarchar(256)**|Uma descrição dos recursos desta coluna de objeto. Este valor pode ser um dos seguintes:<br /><br /> Mandatory. O valor deve ser definido ao associar o objeto pai a uma sessão de evento.<br /><br /> Permite valor nulo.|  
-|description|**nvarchar (3072)**|A descrição desta coluna de objeto. Permite valor nulo.|  
+|descrição|**nvarchar (3072)**|A descrição desta coluna de objeto. Permite valor nulo.|  
   
 ## <a name="permissions"></a>Permissões  
  , é necessário ter permissão VIEW SERVER STATE no servidor.  
   
 ### <a name="relationship-cardinalities"></a>Cardinalidades de relações  
   
-|De|Para|Relação|  
+|De|Para|Relationship|  
 |----------|--------|------------------|  
 |sys.dm_xe_object_columns.object_name, sys.dm_xe_object_columns.object_package_guid|sys.dm_xe_objects.name,<br /><br /> sys.dm_xe_objects.package_guid|Muitos para um|  
 |sys.dm_xe_object_columns.type_name<br /><br /> sys.dm_xe_object_columns.type_package_guid|sys.dm_xe_objects.name<br /><br /> sys.dm_xe_objects.package_guid|Muitos para um|  

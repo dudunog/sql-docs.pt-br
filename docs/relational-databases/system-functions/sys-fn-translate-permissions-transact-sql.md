@@ -1,6 +1,6 @@
 ---
 description: sys.fn_translate_permissions (Transact-SQL)
-title: sys. fn_translate_permissions (Transact-SQL) | Microsoft Docs
+title: sys.fn_translate_permissions (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 03/15/2017
 ms.prod: sql
@@ -20,14 +20,14 @@ helpviewer_keywords:
 - sys.fn_translate_permissions function
 - fn_translate_permissions function
 ms.assetid: ac97121f-2bd0-4f71-8e45-42c8584edbc5
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 1069d5b76d6ee404ddd2e671eb6a7b63396424ee
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: e4d00e0b945012cb8a1b583921328009d12a34ad
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88481757"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094924"
 ---
 # <a name="sysfn_translate_permissions-transact-sql"></a>sys.fn_translate_permissions (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -44,7 +44,7 @@ sys.fn_translate_permissions ( level , perms )
 ```  
   
 ## <a name="arguments"></a>Argumentos  
- *geral*  
+ *level*  
  É o tipo de protegível ao qual a permissão é aplicada. o *nível* é **nvarchar (60)**.  
   
  *perms*  
@@ -54,7 +54,7 @@ sys.fn_translate_permissions ( level , perms )
  **table**  
   
 ## <a name="remarks"></a>Comentários  
- O valor retornado na coluna **permissões** de um rastreamento do SQL é uma representação de inteiro de um bitmask usado pelo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para calcular as permissões efetivas. Cada um dos 25 tipos de protegíveis tem seu próprio conjunto de permissões com valores numéricos correspondentes. **Sys. fn_translate_permissions** converte esse bitmask em uma tabela de nomes de permissões.  
+ O valor retornado na coluna **permissões** de um rastreamento do SQL é uma representação de inteiro de um bitmask usado pelo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para calcular as permissões efetivas. Cada um dos 25 tipos de protegíveis tem seu próprio conjunto de permissões com valores numéricos correspondentes. **Sys.fn_translate_permissions** converte esse bitmask em uma tabela de nomes de permissões.  
   
 ## <a name="permissions"></a>Permissões  
  Requer associação à função **pública** .  

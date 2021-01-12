@@ -15,21 +15,21 @@ helpviewer_keywords:
 - change data capture [SQL Server], querying metadata
 - cdc.fn_cdc_get_all_changes_<capture_instance>
 ms.assetid: c6bad147-1449-4e20-a42e-b51aed76963c
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: aa461859dcc7d2adc359139e4740ea9272161bf8
-ms.sourcegitcommit: c74bb5944994e34b102615b592fdaabe54713047
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 8bb04e74ab2dd613173bf194fe4ca5412d79ac7e
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90989933"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095022"
 ---
 # <a name="cdcfn_cdc_get_all_changes_ltcapture_instancegt--transact-sql"></a>cdc.fn_cdc_get_all_changes_&lt;capture_instance&gt;  (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   Retorna uma linha para cada alteração aplicada à tabela de origem dentro do intervalo LSN (número de sequência de log) especificado. Se uma linha de origem tiver passado por várias alterações durante o intervalo, todas as alterações serão representadas no conjunto de resultados retornado. Além de retornar os dados de alteração, quatro colunas de metadados fornecem as informações necessárias para a aplicação de alterações em outra fonte de dados. As opções de filtragem de linha regem o conteúdo das colunas de metadados, bem como as linhas retornadas no conjunto de resultados. Quando a opção de filtragem de linha 'all' é especificada, cada alteração tem exatamente uma linha para identificar a alteração. Quando a opção 'all update old' é especificada, as operações de atualização são representadas como duas linhas: uma contendo os valores das colunas capturadas antes da atualização e outra contendo os valores das colunas capturadas após a atualização.  
   
- Essa função de enumeração é criada no momento em que uma tabela de origem é habilitada para change data capture. O nome da função é derivado e usa o formato **CDC. fn_cdc_get_all_changes_**_capture_instance_ em que *capture_instance* é o valor especificado para a instância de captura quando a tabela de origem está habilitada para a captura de dados de alterações.  
+ Essa função de enumeração é criada no momento em que uma tabela de origem é habilitada para change data capture. O nome da função é derivado e usa o formato **cdc.fn_cdc_get_all_changes_**_capture_instance_ em que *capture_instance* é o valor especificado para a instância de captura quando a tabela de origem está habilitada para a captura de dados de alterações.  
   
  ![Ícone de link do tópico](../../database-engine/configure-windows/media/topic-link.gif "Ícone de link do tópico") [Convenções da sintaxe Transact-SQL](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
@@ -83,7 +83,7 @@ cdc.fn_cdc_get_all_changes_capture_instance ( from_lsn , to_lsn , '<row_filter_o
 ## <a name="remarks"></a>Comentários  
  Se o intervalo de LSN especificado não estiver dentro da linha de tempo do controle de alterações, a função retornará o erro 208 ("Um número insuficiente de argumentos foi fornecido para o procedimento ou função cdc.fn_cdc_get_all_changes").  
   
- As colunas do tipo de dados **Image**, **Text**e **ntext** sempre recebem um valor nulo quando são **_ de $ Operation** = 1 ou **_ de $ Operation** = 3. As colunas do tipo de dados **varbinary (max)**, **varchar (max)** ou **nvarchar (max)** recebem um valor nulo quando são **_ de $ Operation** = 3, a menos que a coluna seja alterada durante a atualização. Quando **_ elimina $ Operation** = 1, essas colunas recebem seu valor no momento da exclusão. Colunas computadas que são incluídas em uma instância de captura têm sempre um valor de NULL.  
+ As colunas do tipo de dados **Image**, **Text** e **ntext** sempre recebem um valor nulo quando são **_ de $ Operation** = 1 ou **_ de $ Operation** = 3. As colunas do tipo de dados **varbinary (max)**, **varchar (max)** ou **nvarchar (max)** recebem um valor nulo quando são **_ de $ Operation** = 3, a menos que a coluna seja alterada durante a atualização. Quando **_ elimina $ Operation** = 1, essas colunas recebem seu valor no momento da exclusão. Colunas computadas que são incluídas em uma instância de captura têm sempre um valor de NULL.  
   
 ## <a name="examples"></a>Exemplos  
  Vários [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] modelos estão disponíveis para mostrar como usar as funções de consulta de captura de dados de alterações. Esses modelos estão disponíveis no menu **Exibir** no [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] . Para obter mais informações, consulte [Gerenciador de modelos](../../ssms/template/template-explorer.md).  
@@ -106,11 +106,11 @@ GO
 ```  
   
 ## <a name="see-also"></a>Consulte Também  
- [CDC. fn_cdc_get_net_changes_&#60;capture_instance&#62; &#40;Transact-SQL&#41;](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md)   
- [sys. fn_cdc_map_time_to_lsn &#40;Transact-SQL&#41;](../../relational-databases/system-functions/sys-fn-cdc-map-time-to-lsn-transact-sql.md)   
- [sys. sp_cdc_get_ddl_history &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sys-sp-cdc-get-ddl-history-transact-sql.md)   
- [sys. sp_cdc_get_captured_columns &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sys-sp-cdc-get-captured-columns-transact-sql.md)   
- [sys. sp_cdc_help_change_data_capture &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sys-sp-cdc-help-change-data-capture-transact-sql.md)   
+ [cdc.fn_cdc_get_net_changes_&#60;capture_instance&#62; &#40;Transact-SQL&#41;](../../relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql.md)   
+ [&#41;&#40;Transact-SQL de sys.fn_cdc_map_time_to_lsn ](../../relational-databases/system-functions/sys-fn-cdc-map-time-to-lsn-transact-sql.md)   
+ [&#41;&#40;Transact-SQL de sys.sp_cdc_get_ddl_history ](../../relational-databases/system-stored-procedures/sys-sp-cdc-get-ddl-history-transact-sql.md)   
+ [&#41;&#40;Transact-SQL de sys.sp_cdc_get_captured_columns ](../../relational-databases/system-stored-procedures/sys-sp-cdc-get-captured-columns-transact-sql.md)   
+ [&#41;&#40;Transact-SQL de sys.sp_cdc_help_change_data_capture ](../../relational-databases/system-stored-procedures/sys-sp-cdc-help-change-data-capture-transact-sql.md)   
  [Sobre a captura de dados de alterações &#40;SQL Server&#41;](../../relational-databases/track-changes/about-change-data-capture-sql-server.md)  
   
   

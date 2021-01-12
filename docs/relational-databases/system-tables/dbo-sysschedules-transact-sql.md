@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sysschedules system table
 ms.assetid: 4cac9237-7a69-4035-bb3e-928b76aad698
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 9c0bb164d77ba4c505207e56897ecc17f8644821
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 31c49370b1e2ed2b5685bf46b0918fd0173f7119
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89545785"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096218"
 ---
 # <a name="dbosysschedules-transact-sql"></a>dbo.sysschedules (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "89545785"
 |**freq_subday_type**|**int**|Unidades para o **freq_subday_interval**. A seguir estão os possíveis valores e suas descrições.<br /><br /> <br /><br /> **1** : na hora especificada<br /><br /> **2** : segundos<br /><br /> **4** : minutos<br /><br /> **8** : horas|  
 |**freq_subday_interval**|**int**|Número de períodos de **freq_subday_type** a ocorrer entre cada execução do trabalho.|  
 |**freq_relative_interval**|**int**|Quando **freq_interval** ocorrer em cada mês, se **freq_type** for **32** (relativo mensal). Pode ser um dos seguintes valores:<br /><br /> **0**  =  **freq_relative_interval** não é usado<br /><br /> **1** = primeiro<br /><br /> **2** = segundo<br /><br /> **4** = terceiro<br /><br /> **8** = quarto<br /><br /> **16** = última|  
-|**freq_recurrence_**<br /><br /> **multi-fator**|**int**|Número de semanas ou meses entre execuções agendadas de um trabalho. **freq_recurrence_factor** será usado somente se **freq_type** for **8**, **16**ou **32**. Se esta coluna contiver **0**, **freq_recurrence_factor** não será usado.|  
+|**freq_recurrence_**<br /><br /> **multi-fator**|**int**|Número de semanas ou meses entre execuções agendadas de um trabalho. **freq_recurrence_factor** será usado somente se **freq_type** for **8**, **16** ou **32**. Se esta coluna contiver **0**, **freq_recurrence_factor** não será usado.|  
 |**active_start_date**|**int**|Data na qual a execução de um trabalho pode começar. A data é formatada como DDMMAAAA. NULL indica a data de hoje.|  
 |**active_end_date**|**int**|Data na qual a execução de um trabalho pode parar. A data é formatada como AAAAMMDD.|  
 |**active_start_time**|**int**|Hora em qualquer dia entre **active_start_date** e **active_end_date** o trabalho começa a ser executado. A hora é formatada como HHMMSS, usando um relógio de 24 horas.|  

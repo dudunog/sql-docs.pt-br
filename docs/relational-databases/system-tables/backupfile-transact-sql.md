@@ -17,14 +17,14 @@ helpviewer_keywords:
 - file backups [SQL Server], backupfile system table
 - backupfile system table
 ms.assetid: f1a7fc0a-f4b4-47eb-9138-eebf930dc9ac
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: e59789c2d4de9174a43b34881e7b45a914cfd2c3
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 8c9086ca4c3c97b9a10cd9d460eaf69408373551
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89525327"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096297"
 ---
 # <a name="backupfile-transact-sql"></a>backupfile (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "89525327"
 |**first_media_number**|**smallint**|Número de mídia da primeira mídia que contém este arquivo de backup. Pode ser NULL.|  
 |**filegroup_name**|**nvarchar(128)**|Nome do grupo de arquivos que contém um arquivo de banco de dados do qual foi feito backup. Pode ser NULL.|  
 |**page_size**|**int**|Tamanho da página em bytes.|  
-|**file_number**|**numeric (10, 0)**|Número de identificação do arquivo exclusivo em um banco de dados (corresponde a **Sys. database_files**.** file_id**).|  
+|**file_number**|**numeric (10, 0)**|Número de identificação do arquivo exclusivo em um banco de dados (corresponde a **Sys.database_files**.**file_id**).|  
 |**backed_up_page_count**|**numeric (10, 0)**|Número de páginas das quais foi feito backup. Pode ser NULL.|  
 |**file_type**|**char(1)**|Arquivo do qual foi feito backup, um dos seguintes:<br /><br /> D = Arquivo de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].<br /><br /> L = Arquivo de log do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].<br /><br /> F = Catálogo de texto completo.<br /><br /> Pode ser NULL.|  
 |**source_file_block_size**|**numeric (10, 0)**|Dispositivo no qual os dados originais ou o arquivo de log residiram durante o backup. Pode ser NULL.|  

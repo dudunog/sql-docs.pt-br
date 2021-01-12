@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_cryptographic_provider_properties dynamic management view
 ms.assetid: 024b0095-6766-4189-a39a-d316c5ec2874
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 419793e94cc85a8dba1e29f4b79694820518eaad
-ms.sourcegitcommit: 49ee3d388ddb52ed9cf78d42cff7797ad6d668f2
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: bf565e0ace07c592a5ae345b7e9b2d04c3aff23d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384643"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095212"
 ---
 # <a name="sysdm_cryptographic_provider_properties-transact-sql"></a>sys.dm_cryptographic_provider_properties (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -36,8 +36,8 @@ ms.locfileid: "94384643"
 |-----------------|---------------|-----------------|  
 |provider_id|**int**|Número de identificação do provedor criptográfico.|  
 |guid|**uniqueidentifier**|GUID de provedor exclusivo.|  
-|provider_version|**nvarchar(256)**|Versão do provedor no formato ' *AA.BB.cccc.DD* '.|  
-|sqlcrypt_version|**nvarchar(256)**|Versão principal da [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] API de criptografia no formato ' *AA.BB.cccc.DD* '.|  
+|provider_version|**nvarchar(256)**|Versão do provedor no formato '*AA.BB.cccc.DD*'.|  
+|sqlcrypt_version|**nvarchar(256)**|Versão principal da [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] API de criptografia no formato '*AA.BB.cccc.DD*'.|  
 |friendly_name|**nvarchar(2048)**|Nome fornecido pelo provedor.|  
 |authentication_type|**nvarchar(256)**|WINDOWS, básico ou outro.|  
 |symmetric_key_support|**tinyint**|0 (sem suporte)<br /><br /> 1 (com suporte)|  

@@ -1,6 +1,6 @@
 ---
 description: sys.dm_os_loaded_modules (Transact-SQL)
-title: sys. dm_os_loaded_modules (Transact-SQL) | Microsoft Docs
+title: sys.dm_os_loaded_modules (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 08/18/2017
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_os_loaded_modules dynamic management view
 ms.assetid: 56c7743a-b568-4943-bd3b-73c57d9d641c
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: af93d167af59eb95b4a1edd83109eebbd12782c7
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 77f4e2e69e73be88bd4cb70dcad7d7069eb8539d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89542154"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98094019"
 ---
 # <a name="sysdm_os_loaded_modules-transact-sql"></a>sys.dm_os_loaded_modules (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "89542154"
   Retorna uma linha para cada módulo carregado no espaço de endereçamento de servidor.  
   
 > [!NOTE]  
->  Para chamá-lo de [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] , use o nome **sys. dm_pdw_nodes_os_loaded_modules**.  
+>  Para chamá-lo de [!INCLUDE[ssPDW](../../includes/sspdw-md.md)] , use o nome **Sys.dm_pdw_nodes_os_loaded_modules**.  
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
@@ -45,7 +45,7 @@ ms.locfileid: "89542154"
 |**private_build**|**bit**|1 = O módulo é uma compilação privada do módulo carregado.|  
 |**special_build**|**bit**|1 = o módulo é uma compilação especial do módulo carregado.|  
 |**linguagem**|**int**|Idioma das informações de versão do módulo.|  
-|**corporativa**|**nvarchar(256)**|Nome da empresa que criou o módulo.|  
+|**company**|**nvarchar(256)**|Nome da empresa que criou o módulo.|  
 |**descrição**|**nvarchar(256)**|Descrição do módulo.|  
 |**name**|**nvarchar(255)**|Nome do módulo. Inclui o caminho completo do módulo.|  
 |**pdw_node_id**|**int**|**Aplica-se ao**: [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]<br /><br /> O identificador do nó em que essa distribuição está.|  

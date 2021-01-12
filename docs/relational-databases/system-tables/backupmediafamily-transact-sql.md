@@ -1,5 +1,6 @@
 ---
 title: backupmediafamily (Transact-SQL) | Microsoft Docs
+description: Referência para backupmediafamily, que contém uma linha para cada família de mídia.
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -15,20 +16,20 @@ dev_langs:
 helpviewer_keywords:
 - backupmediafamily system table
 - backup media [SQL Server], backupmediafamily system table
-ms.assetid: ee16de24-3d95-4b2e-a094-78df2514d18a
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: c2499bbc91fb09f943e5a093851bd5aef810b5b9
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 6adacacdb3e075e3eb058005d3b11fc8fc219cbe
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89547200"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096282"
 ---
 # <a name="backupmediafamily-transact-sql"></a>backupmediafamily (Transact-SQL)
+
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Contém uma linha para cada família de mídia. Se uma família de mídia residir em um conjunto de mídias espelhado, a família terá uma linha separada para cada espelho no conjunto de mídias. Essa tabela é armazenada no banco de dados **msdb** .  
+Contém uma linha para cada família de mídia. Se uma família de mídia residir em um conjunto de mídias espelhado, a família terá uma linha separada para cada espelho no conjunto de mídias. Essa tabela é armazenada no banco de dados **msdb** .  
     
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
@@ -36,9 +37,9 @@ ms.locfileid: "89547200"
 |**family_sequence_number**|**tinyint**|Posição desta família de mídias no conjunto de mídias.|  
 |**media_family_id**|**uniqueidentifier**|Número de identificação exclusivo que identifica a família de mídias. Pode ser NULL.|  
 |**media_count**|**int**|Número de mídias na família. Pode ser NULL.|  
-|**logical_device_name**|**nvarchar(128)**|Nome deste dispositivo de backup em **Sys. backup_devices. Name**. Se esse for um dispositivo de backup temporário (em oposição a um dispositivo de backup permanente que existe em **Sys. backup_devices**), o valor de **logical_device_name** será nulo.|  
+|**logical_device_name**|**nvarchar(128)**|Nome deste dispositivo de backup em **Sys.backup_devices. Name**. Se esse for um dispositivo de backup temporário (em oposição a um dispositivo de backup permanente que existe no **Sys.backup_devices**), o valor de **logical_device_name** será nulo.|  
 |**physical_device_name**|**nvarchar(260)**|Nome físico do dispositivo de backup. Pode ser NULL. Esse campo é compartilhado entre o processo de backup e restauração. Ele pode conter o caminho de destino do backup original ou o caminho de origem da restauração original. Dependendo se o backup ou a restauração ocorreram primeiro em um servidor para um banco de dados. Observe que as restaurações consecutivas do mesmo arquivo de backup não atualizarão o caminho independentemente do local no momento da restauração. Por isso, **physical_device_name** campo não pode ser usado para ver o caminho de restauração usado.|  
-|**device_type**|**tinyint**|Tipo de dispositivo de backup:<br /><br /> 2 = Disco<br /><br /> 5 = Fita<br /><br /> 7 = Dispositivo virtual<br /><br /> 9 = armazenamento do Azure<br /><br /> 105 = Um dispositivo de backup.<br /><br /> Pode ser NULL.<br /><br /> Todos os nomes de dispositivo permanentes e números de dispositivo podem ser encontrados em **Sys. backup_devices**.|  
+|**device_type**|**tinyint**|Tipo de dispositivo de backup:<br /><br /> 2 = Disco<br /><br /> 5 = Fita<br /><br /> 7 = Dispositivo virtual<br /><br /> 9 = armazenamento do Azure<br /><br /> 105 = Um dispositivo de backup.<br /><br /> Pode ser NULL.<br /><br /> Todos os nomes de dispositivo permanentes e números de dispositivo podem ser encontrados em **Sys.backup_devices**.|  
 |**physical_block_size**|**int**|Tamanho do bloco físico usado para gravar a família de mídias. Pode ser NULL.|  
 |**mirror**|**tinyint**|Número de espelhos (0-3).|  
   

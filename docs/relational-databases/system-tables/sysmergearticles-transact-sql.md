@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - sysmergearticles system table
 ms.assetid: e9b1648e-4660-4688-9f56-18b2baf7228c
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 40701192048b83cae153b06bb5b4a3fdeeac2abf
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 50d2129741447444b1da2adc82521966a7045530
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89538207"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096086"
 ---
 # <a name="sysmergearticles-transact-sql"></a>sysmergearticles (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "89538207"
 |**select_proc**|**sysname**|O nome de um procedimento armazenado gerado automaticamente usado pelo Merge Agent para efetuar bloqueio e localizar colunas e linhas para um artigo.|  
 |**metadata_select_proc**|**sysname**|O nome do procedimento armazenado gerado automaticamente usado para acessar metadados nas tabelas do sistema de replicação de mesclagem.|  
 |**delete_proc**|**sysname**|O procedimento usado pelo resolvedor de conflitos padrão para excluir linhas durante a sincronização.|  
-|**schema_option**|**binário (8)**|Para obter os valores com suporte de *schema_option*, consulte [sp_addmergearticle &#40;&#41;do Transact-SQL ](../../relational-databases/system-stored-procedures/sp-addmergearticle-transact-sql.md).|  
+|**schema_option**|**binário (8)**|Para obter os valores com suporte de *schema_option*, consulte [sp_addmergearticle &#40;&#41;do Transact-SQL](../../relational-databases/system-stored-procedures/sp-addmergearticle-transact-sql.md).|  
 |**destination_object**|**sysname**|O nome da tabela criada no Assinante.|  
 |**destination_owner**|**sysname**|O nome do proprietário do objeto de destino.|  
 |**resolver_clsid**|**nvarchar(50)**|A ID do resolvedor de conflitos personalizado.|  
@@ -63,15 +63,15 @@ ms.locfileid: "89538207"
 |**missing_cols**|**varbinary(128)**|O bitmap de colunas ausentes.|  
 |**excluded_cols**|**varbinary(128)**|O bitmap das colunas excluídas do artigo quando é enviado ao Assinante.|  
 |**excluded_col_count**|**int**|O número de colunas excluídas.|  
-|**Columns**|**varbinary(128)**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  
+|**colunas**|**varbinary(128)**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  
 |**deleted_cols**|**varbinary(128)**|Os bitmaps de colunas que foram excluídas da tabela de origem.|  
 |**resolver_info**|**nvarchar(255)**|O armazenamento de informações adicionais requeridas por resolvedores de conflitos personalizados.|  
 |**view_sel_proc**|**nvarchar (290)**|O nome de um procedimento armazenado que o Merge Agent usa para popular inicialmente um artigo em uma publicação filtrada dinamicamente e para enumerar linhas alteradas em qualquer publicação filtrada.|  
 |**gen_cur**|**int**|O número gerado de alterações locais para a tabela base de um artigo.|  
 |**vertical_partition**|**int**|Especifica se a filtragem de coluna está habilitada em um artigo de tabela. **0** indica que não há nenhuma filtragem vertical e publica todas as colunas.|  
 |**identity_support**|**int**|Especifica se o tratamento automático do intervalo de identidades está habilitado. **1** significa que o tratamento de intervalo de identidade está habilitado e **0** significa que não há suporte para o intervalo de identidade.|  
-|**before_image_objid**|**int**|A ID de objeto da tabela de controle. A tabela de rastreamento contém certos valores de coluna de chave quando uma publicação é criada com * \@ keep_partition_changes*  =  **true**.|  
-|**before_view_objid**|**int**|A ID de objeto de uma tabela de exibição. A exibição está em uma tabela que controla se uma linha pertenceu a um Assinante específico antes de ser excluída ou atualizada. Aplica-se somente quando uma publicação é criada com * \@ keep_partition_changes*  =  **true.**|  
+|**before_image_objid**|**int**|A ID de objeto da tabela de controle. A tabela de rastreamento contém certos valores de coluna de chave quando uma publicação é criada com *\@ keep_partition_changes*  =  **true**.|  
+|**before_view_objid**|**int**|A ID de objeto de uma tabela de exibição. A exibição está em uma tabela que controla se uma linha pertenceu a um Assinante específico antes de ser excluída ou atualizada. Aplica-se somente quando uma publicação é criada com *\@ keep_partition_changes*  =  **true.**|  
 |**verify_resolver_signature**|**int**|Especifica se uma assinatura digital é verificada antes de usar um resolvedor em replicação de mesclagem:<br /><br /> **0** = a assinatura não é verificada.<br /><br /> **1** = a assinatura é verificada para ver se ela é de uma fonte confiável.|  
 |**allow_interactive_resolver**|**bit**|Especifica se o uso do Resolvedor Interativo em um artigo está habilitado. **1** especifica que o resolvedor interativo é usado no artigo.|  
 |**fast_multicol_updateproc**|**bit**|Especifica se o Merge Agent foi habilitado para aplicar alterações em várias colunas na mesma linha em uma instrução UPDATE.<br /><br /> **0** = emite uma atualização separada para cada coluna alterada.<br /><br /> **1** = emite uma instrução UPDATE que faz com que as atualizações ocorram em várias colunas em uma instrução.|  
