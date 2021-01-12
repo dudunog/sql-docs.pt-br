@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.author: murshedz
 ms.reviewer: martinle
 ms.custom: seo-dt-2019
-ms.openlocfilehash: 590ca4149bc93fd2c22d04f22c3c47b7389245a2
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: 004550d95ca69bae45c518b8054886e635e829df
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97489603"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091779"
 ---
 # <a name="whats-new-in-analytics-platform-system-a-scale-out-mpp-data-warehouse"></a>O que há de novo no Analytics Platform System, um data warehouse MPP de expansão
 Veja o que há de novo nas atualizações de dispositivo mais recentes para Microsoft Analytics Platform System (APS). O APS é um dispositivo local de expansão que hospeda o MPP SQL Server paralelo data warehouse. 
@@ -142,7 +142,7 @@ Novo adaptador de destino SSIS APS que dá suporte a SQL Server 2017, pois o des
 Data de lançamento – julho de 2018
 
 ### <a name="dbcc-commands-do-not-consume-concurrency-slots-behavior-change"></a>Comandos DBCC não consomem slots de simultaneidade (alteração de comportamento)
-O APS dá suporte a um subconjunto dos [comandos DBCC](../t-sql/database-console-commands/dbcc-transact-sql.md) do T-SQL, como [DBCC DROPCLEANBUFFERS](../t-sql/database-console-commands/dbcc-dropcleanbuffers-transact-sql.md). Anteriormente, esses comandos consumiriam um [slot de simultaneidade](./workload-management.md?view=aps-pdw-2016-au7#concurrency-slots), reduzindo o número de carregamentos/consultas do usuário que poderiam ser executadas. Os `DBCC` comandos agora são executados em uma fila local que não consomem um slot de simultaneidade do usuário, melhorando o desempenho geral da execução da consulta.
+O APS dá suporte a um subconjunto dos [comandos DBCC](../t-sql/database-console-commands/dbcc-transact-sql.md) do T-SQL, como [DBCC DROPCLEANBUFFERS](../t-sql/database-console-commands/dbcc-dropcleanbuffers-transact-sql.md). Anteriormente, esses comandos consumiriam um [slot de simultaneidade](./workload-management.md?view=aps-pdw-2016-au7&preserve-view=true&#concurrency-slots), reduzindo o número de carregamentos/consultas do usuário que poderiam ser executadas. Os `DBCC` comandos agora são executados em uma fila local que não consomem um slot de simultaneidade do usuário, melhorando o desempenho geral da execução da consulta.
 
 ### <a name="replaces-some-metadata-calls-with-catalog-objects"></a>Substitui algumas chamadas de metadados por objetos de catálogo
 O uso de objetos de catálogo para chamadas de metadados em vez de usar o SMO mostrou a melhoria de desempenho no APS. A partir de CU 7.1, algumas dessas chamadas de metadados agora usam objetos de catálogo por padrão. Esse comportamento pode ser desativado pela [opção de recurso](appliance-feature-switch.md) se os clientes que usam consultas de metadados apresentarem problemas.
@@ -275,7 +275,7 @@ The proper formats have at least two big advantages.  One big advantage is that 
 [Utilitário bcp]:/sql/tools/bcp-utility
 [UNIQUEIDENTIFIER]:/sql/t-sql/data-types/uniqueidentifier-transact-sql
 [NUMERIC]:/sql/t-sql/data-types/decimal-and-numeric-transact-sql
-[LINHAS ou intervalo]:/sql/t-sql/queries/select-over-clause-transact-sql
+[LINHAS OU INTERVALO]:/sql/t-sql/queries/select-over-clause-transact-sql
 [FIRST_VALUE]:/sql/t-sql/functions/first-value-transact-sql
 [LAST_VALUE]:/sql/t-sql/functions/last-value-transact-sql
 [CUME_DIST]:/sql/t-sql/functions/cume-dist-transact-sql

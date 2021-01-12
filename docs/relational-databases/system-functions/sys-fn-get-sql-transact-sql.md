@@ -22,14 +22,14 @@ helpviewer_keywords:
 - valid SQL handles [SQL Server]
 - SQL handles
 ms.assetid: d5fe49b5-0813-48f2-9efb-9187716b2fd4
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 6f5e3f4af1cd1bae33f0a340333cb6afd3268158
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 4b3e28e4c66d45f28c6239431e8e6d5440d5d4a0
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88427798"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093816"
 ---
 # <a name="sysfn_get_sql-transact-sql"></a>sys.fn_get_sql (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "88427798"
   Retorna o texto da instrução SQL do identificador SQL especificado.  
   
 > [!IMPORTANT]  
->  Esse recurso será removido em uma versão futura do Microsoft SQL Server. Evite usar esse recurso em desenvolvimentos novos e planeje modificar os aplicativos que atualmente o utilizam. Em vez disso, use sys.dm_exec_sql_text. Para obter mais informações, consulte [Sys. dm_exec_sql_text &#40;Transact-sql&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md).  
+>  Esse recurso será removido em uma versão futura do Microsoft SQL Server. Evite usar esse recurso em desenvolvimentos novos e planeje modificar os aplicativos que atualmente o utilizam. Em vez disso, use sys.dm_exec_sql_text. Para obter mais informações, consulte [sys.dm_exec_sql_text &#40;&#41;Transact-SQL ](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md).  
   
  
   
@@ -65,9 +65,9 @@ sys.fn_get_sql ( SqlHandle )
 |texto|**text**|É o texto da instrução SQL. É NULL para objetos criptografados.|  
   
 ## <a name="remarks"></a>Comentários  
- Você pode obter um identificador SQL válido na coluna sql_handle da exibição de gerenciamento dinâmico do [Transact-SQL&#41;do &#40;dm_exec_requests ](../../relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql.md) .  
+ Você pode obter um identificador SQL válido na coluna sql_handle do [sys.dm_exec_requests &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql.md) exibição de gerenciamento dinâmico.  
   
- Se você passar um identificador que não existe mais no cache, fn_get_sq**l** retornará um conjunto de resultados vazio. Se você passar um identificador inválido, o lote parará e uma mensagem de erro será retornada.  
+ Se você passar um identificador que não existe mais no cache, fn_get_sq **l** retornará um conjunto de resultados vazio. Se você passar um identificador inválido, o lote parará e uma mensagem de erro será retornada.  
   
  O [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] não pode armazenar em cache algumas [!INCLUDE[tsql](../../includes/tsql-md.md)] instruções, como instruções de cópia em massa e instruções com literais de cadeia de caracteres maiores que 8 KB. Identificadores para essas instruções não podem ser recuperados usando fn_get_sql.  
   

@@ -1,9 +1,9 @@
 ---
 title: backupmediaset (Transact-SQL) | Microsoft Docs
+description: Referência para backupmediaset, que contém uma linha para cada conjunto de mídias de backup.
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
-ms.prod_service: database-engine
 ms.reviewer: ''
 ms.technology: system-objects
 ms.topic: language-reference
@@ -15,21 +15,20 @@ dev_langs:
 helpviewer_keywords:
 - backup media [SQL Server], backupmediaset system table
 - backupmediaset system table
-ms.assetid: d9c18a93-cab9-4db8-ae09-c6bd8145ab8f
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: fded40f11cfc094e3af89295496787413e3fd4cd
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 10b4d744e7ef4e0d11a9788580ea7f8c5a67bd1f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89540355"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091556"
 ---
 # <a name="backupmediaset-transact-sql"></a>backupmediaset (Transact-SQL)
+
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Contém uma linha para cada conjunto de mídias de backup. Essa tabela é armazenada no banco de dados **msdb** .  
- 
+Contém uma linha para cada conjunto de mídias de backup. Essa tabela é armazenada no banco de dados **msdb** .  
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
@@ -44,7 +43,7 @@ ms.locfileid: "89540355"
 |**mirror_count**|**tinyint**|Número de espelhos no conjunto de mídias.|  
 |**is_password_protected**|**bit**|É o conjunto de mídias protegido por senha:<br /><br /> 0 = Não protegido<br /><br /> 1 = Protegido|  
 |**is_compressed**|**bit**|Se o backup é compactado:<br /><br /> 0 = Não compactado<br /><br /> 1 = Compactado<br /><br /> Durante uma atualização do **msdb** , esse valor é definido como nulo. o que indica um backup não compactado.|  
-|**is_encrypted**|**Parte**|Se o backup for criptografado:<br /><br /> 0 = não criptografado<br /><br /> 1 = Criptografado|  
+|**is_encrypted**|**bit**|Se o backup for criptografado:<br /><br /> 0 = não criptografado<br /><br /> 1 = Criptografado|  
   
 ## <a name="remarks"></a>Comentários  
  RESTOre VERIFYONLY de *backup_device* com LOADHISTORY popula as colunas da tabela **backupmediaset** com os valores apropriados do cabeçalho conjunto de mídias.  

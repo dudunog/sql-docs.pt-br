@@ -14,12 +14,12 @@ ms.assetid: ''
 author: rajeshsetlem
 ms.author: rajpo
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 03ea9cc4d6b7842739f4431fea2e9a418e0f3f9e
-ms.sourcegitcommit: 67befbf7435f256e766bbce6c1de57799e1db9ad
+ms.openlocfilehash: 4d1bcf2cdc9997ea33be87184c38447b7cd62973
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523913"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091602"
 ---
 # <a name="assess-an-enterprise-and-consolidate-assessment-reports-with-dma"></a>Avaliar uma empresa e consolidar relatórios de avaliação com o Assistente de Migração de Dados
 
@@ -34,7 +34,7 @@ As instruções passo a passo a seguir ajudam a usar o Assistente de Migração 
   - [.NET Framework](https://www.microsoft.com/download/details.aspx?id=30653) v 4.5 ou superior.
   - [SSMS](../ssms/download-sql-server-management-studio-ssms.md) 17,0 ou superior.
   - [Power bi área de trabalho](/power-bi/fundamentals/desktop-get-the-desktop).
-  - [Módulos do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.0.0)
+  - [Módulos do Azure PowerShell](/powershell/azure/install-az-ps)
 - Baixar e extrair:
   - O [modelo de Power bi de relatórios de DMA](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/161/4/PowerBI-Reports.zip).
   - O [script loadwarehouse](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/161/3/LoadWarehouse1.zip).
@@ -80,7 +80,7 @@ Esse inventário pode estar em uma das duas formas:
 >
 > Para instâncias padrão, defina o nome da instância como MSSQLServer.
 
-Ao usar um arquivo CSV para importar os dados, certifique-se de que há apenas duas colunas de **nome da instância** de dados e nome do **banco**de dado, e que as colunas não têm linhas de cabeçalho.
+Ao usar um arquivo CSV para importar os dados, certifique-se de que há apenas duas colunas de **nome da instância** de dados e nome do **banco** de dado, e que as colunas não têm linhas de cabeçalho.
 
  ![conteúdo do arquivo CSV](../dma/media//dma-consolidatereports/dma-csv-file-contents.png)
 
@@ -131,7 +131,7 @@ Os parâmetros associados à função dmaDataCollector são descritos na tabela 
 |**databaseName** | O banco de dados que hospeda a tabela de inventário. |
 |**useInstancesOnly** | Sinalizador de bits para especificar se deve ser usada uma lista de instâncias para avaliação ou não.  Se definido como 0, a tabela DatabaseInventory será usada para criar a lista de destino de avaliação. |
 |**AssessmentName** | O nome da avaliação DMA. |
-|**TargetPlatform** | O tipo de destino da avaliação que você deseja executar.  Os valores possíveis são **AzureSQLDatabase**, **ManagedSqlServer**, **SQLServer2012**, **SQLServer2014**, **SQLServer2016**, **SQLServerLinux2017**, **SQLServerWindows2017**,  **SqlServerWindows2019**e **SqlServerLinux2019**.  |
+|**TargetPlatform** | O tipo de destino da avaliação que você deseja executar.  Os valores possíveis são **AzureSQLDatabase**, **ManagedSqlServer**, **SQLServer2012**, **SQLServer2014**, **SQLServer2016**, **SQLServerLinux2017**, **SQLServerWindows2017**,  **SqlServerWindows2019** e **SqlServerLinux2019**.  |
 |**AuthenticationMethod** | O método de autenticação para se conectar aos destinos de SQL Server que você deseja avaliar. Os valores possíveis são **SQLAuth** e **WindowsAuth**. |
 |**OutputLocation** | O diretório no qual armazenar o arquivo de saída de avaliação JSON. Dependendo do número de bancos de dados que estão sendo avaliados e do número de objetos dentro dos bancos de dados, as avaliações podem levar um tempo excepcionalmente longo. O arquivo será gravado depois que todas as avaliações forem concluídas. |
 
@@ -282,7 +282,7 @@ Esta seção é a parte principal do relatório, que mostra a prontidão de um b
 
 Esse relatório também serve como o ponto de filtro para criar o relatório do plano de correção.
 
-Para analisar o relatório do plano de correção, clique com o botão direito do mouse em um ponto de dados neste grafo, aponte para **detalhamento**e selecione **planos de correção**.
+Para analisar o relatório do plano de correção, clique com o botão direito do mouse em um ponto de dados neste grafo, aponte para **detalhamento** e selecione **planos de correção**.
 
 Esta tarefa filtra o relatório do plano de correção para o nível de hierarquia atual com base no ponto em que você seleciona a opção Drill-through.
 
