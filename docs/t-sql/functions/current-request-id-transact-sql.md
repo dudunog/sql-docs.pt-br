@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - CURRENT_REQUEST_ID
 ms.assetid: 949f6e5f-bf5f-49d6-a763-c443d1d51fe2
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 9a5628ef19aa267e326e3164d0a1f3ad95d88e23
-ms.sourcegitcommit: cc23d8646041336d119b74bf239a6ac305ff3d31
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: f35294840f2ebf4ac5e170c538c8154b17defbf3
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91115261"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101206"
 ---
 # <a name="current_request_id-transact-sql"></a>CURRENT_REQUEST_ID (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -46,7 +46,7 @@ CURRENT_REQUEST_ID()
 ## <a name="remarks"></a>Comentários  
 Para localizar as informações exatas sobre a sessão atual, use @@SPID. Para ter informações exatas sobre a solicitação atual, use CURRENT_REQUEST_ID().
   
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 [@@SPID &#40;Transact-SQL&#41;](../../t-sql/functions/spid-transact-sql.md)
   
   

@@ -12,12 +12,12 @@ ms.assetid: ea21c73c-40e8-4c54-83d4-46ca36b2cf73
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: '>= aps-pdw-2016 || = azure-sqldw-latest'
-ms.openlocfilehash: bf8ef986da54559c5928677643f6bd99c63c2266
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 733b129c9dd4f598e75baa31f49a4f9811edd5b8
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643012"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102341"
 ---
 # <a name="create-table-azure-synapse-analytics"></a>CREATE TABLE (Azure Synapse Analytics)
 
@@ -326,7 +326,7 @@ Uma tabela columnstore é uma tabela armazenada em ordem de coluna por coluna. O
 Para converter uma tabela rowstore em uma tabela columnstore, remova todos os índices existentes na tabela e crie um índice columnstore clusterizado. Para obter um exemplo, confira [CREATE COLUMNSTORE INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/create-columnstore-index-transact-sql.md).
 
 Para obter mais informações, consulte estes artigos:
-- [Resumo de recursos com versão dos índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-what-s-new)
+- [Resumo de recursos com versão dos índices columnstore](../../relational-databases/indexes/columnstore-indexes-what-s-new.md)
 - [Tabelas de indexação no [!INCLUDE[ssSDW](../../includes/sssdwfull-md.md)]](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-tables-index/)
 - [Guia de Índices columnstore](~/relational-databases/indexes/columnstore-indexes-overview.md) 
 

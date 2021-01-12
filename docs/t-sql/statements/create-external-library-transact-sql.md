@@ -20,12 +20,12 @@ author: dphansen
 ms.author: davidph
 manager: cgronlund
 monikerRange: '>=sql-server-2017||>=sql-server-linux-ver15||=azuresqldb-mi-current'
-ms.openlocfilehash: a408cfb25f40ee58c1aeb521c11938026d9241cb
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 9839a6fa8bd678afdce426f9dcd5657500c5a6cd
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97439011"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100777"
 ---
 # <a name="create-external-library-transact-sql"></a>CREATE EXTERNAL LIBRARY (Transact-SQL)  
 [!INCLUDE [SQL Server 2017 SQL MI](../../includes/applies-to-version/sqlserver2017-asdbmi.md)]
@@ -41,7 +41,7 @@ Carrega os arquivos de pacotes do R, Python ou Java em um banco de dados do cami
 Carrega arquivos de pacotes do R ou Python em um banco de dados do caminho de arquivo ou fluxo de bytes especificado. Essa instrução serve como um mecanismo genérico para o administrador de banco de dados carregar os artefatos necessários. 
 
 > [!NOTE]
-> Na Instância Gerenciada de SQL do Azure, use o **sqlmlutils** para instalar uma biblioteca. Para obter detalhes, confira [Instalar pacotes de Python com o sqlmlutils](../../machine-learning/package-management/install-additional-python-packages-on-sql-server.md?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=azuresqldb-mi-current) e [Instalar novos pacotes de R com sqlmlutils](../../machine-learning/package-management/install-additional-r-packages-on-sql-server.md?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=azuresqldb-mi-current).
+> Na Instância Gerenciada de SQL do Azure, use o **sqlmlutils** para instalar uma biblioteca. Para obter detalhes, confira [Instalar pacotes de Python com o sqlmlutils](../../machine-learning/package-management/install-additional-python-packages-on-sql-server.md?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=azuresqldb-mi-current&preserve-view=true) e [Instalar novos pacotes de R com sqlmlutils](../../machine-learning/package-management/install-additional-r-packages-on-sql-server.md?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=azuresqldb-mi-current&preserve-view=true).
 ::: moniker-end
 
 ::: moniker range=">=sql-server-ver15||>=sql-server-linux-ver15"
