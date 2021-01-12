@@ -1,6 +1,6 @@
 ---
 description: sys.fn_validate_plan_guide (Transact-SQL)
-title: sys. fn_validate_plan_guide (Transact-SQL) | Microsoft Docs
+title: sys.fn_validate_plan_guide (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -19,14 +19,14 @@ helpviewer_keywords:
 - fn_validate_plan_guide function
 - sys.fn_validate_plan_guide function
 ms.assetid: 3af8b47a-936d-4411-91d1-d2d16dda5623
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: b19a3cd2f2ee449780127682555f1ae77fabd5d0
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 7c9290f1d638f1eb2cf55c19d70d4e32a773bafe
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88396892"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093786"
 ---
 # <a name="sysfn_validate_plan_guide-transact-sql"></a>sys.fn_validate_plan_guide (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -45,7 +45,7 @@ sys.fn_validate_plan_guide ( plan_guide_id )
   
 ## <a name="arguments"></a>Argumentos  
  *plan_guide_id*  
- É a ID do guia de plano conforme relatado na exibição do catálogo [Sys. plan_guides](../../relational-databases/system-catalog-views/sys-plan-guides-transact-sql.md) . *plan_guide_id* é **int** sem padrão.  
+ É a ID do guia de plano conforme relatado na exibição de catálogo [Sys.plan_guides](../../relational-databases/system-catalog-views/sys-plan-guides-transact-sql.md) . *plan_guide_id* é **int** sem padrão.  
   
 ## <a name="table-returned"></a>Tabela retornada  
   
@@ -54,7 +54,7 @@ sys.fn_validate_plan_guide ( plan_guide_id )
 |msgnum|**int**|A identificação da mensagem de erro.|  
 |severidade|**tinyint**|O nível de severidade da mensagem, entre 1 e 25.|  
 |state|**smallint**|Número de estado do erro que indica o ponto no código no qual o erro ocorreu.|  
-|mensagem|**nvarchar(2048)**|Texto da mensagem do erro.|  
+|message|**nvarchar(2048)**|Texto da mensagem do erro.|  
   
 ## <a name="permissions"></a>Permissões  
  Os guias de plano com escopo OBJECT exigem a permissão VIEW DEFINITION ou ALTER nas permissões e objetos mencionados para compilar a consulta ou o lote fornecido no guia de plano Por exemplo, se um lote contiver instruções SELECT, serão solicitadas permissões SELECT nos objetos mencionados.  

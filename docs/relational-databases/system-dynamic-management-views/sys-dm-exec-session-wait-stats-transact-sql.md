@@ -1,6 +1,6 @@
 ---
-description: sys. dm_exec_session_wait_stats (Transact-SQL)
-title: sys. dm_exec_session_wait_stats (Transact-SQL) | Microsoft Docs
+description: sys.dm_exec_session_wait_stats (Transact-SQL)
+title: sys.dm_exec_session_wait_stats (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 04/24/2018
 ms.prod: sql
@@ -15,20 +15,20 @@ f1_keywords:
 helpviewer_keywords:
 - sys.dm_exec_session_wait_stats
 ms.assetid: df84842a-71eb-4fda-b448-5953cf9985dc
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 6668ab7b975c7325ab4b5d03ca2f30856b2ffbd0
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 7555332848e338fe73e0add1a1fb4e9a3097256e
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536987"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098926"
 ---
-# <a name="sysdm_exec_session_wait_stats-transact-sql"></a>sys. dm_exec_session_wait_stats (Transact-SQL)
+# <a name="sysdm_exec_session_wait_stats-transact-sql"></a>sys.dm_exec_session_wait_stats (Transact-SQL)
 
 [!INCLUDE [sqlserver2016-asdb-asdbmi](../../includes/applies-to-version/sqlserver2016-asdb-asdbmi.md)]
 
-  Retorna informações sobre todas as esperas encontradas por threads executados para cada sessão. Você pode usar essa exibição para diagnosticar problemas de desempenho com a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] sessão e também com consultas e lotes específicos.  Essa exibição retorna a sessão as mesmas informações agregadas para [Sys. dm_os_wait_stats &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql.md) , mas também fornece o número de **session_id** .  
+  Retorna informações sobre todas as esperas encontradas por threads executados para cada sessão. Você pode usar essa exibição para diagnosticar problemas de desempenho com a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] sessão e também com consultas e lotes específicos.  Essa exibição retorna a sessão as mesmas informações agregadas para [sys.dm_os_wait_stats &#40;&#41;Transact-SQL](../../relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql.md) , mas também fornece o número de **session_id** .  
   
 **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior).  
   
@@ -44,7 +44,7 @@ ms.locfileid: "89536987"
 ## <a name="remarks"></a>Comentários  
  Essa DMV redefine as informações de uma sessão quando a sessão é aberta ou quando a sessão é redefinida (se o pool de conexões),  
   
- Para obter informações sobre os tipos de espera, consulte [Sys. dm_os_wait_stats &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql.md).  
+ Para obter informações sobre os tipos de espera, consulte [sys.dm_os_wait_stats &#40;&#41;Transact-SQL ](../../relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql.md).  
   
 ## <a name="permissions"></a>Permissões  
  Se o usuário tiver a permissão **View Server State** no servidor, o usuário verá todas as sessões em execução na instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ; caso contrário, o usuário verá apenas a sessão atual.  
