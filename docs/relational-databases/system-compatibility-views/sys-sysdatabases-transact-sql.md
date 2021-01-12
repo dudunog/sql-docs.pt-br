@@ -19,15 +19,15 @@ helpviewer_keywords:
 - sys.sysdatabases compatibility view
 - sysdatabases system table
 ms.assetid: 60a93880-62f1-4eda-a886-f046706ba90c
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: ebee2c9eba8870dbb3b95712d69eaa1e09e2a563
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 2a5ed7033605db917f972e83bcf6c014c49f52bd
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477337"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099130"
 ---
 # <a name="syssysdatabases-transact-sql"></a>sys.sysdatabases (Transact-SQL)
 [!INCLUDE [sql-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdbmi-asa-pdw.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "97477337"
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
 |**name**|**sysname**|Nome do banco de dados|  
-|**DBID**|**smallint**|ID do banco de dados|  
+|**dbid**|**smallint**|ID do banco de dados|  
 |**SIDs**|**varbinary(85)**|ID de sistema do designer do banco de dados|  
 |**mode**|**smallint**|Usado internamente para bloquear um banco de dados enquanto ele é criado.|  
 |**status**|**int**|Bits de status, alguns dos quais podem ser definidos usando [ALTER DATABASE](../../t-sql/statements/alter-database-transact-sql.md) , conforme observado:<br /><br /> 1 = **fechar** novamente (ALTER DATABASE)<br /><br /> 4 = **Select Into/bulkcopy** (ALTER DATABASE usando Set Recovery)<br /><br /> 8 = **trunc. log em chkpt** (ALTER DATABASE usando Set Recovery)<br /><br /> 16 = **detecção de página interrompida** (ALTER DATABASE)<br /><br /> 32 = **carregamento**<br /><br /> 64 = **pré-recuperação**<br /><br /> 128 = **recovering**<br /><br /> 256 = **não recuperado**<br /><br /> 512 = **offline** (ALTER DATABASE)<br /><br /> 1024 = **somente leitura** (ALTER DATABASE)<br /><br /> 2048 = **dbo use only** (ALTER DATABASE usando Set RESTRICTED_USER)<br /><br /> 4096 = **usuário único** (ALTER DATABASE)<br /><br /> 32768 = **modo de emergência**<br /><br /> 65536 = **soma de verificação** (ALTER DATABASE)<br /><br /> 4194304 = **redução** automática (ALTER DATABASE)<br /><br /> 1073741824 = **desligamento limpo**<br /><br /> Vários bits podem ser ON ao mesmo tempo.|  

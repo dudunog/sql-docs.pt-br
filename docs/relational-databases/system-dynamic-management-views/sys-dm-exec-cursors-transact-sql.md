@@ -1,6 +1,6 @@
 ---
 description: sys.dm_exec_cursors (Transact-SQL)
-title: sys. dm_exec_cursors (Transact-SQL) | Microsoft Docs
+title: sys.dm_exec_cursors (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_exec_cursors dynamic management function
 ms.assetid: f520b63c-36af-40f1-bf71-6901d6331d3d
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 351f97ed08d1a6a79f8611d19842dc93138277ce
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 8ab1ed9e722f2363c0568932e7eb337bc09dbe41
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89543918"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098984"
 ---
 # <a name="sysdm_exec_cursors-transact-sql"></a>sys.dm_exec_cursors (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -53,8 +53,8 @@ dm_exec_cursors (session_id | 0 )
 |**name**|**nvarchar(256)**|Nome do cursor como definido pelo usuário.|  
 |**properties**|**nvarchar(256)**|Especifica as propriedades do cursor. Os valores das seguintes propriedades são concatenados para formar o valor desta coluna:<br />Interface de declaração<br />Tipo de cursor <br />Simultaneidade de cursores<br />Escopo do cursor<br />Nível de aninhamento do cursor<br /><br /> Por exemplo, o valor retornado nesta coluna pode ser "TSQL &#124; dinâmico &#124; otimista &#124; global (0)".|  
 |**sql_handle**|**varbinary(64)**|Identificador do texto do lote que declarou o cursor.|  
-|**statement_start_offset**|**int**|Número de caracteres no procedimento em lote ou armazenado atualmente em execução no qual a instrução atualmente em execução se inicia. Pode ser usado junto com o **sql_handle**, o **statement_end_offset**e a função de gerenciamento dinâmico [Sys. dm_exec_sql_text](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md) para recuperar a instrução atualmente em execução para a solicitação.|  
-|**statement_end_offset**|**int**|Número de caracteres no procedimento em lote ou armazenado atualmente em execução no qual a instrução atualmente em execução termina. Pode ser usado junto com o **sql_handle**, o **statement_start_offset**e a função de gerenciamento dinâmico **Sys. dm_exec_sql_text** para recuperar a instrução atualmente em execução para a solicitação.|  
+|**statement_start_offset**|**int**|Número de caracteres no procedimento em lote ou armazenado atualmente em execução no qual a instrução atualmente em execução se inicia. Pode ser usado junto com o **sql_handle**, o **statement_end_offset** e a função de gerenciamento dinâmico [Sys.dm_exec_sql_text](../../relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql.md) para recuperar a instrução atualmente em execução para a solicitação.|  
+|**statement_end_offset**|**int**|Número de caracteres no procedimento em lote ou armazenado atualmente em execução no qual a instrução atualmente em execução termina. Pode ser usado junto com o **sql_handle**, o **statement_start_offset** e a função de gerenciamento dinâmico **Sys.dm_exec_sql_text** para recuperar a instrução atualmente em execução para a solicitação.|  
 |**plan_generation_num**|**bigint**|Um número de sequência que pode ser usado para distinguir entre instâncias de planos após uma recompilação.|  
 |**creation_time**|**datetime**|Carimbo de data e hora da criação do cursor.|  
 |**is_open**|**bit**|Especifica se o cursor está aberto.|  
@@ -91,7 +91,7 @@ dm_exec_cursors (session_id | 0 )
   
  A tabela a seguir fornece informações sobre o tipo de simultaneidade de cursores e inclui os valores possíveis para a coluna de propriedades.  
   
-|Simultaneidade|Descrição|  
+|Simultaneidade|Description|  
 |-----------------|-----------------|  
 |Somente leitura|O cursor foi declarado como somente leitura.|  
 |Scroll Locks|O cursor usa bloqueios de rolagem.|  

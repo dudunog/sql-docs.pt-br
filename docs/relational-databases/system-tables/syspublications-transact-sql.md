@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - syspublications system table
 ms.assetid: a86eb4f5-1f7b-493e-af55-3d15cf878228
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 20b5615cc4f0b11b05eb69f4233e20f7a7379378
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 8ba6fbe6033bff1f113a0ee128357d49a1f57e7f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550961"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097307"
 ---
 # <a name="syspublications-transact-sql"></a>syspublications (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "89550961"
 |**alt_snapshot_folder**|**nvarchar(255)**|Especifica o local da pasta alternativa para o instantâneo.|  
 |**pre_snapshot_script**|**nvarchar(255)**|Especifica um ponteiro para um local de arquivo **. SQL** . O Distribution Agent executará o script pré-instantâneo antes de executar qualquer script de objeto replicado, ao aplicar um instantâneo no Assinante.|  
 |**post_snapshot_script**|**nvarchar(255)**|Especifica um ponteiro para um local de arquivo **. SQL** . O Distribution Agent executará o script pós-instantâneo depois que todos os outros scripts de objeto replicado tiverem sido aplicados durante uma sincronização inicial.|  
-|**compress_snapshot**|**bit**|Especifica que o instantâneo gravado no local de *alt_snapshot_folder* deve ser compactado no [!INCLUDE[msCoName](../../includes/msconame-md.md)] formato CAB.** 1** significa que o instantâneo será compactado.|  
+|**compress_snapshot**|**bit**|Especifica que o instantâneo gravado no local de *alt_snapshot_folder* deve ser compactado no [!INCLUDE[msCoName](../../includes/msconame-md.md)] formato CAB.**1** significa que o instantâneo será compactado.|  
 |**ftp_address**|**sysname**|O endereço de rede do serviço FTP para o Distribuidor. Especifica onde arquivos de instantâneo de publicação ficam localizados para serem retirados pelo Distribution Agent.|  
 |**ftp_port**|**int**|O número da porta do serviço FTP do Distribuidor. Especifica onde os arquivos de instantâneo de publicação estão localizados para serem retirados pelo Distribution Agent.|  
 |**ftp_subdirectory**|**nvarchar(255)**|Especifica onde os arquivos de instantâneo estarão disponíveis para a Agente de Distribuição a serem coletadas se a publicação der suporte à propagação de instantâneos usando FTP.|  
@@ -66,7 +66,7 @@ ms.locfileid: "89550961"
 |**conflict_retention**|**int**|Especifica o período de retenção de conflito, em dias.|  
 |**conflict_policy**|**int**|Especifica a política de resolução de conflito seguida quando a opção de assinante de atualização enfileirado é usada. Pode ser um destes valores:<br /><br /> **1** = o Publicador vence o conflito.<br /><br /> **2** = Assinante vence o conflito.<br /><br /> **3** = a assinatura é reinicializada.|  
 |**queue_type**|**int**|Especifica o tipo de fila usado. Pode ser um destes valores:<br /><br /> **1** = MSMQ, que usa o [!INCLUDE[msCoName](../../includes/msconame-md.md)] enfileiramento de mensagens para armazenar transações.<br /><br /> **2** = SQL, que usa [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para armazenar transações.<br /><br /> Observação: o uso do [!INCLUDE[msCoName](../../includes/msconame-md.md)] enfileiramento de mensagens foi preterido e não está mais disponível.|  
-|**ad_guidname**|**sysname**|Especifica se a publicação é publicada no [!INCLUDE[msCoName](../../includes/msconame-md.md)] Active Directory. Um GUID (identificador global exclusivo) válido especifica que a publicação é publicada no Active Directory e o GUID é o **objectGUID**do objeto de publicação Active Directory correspondente. Se for NULL, a publicação não será publicada no Active Directory.|  
+|**ad_guidname**|**sysname**|Especifica se a publicação é publicada no [!INCLUDE[msCoName](../../includes/msconame-md.md)] Active Directory. Um GUID (identificador global exclusivo) válido especifica que a publicação é publicada no Active Directory e o GUID é o **objectGUID** do objeto de publicação Active Directory correspondente. Se for NULL, a publicação não será publicada no Active Directory.|  
 |**backward_comp_level**|**int**|Nível de compatibilidade de banco de dados, que pode ser um dos valores seguintes:<br /><br /> **90**  =  [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] .<br /><br /> **100**  =  [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] .<br /><br /> **110**  =  [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] .<br /><br /> **120**  =  [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] .|  
 |**allow_initialize_from_backup**|**bit**|Indica se os assinantes podem inicializar uma assinatura para esta publicação a partir de um backup em vez de um instantâneo inicial. **1** significa que as assinaturas podem ser inicializadas a partir de um backup e **0** significa que elas não podem. Para obter mais informações, consulte [Initialize a Transactional Subscription Without a Snapshot](../../relational-databases/replication/initialize-a-transactional-subscription-without-a-snapshot.md).|  
 |**min_autonosync_lsn**|**binary**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]|  

@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_repl_traninfo dynamic management view
 ms.assetid: 5abe2605-0506-46ec-82b5-6ec08428ba13
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 6369fc0d1ee2c0b70cb3e6e13fd201fd718236dc
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: f8a0613d83cebfed56ba5202a6c3535ef31c8a84
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834573"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098821"
 ---
 # <a name="sysdm_repl_traninfo-transact-sql"></a>sys.dm_repl_traninfo (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "91834573"
 |**fsinfo_address**|**varbinary (8)**|Endereço na memória da estrutura de informações do fluxo de arquivos em cache.|  
 |**begin_lsn**|**nvarchar (64)**|Número de sequência de log (LSN) do registro de log inicial da transação.|  
 |**commit_lsn**|**nvarchar (64)**|LSN de registro de log de confirmação da transação.|  
-|**DBID**|**smallint**|ID do banco de dados.|  
+|**dbid**|**smallint**|ID do banco de dados.|  
 |**rows**|**int**|ID do comando replicado na transação.|  
 |**xdesid**|**nvarchar (64)**|ID da transação.|  
 |**artcache_table_address**|**varbinary (8)**|Endereço na memória da estrutura de tabela de artigo em cache usada pela última vez nesta transação.|  

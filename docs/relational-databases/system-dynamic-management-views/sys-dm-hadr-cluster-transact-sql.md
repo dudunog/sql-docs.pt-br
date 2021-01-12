@@ -1,6 +1,6 @@
 ---
 description: sys.dm_hadr_cluster (Transact-SQL)
-title: sys. dm_hadr_cluster (Transact-SQL) | Microsoft Docs
+title: sys.dm_hadr_cluster (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 01/31/2019
 ms.prod: sql
@@ -19,19 +19,19 @@ helpviewer_keywords:
 - sys.dm_hadr_cluster catalog view
 - Availability Groups [SQL Server], WSFC clusters
 ms.assetid: 13ce70e4-9d43-4a80-a826-099e6213bf85
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: b8bc19f3e73c00c2148cba2fb0381d73a36d6eb2
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: aa289a58047e1108e94a6b70f86eb366807f5af1
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89532920"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097634"
 ---
 # <a name="sysdm_hadr_cluster-transact-sql"></a>sys.dm_hadr_cluster (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Se o nó WSFC (Windows Server failover clustering) que hospeda uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] habilitada para [!INCLUDE[ssHADR](../../includes/sshadr-md.md)] o tiver quorum do WSFC, **Sys. dm_hadr_cluster** retornará uma linha que expõe o nome do cluster e as informações sobre o quorum. Se o nó WSFC não tiver quorum, nenhuma linha será retornada.  
+  Se o nó do WSFC (Windows Server failover clustering) que hospeda uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] habilitada para [!INCLUDE[ssHADR](../../includes/sshadr-md.md)] o tiver quorum do WSFC, **Sys.dm_hadr_cluster** retornará uma linha que expõe o nome do cluster e informações sobre o quorum. Se o nó WSFC não tiver quorum, nenhuma linha será retornada.  
  > [!TIP]
  > A partir do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] , essa exibição de gerenciamento dinâmico dá suporte a Always on instâncias de cluster de failover, além de Always on grupos de disponibilidade.
 

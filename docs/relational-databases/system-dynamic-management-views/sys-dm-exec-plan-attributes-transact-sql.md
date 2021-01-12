@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_exec_plan_attributes dynamic management function
 ms.assetid: dacf3ab3-f214-482e-aab5-0dab9f0a3648
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: c80e576bd6f2872a2486da5fd09292609f86ba60
-ms.sourcegitcommit: 2991ad5324601c8618739915aec9b184a8a49c74
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 7fa0b60cc1c172ea8777286fda425c7714d6b363
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97331988"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096584"
 ---
 # <a name="sysdm_exec_plan_attributes-transact-sql"></a>sys.dm_exec_plan_attributes (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -48,7 +48,7 @@ sys.dm_exec_plan_attributes ( plan_handle )
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
 |Atributo|**varchar(128)**|O nome do atributo associado com este plano. A tabela imediatamente abaixo dessa lista os possíveis atributos, seus tipos de dados e suas descrições.|  
-|valor|**sql_variant**|Valor do atributo que é associado ao plano.|  
+|value|**sql_variant**|Valor do atributo que é associado ao plano.|  
 |is_cache_key|**bit**|Indica se o atributo é usado como parte da chave de consulta de cache para o plano.|  
 
 Na tabela acima, o **atributo** pode ter os seguintes valores:

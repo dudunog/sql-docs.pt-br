@@ -14,19 +14,18 @@ f1_keywords:
 dev_langs:
 - TSQL
 helpviewer_keywords:
-- database_query_store_options catalog view
 - sys.database_query_store_options catalog view
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.custom: ''
-ms.date: 05/27/2020
+ms.date: 1/8/2021
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: f8fce0932d546470206bbc7752429090c0212158
-ms.sourcegitcommit: d681796e8c012eca2d9629d3b816749e9f50f868
+ms.openlocfilehash: 273e5c4446853c3f44d0c99535880c9c9da2aa5f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98005407"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098044"
 ---
 # <a name="sysdatabase_query_store_options-transact-sql"></a>sys.database_query_store_options (Transact-SQL)
 
@@ -49,12 +48,17 @@ ms.locfileid: "98005407"
 |**max_storage_size_mb**|**bigint**|Tamanho máximo do disco para o Repositório de Consultas em megabytes (MB). O valor padrão é **100** MB até [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] e **1 GB** a partir de [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] .<br />Para a [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] edição Premium, o padrão é 1 GB e para a [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] edição básica, o padrão é 10 MB.<br /><br /> Altere usando a `ALTER DATABASE <database> SET QUERY_STORE (MAX_STORAGE_SIZE_MB = <size>)` instrução.|  
 |**stale_query_threshold_days**|**bigint**|Número de dias em que as informações de uma consulta são mantidas na Repositório de Consultas. O valor padrão é **30**. Defina como 0 para desabilitar a política de retenção.<br />Para o [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] Basic Edition, o padrão é 7 dias.<br /><br /> Altere usando a `ALTER DATABASE <database> SET QUERY_STORE ( CLEANUP_POLICY = ( STALE_QUERY_THRESHOLD_DAYS = <value> ) )` instrução.|  
 |**max_plans_per_query**|**bigint**|Limita o número máximo de planos armazenados. O valor padrão é **200**. Se o valor máximo for atingido, Repositório de Consultas interromperá a captura de novos planos para essa consulta. A configuração para 0 remove a limitação com relação ao número de planos capturados.<br /><br /> Altere usando a `ALTER DATABASE<database> SET QUERY_STORE (MAX_PLANS_PER_QUERY = <n>)` instrução.|  
-|**query_capture_mode**|**smallint**|O modo de captura de consulta atualmente ativo:<br /><br /> **1** = All-todas as consultas são capturadas. Esse é o valor de configuração padrão para [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ( [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior).<br /><br /> 2 = capturar automaticamente consultas relevantes com base na contagem de execução e no consumo de recursos. Esse é o valor de configuração padrão de [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].<br /><br /> 3 = NONE-parar de capturar novas consultas. O Repositório de Consultas continuará a coletar estatísticas de compilação e runtime para consultas que já foram capturadas. Use essa configuração com cautela, pois você pode perder a captura de consultas importantes.|  
-|**query_capture_mode_desc**|**nvarchar(60)**|Descrição textual do modo de captura real do Repositório de Consultas:<br /><br /> TODOS (padrão para [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] )<br /><br /> **Automático** (padrão para [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] )<br /><br /> NONE|  
+|**query_capture_mode**|**smallint**|O modo de captura de consulta atualmente ativo:<br /><br /> **1** = All-todas as consultas são capturadas. Esse é o valor de configuração padrão para [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ( [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior).<br /><br /> 2 = capturar automaticamente consultas relevantes com base na contagem de execução e no consumo de recursos. Esse é o valor de configuração padrão de [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].<br /><br /> 3 = NONE-parar de capturar novas consultas. O Repositório de Consultas continuará a coletar estatísticas de compilação e runtime para consultas que já foram capturadas. Use essa configuração com cautela, pois você pode perder a captura de consultas importantes. <br /><br /> 4 = personalizado – permite controle adicional sobre a política de captura de consulta usando as [Opções de QUERY_CAPTURE_POLICY](../../t-sql/statements/alter-database-transact-sql-set-options.md#SettingOptions).<br /> **Aplica-se a**: [!INCLUDE[ssSQL19](../../includes/sssql19-md.md)] e posterior.|  
+|**query_capture_mode_desc**|**nvarchar(60)**|Descrição textual do modo de captura real do Repositório de Consultas:<br /><br /> TODOS (padrão para [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] )<br /><br /> **Automático** (padrão para [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] )<br /><br /> NONE <br /><br /> CUSTOM|  
+|**capture_policy_execution_count**|**int**|Opção de política personalizada do modo de captura de consulta. Define o número de vezes que uma consulta é executada durante o período de avaliação. O padrão é 30.<br />**Aplica-se a**: [!INCLUDE[ssSQL19](../../includes/sssql19-md.md)] e posterior.| 
+|**capture_policy_total_compile_cpu_time_ms**|**bigint**|Opção de política personalizada do modo de captura de consulta. Define o tempo total decorrido da CPU de compilação usado por uma consulta durante o período de avaliação. O padrão é 1000.<br /> **Aplica-se a**: [!INCLUDE[ssSQL19](../../includes/sssql19-md.md)] e posterior.|
+|**capture_policy_total_execution_cpu_time_ms**|**bigint**|Opção de política personalizada do modo de captura de consulta. Define o tempo total decorrido da CPU de execução usado por uma consulta durante o período de avaliação. O padrão é 100.<br /> **Aplica-se a**: [!INCLUDE[ssSQL19](../../includes/sssql19-md.md)] e posterior.|
+|**capture_policy_stale_threshold_hours**|**int**|Opção de política personalizada do modo de captura de consulta. Define o período de intervalo de avaliação para determinar se uma consulta deve ser capturada. O padrão é 24 horas.<br /> **Aplica-se a**: [!INCLUDE[ssSQL19](../../includes/sssql19-md.md)] e posterior.|
 |**size_based_cleanup_mode**|**smallint**|Controla se a limpeza será ativada automaticamente quando a quantidade total de dados se aproximar do tamanho máximo:<br /><br /> 0 = a limpeza baseada em tamanho não será ativada automaticamente.<br /><br /> **1** = a limpeza baseada em tamanho automático será ativada automaticamente quando o tamanho no disco atingir **90%** de *max_storage_size_mb*. Esse é o valor de configuração padrão.<br /><br />Limpeza com base no tamanho remove as consultas menos dispendiosas e mais antigas primeiro. Ele para de quando aproximadamente **80%** de *max_storage_size_mb* é atingido.|  
 |**size_based_cleanup_mode_desc**|**nvarchar(60)**|Descrição textual do modo de limpeza baseado em tamanho real de Repositório de Consultas:<br /><br /> OFF <br /> **Automático** (padrão)|  
 |**wait_stats_capture_mode**|**smallint**|Controla se Repositório de Consultas executa a captura de estatísticas de espera: <br /><br /> 0 = OFF <br /> **1** = ativado<br /> **Aplica-se a**: [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] e posterior.|
-|**wait_stats_capture_mode_desc**|**nvarchar(60)**|Descrição textual do modo de captura de estatísticas de espera real: <br /><br /> OFF <br /> **Ativado** (padrão)<br /> **Aplica-se a**: [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] e posterior.| 
+|**wait_stats_capture_mode_desc**|**nvarchar(60)**|Descrição textual do modo de captura de estatísticas de espera real: <br /><br /> OFF <br /> **Ativado** (padrão)<br /> **Aplica-se a**: [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] e posterior.|
+|**actual_state_additional_info**|**nvarchar (8000)**|Atualmente não utilizado. Pode ser implementado no futuro.|
   
 ## <a name="permissions"></a>Permissões  
  Requer a permissão `VIEW DATABASE STATE`.  
@@ -71,5 +75,3 @@ ms.locfileid: "98005407"
  [Exibições de catálogo &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/catalog-views-transact-sql.md)   
  [&#41;&#40;Transact-SQL de sys.fn_stmt_sql_handle_from_sql_stmt ](../../relational-databases/system-functions/sys-fn-stmt-sql-handle-from-sql-stmt-transact-sql.md)   
  [Procedimentos Armazenados do Repositório de Consultas &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/query-store-stored-procedures-transact-sql.md)  
-  
-  

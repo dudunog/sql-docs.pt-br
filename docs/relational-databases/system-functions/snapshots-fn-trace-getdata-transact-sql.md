@@ -15,14 +15,14 @@ dev_langs:
 helpviewer_keywords:
 - snapshots.fn_trace_getdata function
 ms.assetid: ac28ef48-f4f4-4bf2-ba22-d44e1be88172
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: f022a27c8a8e47cd12994d0d03ddb5af9a2f920c
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: ff9e08aefac2307811d0d4398b3af208924fd747
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88464765"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097425"
 ---
 # <a name="snapshotsfn_trace_getdata-transact-sql"></a>snapshots.fn_trace_getdata (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -40,7 +40,7 @@ snapshots.fn_trace_gettable ( trace_info_id, start_time, end_time )
   
 ## <a name="arguments"></a>Argumentos  
  *trace_info_id*  
- O identificador exclusivo para a chave primária na tabela de instantâneos. trace_info no banco de dados de data warehouse de gerenciamento. *trace_info_id* é **int**.  
+ O identificador exclusivo da chave primária na tabela de snapshots.trace_info no banco de dados de data warehouse de gerenciamento. *trace_info_id* é **int**.  
   
  *start_time*  
  A hora em que o rastreamento foi iniciado. *start_time* é **DateTime**.  
@@ -52,7 +52,7 @@ snapshots.fn_trace_gettable ( trace_info_id, start_time, end_time )
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
-|\<All trace columns>|\<Varies>|Os dados de rastreamento da tabela snapshots.trace_data no banco de dados de data warehouse de gerenciamento.<br /><br /> Uma lista das colunas do rastreamento especificado pode ser obtida usando a seguinte consulta:<br /><br /> `SELECT * FROM sys.trace_columns`<br /><br /> **Observação:** As colunas retornadas pela função instantâneos. fn_trace_gettable correspondem aos valores na coluna nome na exibição do sistema sys. trace_columns. A única diferença é que a coluna GroupID não é retornada pela função.|  
+|\<All trace columns>|\<Varies>|Os dados de rastreamento da tabela snapshots.trace_data no banco de dados de data warehouse de gerenciamento.<br /><br /> Uma lista das colunas do rastreamento especificado pode ser obtida usando a seguinte consulta:<br /><br /> `SELECT * FROM sys.trace_columns`<br /><br /> **Observação:** As colunas retornadas pela função snapshots.fn_trace_gettable correspondem aos valores na coluna Name na exibição do sistema sys.trace_columns. A única diferença é que a coluna GroupID não é retornada pela função.|  
   
 ## <a name="permissions"></a>Permissões  
  Requer permissão SELECT para mdw_reader.  

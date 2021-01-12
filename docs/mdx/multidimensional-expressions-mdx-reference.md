@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: owend
 ms.reviewer: owend
 author: minewiskan
-ms.openlocfilehash: 9358bec121704dba28739232c24dbb930cee7c30
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 6e524635d20f3d2bb669ac36d5b4b131af904ecf
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92195583"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099142"
 ---
 # <a name="multidimensional-expressions-mdx-reference"></a>Referência de linguagem MDX
 
@@ -30,6 +30,6 @@ ms.locfileid: "92195583"
 ## <a name="see-also"></a>Consulte Também  
  [Consultando dados multidimensionais com MDX](/analysis-services/multidimensional-models/mdx/querying-multidimensional-data-with-mdx)   
  [Linguagem de script Analysis Services &#40;ASSL para XMLA&#41;](/analysis-services/assl/analysis-services-scripting-language-assl-for-xmla)   
- [Recuperando dados de uma fonte de dados analíticos](/analysis-services/adomd/multidimensional-models-adomd-net-client/retrieving-data-from-an-analytical-data-source?view=asallproducts-allversions)   
+ [Recuperando dados de uma fonte de dados analíticos](/analysis-services/adomd/multidimensional-models-adomd-net-client/retrieving-data-from-an-analytical-data-source)   
  [Definir atribuições e outros comandos de script](/analysis-services/multidimensional-models/define-assignments-and-other-script-commands)  
   

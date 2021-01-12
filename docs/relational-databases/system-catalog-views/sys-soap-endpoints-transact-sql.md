@@ -1,6 +1,6 @@
 ---
 description: sys.soap_endpoints (Transact-SQL)
-title: sys. soap_endpoints (Transact-SQL) | Microsoft Docs
+title: sys.soap_endpoints (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -18,21 +18,21 @@ dev_langs:
 helpviewer_keywords:
 - sys.soap_endpoints catalog view
 ms.assetid: f50dcbfc-02ed-4a19-9c07-c78a5a1b3224
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: daba746b3bbaf198160855e6caa85fb3d7b4fd1d
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: a0a41f08d7600ae25541924953c407ef12a2ab20
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539487"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096686"
 ---
 # <a name="syssoap_endpoints-transact-sql"></a>sys.soap_endpoints (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   [!INCLUDE[ssNoteDepFutureAvoid](../../includes/ssnotedepfutureavoid-md.md)]  
   
- Contém uma linha para cada ponto de extremidade no servidor que transmite uma carga útil do tipo SOAP. Para cada linha nessa exibição, há uma linha correspondente com o mesmo **endpoint_id** na exibição de catálogo **Sys. http_endpoints** que transporta os metadados de configuração http.  
+ Contém uma linha para cada ponto de extremidade no servidor que transmite uma carga útil do tipo SOAP. Para cada linha nessa exibição, há uma linha correspondente com o mesmo **endpoint_id** na exibição de catálogo **Sys.http_endpoints** que transporta os metadados de configuração http.  
   
  
 |Nome da coluna|Tipo de dados|Descrição|  
@@ -43,7 +43,7 @@ ms.locfileid: "89539487"
 |**default_database**|**sysname**|O nome do banco de dados padrão especificado na opção DATABASE =.<br /><br /> NULL = DEFAULT foi especificado.|  
 |**default_namespace**|**nvarchar (384)**|O namespace padrão especificado na opção NAMESPACE = ou, `https://tempuri.org` se o padrão foi especificado, em vez disso.|  
 |**default_result_schema**|**tinyint**|O valor padrão da opção SCHEMA =.<br /><br /> 0 = NONE<br /><br /> 1 = STANDARD|  
-|**default_result_schema_desc**|**nvarchar(60)**|Descrição do valor padrão da opção SCHEMA =.<br /><br /> Nenhuma<br /><br /> STANDARD|  
+|**default_result_schema_desc**|**nvarchar(60)**|Descrição do valor padrão da opção SCHEMA =.<br /><br /> NONE<br /><br /> STANDARD|  
 |**is_xml_charset_enforced**|**bit**|0 = A opção CHARACTER_SET = SQL foi especificada.<br /><br /> 1 = A opção CHARACTER_SET = XML foi especificada.|  
 |**is_session_enabled**|**bit**|0 = A opção SESSION = DISABLE foi especificada.<br /><br /> 1 = A opção SESSION = ENABLED foi especificada.|  
 |**session_timeout**|**int**|Valor especificado na opção SESSION_TIMEOUT =.|  

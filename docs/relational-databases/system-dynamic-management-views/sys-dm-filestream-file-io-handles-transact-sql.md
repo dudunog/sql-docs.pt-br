@@ -1,6 +1,6 @@
 ---
 description: sys.dm_filestream_file_io_handles (Transact-SQL)
-title: sys. dm_filestream_file_io_handles (Transact-SQL) | Microsoft Docs
+title: sys.dm_filestream_file_io_handles (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 03/03/2017
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_filestream_file_io_handle catalog view
 ms.assetid: e59632f4-3292-419f-9217-ca375749f1a5
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: d7e8e059ad9d10ccd3b8fd0b51299cc91edb5c6c
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 4c92c42554123c96013b8d17721b3d0861154a35
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89533274"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097655"
 ---
 # <a name="sysdm_filestream_file_io_handles-transact-sql"></a>sys.dm_filestream_file_io_handles (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "89533274"
 |**handle_id**|**int**|Mostra a ID exclusiva deste identificador que é atribuída pelo driver. Não permite valor nulo.|  
 |**creation_client_thread_id**|**varbinary (8)**|Mostra um campo da solicitação de E/S REQ_PRE_CREATE usada para criar este identificador. Permite valor nulo.|  
 |**creation_client_process_id**|**varbinary (8)**|Mostra um campo da solicitação de E/S REQ_PRE_CREATE usada para criar este identificador. Permite valor nulo.|  
-|**filestream_transaction_id**|**varbinary(128)**|Mostra a ID da transação associada ao identificador específico. Esse é o valor retornado pela função **GET_FILESTREAM_TRANSACTION_CONTEXT** . Use este campo para ingressar na exibição **Sys. dm_filestream_file_io_requests** . Permite valor nulo.|  
+|**filestream_transaction_id**|**varbinary(128)**|Mostra a ID da transação associada ao identificador específico. Esse é o valor retornado pela função **GET_FILESTREAM_TRANSACTION_CONTEXT** . Use este campo para ingressar no modo de exibição de **Sys.dm_filestream_file_io_requests** . Permite valor nulo.|  
 |**access_type**|**nvarchar(60)**|Não permite valor nulo.|  
 |**logical_path**|**nvarchar(256)**|Mostra o nome de caminho lógico do arquivo que este identificador abriu. Esse é o mesmo nome de caminho que é retornado pelo **. Método PathName** de FileStream **varbinary**(**Max**). Permite valor nulo.|  
 |**physical_path**|**nvarchar(256)**|Mostra o nome de caminho NTFS real do arquivo. Esse é o mesmo nome de caminho retornado pelo **. Método PhysicalPathName** do FileStream **varbinary**(**Max**). Ele é habilitado pelo sinalizador de rastreamento 5556. Permite valor nulo.|  

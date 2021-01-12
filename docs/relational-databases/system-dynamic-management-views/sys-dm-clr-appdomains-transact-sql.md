@@ -17,19 +17,19 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_clr_appdomains dynamic management dynamic management view
 ms.assetid: 9fe0d4fd-950a-4274-a493-85e776278045
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 7f1357535d22306f09f8378e8e71aef6801975ae
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: ae934fc3b9d8f7664e2542450ee1456298548c85
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834105"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097751"
 ---
 # <a name="sysdm_clr_appdomains-transact-sql"></a>sys.dm_clr_appdomains (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Retorna uma linha para cada domínio de aplicativo no servidor. O**AppDomain**(domínio do aplicativo) é um constructo no [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] Common Language Runtime (CLR) que é a unidade de isolamento de um aplicativo. Você pode usar essa exibição para entender e solucionar problemas dos objetos de integração CLR que estão sendo executados no [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .  
+  Retorna uma linha para cada domínio de aplicativo no servidor. O **AppDomain**(domínio do aplicativo) é um constructo no [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] Common Language Runtime (CLR) que é a unidade de isolamento de um aplicativo. Você pode usar essa exibição para entender e solucionar problemas dos objetos de integração CLR que estão sendo executados no [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .  
   
  Há vários tipos de objetos de banco de dados gerenciados de integração CLR. Para obter informações gerais sobre esses objetos, consulte [criando objetos de banco de dados com integração CLR (Common Language Runtime)](../../relational-databases/clr-integration/database-objects/building-database-objects-with-common-language-runtime-clr-integration.md). Sempre que esses objetos são executados, [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] o cria um **AppDomain** sob o qual ele pode carregar e executar o código necessário. O nível de isolamento para um **AppDomain** é um **AppDomain** por banco de dados por proprietário. Ou seja, todos os objetos CLR pertencentes a um usuário são sempre executados no mesmo **AppDomain** por banco de dados (se um usuário registrar objetos de banco de dados CLR em diferentes bancos de dados, os objetos de banco de dados CLR serão executados em domínios de aplicativo diferentes). Um **AppDomain** não é destruído depois que o código conclui a execução. Em vez disso, ele é colocado na memória para execuções futuras. Isso melhora o desempenho.  
   
@@ -76,7 +76,7 @@ ms.locfileid: "91834105"
 |Estado|Descrição|  
 |-----------|-----------------|  
 |E_APPDOMAIN_UNLOADING|[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] solicitou que o CLR descarrega o **AppDomain**, geralmente porque o assembly que contém os objetos de banco de dados gerenciado foi alterado ou descartado.|  
-|E_APPDOMAIN_UNLOADED|O CLR descarregou o **AppDomain**. Normalmente, isso é o resultado de um procedimento de escalonamento devido à **ThreadAbortException**, à **OutOfMemory**ou a uma exceção sem tratamento no código do usuário.|  
+|E_APPDOMAIN_UNLOADED|O CLR descarregou o **AppDomain**. Normalmente, isso é o resultado de um procedimento de escalonamento devido à **ThreadAbortException**, à **OutOfMemory** ou a uma exceção sem tratamento no código do usuário.|  
 |E_APPDOMAIN_ENQUEUE_DESTROY|O **AppDomain** foi descarregado no CLR e foi definido para ser destruído pelo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .|  
 |E_APPDOMAIN_DESTROY|O **AppDomain** está no processo de ser destruído pelo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .|  
 |E_APPDOMAIN_ZOMBIE|O **AppDomain** foi destruído por [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ; no entanto, nem todas as referências ao **AppDomain** foram limpas.|  

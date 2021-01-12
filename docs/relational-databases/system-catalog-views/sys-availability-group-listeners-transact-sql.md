@@ -1,6 +1,6 @@
 ---
 description: sys.availability_group_listeners (Transact-SQL)
-title: sys. availability_group_listeners (Transact-SQL) | Microsoft Docs
+title: sys.availability_group_listeners (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -20,14 +20,14 @@ helpviewer_keywords:
 - sys.availability_group_listeners catalog view
 - Availability Groups [SQL Server], listeners
 ms.assetid: b5e7d1fb-3ffb-4767-8135-604c575016b1
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 029f407b453dd4667fd888bbd1351a718173d9cf
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: b052479a265bb118ed73a90ea7dea0bc3ec3d7b1
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550497"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098369"
 ---
 # <a name="sysavailability_group_listeners-transact-sql"></a>sys.availability_group_listeners (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "89550497"
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
-|**group_id**|**uniqueidentifier**|ID do grupo de disponibilidade (**group_id**) de [Sys. availability_groups](../../relational-databases/system-catalog-views/sys-availability-groups-transact-sql.md).|  
+|**group_id**|**uniqueidentifier**|ID do grupo de disponibilidade (**group_id**) de [Sys.availability_groups](../../relational-databases/system-catalog-views/sys-availability-groups-transact-sql.md).|  
 |**listener_id**|**nvarchar (36)**|GUID da ID do recurso do cluster.|  
 |**dns_name**|**nvarchar (63)**|Nome de rede configurado (nome do host) do ouvinte do grupo de disponibilidade.|  
 |**port**|**int**|O número da porta TCP configurada para o ouvinte do grupo de disponibilidade.<br /><br /> NULL = O ouvinte foi configurado fora do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e seu número de porta não foi adicionado ao grupo de disponibilidade. Para adicionar a porta, pleaseuse a opção modificar OUVInte da instrução [ALTER Availability Group](../../t-sql/statements/alter-availability-group-transact-sql.md) [!INCLUDE[tsql](../../includes/tsql-md.md)] .|  

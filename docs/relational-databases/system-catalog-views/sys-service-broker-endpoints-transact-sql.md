@@ -1,6 +1,6 @@
 ---
 description: sys.service_broker_endpoints (Transact-SQL)
-title: sys. service_broker_endpoints (Transact-SQL) | Microsoft Docs
+title: sys.service_broker_endpoints (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 06/10/2016
 ms.prod: sql
@@ -18,19 +18,19 @@ dev_langs:
 helpviewer_keywords:
 - sys.service_broker_endpoints catalog view
 ms.assetid: 6979ec9b-0043-411e-aafb-0226fa26c5ba
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 7ee3bd0e5e09ab2e8511596f3920e0e8408f1b6f
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: d8e8a6590dedf9c43da14147c503d1e62423e595
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539540"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096676"
 ---
 # <a name="sysservice_broker_endpoints-transact-sql"></a>sys.service_broker_endpoints (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Essa exibição do catálogo contém uma linha para o ponto de extremidade do Service Broker. Para cada linha nessa exibição, há uma linha correspondente com o mesmo **endpoint_id** na exibição **Sys. tcp_endpoints** que contém os metadados de configuração TCP. TCP é o único protocolo permitido para o Service Broker.  
+  Essa exibição do catálogo contém uma linha para o ponto de extremidade do Service Broker. Para cada linha nessa exibição, há uma linha correspondente com o mesmo **endpoint_id** na exibição **Sys.tcp_endpoints** que contém os metadados de configuração TCP. TCP é o único protocolo permitido para o Service Broker.  
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  

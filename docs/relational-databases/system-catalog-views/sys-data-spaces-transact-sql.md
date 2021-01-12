@@ -18,15 +18,15 @@ dev_langs:
 helpviewer_keywords:
 - sys.data_spaces catalog view
 ms.assetid: f39d55fe-2c0f-472d-a77f-cebc6fea95b5
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 9aa268bd7614aa97b77149cd85d0f6aa050dac8f
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 29de7e042334210b8ccf39706ad0f05e8b1f43e0
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97473087"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096832"
 ---
 # <a name="sysdata_spaces-transact-sql"></a>sys.data_spaces (Transact-SQL)
 [!INCLUDE [sql-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdbmi-asa-pdw.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "97473087"
 |-----------------|---------------|-----------------|  
 |name|**sysname**|Nome de espaço de dados, exclusivo no banco de dados.|  
 |data_space_id|**int**|Número de ID do espaço de dados, exclusivo no banco de dados.|  
-|tipo|**char(2)**|Tipo de espaço de dados:<br /><br /> FG = Grupo de arquivos<br /><br /> FD = Grupo de arquivos de dados FILESTREAM<br /><br /> FX = Grupo de arquivos de tabelas com otimização de memória<br /><br /> **Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior.<br /><br /> PS = Esquema de partição|  
+|type|**char(2)**|Tipo de espaço de dados:<br /><br /> FG = Grupo de arquivos<br /><br /> FD = Grupo de arquivos de dados FILESTREAM<br /><br /> FX = Grupo de arquivos de tabelas com otimização de memória<br /><br /> **Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior.<br /><br /> PS = Esquema de partição|  
 |type_desc|**nvarchar(60)**|Descrição do tipo de espaço de dados:<br /><br /> FILESTREAM_DATA_FILEGROUP<br /><br /> MEMORY_OPTIMIZED_DATA_FILEGROUP<br /><br /> **Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior.<br /><br /> PARTITION_SCHEME<br /><br /> ROWS_FILEGROUP|  
 |is_default|**bit**|1 = Este é o espaço de dados padrão. O espaço de dados padrão é usado quando um grupo de arquivos ou esquema de partição não é especificado em uma instrução CREATE TABLE ou CREATE INDEX.<br /><br /> 0 = Este não é o espaço de dados padrão.|  
 |is_system|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior.<br /><br /> 1 = O espaço de dados é usado para fragmentos de índice de texto completo.<br /><br /> 0 = O espaço de dados não é usado para fragmentos de índice de texto completo.|  

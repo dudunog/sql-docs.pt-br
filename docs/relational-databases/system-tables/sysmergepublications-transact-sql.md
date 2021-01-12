@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - sysmergepublications system table
 ms.assetid: 7f82c6c3-22d1-47c0-a92b-4d64b98cc455
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 4f079b7ea36d55f978db4c802efb3c8c4283eab3
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: cawrites
+ms.author: chadam
+ms.openlocfilehash: 0b2a7e7783ffb67688041a6da39ea99f945a607f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89540207"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98097319"
 ---
 # <a name="sysmergepublications-transact-sql"></a>sysmergepublications (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "89540207"
 |**allow_subscription_copy**|**bit**|Especifica se a capacidade de copiar banco de dados de assinatura foi habilitada. **0** significa que a cópia não é permitida.|  
 |**allow_synctoalternate**|**bit**|Especifica se um parceiro de sincronização alternativo tem permissão para sincronizar com esse Publicador. **0** significa que um parceiro de sincronização não é permitido.|  
 |**validate_subscriber_info**|**nvarchar (500)**|Lista as funções que estão sendo usadas para recuperar informações do Assinante e validar os critérios de filtragem de linha com parâmetros no Assinante.|  
-|**ad_guidname**|**sysname**|Especifica se a publicação é publicada no [!INCLUDE[msCoName](../../includes/msconame-md.md)] Active Directory. Um GUID válido especifica que a publicação é publicada no Active Directory e o GUID é o objeto de publicação de Active Directory do **objectGUID**correspondente. Se for NULL, a publicação não será publicada no Active Directory.|  
+|**ad_guidname**|**sysname**|Especifica se a publicação é publicada no [!INCLUDE[msCoName](../../includes/msconame-md.md)] Active Directory. Um GUID válido especifica que a publicação é publicada no Active Directory e o GUID é o objeto de publicação de Active Directory do **objectGUID** correspondente. Se for NULL, a publicação não será publicada no Active Directory.|  
 |**backward_comp_level**|**int**|Nível de compatibilidade do banco de dados. Pode ser um dos seguintes valores:<br /><br /> **90**  =  [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] .<br /><br /> **100**  =  [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] .|  
 |**max_concurrent_merge**|**int**|O número máximo de processos de mesclagem simultâneos permitido. Um valor de **0** para essa propriedade significa que não há nenhum limite para o número de processos de mesclagem simultâneos em execução em um determinado momento. Essa propriedade define um limite para o número de processos de mesclagem simultâneos que podem ser executados em uma publicação de mesclagem ao mesmo tempo. Se houver mais processos de instantâneo agendados ao mesmo tempo do que o valor permitido para execução, os trabalhos em excesso serão enfileirados e esperarão até que o processo de mesclagem em execução no momento seja concluído.|  
 |**max_concurrent_dynamic_snapshots**|**int**|O número máximo permitido de sessões de instantâneo de dados filtrados simultâneas que pode ser executado na publicação de mesclagem. Se for **0**, não há nenhum limite para o número máximo de sessões de instantâneos de dados filtradas simultâneas que podem ser executadas simultaneamente na publicação em um determinado momento. Essa propriedade define um limite para o número de processos de instantâneo simultâneos que pode ser executado em uma publicação de mesclagem de uma só vez. Se houver mais processos de instantâneo agendados ao mesmo tempo do que o valor permitido para execução, os trabalhos em excesso serão enfileirados e esperarão até que o processo de mesclagem em execução no momento seja concluído.|  
