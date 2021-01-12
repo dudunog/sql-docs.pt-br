@@ -13,12 +13,12 @@ f1_keywords:
 ms.assetid: a3447987-5507-4630-ac35-58821b72354d
 author: stevestein
 ms.author: sstein
-ms.openlocfilehash: bf329c6537df49ace1ae78bba64e146641e1e664
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 87c3b10b95a37c74ea1595dca15341aeffe5c261
+ms.sourcegitcommit: 4a813a0741502c56c0cd5ecaafafad2e857a9d7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92195026"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98031095"
 ---
 # <a name="database-properties-options-page"></a>Propriedades do banco de dados (página Opções)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "92195026"
  Especifique a ordenação do banco de dados selecionando na lista. Para saber mais, veja [Definir ou alterar a ordenação de banco de dados](../../relational-databases/collations/set-or-change-the-database-collation.md).  
   
  **Modelo de recuperação**  
- Especifique um dos seguintes modelos para recuperar o banco de dados: **Completo**, **Bulk-Logged**ou **Simples**. Para obter mais informações sobre modelos de recuperação, veja [Modelos de recuperação &#40;SQL Server&#41;](../../relational-databases/backup-restore/recovery-models-sql-server.md).  
+ Especifique um dos seguintes modelos para recuperar o banco de dados: **Completo**, **Bulk-Logged** ou **Simples**. Para obter mais informações sobre modelos de recuperação, veja [Modelos de recuperação &#40;SQL Server&#41;](../../relational-databases/backup-restore/recovery-models-sql-server.md).  
   
  **Nível de compatibilidade**  
  Especifique a última versão do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] aceita pelo banco de dados. Para obter os valores possíveis, consulte [Nível de compatibilidade ALTER DATABASE (Transact-SQL)](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md). Quando um banco de dados do SQL Server é atualizado, o nível de compatibilidade de banco de dados é mantido se possível ou alterado para o nível mínimo com suporte para o novo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. 
@@ -165,7 +165,7 @@ Habilita esse recurso.
  Quando **False**, as estatísticas de correlação não são mantidas.  
  
  **Durabilidade atrasada**  
- Habilita esse recurso.  
+ Habilita esse recurso. Para obter mais informações, veja [Controlar a durabilidade da transação](../logs/control-transaction-durability.md).
  
  **O Instantâneo de Leitura Confirmada Está Ativo**  
  Habilita esse recurso.  
@@ -202,7 +202,7 @@ Habilita esse recurso.
   
 ## <a name="recovery"></a>Recuperação  
  **Verificação de Página**  
- Especifique a opção usada para descobrir e relatar transações de E/S incompletas provocadas por erros de E/S em disco. Os valores possíveis são **Nenhum**, **TornPageDetection**e **Soma de Verificação**. Para obter mais informações, veja [Gerenciar a tabela suspect_pages &#40;SQL Server&#41;](../../relational-databases/backup-restore/manage-the-suspect-pages-table-sql-server.md).  
+ Especifique a opção usada para descobrir e relatar transações de E/S incompletas provocadas por erros de E/S em disco. Os valores possíveis são **Nenhum**, **TornPageDetection** e **Soma de Verificação**. Para obter mais informações, veja [Gerenciar a tabela suspect_pages &#40;SQL Server&#41;](../../relational-databases/backup-restore/manage-the-suspect-pages-table-sql-server.md).  
   
  **Tempo de Recuperação de Destino (Segundos)**  
  Especifica o salto máximo no tempo, expresso em segundos, para recuperar o banco de dados especificado no caso de uma falha. Para obter mais informações, consulte [Pontos de verificação de banco de dados &#40;SQL Server&#41;](../../relational-databases/logs/database-checkpoints-sql-server.md).  

@@ -11,12 +11,12 @@ ms.assetid: 5e57a427-2e88-4ef6-b142-4ccad97bcecc
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 0fd911cd7ce60068c0d28ecd5a386a344c5ebea7
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c36d6718455f85314f98219b860a801984804d9d
+ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97481457"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97975430"
 ---
 # <a name="choose-a-database-engine-upgrade-method"></a>Escolher um método de upgrade do mecanismo de banco de dados
 [!INCLUDE [SQL Server -Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
@@ -38,7 +38,7 @@ Há várias abordagens a serem consideradas quando você está planejando fazer 
 >   - [Selecionando uma opção do SQL Server no Azure](/azure/azure-sql/azure-sql-iaas-vs-paas-what-is-overview).  
   
 ## <a name="upgrade-in-place"></a>Atualização in-loco  
- Com essa abordagem, o programa de instalação do SQL Server faz upgrade da instalação existente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], substituindo os bits do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] existentes pelos novos bits do [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] e, depois, faz upgrade de cada um dos bancos de dados do sistema e do usuário.  O método de atualização in-loco é o mais fácil, requer algum tempo de inatividade, leva mais tempo para executar um fallback se um fallback for necessário e não é permitido em todos os cenários. Para obter mais informações sobre os cenários de atualização in-loco com e sem suporte, veja [Atualizações de versão e edição com suporte](../../database-engine/install-windows/supported-version-and-edition-upgrades-2017.md).  
+ Com essa abordagem, o programa de instalação do SQL Server faz upgrade da instalação existente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], substituindo os bits do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] existentes pelos novos bits do [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] e, depois, faz upgrade de cada um dos bancos de dados do sistema e do usuário.  O método de atualização in-loco é o mais fácil, requer algum tempo de inatividade, leva mais tempo para executar um fallback se um fallback for necessário e não é permitido em todos os cenários. Para obter mais informações sobre os cenários de atualização in-loco com e sem suporte, veja [Atualizações de versão e edição com suporte](../../database-engine/install-windows/supported-version-and-edition-upgrades-version-15.md).  
   
  Essa abordagem é frequentemente usada nos seguintes cenários:  
   
