@@ -19,14 +19,14 @@ helpviewer_keywords:
 - ALTER SERVER CONFIGURATION statement
 - setting process affinity
 ms.assetid: f3059e42-5f6f-4a64-903c-86dca212a4b4
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: d3381300671d2303f8766351e19018d8122c861f
-ms.sourcegitcommit: bd3a135f061e4a49183bbebc7add41ab11872bae
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 5fc18fa93e47267d299c3b568011de5645f943da
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92300916"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98092026"
 ---
 # <a name="alter-server-configuration-transact-sql"></a>ALTER SERVER CONFIGURATION (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -131,7 +131,7 @@ Especifica que nenhum thread está atribuído a uma CPU. O sistema operacional p
 Especifica a CPU ou o intervalo de CPUs ao qual atribuir threads.  
   
 { CPU_ID | CPU_ID TO CPU_ID } [ ,...n ]  
-É a lista de uma ou mais CPUs. IDs de CPU começam com 0 e são valores **integer** .  
+É a lista de uma ou mais CPUs. IDs de CPU começam com 0 e são valores **integer**.  
   
 NUMANODE = \<NUMA_node_range_spec>  
 Atribui threads a todas as CPUs que pertencem ao nó NUMA especificado ou ao intervalo de nós.  
@@ -140,7 +140,7 @@ Atribui threads a todas as CPUs que pertencem ao nó NUMA especificado ou ao int
 Especifica o nó NUMA ou o intervalo de nós NUMA.  
   
 { NUMA_node_ID | NUMA_node_ID TO NUMA_node_ID } [ ,...n ]  
-É a lista de um ou mais nós NUMA. IDs de nó NUMA começam com 0 e são valores **integer** .  
+É a lista de um ou mais nós NUMA. IDs de nó NUMA começam com 0 e são valores **integer**.  
   
 **\<diagnostic_log> ::=**  
   

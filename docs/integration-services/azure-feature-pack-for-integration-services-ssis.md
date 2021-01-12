@@ -14,12 +14,12 @@ f1_keywords:
 ms.assetid: 31de555f-ae62-4f2f-a6a6-77fea1fa8189
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 63e40e66003737798c444f220058feceab69411a
-ms.sourcegitcommit: 22e97435c8b692f7612c4a6d3fe9e9baeaecbb94
+ms.openlocfilehash: b22910f0a794925d07358fa73f3bd6d7a7c6e15a
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678921"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091652"
 ---
 # <a name="azure-feature-pack-for-integration-services-ssis"></a>Feature Pack do Azure para o Integration Services (SSIS)
 
@@ -28,7 +28,7 @@ ms.locfileid: "92678921"
 
 O Feature Pack do SSIS (SQL Server Integration Services) para Azure é uma extensão que oferece os componentes listados nesta página para o SSIS se conectar aos serviços do Azure, transferir dados entre o Azure e fontes de dados locais e processar dados armazenados no Azure.
 
-[![Baixar o Feature Pack do SSIS para Azure](https://docs.microsoft.com/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/download/details.aspx?id=100430) **Baixar**
+[![Baixar o Feature Pack do SSIS para Azure](/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/download/details.aspx?id=100430) **Baixar**
 
 - Para SQL Server 2019 – [Microsoft SQL Server 2019 Integration Services Feature Pack for Azure](https://www.microsoft.com/download/details.aspx?id=100430)
 - Para SQL Server 2017 – [Feature Pack Microsoft SQL Server 2017 Integration Services para o Azure](https://www.microsoft.com/download/details.aspx?id=54798)
@@ -112,17 +112,17 @@ Os builds Java a seguir foram testados.
 
 1. Baixe e extraia o pacote de instalação zip.
 2. No Prompt de Comando, execute `sysdm.cpl`.
-3. Na guia **Avançado** , selecione **Variáveis de Ambiente** .
-4. Na seção **Variáveis do sistema** seção, selecione **Novo** .
-5. Insira `JAVA_HOME` para o **Nome da variável** .
-6. Selecione **Procurar Diretório** , navegue até a pasta extraída e selecione a subpasta `jre`.
+3. Na guia **Avançado**, selecione **Variáveis de Ambiente**.
+4. Na seção **Variáveis do sistema** seção, selecione **Novo**.
+5. Insira `JAVA_HOME` para o **Nome da variável**.
+6. Selecione **Procurar Diretório**, navegue até a pasta extraída e selecione a subpasta `jre`.
    Em seguida, selecione **OK** e o **Valor da variável** será preenchido automaticamente.
-7. Selecione **OK** para fechar a caixa de diálogo **Nova Variável do Sistema** .
-8. Selecione **OK** para fechar a caixa de diálogo **Variáveis de Ambiente** .
-9. Selecione **OK** para fechar a caixa de diálogo **Propriedades do Sistema** .
+7. Selecione **OK** para fechar a caixa de diálogo **Nova Variável do Sistema**.
+8. Selecione **OK** para fechar a caixa de diálogo **Variáveis de Ambiente**.
+9. Selecione **OK** para fechar a caixa de diálogo **Propriedades do Sistema**.
 
 > [!TIP]
-> Se você usar o formato Parquet e receber um erro que indique "Erro ao invocar Java, mensagem: **java.lang.OutOfMemoryError:Java heap space** ", adicione uma variável de ambiente *`_JAVA_OPTIONS`* para ajustar o tamanho de heap mínimo/máximo para a JVM.
+> Se você usar o formato Parquet e receber um erro que indique "Erro ao invocar Java, mensagem: **java.lang.OutOfMemoryError:Java heap space**", adicione uma variável de ambiente *`_JAVA_OPTIONS`* para ajustar o tamanho de heap mínimo/máximo para a JVM.
 >
 >![heap da JVM](media/azure-feature-pack-jvm-heap-size.png)
 >
@@ -149,7 +149,7 @@ powershell.exe -file install_openjdk.ps1
 ~~~
 
 > [!TIP]
-> Se você usar o formato Parquet e receber um erro que indique "Erro ao invocar Java, mensagem: **java.lang.OutOfMemoryError:Java heap space** ", adicione um comando em *`main.cmd`* para ajustar o tamanho de heap mínimo/máximo para a JVM. Exemplo:
+> Se você usar o formato Parquet e receber um erro que indique "Erro ao invocar Java, mensagem: **java.lang.OutOfMemoryError:Java heap space**", adicione um comando em *`main.cmd`* para ajustar o tamanho de heap mínimo/máximo para a JVM. Exemplo:
 > ~~~
 > setx /M _JAVA_OPTIONS "-Xms256m -Xmx16g"
 > ~~~

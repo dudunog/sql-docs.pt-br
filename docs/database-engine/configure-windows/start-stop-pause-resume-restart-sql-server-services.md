@@ -41,12 +41,12 @@ ms.assetid: 32660a02-e5a1-411a-9e57-7066ca459df6
 author: markingmyname
 ms.author: maghan
 ms.reviewer: ''
-ms.openlocfilehash: e971592b20dd2321e4265752cb8b01c38387b639
-ms.sourcegitcommit: 2f868a77903c1f1c4cecf4ea1c181deee12d5b15
+ms.openlocfilehash: 697cf043c4582796015b061c857145c214d105fb
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91670749"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091734"
 ---
 # <a name="start-stop-pause-resume-restart-sql-server-services"></a>Iniciar, parar, pausar, retomar e reiniciar os serviços SQL Server
 
@@ -110,7 +110,7 @@ A interrupção do Mecanismo de Banco de Dados usando o comando **SHUTDOWN** do 
 
 ### <a name="starting-sql-server-configuration-manager"></a>Como iniciar o SQL Server Configuration Manager
 
-No menu **Iniciar** , aponte para **Todos os Programas**, **Microsoft SQL Server**, **Ferramentas de Configuração**e clique em **SQL Server Configuration Manager**.
+No menu **Iniciar** , aponte para **Todos os Programas**, **Microsoft SQL Server**, **Ferramentas de Configuração** e clique em **SQL Server Configuration Manager**.
 
 Como o SQL Server Configuration Manager é um snap-in do programa Console de Gerenciamento Microsoft e não um programa autônomo, o SQL Server Configuration Manager não é exibido como um aplicativo nas versões mais recentes do Windows. Aqui estão os caminhos para as últimas quatro versões do Windows instaladas na unidade C.  
 
@@ -130,7 +130,7 @@ Como o SQL Server Configuration Manager é um snap-in do programa Console de Ger
 
 3. No SQL Server Configuration Manager, no painel esquerdo, clique em **Serviços do SQL Server**.
 
-4. No painel de resultados, clique com o botão direito do mouse em **SQL Server (MSSQLServer)** ou em uma instância nomeada e clique em **Iniciar**, **Parar**, **Pausar**, **Retomar**ou **Reiniciar**.
+4. No painel de resultados, clique com o botão direito do mouse em **SQL Server (MSSQLServer)** ou em uma instância nomeada e clique em **Iniciar**, **Parar**, **Pausar**, **Retomar** ou **Reiniciar**.
 
 5. Clique em **OK** para fechar o SQL Server Configuration Manager.
 
@@ -342,7 +342,7 @@ Para obter mais informações sobre a instrução **SHUTDOWN**, consulte [SHUTDO
   
 ##  <a name="using-service-controller-class"></a><a name="ServiceController"></a> Usar a classe do controlador de serviço
 
-Você pode usar a classe ServiceController para controlar o serviço do SQL Server ou qualquer outro serviço Windows. Para obter um exemplo de como fazer isso, confira [Classe ServiceController](/dotnet/api/system.serviceprocess.servicecontroller?view=netframework-4.8).
+Você pode usar a classe ServiceController para controlar o serviço do SQL Server ou qualquer outro serviço Windows. Para obter um exemplo de como fazer isso, confira [Classe ServiceController](/dotnet/api/system.serviceprocess.servicecontroller).
 
 ## <a name="manage-the-sql-server-service-on-linux"></a>Gerenciar o serviço SQL Server no Linux
 

@@ -11,12 +11,12 @@ ms.assetid: a47c5005-20e3-4880-945c-9f78d311af7a
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 981ce2dcfadf234383382103a33faf4f0ab9302e
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 4fd420fd7d07af5a6efa81cdb7e716020c03a89b
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643036"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091793"
 ---
 # <a name="how-to-cluster-the-dtc-service-for-an-always-on-availability-group"></a>Como agrupar em cluster o serviço DTC de um grupo de disponibilidade Always On
 
@@ -48,7 +48,7 @@ Depois de criar o recurso de grupo de disponibilidade, crie um recurso DTC clust
 |Tarefa|Referência|  
 |-----------------|----------|  
 |Habilite o acesso à rede com segurança para o recurso DTC clusterizado.|[Habilitar o acesso à rede com segurança para o MS DTC](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753620(v=ws.10))|
-|Interrompa e desabilite o serviço DTC local.|[Configurar como um serviço é iniciado](https://technet.microsoft.com/library/cc755249(v=ws.11).aspx)|
+|Interrompa e desabilite o serviço DTC local.|[Configurar como um serviço é iniciado](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))|
 |Realize um ciclo do serviço SQL Server de cada instância no Grupo de Disponibilidade.  Execute failover do Grupo de Disponibilidade, conforme necessário.|[Executar um failover manual planejado de um grupo de disponibilidade (SQL Server)](../../../database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server.md)<br /><br />[Iniciar, parar, pausar, retomar, reiniciar o mecanismo de banco de dados, o SQL Server Agent ou o serviço SQL Server Browser](../../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md)|
 
 - Se o servidor for Windows Server 2012 R2, o sistema operacional deve ter [KB 3030373](https://support.microsoft.com/kb/3090973) aplicado.
