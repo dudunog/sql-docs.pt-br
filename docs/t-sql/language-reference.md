@@ -16,12 +16,12 @@ ms.assetid: dbba47d7-e08e-4435-b876-35dced1f325d
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 1af7b24a5a28861b30fba01dba60f5b85d2809b4
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 00d01b9b0646848ceb8b1deff2ab7cbe16518d0f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97481837"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98095844"
 ---
 # <a name="transact-sql-reference-database-engine"></a>Referência do Transact-SQL (Mecanismo de Banco de Dados)
 [!INCLUDE[tsql-appliesto-ss2008-all-md](../includes/tsql-appliesto-ss2008-all-md.md)]
@@ -37,7 +37,7 @@ Algumas das ferramentas da Microsoft que emitem comandos do T-SQL são:
 - [SQL Server Management Studio (SSMS)](../ssms/download-sql-server-management-studio-ssms.md)
 - [SSDT (SQL Server Data Tools)](../ssdt/download-sql-server-data-tools-ssdt.md)
 - [sqlcmd](../tools/sqlcmd-utility.md)
-- [Azure Data Studio](../azure-data-studio/what-is.md)
+- [Azure Data Studio](../azure-data-studio/what-is-azure-data-studio.md)
   
 ## <a name="locate-the-transact-sql-reference-topics"></a>Localizar os tópicos de referência do Transact-SQL  
 Para encontrar os tópicos do T-SQL, utilize a pesquisa na parte superior direita ou o índice à esquerda desta página. Você também pode digitar uma palavra-chave do T-SQL na janela do Editor de Consultas do Management Studio e pressionar F1. 
@@ -83,4 +83,3 @@ Agora que já sabe como encontrar os tópicos de referência do T-SQL, você est
 - Trabalho por meio de um breve tutorial sobre como gravar o T-SQL, confira [Tutorial: Escrevendo instruções Transact-SQL](../t-sql/tutorial-writing-transact-sql-statements.md). 
 - Exibir as [Convenções de sintaxe&#40;Transact-SQL&#41;](../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md).  
 
-  

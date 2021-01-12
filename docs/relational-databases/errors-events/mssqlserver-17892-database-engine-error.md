@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 59cf1ed10d71bf9813f2ce814d88e7f7d64b6b2e
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 905b961e2fbf882f59b050a3acb7ba0f9c2f9046
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418650"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099306"
 ---
 # <a name="mssqlserver_17892"></a>MSSQLSERVER_17892
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "92418650"
 
 ## <a name="explanation"></a>Explicação
 
-O erro 17892 é gerado quando um código de gatilho de logon não pode ser executado com êxito. Os [gatilhos de logon](/sql/relational-databases/triggers/logon-triggers) acionam procedimentos armazenados em resposta a um evento LOGON. Esse evento ocorre quando é estabelecida uma sessão de usuário com uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Uma mensagem de erro semelhante à seguinte é relatada ao usuário:
+O erro 17892 é gerado quando um código de gatilho de logon não pode ser executado com êxito. Os [gatilhos de logon](../triggers/logon-triggers.md) acionam procedimentos armazenados em resposta a um evento LOGON. Esse evento ocorre quando é estabelecida uma sessão de usuário com uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Uma mensagem de erro semelhante à seguinte é relatada ao usuário:
 
 > Mensagem 17892, Nível 14, Estado 1, Servidor \<Server Name>, Linha 1  
 Falha no logon para \<Login Name> devido à execução do gatilho.
@@ -52,7 +52,7 @@ O problema poderá ocorrer se houver um erro ao executar o código de gatilho pa
 
 Use uma das resoluções abaixo, dependendo do cenário.
 
-- **Cenário 1** : No momento, você tem acesso a uma sessão aberta do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] em uma conta de administrador
+- **Cenário 1**: No momento, você tem acesso a uma sessão aberta do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] em uma conta de administrador
 
   Nesse caso, você pode executar a ação corretiva necessária para corrigir o código do gatilho.
 
@@ -62,15 +62,15 @@ Use uma das resoluções abaixo, dependendo do cenário.
   
   Como alternativa, você pode apenas remover ou desabilitar o gatilho de logon, de modo que os usuários possam continuar fazendo logon no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
 
-- **Cenário 2** : Você não tem nenhuma sessão atual aberta com privilégios de administrador, mas a DAC (Conexão de Administrador Dedicada) está habilitada no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].
+- **Cenário 2**: Você não tem nenhuma sessão atual aberta com privilégios de administrador, mas a DAC (Conexão de Administrador Dedicada) está habilitada no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].
 
-    Nesse caso, você pode usar a conexão DAC para executar as mesmas etapas, conforme discutido no Caso 1, pois as conexões DAC não são afetadas pelos gatilhos de logon. Para obter mais informações sobre a conexão DAC, confira: [Conexão de diagnóstico para administradores de banco de dados](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators).
+    Nesse caso, você pode usar a conexão DAC para executar as mesmas etapas, conforme discutido no Caso 1, pois as conexões DAC não são afetadas pelos gatilhos de logon. Para obter mais informações sobre a conexão DAC, confira: [Conexão de diagnóstico para administradores de banco de dados](../../database-engine/configure-windows/diagnostic-connection-for-database-administrators.md).
 
     Para verificar se o DAC está habilitado no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], veja no log de erros do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] se há uma mensagem semelhante à seguinte:
 
     > 09/02/2020 16:17:44.150 Foi estabelecido suporte para conexão de administrador Dedicado do Servidor para escuta local na porta 1434.  
 
-- **Cenário 3** : Você não tem o DAC habilitado no servidor nem tem uma sessão de administrador existente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].
+- **Cenário 3**: Você não tem o DAC habilitado no servidor nem tem uma sessão de administrador existente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].
 
     Nesse cenário, a única maneira de corrigir o problema é executar as seguintes etapas:
   
@@ -80,7 +80,7 @@ Use uma das resoluções abaixo, dependendo do cenário.
         > [!NOTE]
         > O procedimento descrito acima exige uma *SA* ou uma conta de administrador equivalente.
   
-         Para obter mais informações sobre essas e outras opções de inicialização, confira: [Opções de Inicialização do Serviço de Mecanismo de Banco de Dados](/sql/database-engine/configure-windows/database-engine-service-startup-options).
+         Para obter mais informações sobre essas e outras opções de inicialização, confira: [Opções de Inicialização do Serviço de Mecanismo de Banco de Dados](../../database-engine/configure-windows/database-engine-service-startup-options.md).
 
 ## <a name="more-information"></a>Mais informações
 

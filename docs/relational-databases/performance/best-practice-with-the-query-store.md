@@ -13,12 +13,12 @@ ms.assetid: 5b13b5ac-1e4c-45e7-bda7-ebebe2784551
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||= azure-sqldw-latest||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: a973fd5ec66f101c162e35baec0269f7b6d3d601
-ms.sourcegitcommit: d8a9ad86401bff422d506078c6200494c795e7c0
+ms.openlocfilehash: cccb47e059938745aa6166902402c8b94b674722
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97765205"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099307"
 ---
 # <a name="best-practices-with-query-store"></a>Melhores prática com o Repositório de Consultas
 
@@ -34,7 +34,7 @@ Para ver uma descrição rápida sobre como usar o Repositório de Consultas em 
 
 ## <a name="use-query-performance-insight-in-azure-sql-database"></a><a name="Insight"></a> Usar a Análise de Desempenho de Consultas no banco de dados SQL do Azure
 
-Caso execute o Repositório de Consultas no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], você poderá usar a [Análise de Desempenho de Consultas](/azure/sql-database/sql-database-query-performance) para analisar o consumo de recursos ao longo do tempo. Embora você possa usar o [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] e o [Azure Data Studio](../../azure-data-studio/what-is.md) para obter o consumo de recursos detalhado de todas as suas consultas, como CPU, memória e E/S, a Análise de Desempenho de Consultas fornece uma maneira rápida e eficiente para determinar seu impacto sobre o consumo de DTU geral do banco de dados. Para obter mais informações, consulte [Análise de Desempenho de Consultas do Banco de Dados SQL do Azure](/azure/azure-sql/database/query-performance-insight-use).
+Caso execute o Repositório de Consultas no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], você poderá usar a [Análise de Desempenho de Consultas](/azure/sql-database/sql-database-query-performance) para analisar o consumo de recursos ao longo do tempo. Embora você possa usar o [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] e o [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md) para obter o consumo de recursos detalhado de todas as suas consultas, como CPU, memória e E/S, a Análise de Desempenho de Consultas fornece uma maneira rápida e eficiente para determinar seu impacto sobre o consumo de DTU geral do banco de dados. Para obter mais informações, consulte [Análise de Desempenho de Consultas do Banco de Dados SQL do Azure](/azure/azure-sql/database/query-performance-insight-use).
 
 Esta seção descreve os padrões de configuração ideais que são projetados para garantir a operação confiável do Repositório de Consultas, bem como recursos dependentes. A configuração padrão é otimizada para coleta de dados contínua, ou seja, tempo mínimo gasto nos estados OFF/READ_ONLY. Para obter mais informações sobre todas as opções de Repositório de Consultas disponíveis, confira [Opções do ALTER DATABASE SET (Transact-SQL)](../../t-sql/statements/alter-database-transact-sql-set-options.md#query-store).
 

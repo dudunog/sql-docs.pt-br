@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: rgward
 ms.author: ramakoni
-ms.openlocfilehash: bfcd8763c649f83bb9e72881c6facda29917f7b8
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 7aa3b39996f8dc282e11d92706743a7ba42998da
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418675"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099256"
 ---
 # <a name="mssqlserver_7105"></a>MSSQLSERVER_7105
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -55,7 +55,7 @@ Confira as seções Resolução e [Mais informações](#more-information) para d
 1. Como a mensagem indica, a primeira etapa a ser realizada é executar `DBCC CHECKDB` no banco de dados ou `DBCC CHECKTABLE` na tabela em que o problema foi encontrado.
 
     - A ID do banco de dados é fornecida na mensagem.
-    - Para descobrir a tabela afetada exata sem executar `DBCC CHECKDB`, você precisará descobrir quais tabelas foram acessadas pela consulta que apresentou o erro. Um desses métodos é usar o SQL Profiler para rastrear a consulta. No entanto, no [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] e no [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] R2, você poderá encontrar a consulta usando a sessão de system_health dos Eventos Estendidos. Confira este link para obter mais informações sobre como usar a sessão de system_health: [Usar a sessão de system_health](/sql/relational-databases/extended-events/use-the-system-health-session).
+    - Para descobrir a tabela afetada exata sem executar `DBCC CHECKDB`, você precisará descobrir quais tabelas foram acessadas pela consulta que apresentou o erro. Um desses métodos é usar o SQL Profiler para rastrear a consulta. No entanto, no [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] e no [!INCLUDE[sskatmai](../../includes/sskatmai-md.md)] R2, você poderá encontrar a consulta usando a sessão de system_health dos Eventos Estendidos. Confira este link para obter mais informações sobre como usar a sessão de system_health: [Usar a sessão de system_health](../extended-events/use-the-system-health-session.md).
 
     - Assim como ocorre com qualquer problema de consistência de banco de dados, você pode resolver esses erros fazendo a restauração de um backup válido conhecido que não contenha esse problema.
 

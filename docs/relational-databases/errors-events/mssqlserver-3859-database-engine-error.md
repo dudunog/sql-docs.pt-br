@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 4a3857e9e98bfbe7fcc86ee07272698f0fcac763
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 3228a21b43fd5b5ed2a23c5e13b47353e55cd028
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418647"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98093260"
 ---
 # <a name="mssqlserver_3859"></a>MSSQLSERVER_3859
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -52,10 +52,10 @@ Esse erro indica uma alteração iniciada pelo usuário nas tabelas do sistema. 
 
     A seguinte mensagem de aviso é retornada quando você executa o comando `DBCC_CHECKDB` depois que uma tabela do sistema é atualizada manualmente:
 
-    > Resultados do DBCC para ' **database_name** '.  
+    > Resultados do DBCC para '**database_name**'.  
     Mensagem 8992, Nível 16, Estado 1, Linha 1  
-    Verifique a Mensagem do Catálogo 3859, Estado 1: Aviso: o catálogo do sistema foi atualizado diretamente na ID de banco de dados \%d, mais recentemente em **date_time** .  
-    CHECKDB encontrou 0 erros de alocação e 0 erros de consistência no banco de dados ' **db_name** '.  
+    Verifique a Mensagem do Catálogo 3859, Estado 1: Aviso: o catálogo do sistema foi atualizado diretamente na ID de banco de dados \%d, mais recentemente em **date_time**.  
+    CHECKDB encontrou 0 erros de alocação e 0 erros de consistência no banco de dados '**db_name**'.  
     A execução do DBCC foi concluída. Se o DBCC imprimiu mensagens de erro, contate o administrador do sistema.
 
 ## <a name="user-action"></a>Ação do usuário
@@ -77,4 +77,4 @@ Para resolver esse problema, use um dos métodos a seguir.
 
 ## <a name="more-information"></a>Mais informações
 
-Para obter mais informações, confira: [Tabelas base do sistema](/sql/relational-databases/system-tables/system-base-tables).
+Para obter mais informações, confira: [Tabelas base do sistema](../system-tables/system-base-tables.md).

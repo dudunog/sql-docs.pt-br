@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: suresh-kandoth
 ms.author: ramakoni
-ms.openlocfilehash: 870f9b9f4d3fcc8186ed1d16faee861ed63e4135
-ms.sourcegitcommit: ead0b8c334d487a07e41256ce5d6acafa2d23c9d
+ms.openlocfilehash: 8b9d79dc7b23339b5b152695daf5efc5c47847a4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92418653"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099332"
 ---
 # <a name="mssqlserver_17112"></a>MSSQLSERVER_17112
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "92418653"
 
 ## <a name="explanation"></a>Explicação
 
-Esse erro indica que uma [Opção de Inicialização do Serviço de Mecanismo de Banco de Dados](/sql/database-engine/configure-windows/database-engine-service-startup-options) inválida foi especificada. Quando uma opção de inicialização não é especificada corretamente, o SQL Server não consegue ser inicializado ou pode não ser executado conforme o esperado. O erro 17112 também é gerado.
+Esse erro indica que uma [Opção de Inicialização do Serviço de Mecanismo de Banco de Dados](../../database-engine/configure-windows/database-engine-service-startup-options.md) inválida foi especificada. Quando uma opção de inicialização não é especificada corretamente, o SQL Server não consegue ser inicializado ou pode não ser executado conforme o esperado. O erro 17112 também é gerado.
 
 Em alguns casos, a instância pode ser iniciada, mas ao examinar o log de erros do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], os parâmetros de inicialização não têm a aparência correta:
 
@@ -67,5 +67,5 @@ Use a ferramenta [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Confi
 
 Veja os seguintes tópicos para obter mais informações sobre este tópico:
 
-- [Opções de inicialização do serviço Mecanismo de Banco de Dados](/sql/database-engine/configure-windows/database-engine-service-startup-options)
-- [Serviços SCM – configurar opções de inicialização do servidor](/sql/database-engine/configure-windows/scm-services-configure-server-startup-options)
+- [Opções de inicialização do serviço Mecanismo de Banco de Dados](../../database-engine/configure-windows/database-engine-service-startup-options.md)
+- [Serviços SCM – configurar opções de inicialização do servidor](../../database-engine/configure-windows/scm-services-configure-server-startup-options.md)

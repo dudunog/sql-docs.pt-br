@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 38ffd9c2-18a5-43d2-b674-e425addec4e4
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 23b04ae0e205a70b195b7da39a666256463bfa1c
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 85d9e42b9c0ac537d6f33bd884b898374119972d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92192846"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099308"
 ---
 # <a name="sql-server-data-files-in-microsoft-azure"></a>Arquivos de dados do SQL Server no Microsoft Azure
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -145,7 +145,7 @@ Para saber mais, confira [Gerenciar o acesso aos recursos de Armazenamento do Az
 ### <a name="sql-server-management-studio-support"></a>Suporte ao SQL Server Management Studio  
  O SQL Server Management Studio permite usar esse recurso por meio de várias janelas da caixa de diálogo. Por exemplo, `https://teststorageaccnt.blob.core.windows.net/testcontainer/` representa o caminho da URL de um contêiner de armazenamento.
  
- como um **Caminho** em várias janelas de diálogo, como **Novo Banco de Dados**, **Anexar Banco de Dados**e **Restaurar Banco de Dados**. Para saber mais, confira [Tutorial: usar o serviço de Armazenamento de Blobs do Microsoft Azure com os bancos de dados do SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).  
+ como um **Caminho** em várias janelas de diálogo, como **Novo Banco de Dados**, **Anexar Banco de Dados** e **Restaurar Banco de Dados**. Para saber mais, confira [Tutorial: usar o serviço de Armazenamento de Blobs do Microsoft Azure com os bancos de dados do SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).  
   
 ### <a name="sql-server-management-objects-smo-support"></a>Suporte ao SMO (SQL Server Management Objects)  
  Ao usar o recurso Arquivos de Dados do SQL Server no Azure, há suporte para o SMO (SQL Server Management Objects). Se um objeto SMO exigir um caminho de arquivo, use o formato de URL do BLOB em vez do caminho de um arquivo local, como `https://teststorageaccnt.blob.core.windows.net/testcontainer/`. Para obter mais informações sobre SQL SMO (Server Management Objects), consulte [Guia de Programação do SQL SMO &#40;SQL Server Management Objects&#41;](../../relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide.md) nos Manuais Online do SQL Server.  
@@ -177,7 +177,7 @@ Para saber mais, confira [Gerenciar o acesso aos recursos de Armazenamento do Az
   
  **Erros de banco de dados**  
   
-Resolução dos **erros ao criar um banco de dados**: Analise as instruções fornecidas na lição 4 em [Tutorial: usar o serviço de Armazenamento de Blobs do Microsoft Azure com os bancos de dados do SQL Server 2016](../lesson-4-restore-database-to-virtual-machine-from-url.md).  
+Resolução dos **erros ao criar um banco de dados**: Analise as instruções fornecidas na lição 4 em [Tutorial: usar o serviço de Armazenamento de Blobs do Microsoft Azure com os bancos de dados do SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md#4----restore-database-to-virtual-machine-from-url).  
   
 **Erros ao executar a instrução Alter** Resolução: execute a instrução Alter Database mudar quando o banco de dados estiver online. Ao copiar os arquivos de dados no Armazenamento do Azure, sempre crie um blob de páginas, não um blob de blocos. Caso contrário, ALTER Database falhará. Analise as instruções fornecidas na lição 7 em [Tutorial: usar o serviço de Armazenamento de Blobs do Microsoft Azure com os bancos de dados do SQL Server 2016](../tutorial-use-azure-blob-storage-service-with-sql-server-2016.md).  
   
