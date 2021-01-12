@@ -1,6 +1,6 @@
 ---
 description: sys.dm_db_persisted_sku_features (Transact-SQL)
-title: sys. dm_db_persisted_sku_features (Transact-SQL) | Microsoft Docs
+title: sys.dm_db_persisted_sku_features (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 08/23/2017
 ms.prod: sql
@@ -18,19 +18,19 @@ helpviewer_keywords:
 - editions [SQL Server]
 - sys.dm_db_persisted_sku_features dynamic management view
 ms.assetid: b4b29e97-b523-41b9-9528-6d4e84b89e09
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 552bb8927c8609a2cfa406243be102372b855c0c
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 9221515e0c8a6c0704f0a036d851241d849d5f3d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89548631"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101651"
 ---
 # <a name="sysdm_db_persisted_sku_features-transact-sql"></a>sys.dm_db_persisted_sku_features (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
-  Alguns recursos da [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] alteração da maneira que [!INCLUDE[ssDE](../../includes/ssde-md.md)] armazena informações nos arquivos de banco de dados. Esses recursos são restritos a edições específicas do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Um banco de dados que contém esses recursos não pode ser movido para uma edição do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que não dê suporte a eles. Use a exibição de gerenciamento dinâmico sys. dm_db_persisted_sku_features para listar recursos específicos da edição que estão habilitados no banco de dados atual.
+  Alguns recursos da [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] alteração da maneira que [!INCLUDE[ssDE](../../includes/ssde-md.md)] armazena informações nos arquivos de banco de dados. Esses recursos são restritos a edições específicas do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Um banco de dados que contém esses recursos não pode ser movido para uma edição do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que não dê suporte a eles. Use a exibição de gerenciamento dinâmico sys.dm_db_persisted_sku_features para listar recursos específicos da edição que estão habilitados no banco de dados atual.
   
 **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] e posterior).
   
@@ -45,19 +45,19 @@ ms.locfileid: "89548631"
 ## <a name="remarks"></a>Comentários  
  Se nenhum recurso que possa ser restringido por uma edição específica for usado pelo banco de dados, a exibição não retornará nenhuma linha.  
   
- sys. dm_db_persisted_sku_features pode listar os seguintes recursos de alteração de banco de dados como restrito a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] edições específicas:  
+ sys.dm_db_persisted_sku_features pode listar os seguintes recursos de alteração de banco de dados como restrito a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] edições específicas:  
   
--   **ChangeCapture**: indica que um banco de dados está com o Change Data Capture habilitado. Para remover a captura de dados de alterações, use o procedimento armazenado [Sys. sp_cdc_disable_db](../../relational-databases/system-stored-procedures/sys-sp-cdc-disable-db-transact-sql.md) . Para obter mais informações, veja [Sobre a captura de dados de alterações &#40;SQL Server&#41;](../../relational-databases/track-changes/about-change-data-capture-sql-server.md).  
+-   **ChangeCapture**: indica que um banco de dados está com o Change Data Capture habilitado. Para remover a captura de dados de alteração, use o procedimento armazenado [Sys.sp_cdc_disable_db](../../relational-databases/system-stored-procedures/sys-sp-cdc-disable-db-transact-sql.md) . Para obter mais informações, veja [Sobre a captura de dados de alterações &#40;SQL Server&#41;](../../relational-databases/track-changes/about-change-data-capture-sql-server.md).  
   
 -   **ColumnStoreIndex**: indica que pelo menos uma tabela tem um índice columnstore. Para permitir que um banco de dados seja movido para uma edição do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que não ofereça suporte a esse recurso, use a instrução [drop index](../../t-sql/statements/drop-index-transact-sql.md) ou [ALTER INDEX](../../t-sql/statements/alter-index-transact-sql.md) para remover o índice columnstore. Para obter mais informações, consulte [índices Columnstore](../../relational-databases/indexes/columnstore-indexes-overview.md).  
   
-    **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior).  
+    **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior).  
   
--   **Compactação**: indica que pelo menos uma tabela ou índice usa a compactação de dados ou o formato de armazenamento vardecimal. Para habilitar um banco de dados a ser movido para uma edição do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que não ofereça suporte a esse recurso, use a instrução [ALTER TABLE](../../t-sql/statements/alter-table-transact-sql.md) ou [ALTER INDEX](../../t-sql/statements/alter-index-transact-sql.md) para remover a compactação de dados. Para remover o formato de armazenamento vardecimal, use a instrução sp_tableoption. Para saber mais, veja [Data Compression](../../relational-databases/data-compression/data-compression.md).  
+-   **Compactação**: indica que pelo menos uma tabela ou índice usa a compactação de dados ou o formato de armazenamento vardecimal. Para habilitar um banco de dados a ser movido para uma edição do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que não ofereça suporte a esse recurso, use a instrução [ALTER TABLE](../../t-sql/statements/alter-table-transact-sql.md) ou [ALTER INDEX](../../t-sql/statements/alter-index-transact-sql.md) para remover a compactação de dados. Para remover o formato de armazenamento vardecimal, use a instrução sp_tableoption. Para saber mais, veja [Data Compression](../../relational-databases/data-compression/data-compression.md).  
   
--   **MultipleFSContainers**: indica que o banco de dados usa vários contêineres FileStream. O banco de dados tem um grupo de arquivos FILESTREAM com vários contêineres (arquivos). Para obter mais informações, veja [FILESTREAM &#40;SQL Server&#41;](../../relational-databases/blob/filestream-sql-server.md).  
+-   **MultipleFSContainers**: indica que o banco de dados usa vários contêineres FileStream. O banco de dados tem um grupo de arquivos FILESTREAM com vários contêineres (arquivos). Para obter mais informações, veja [FILESTREAM &#40;SQL Server&#41;](../../relational-databases/blob/filestream-sql-server.md).  
   
--   **InMemoryOLTP**: indica que o banco de dados usa OLTP na memória. O banco de dados tem um grupo de arquivos MEMORY_OPTIMIZED_DATA. Para obter mais informações, veja [OLTP in-memory &#40;Otimização na memória&#41;](../../relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md).  
+-   **InMemoryOLTP**: indica que o banco de dados usa In-Memory OLTP. O banco de dados tem um grupo de arquivos MEMORY_OPTIMIZED_DATA. Para obter mais informações, veja [OLTP in-memory &#40;Otimização na memória&#41;](../../relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md).  
   
   **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior). 
   

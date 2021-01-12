@@ -19,14 +19,14 @@ helpviewer_keywords:
 - Availability Groups [SQL Server], monitoring
 - sys.availability_groups catalog view
 ms.assetid: da7fa55f-c008-45d9-bcfc-3513b02d9e71
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: eabda9900b854037eca713ac343e04e930eea1e2
-ms.sourcegitcommit: 04cf7905fa32e0a9a44575a6f9641d9a2e5ac0f8
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: c912d3cb46d4545bf0501281cec23c8f9ce4fb97
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810184"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101804"
 ---
 # <a name="sysavailability_groups-transact-sql"></a>sys.availability_groups (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "91810184"
 |**failure_condition_level**|**int**|Nível de condição de falha definido pelo usuário sob o qual um failover automático deve ser disparado, um dos valores inteiros mostrados na tabela imediatamente abaixo dessa tabela.<br /><br /> Os níveis da condição de falha (1 a 5) variam do menos restritivo, nível 1, até o mais restritivo, nível 5. Um determinado nível de condição abrange todos os níveis menos restritivos. Assim, o nível de condição mais rígido, 5, inclui os quatro níveis de condição menos restritivos (1 a 4), o nível 4 inclui os níveis 1 a 3 e assim sucessivamente.<br /><br /> Para alterar esse valor, use a opção FAILURE_CONDITION_LEVEL da instrução [ALTER Availability Group](../../t-sql/statements/alter-availability-group-transact-sql.md) [!INCLUDE[tsql](../../includes/tsql-md.md)] .|  
 |**health_check_timeout**|**int**|Tempo de espera (em milissegundos) para o procedimento armazenado do sistema [sp_server_diagnostics](../../relational-databases/system-stored-procedures/sp-server-diagnostics-transact-sql.md) para retornar informações de integridade do servidor, antes que a instância do servidor seja considerada lenta ou não está respondendo. O valor padrão é 30000 milissegundos (30 segundos).<br /><br /> Para alterar esse valor, use a opção HEALTH_CHECK_TIMEOUT da instrução [ALTER Availability Group](../../t-sql/statements/alter-availability-group-transact-sql.md) [!INCLUDE[tsql](../../includes/tsql-md.md)] .|  
 |**automated_backup_preference**|**tinyint**|Local preferido para executar backups nos bancos de dados de disponibilidade nesse grupo de disponibilidade. A seguir estão os possíveis valores e suas descrições.<br /><br /> <br /><br /> 0: primário. Backups sempre devem ocorrer na réplica primária.<br /><br /> 1: somente secundário. A execução de backups em uma réplica secundária é preferível.<br /><br /> 2: preferir secundário. A execução de backups em uma réplica secundária é preferível, mas a execução de backups na réplica primária será aceitável se nenhuma réplica secundária estiver disponível para operações de backup. Este é o comportamento padrão.<br /><br /> 3: qualquer réplica. Nenhuma preferência sobre se os backups são executados na réplica primária ou em uma réplica secundária.<br /><br /> <br /><br /> Para obter mais informações, confira [Secundárias ativas: backup em réplicas secundárias &#40;Grupos de Disponibilidade Always On&#41;](../../database-engine/availability-groups/windows/active-secondaries-backup-on-secondary-replicas-always-on-availability-groups.md).|  
-|**automated_backup_preference_desc**|**nvarchar(60)**|Descrição de **automated_backup_preference**, uma das:<br /><br /> PRIMARY<br /><br /> SECONDARY_ONLY<br /><br /> SECONDARY<br /><br /> Nenhuma|  
+|**automated_backup_preference_desc**|**nvarchar(60)**|Descrição de **automated_backup_preference**, uma das:<br /><br /> PRIMARY<br /><br /> SECONDARY_ONLY<br /><br /> SECONDARY<br /><br /> NONE|  
 |**version**|**smallint**|A versão dos metadados do grupo de disponibilidade armazenados no cluster de failover do Windows. Esse número de versão é incrementado quando novos recursos são adicionados.|  
 |**basic_features**|**bit**|Especifica se este é um grupo de disponibilidade básico. Para obter mais informações, consulte [Grupos de disponibilidade básicos &#40;Grupos de Disponibilidade AlwaysOn&#41;](../../database-engine/availability-groups/windows/basic-availability-groups-always-on-availability-groups.md).|  
 |**dtc_support**|**bit**|Especifica se o suporte DTC foi habilitado para este grupo de disponibilidade. A opção **DTC_SUPPORT** de **Criar grupo de disponibilidade** controla essa configuração.|  

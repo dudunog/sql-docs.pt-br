@@ -1,6 +1,6 @@
 ---
 description: sys.dm_clr_loaded_assemblies (Transact-SQL)
-title: sys. dm_clr_loaded_assemblies (Transact-SQL) | Microsoft Docs
+title: sys.dm_clr_loaded_assemblies (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 08/09/2016
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_clr_loaded_assemblies dynamic management view
 ms.assetid: 8523d8db-d8a0-4b1f-ae19-6705d633e0a6
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 42abc84bf1b5a78979da4c7443158abc6eddabc8
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: d132a0389ca636dbc24afe016b98389021d8d848
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539436"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099942"
 ---
 # <a name="sysdm_clr_loaded_assemblies-transact-sql"></a>sys.dm_clr_loaded_assemblies (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -36,8 +36,8 @@ ms.locfileid: "89539436"
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
-|**assembly_id**|**int**|ID do assembly carregado. O **assembly_id** pode ser usado para pesquisar mais informações sobre o assembly na exibição de catálogo de [&#41;de assemblies &#40;Transact-SQL ](../../relational-databases/system-catalog-views/sys-assemblies-transact-sql.md) . Observe que o [!INCLUDE[tsql](../../includes/tsql-md.md)] Catálogo [Sys. assemblies](../../relational-databases/system-catalog-views/sys-assemblies-transact-sql.md) mostra os assemblies somente no banco de dados atual. A exibição **SQS. dm_clr_loaded_assemblies** mostra todos os assemblies carregados no servidor.|  
-|**appdomain_address**|**int**|Endereço do domínio do aplicativo (**AppDomain**) no qual o assembly é carregado. Todos os assemblies pertencentes a um único usuário sempre são carregados no mesmo **AppDomain**. O **appdomain_address** pode ser usado para pesquisar mais informações sobre o **AppDomain** na exibição [Sys. dm_clr_appdomains](../../relational-databases/system-dynamic-management-views/sys-dm-clr-appdomains-transact-sql.md) .|  
+|**assembly_id**|**int**|ID do assembly carregado. O **assembly_id** pode ser usado para pesquisar mais informações sobre o assembly na exibição de catálogo de [&#41;de assemblies &#40;Transact-SQL](../../relational-databases/system-catalog-views/sys-assemblies-transact-sql.md) . Observe que o [!INCLUDE[tsql](../../includes/tsql-md.md)] Catálogo [Sys. assemblies](../../relational-databases/system-catalog-views/sys-assemblies-transact-sql.md) mostra os assemblies somente no banco de dados atual. A exibição **SQS.dm_clr_loaded_assemblies** mostra todos os assemblies carregados no servidor.|  
+|**appdomain_address**|**int**|Endereço do domínio do aplicativo (**AppDomain**) no qual o assembly é carregado. Todos os assemblies pertencentes a um único usuário sempre são carregados no mesmo **AppDomain**. O **appdomain_address** pode ser usado para pesquisar mais informações sobre o **appdomain** na exibição [Sys.dm_clr_appdomains](../../relational-databases/system-dynamic-management-views/sys-dm-clr-appdomains-transact-sql.md) .|  
 |**load_time**|**datetime**|Hora em que o assembly foi carregado. Observe que o assembly permanece carregado até que [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] esteja sob pressão de memória e descarregue o **AppDomain**. Você pode monitorar **load_time** para entender com que frequência [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] a demanda de memória é descarregada e descarrega o **AppDomain**.|  
   
 ## <a name="permissions"></a>Permissões  

@@ -1,6 +1,6 @@
 ---
 description: sys.resource_governor_workload_groups (Transact-SQL)
-title: sys. resource_governor_workload_groups (Transact-SQL) | Microsoft Docs
+title: sys.resource_governor_workload_groups (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 03/16/2016
 ms.prod: sql
@@ -18,14 +18,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.resource_governor_workload_groups catalog view
 ms.assetid: 619ba4b7-868f-4784-b527-ec1dfd703c4f
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: f85ef2691091911e937bae9fbf21649ace7a943e
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 83d699e2da5e1de1e25a2618171924843c569188
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550401"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101741"
 ---
 # <a name="sysresource_governor_workload_groups-transact-sql"></a>sys.resource_governor_workload_groups (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "89550401"
 |external_pool_id|**int**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.<br /><br /> ID do pool de recursos externos que esse grupo de carga de trabalho usa.|  
   
 ## <a name="remarks"></a>Comentários  
- A exibição do catálogo exibe os metadados armazenados. Para ver a configuração na memória, use a exibição de gerenciamento dinâmico correspondente, [Sys. dm_resource_governor_workload_groups &#40;&#41;Transact-SQL ](../../relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql.md).  
+ A exibição do catálogo exibe os metadados armazenados. Para ver a configuração na memória, use a exibição de gerenciamento dinâmico correspondente, [sys.dm_resource_governor_workload_groups &#40;&#41;Transact-SQL ](../../relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql.md).  
   
  A configuração na memória e armazenada poderá ser diferente se a configuração do Administrador de recursos tiver sido alterada, mas a instrução ALTER RESOURCE GOVERNOR RECONFIGURE não tiver sido aplicada.  
   

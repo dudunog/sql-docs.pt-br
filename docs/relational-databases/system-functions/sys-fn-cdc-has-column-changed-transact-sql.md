@@ -19,14 +19,14 @@ helpviewer_keywords:
 - sys.fn_cdc_has_column_changed
 - fn_cdc_has_column_changed
 ms.assetid: 2b9e6278-050d-4ffc-8d1a-09606180facc
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: b89b4a42df7e0f1481d55fb7d011e947d3e12cf3
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 8e835647f387b4980a50a0f49e5c6bd967fe553f
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88322012"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099649"
 ---
 # <a name="sysfn_cdc_has_column_changed-transact-sql"></a>sys.fn_cdc_has_column_changed (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -58,7 +58,7 @@ sys.fn_cdc_has_column_changed ( 'capture_instance','column_name' , update_mask )
 ## <a name="remarks"></a>Comentários  
  Você pode usar esta função para extrair informações de uma máscara de atualização retornada em uma consulta para obter dados de alteração. A máscara de atualização é muito útil na pós-execução, quando é preciso saber se uma coluna particular na linha de alteração associada foi modificada. Para obter mais informações, veja [Sobre a captura de dados de alterações &#40;SQL Server&#41;](../../relational-databases/track-changes/about-change-data-capture-sql-server.md).  
   
- Quando essas informações forem retornadas como parte de uma consulta de dados de alteração, recomendamos que você use as funções [Sys. fn_cdc_get_column_ordinal](../../relational-databases/system-functions/sys-fn-cdc-get-column-ordinal-transact-sql.md) e [Sys. fn_cdc_is_bit_set](../../relational-databases/system-functions/sys-fn-cdc-is-bit-set-transact-sql.md) em vez dessa função. Use a função fn_cdc_get_column_ordinal antes de consultar os dados de alteração, de forma que a ordinal da coluna desejada seja computada somente uma vez. Use fn_cdc_is_bit_set dentro da consulta para extrair as informações da máscara de atualização de cada linha retornada.  
+ Quando essas informações forem retornadas como parte de uma consulta de dados de alteração, recomendamos que você use as funções [Sys.fn_cdc_get_column_ordinal](../../relational-databases/system-functions/sys-fn-cdc-get-column-ordinal-transact-sql.md) e [Sys.fn_cdc_is_bit_set](../../relational-databases/system-functions/sys-fn-cdc-is-bit-set-transact-sql.md) em vez dessa função. Use a função fn_cdc_get_column_ordinal antes de consultar os dados de alteração, de forma que a ordinal da coluna desejada seja computada somente uma vez. Use fn_cdc_is_bit_set dentro da consulta para extrair as informações da máscara de atualização de cada linha retornada.  
   
 ## <a name="permissions"></a>Permissões  
  Requer associação na função de servidor fixa sysadmin ou na função de banco de dados fixa db_owner. Para todos os outros usuários, requer a permissão SELECT em todas as colunas capturadas na tabela de origem e, se uma função associada para a instância de captura tiver sido definida, faça associação nessa função de banco de dados.  

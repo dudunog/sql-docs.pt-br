@@ -1,6 +1,6 @@
 ---
 description: sys.dm_os_buffer_pool_extension_configuration (Transact-SQL)
-title: sys. dm_os_buffer_pool_extension_configuration (Transact-SQL) | Microsoft Docs
+title: sys.dm_os_buffer_pool_extension_configuration (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 09/09/2017
 ms.prod: sql
@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_os_buffer_pool_extension_configuration dynamic management view
 ms.assetid: d52cc481-4d29-4f33-b63d-231ec35d092f
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 73fae53ccdba1ba02307996972a9fe409222d19a
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 5477a9da1810c64b6c6c359694f3db9254948efa
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89539380"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101511"
 ---
 # <a name="sysdm_os_buffer_pool_extension_configuration-transact-sql"></a>sys.dm_os_buffer_pool_extension_configuration (Transact-SQL)
 
@@ -36,7 +36,7 @@ ms.locfileid: "89539380"
   
 | Nome da coluna | Tipo de dados | Descrição |
 | :---------- | :-------- | :---------- |
-|caminho|**nvarchar**(256)|O caminho e o nome de arquivo do cache de extensão do pool de buffers. Anulável.|  
+|path|**nvarchar**(256)|O caminho e o nome de arquivo do cache de extensão do pool de buffers. Anulável.|  
 |file_id|**int**|ID do arquivo de extensão do pool de buffers. Não permite valor nulo.|  
 |state|**int**|O estado do recurso de extensão do pool de buffers. Não permite valor nulo.<br /><br /> 0 - Extensão do pool de buffers desabilitada<br /><br /> 1 - Extensão do pool de buffers desabilitando<br /><br /> 2-reservado para uso futuro<br /><br /> 3 - Extensão do pool de buffers habilitando<br /><br /> 4 - Reservado para uso futuro<br /><br /> 5 - Extensão do pool de buffers habilitada|  
 |state_description|**nvarchar**(60)|Descreve o estado do recurso de extensão do pool de buffers. Permite valor nulo.<br /><br /> 0 = EXTENSÃO DO POOL DE BUFFERS DESABILITADA<br /><br /> 5 = EXTENSÃO DO POOL DE BUFFERS HABILITADA|

@@ -17,14 +17,14 @@ dev_langs:
 helpviewer_keywords:
 - sys.dm_qn_subscriptions dynamic management view
 ms.assetid: a3040ce6-f5af-48fc-8835-c418912f830c
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 197d3fd3ab4108c898c9377bbeed2f0e16e83d76
-ms.sourcegitcommit: 32135463a8494d9ed1600a58f51819359e3c09dc
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 62953d7f80a8d0fa327f37eadcc7a8dafd6fa734
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91834470"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100029"
 ---
 # <a name="query-notifications---sysdm_qn_subscriptions"></a>Notificações de consulta-sys.dm_qn_subscriptions
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "91834470"
   
 ## <a name="relationship-cardinalities"></a>Cardinalidades de relações  
   
-|De|Para|Ativado|Tipo|  
+|De|Para|Ativado|Type|  
 |----------|--------|--------|----------|  
 |**sys.dm_qn_subscriptions**|**sys.databases**|**database_id**|Muitos para um|  
 |**sys.dm_qn_subscriptions**|**sys.internal_tables**|**object_id**|Muitos para um|  

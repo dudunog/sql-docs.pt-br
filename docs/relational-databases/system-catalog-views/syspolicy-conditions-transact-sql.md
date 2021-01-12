@@ -16,14 +16,14 @@ dev_langs:
 helpviewer_keywords:
 - syspolicy_conditions view
 ms.assetid: af97d26c-4bd5-4b08-be51-8419e3b2832c
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 05389c23d73c80af8544696977daf3edd04a4042
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: edaf380a4a6a8f938c4b8601cb60999a0e99a330
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89518851"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100081"
 ---
 # <a name="syspolicy_conditions-transact-sql"></a>syspolicy_conditions (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -35,13 +35,13 @@ ms.locfileid: "89518851"
 |condition_id|**int**|Identificador desta condição. Cada condição representa uma coleção de uma ou mais expressões de condição.|  
 |name|**sysname**|O nome da condição.|  
 |date_created|**datetime**|Data e hora em que a condição foi criada.|  
-|description|**nvarchar(max)**|A descrição da condição. A coluna de descrição é opcional e pode ser NULL.|  
+|descrição|**nvarchar(max)**|A descrição da condição. A coluna de descrição é opcional e pode ser NULL.|  
 |created_by|**sysname**|Logon que criou a condição.|  
 |modified_by|**sysname**|Logon que modificou a condição mais recentemente. É NULL se nunca foi modificada.|  
 |date_modified|**datetime**|Data e hora em que a condição foi criada. É NULL se nunca foi modificada.|  
 |is_name_condition|**smallint**|Especifica se a condição é uma condição de nomeação.<br /><br /> 0 = a expressão de condição não contém a variável @Name.<br /><br /> 1 = a expressão de condição contém a variável @Name.|  
 |facet|**nvarchar(max)**|Nome da faceta na qual a condição é baseada.|  
-|Expression|**nvarchar(max)**|A expressão dos estados da faceta.|  
+|Expressão|**nvarchar(max)**|A expressão dos estados da faceta.|  
 |obj_name|**sysname**|O nome de objeto é atribuído a @Name quando a expressão de condição contém esta variável.|  
   
 ## <a name="remarks"></a>Comentários  

@@ -1,6 +1,6 @@
 ---
 description: sys.dm_db_xtp_merge_requests (Transact-SQL)
-title: sys. dm_db_xtp_merge_requests (Transact-SQL) | Microsoft Docs
+title: sys.dm_db_xtp_merge_requests (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 02/01/2017
 ms.prod: sql
@@ -8,23 +8,23 @@ ms.reviewer: ''
 ms.technology: table-view-index
 ms.topic: conceptual
 ms.assetid: c1224e88-af74-4c99-ae32-d5d2c552a1f5
-author: markingmyname
-ms.author: maghan
-ms.openlocfilehash: 0b7625c78365a2840413177fe8823ecc4b3b1286
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.openlocfilehash: 7a7f8f4a38bffb8abc6be1380a2225077130f143
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89542182"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099836"
 ---
 # <a name="sysdm_db_xtp_merge_requests-transact-sql"></a>sys.dm_db_xtp_merge_requests (Transact-SQL)
 
 [!INCLUDE[sqlserver](../../includes/applies-to-version/sqlserver.md)]
 
-Rastreia solicitações de mesclagem de banco de dados. A solicitação de mesclagem pode ter sido gerada por SQL Server ou a solicitação pode ter sido feita por um usuário com [Sys. sp_xtp_merge_checkpoint_files (Transact-SQL)](../../relational-databases/system-stored-procedures/sys-sp-xtp-merge-checkpoint-files-transact-sql.md).
+Rastreia solicitações de mesclagem de banco de dados. A solicitação de mesclagem pode ter sido gerada por SQL Server ou a solicitação pode ter sido feita por um usuário com [Sys.sp_xtp_merge_checkpoint_files (Transact-SQL)](../../relational-databases/system-stored-procedures/sys-sp-xtp-merge-checkpoint-files-transact-sql.md).
 
 > [!NOTE]
-> Essa DMV (exibição de gerenciamento dinâmico), sys. dm_db_xtp_merge_requests, existe até Microsoft SQL Server 2014.
+> Essa DMV (exibição de gerenciamento dinâmico), sys.dm_db_xtp_merge_requests, existe até que Microsoft SQL Server 2014.
 > Mas, a partir do SQL Server 2016, essa DMV não se aplica mais.
 
 ## <a name="columns-in-the-report"></a>Colunas no relatório
