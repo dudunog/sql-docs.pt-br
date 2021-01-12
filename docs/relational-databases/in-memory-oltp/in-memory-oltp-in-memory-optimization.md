@@ -15,12 +15,12 @@ ms.assetid: e1d03d74-2572-4a55-afd6-7edf0bc28bdb
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 9f462f256c98c4482af67527401cc6d30f3f0776
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 281fe018c5c2d5e0717fb2c35dfcc8c3c9e8c3fc
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97465377"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100218"
 ---
 # <a name="in-memory-oltp-and-memory-optimization"></a>OLTP in-memory e otimização de memória
 
@@ -56,7 +56,7 @@ Para obter uma visão geral mais detalhada do OLTP in-memory e uma análise de c
 |[Exemplos de código do OLTP in-memory](./sample-database-for-in-memory-oltp.md)|Contém exemplos de código que mostram como criar e usar uma tabela com otimização de memória.|  
 |[Memory-Optimized Tables](./sample-database-for-in-memory-oltp.md)|Apresenta tabelas com otimização de memória.|  
 |[Variáveis de tabela com otimização de memória](./faster-temp-table-and-table-variable-by-using-memory-optimization.md)|Exemplo de código mostrando como usar uma variável de tabela com otimização de memória em vez de uma variável de tabela tradicional para reduzir o uso de tempdb.|  
-|[Índices em tabelas com otimização de memória](/sql/relational-databases/in-memory-oltp/indexes-for-memory-optimized-tables)|Incorpora índices com otimização de memória.|  
+|[Índices em tabelas com otimização de memória](./indexes-for-memory-optimized-tables.md)|Incorpora índices com otimização de memória.|  
 |[Procedimentos armazenados compilados nativamente](./a-guide-to-query-processing-for-memory-optimized-tables.md)|Apresenta procedimentos armazenados compilados de modo nativo.|  
 |[Gerenciando memória para OLTP in-memory](/previous-versions/sql/sql-server-2016/dn465872(v=sql.130))|Compreendendo e gerenciando o uso de memória no sistema.|  
 |[Criando e gerenciando armazenamento para objetos com otimização de memória](../../relational-databases/in-memory-oltp/creating-and-managing-storage-for-memory-optimized-objects.md)|A aborda os arquivos delta e de dados, que armazenam informações sobre transações em tabelas com otimização de memória.|  
@@ -136,4 +136,3 @@ As etapas gerais vistas no vídeo são as seguintes:
 
 ## <a name="see-also"></a>Confira também  
  [Recursos de banco de dados](../databases/databases.md)  
-  

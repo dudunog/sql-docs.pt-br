@@ -28,15 +28,15 @@ helpviewer_keywords:
 - auto_update_statistics
 - Query Store options
 ms.assetid: f76fbd84-df59-4404-806b-8ecb4497c9cc
-author: markingmyname
-ms.author: maghan
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 monikerRange: =azuresqldb-current||=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azure-sqldw-latest||=azuresqldb-mi-current
-ms.openlocfilehash: 97139ed9331853a5d84d261c69510993fb7231a2
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 652a4b13db3fdd98b774a5c884e68848a3b0b847
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642257"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099559"
 ---
 # <a name="alter-database-set-options-transact-sql"></a>Opções ALTER DATABASE SET (Transact-SQL)
 
@@ -2005,10 +2005,6 @@ Não será possível alterar o estado de ALLOW_SNAPSHOT_ISOLATION se o banco de 
 
 Se você definir ALLOW_SNAPSHOT_ISOLATION em um banco de dados READ_ONLY, a configuração será mantida se o banco de dados for definido mais tarde como READ_WRITE.
 
-É possível alterar as configurações ALLOW_SNAPSHOT_ISOLATION para os bancos de dados mestre, modelo, msdb e tempdb. A configuração é mantida sempre que a instância do [!INCLUDE[ssDE](../../includes/ssde-md.md)] é interrompida e reiniciada se você altera a configuração para tempdb. Ao alterar a configuração para modelo, ela se tornará o padrão para qualquer novo banco de dados que for criado, exceto para tempdb.
-
-A opção é ON, por padrão, para os bancos de dados mestre e msdb.
-
 A configuração atual dessa opção pode ser determinada por meio do exame da coluna `snapshot_isolation_state` na exibição de catálogo [sys.databases](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md).
 
 READ_COMMITTED_SNAPSHOT { ON | OFF }     
@@ -2809,7 +2805,7 @@ Define o tempo total decorrido da CPU de compilação usado por uma consulta dur
 TOTAL_EXECUTION_CPU_TIME_MS     
 Define o tempo total decorrido da CPU de execução usado por uma consulta durante o período de avaliação. O padrão é 100, o que significa que, para o Limite da Política de Captura Obsoleta padrão, uma consulta precisa ter um total de, pelo menos, 100 ms do tempo da CPU gasto durante a execução em um dia para ser persistente no Repositório de Consultas. TOTAL_EXECUTION_CPU_TIME_MS é do tipo **int**.
 
-**\<snapshot_option> ::=**
+**\<snapshot_option>**
 
 Determina o nível de isolamento da transação.
 
