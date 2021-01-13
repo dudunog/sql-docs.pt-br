@@ -9,12 +9,12 @@ ms.topic: how-to
 author: bluefooted
 ms.author: pamela
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a25835dd5fbac5f95434d46ac152d44ea6974496
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 00b4856ab0c057b7f63aae44834884bc775d8e92
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97440127"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102164"
 ---
 # <a name="diagnose-and-resolve-spinlock-contention-on-sql-server"></a>Diagnosticar e resolver uma contenção de spinlock no SQL Server
 
@@ -137,7 +137,7 @@ O processo técnico geral para diagnosticar uma contenção de spinlock do SQL S
 
 2. **Etapa 2**: capturar estatísticas de *sys.dm\_ os_spinlock_stats* para localizar o tipo de spinlock que está enfrentando a maior contenção.
 
-3. **Etapa 3**: obter símbolos de depuração para o sqlservr.exe (sqlservr.pdb) e colocar os símbolos no mesmo diretório do arquivo .exe (sqlservr. exe) do serviço SQL Server para a instância do SQL Server. Para conferir as pilhas de chamadas dos eventos de retirada, você deverá ter os símbolos da versão específica do SQL Server que está executando. Os símbolos do SQL Server estão disponíveis no Servidor de Símbolos da Microsoft. Para obter mais informações sobre como baixar os símbolos do Servidor de Símbolos da Microsoft, confira [Depuração com símbolos](https://docs.microsoft.com/windows/win32/dxtecharts/debugging-with-symbols).
+3. **Etapa 3**: obter símbolos de depuração para o sqlservr.exe (sqlservr.pdb) e colocar os símbolos no mesmo diretório do arquivo .exe (sqlservr. exe) do serviço SQL Server para a instância do SQL Server. Para conferir as pilhas de chamadas dos eventos de retirada, você deverá ter os símbolos da versão específica do SQL Server que está executando. Os símbolos do SQL Server estão disponíveis no Servidor de Símbolos da Microsoft. Para obter mais informações sobre como baixar os símbolos do Servidor de Símbolos da Microsoft, confira [Depuração com símbolos](/windows/win32/dxtecharts/debugging-with-symbols).
 
 4. **Etapa 4**: usar os Eventos Estendidos do SQL Server para rastrear os eventos de retirada dos tipos de spinlock de interesse.
 
@@ -237,7 +237,7 @@ drop event session spin_lock_backoff on server
 Ao analisar a saída, podemos conferir as pilhas de chamadas dos caminhos do código mais comuns para rotações SOS_CACHESTORE. O script foi executado de modo diferente algumas vezes quando a utilização da CPU estava alta para verificar a consistência nas pilhas de chamadas retornadas. Observe que as pilhas de chamadas com o maior número de buckets de slot são comuns entre duas saídas (35.668 e 8.506). Essas pilhas de chamadas têm uma "contagem de slots" duas ordens de magnitude maior do que a segunda maior entrada. Essa condição indica um caminho do código de interesse.
 
 > [!NOTE]
-> Não é incomum ver pilhas de chamadas retornadas pelo script anterior. Quando o script é executado por 1 minuto, observamos que as pilhas com uma contagem de slots \>1.000 provavelmente serão problemáticas, do mesmo modo, as pilhas com uma contagem de slots \>10.000 provavelmente serão problemáticas.
+> Não é incomum ver pilhas de chamadas retornadas pelo script anterior. Quando o script foi executado por 1 minuto, observamos que as pilhas de chamadas com uma contagem de slots > 1000 eram problemáticas, mas a contagem de slots > 10.000 tinha mais probabilidade de ser problemática, pois tem uma contagem de slots maior.
 
 > [!NOTE]
 > Houve uma limpeza na formatação da saída a seguir para fins de legibilidade.

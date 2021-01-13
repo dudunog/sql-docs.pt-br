@@ -2,11 +2,13 @@
 title: Estatísticas
 description: O otimizador de consulta usa estatísticas para criar planos de consulta que melhoram o desempenho das consultas. Saiba mais sobre os conceitos e as diretrizes de uso da otimização de consulta.
 ms.custom: ''
-ms.date: 11/23/2020
+ms.date: 1/7/2021
 ms.prod: sql
 ms.reviewer: ''
 ms.technology: performance
 ms.topic: conceptual
+dev_langs:
+- TSQL
 helpviewer_keywords:
 - statistical information [SQL Server], query optimization
 - query performance [SQL Server], statistics
@@ -20,21 +22,20 @@ helpviewer_keywords:
 - index statistics [SQL Server]
 - query optimizer [SQL Server], statistics
 - statistics [SQL Server]
-ms.assetid: b86a88ba-4f7c-4e19-9fbd-2f8bcd3be14a
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: d88b24a6602ece47194997a829c4f2824d4a6c71
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 77bd2f1cb2cd3e028bccbc5185f2336812f3f891
+ms.sourcegitcommit: d681796e8c012eca2d9629d3b816749e9f50f868
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475347"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98005421"
 ---
 # <a name="statistics"></a>Estatísticas
 
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
-  O otimizador de consulta usa estatísticas para criar planos de consulta que melhoram o desempenho das consultas. Para a maioria das consultas, o otimizador de consulta já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Em alguns casos, é necessário criar estatísticas adicionais ou modificar o design da consulta para obter melhores resultados. Este tópico aborda os conceitos de estatísticas e fornece diretrizes para o uso eficiente de estatísticas de otimização de consultas.  
+  O otimizador de consulta usa estatísticas para criar planos de consulta que melhoram o desempenho das consultas. Para a maioria das consultas, o otimizador de consulta já gera as estatísticas necessárias para um plano de consulta de alta qualidade. Em alguns casos, é necessário criar estatísticas adicionais ou modificar o design da consulta para obter melhores resultados. Este artigo aborda os conceitos de estatísticas e fornece diretrizes para o uso eficiente de estatísticas de otimização de consultas.  
   
 ##  <a name="components-and-concepts"></a><a name="DefinitionQOStatistics"></a> Componentes e conceitos  
 ### <a name="statistics"></a>Estatísticas  
@@ -85,10 +86,10 @@ O vetor de densidade contém uma densidade para cada prefixo de colunas no objet
 |(CustomerId, ItemId, Price)|Linhas com valores correspondentes para CustomerId, ItemId e Price| 
 
 ### <a name="filtered-statistics"></a>Estatísticas filtradas  
- As estatísticas filtradas podem melhorar o desempenho de consultas selecionadas em subconjuntos bem definidos de dados. As estatísticas filtradas usam um predicado do filtro para selecionar o subconjunto de dados incluído nas estatísticas. Estatísticas filtradas bem projetadas podem aprimorar o plano de execução de consultas em comparação com as estatísticas de tabela completa. Para obter mais informações sobre o predicado de filtro, veja [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md). Para obter mais informações sobre quando criar estatísticas filtradas, consulte a seção [Quando criar estatísticas](#CreateStatistics) neste tópico.  
+ As estatísticas filtradas podem melhorar o desempenho de consultas selecionadas em subconjuntos bem definidos de dados. As estatísticas filtradas usam um predicado do filtro para selecionar o subconjunto de dados incluído nas estatísticas. Estatísticas filtradas bem projetadas podem aprimorar o plano de execução de consultas em comparação com as estatísticas de tabela completa. Para obter mais informações sobre o predicado de filtro, veja [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md). Para obter mais informações sobre quando criar estatísticas filtradas, confira a seção [Quando criar estatísticas](#CreateStatistics) neste artigo.  
  
 ### <a name="statistics-options"></a>Opções de estatísticas  
- Há três opções que você pode definir que afetam quando e como as estatísticas são criadas e atualizadas. Estas opções são definidas no nível do banco de dados somente.  
+ Há três opções que afetam quando e como as estatísticas são criadas e atualizadas. Estas opções são configuráveis no nível do banco de dados somente.  
   
 #### <a name="auto_create_statistics-option"></a><a name="AutoUpdateStats"></a>Opção AUTO_CREATE_STATISTICS  
  Quando a opção de criação automática de estatísticas, [AUTO_CREATE_STATISTICS](../../t-sql/statements/alter-database-transact-sql-set-options.md#auto_create_statistics), está ativada, o otimizador de consulta cria estatísticas em colunas individuais no predicado da consulta, conforme necessário, a fim de melhorar as estimativas de cardinalidade do plano de consulta. Essas estatísticas de coluna única são criadas em colunas que ainda não têm um [histograma](#histogram) em um objeto de estatísticas existente. A opção AUTO_CREATE_STATISTICS não determina se são criadas estatísticas para índices. Essa opção também não gera estatísticas filtradas. Ela se aplica estritamente a estatísticas de coluna única para a tabela completa.  
@@ -113,7 +114,7 @@ ORDER BY s.name;
     * Se a cardinalidade da tabela era de 500 ou menos quando as estatísticas foram avaliadas, é necessário atualizar a cada 500 modificações.
     * Se a cardinalidade da tabela era inferior a 500 quando as estatísticas foram avaliadas, é necessário atualizar a cada 500 + 20% de modificações.
 
-* Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e no [nível de compatibilidade de banco de dados](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 130, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] usa um limite de atualização de estatística dinâmico e decrescente, ajustado de acordo com o número de linhas da tabela. Isso é calculado como a raiz quadrada do produto de 1000 e da cardinalidade da tabela atual. Por exemplo, se a tabela contiver 2 milhões de linhas, o cálculo será sqrt(1000 * 2000000) = 44721,359. Com essa alteração, as estatísticas em tabelas grandes serão atualizadas com mais frequência. No entanto, quando um banco de dados tem um nível de compatibilidade inferior a 130, aplica-se o limite do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. ?
+* Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e no [nível de compatibilidade de banco de dados](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 130, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] usa um limite de atualização de estatística dinâmico e decrescente, ajustado de acordo com o número de linhas da tabela. Isso é calculado como a raiz quadrada do produto de 1000 e da cardinalidade da tabela atual. Por exemplo, se a tabela contiver 2 milhões de linhas, o cálculo será sqrt(1000 * 2000000) = 44721,359. Com essa alteração, as estatísticas em tabelas grandes serão atualizadas com mais frequência. No entanto, quando um banco de dados tem um nível de compatibilidade inferior a 130, aplica-se o limite do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. 
 
 > [!IMPORTANT]
 > Do [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] até o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] ou no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e versões posteriores, em [nível de compatibilidade do banco de dados](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 120 e inferior, habilite o [sinalizador de rastreamento 2371](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) para que o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] use um limite de atualização de estatísticas dinâmico e decrescente.
@@ -139,9 +140,13 @@ A opção de atualização de estatísticas assíncrona, [AUTO_UPDATE_STATISTICS
 > [!NOTE]
 > Para definir a opção de atualização de estatísticas assíncrona no [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)], na página *Opções* da janela *Propriedades do Banco de Dados*, as opções *Atualizar Estatísticas Automaticamente* e *Atualizar Estatísticas Automaticamente de Forma Assíncrona* devem ser definidas como **Verdadeiro**.
   
-As atualizações de estatísticas podem ser síncronas (o padrão) ou assíncronas. Com as atualizações de estatísticas síncronas, as consultas são sempre compiladas e executadas com estatísticas atualizadas. Quando as estatísticas estão desatualizadas, o otimizador de consulta aguarda estatísticas atualizadas antes de compilar e executar a consulta. Com as atualizações de estatísticas assíncronas, as consultas são compiladas com estatísticas existentes, mesmo que elas estejam desatualizas. O otimizador de consulta poderá escolher um plano de consulta com qualidade inferior se as estatísticas estiverem desatualizadas na compilação da consulta. As consultas compiladas após a conclusão das atualizações assíncronas serão beneficiadas por usarem estatísticas atualizadas.  
-  
-Considere o uso de estatísticas síncronas ao executar operações que alteram a distribuição de dados, como truncar uma tabela ou executar uma atualização em massa de uma porcentagem grande das linhas. Se você não atualizar as estatísticas depois de concluir a operação, o uso de estatísticas síncronas garantirá que as estatísticas sejam atualizadas antes de executar consultas nos dados alterados.  
+As atualizações de estatísticas podem ser síncronas (o padrão) ou assíncronas. 
+
+* Com as atualizações de estatísticas síncronas, as consultas sempre são compiladas e executadas com estatísticas atualizadas. Quando as estatísticas estão desatualizadas, o Otimizador de Consulta aguarda estatísticas atualizadas antes de compilar e executar a consulta. 
+
+* Com as atualizações de estatísticas assíncronas, as consultas serão compiladas com as estatísticas existentes, mesmo se essas estiverem desatualizadas. Se as estatísticas estiverem desatualizadas quando a consulta for compilada, o Otimizador de Consultas poderá escolher um plano de consulta de qualidade inferior. As estatísticas são normalmente atualizadas logo depois. As consultas compiladas após a conclusão das atualizações de estatísticas serão beneficiadas por usarem estatísticas atualizadas, como de costume.   
+
+Considere o uso de estatísticas síncronas ao executar operações que alteram a distribuição de dados, como truncar uma tabela ou executar uma atualização em massa de uma porcentagem grande das linhas. Se você não atualizar manualmente as estatísticas depois de concluir a operação, o uso de estatísticas síncronas garantirá que as estatísticas sejam atualizadas antes de executar consultas nos dados alterados.  
   
 Considere o uso de estatísticas assíncronas para obter tempos de resposta de consulta mais previsíveis para os seguintes cenários:  
   
@@ -154,10 +159,13 @@ Considere o uso de estatísticas assíncronas para obter tempos de resposta de c
 
 A atualização de estatísticas assíncronas é executada por uma solicitação em segundo plano. Quando a solicitação estiver pronta para gravar estatísticas atualizadas no banco de dados, ela tentará adquirir um bloqueio de modificação de esquema no objeto de metadados de estatísticas. Caso uma sessão diferente já esteja mantendo um bloqueio no mesmo objeto, a atualização de estatísticas assíncronas será bloqueada até que o bloqueio de modificação do esquema possa ser adquirido. Da mesma forma, as sessões que precisam adquirir um bloqueio de estabilidade do esquema no objeto de metadados de estatísticas para compilar uma consulta poderão ser bloqueadas pela sessão em segundo plano da atualização de estatísticas assíncronas, pois ela já está aguardando para adquirir o bloqueio de modificação do esquema. Portanto, para cargas de trabalho com compilações de consulta muito frequentes e atualizações de estatísticas frequentes, usar estatísticas assíncronas poderá aumentar a probabilidade de ocorrer problemas de simultaneidade devido ao bloqueio.
 
-No Banco de Dados SQL do Azure você pode evitar possíveis problemas de simultaneidade usando a atualização de estatísticas assíncronas caso habilite a [configuração no escopo do banco de dados](../../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY. Com essa configuração habilitada, a solicitação em segundo plano aguardará para adquirir o bloqueio de modificação do esquema em uma fila de baixa prioridade separada, permitindo que outras solicitações continuem compilando consultas com as estatísticas existentes. Quando nenhuma outra sessão estiver mantendo um bloqueio no objeto de metadados de estatísticas, a solicitação em segundo plano adquirirá um bloqueio de modificação de esquema e uma atualização de estatísticas. Na hipótese improvável em que a solicitação em segundo plano não possa adquirir o bloqueio dentro de um período de tempo limite de vários minutos, a atualização de estatísticas assíncronas será anulada e as estatísticas não serão atualizadas até que outra atualização de estatísticas automática seja disparada ou até que as estatísticas sejam [atualizadas manualmente](update-statistics.md).
+No Banco de Dados SQL do Azure e na Instância Gerenciada de SQL do Azure, você pode evitar possíveis problemas de simultaneidade usando a atualização de estatísticas assíncronas caso habilite a [configuração no escopo do banco de dados](../../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY. Com essa configuração habilitada, a solicitação em segundo plano aguardará para adquirir o bloqueio de modificação do esquema (Sch-M) em uma fila de baixa prioridade separada, permitindo que outras solicitações continuem compilando consultas com as estatísticas existentes. Quando nenhuma outra sessão estiver mantendo um bloqueio no objeto de metadados de estatísticas, a solicitação em segundo plano adquirirá um bloqueio de modificação de esquema e uma atualização de estatísticas. Na hipótese improvável em que a solicitação em segundo plano não possa adquirir o bloqueio dentro de um período de tempo limite de vários minutos, a atualização de estatísticas assíncronas será anulada e as estatísticas não serão atualizadas até que outra atualização de estatísticas automática seja disparada ou até que as estatísticas sejam [atualizadas manualmente](update-statistics.md).
+
+> [!Note]
+> A opção de configuração no escopo do banco de dados ASYNC_STATS_UPDATE_WAIT_AT_LOW_PRIORITY agora está disponível no Banco de Dados SQL do Azure e na Instância Gerenciada de SQL do Azure e está planejada para ser incluída no SQL Server vNext. 
 
 #### <a name="incremental"></a>INCREMENTAL  
- Quando a opção INCREMENTAL de CREATE STATISTICS for ON, as estatísticas serão criadas de acordo com as estatísticas da partição. Quando estiver OFF, a árvore de estatísticas será ignorada e o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] recomputará as estatísticas. O padrão é OFF. Essa configuração substitui a propriedade INCREMENTAL de nível de banco de dados. Para obter informações sobre como criar estatísticas incrementais, consulte [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md). Para obter mais informações sobre como criar estatísticas por partição automaticamente, consulte [Propriedades de banco de dados &#40;página Opções&#41;](../../relational-databases/databases/database-properties-options-page.md#automatic) e [Opções ALTER DATABASE SET &#40;Transact-SQL&#41;](../../t-sql/statements/alter-database-transact-sql-set-options.md). 
+ Quando a opção INCREMENTAL de CREATE STATISTICS for ON, as estatísticas serão criadas de acordo com as estatísticas da partição. Quando estiver OFF, a árvore de estatísticas será removida e o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] calculará as estatísticas novamente. O padrão é OFF. Essa configuração substitui a propriedade INCREMENTAL de nível de banco de dados. Para obter informações sobre como criar estatísticas incrementais, consulte [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md). Para obter mais informações sobre como criar estatísticas por partição automaticamente, consulte [Propriedades de banco de dados &#40;página Opções&#41;](../../relational-databases/databases/database-properties-options-page.md#automatic) e [Opções ALTER DATABASE SET &#40;Transact-SQL&#41;](../../t-sql/statements/alter-database-transact-sql-set-options.md). 
   
  Quando as novas partições são adicionados a uma tabela grande, as estatísticas devem ser atualizadas para incluir as novas partições. No entanto, o tempo necessário para digitalizar a tabela inteira (opção FULLSCAN ou SAMPLE) podem ser muito longos. Além disso, digitalizar a tabela inteira não é necessário porque somente as estatísticas nas novas partições podem ser necessárias. A opção incremental cria e armazena estatísticas por partição e, quando atualizada, somente atualiza estatísticas nessas partições que precisam de novas estatísticas  
   
@@ -201,7 +209,7 @@ Se as colunas já estiverem no mesmo índice, o objeto de estatísticas multicol
   
 Ao criar estatísticas multicolunas, a ordem das colunas na definição do objeto de estatísticas afeta a efetividade de densidades para calcular estimativas de cardinalidade. O objeto de estatísticas armazena densidades para cada prefixo de colunas de chave na definição do objeto. Para obter mais informações sobre densidades, consulte a seção [Densidade](#density) nesta página.  
   
-Para criar densidades úteis para estimativas de cardinalidade, as colunas no predicado de consulta devem corresponder a um dos prefixos de colunas na definição do objeto de estatísticas. O exemplo a seguir cria um objeto de estatísticas multicolunas nas colunas `LastName`, `MiddleName`e `FirstName`.  
+Para criar densidades úteis para estimativas de cardinalidade, as colunas no predicado de consulta devem corresponder a um dos prefixos de colunas na definição do objeto de estatísticas. O exemplo a seguir cria um objeto de estatísticas multicolunas nas colunas `LastName`, `MiddleName` e `FirstName`.  
   
 ```sql  
 USE AdventureWorks2012;  
@@ -390,7 +398,7 @@ GO
 ```  
   
 ### <a name="improving-cardinality-estimates-with-plan-guides"></a>Aprimorando estimativas de cardinalidade com guias de plano  
- Para alguns aplicativos, é possível que as diretrizes de design de consulta não se apliquem porque você não pode alterar a consulta ou porque o uso da dica de consulta RECOMPILE pode causar muitas recompilações. Você pode usar guias de plano para especificar outras dicas, como USE PLAN, a fim de controlar o comportamento da consulta ao investigar alterações do aplicativo com o fornecedor do aplicativo. Para obter mais informações sobre guias de plano, consulte [Plan Guides](../../relational-databases/performance/plan-guides.md).  
+ Para alguns aplicativos, é possível que as diretrizes de design de consulta não se apliquem porque você não pode alterar a consulta ou porque a dica de consulta RECOMPILE pode causar muitas recompilações. Você pode usar guias de plano para especificar outras dicas, como USE PLAN, a fim de controlar o comportamento da consulta ao investigar alterações do aplicativo com o fornecedor do aplicativo. Para obter mais informações sobre guias de plano, consulte [Plan Guides](../../relational-databases/performance/plan-guides.md).  
   
   
 ## <a name="see-also"></a>Consulte Também  

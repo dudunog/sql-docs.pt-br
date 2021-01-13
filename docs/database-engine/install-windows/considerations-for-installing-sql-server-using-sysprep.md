@@ -11,12 +11,12 @@ ms.assetid: e1792eeb-2874-4653-b20e-3063f4eb4e5d
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: b394c18d1db40bec24bfa0d676bb74b66d3b1faa
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 127d1a0bcac97d2b802460549b38c79012f71329
+ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97460719"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97975417"
 ---
 # <a name="considerations-for-installing-sql-server-using-sysprep"></a>Considerações para instalação do SQL Server usando SysPrep
 
@@ -69,7 +69,7 @@ O [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Native Client é ins
   
 [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e o Gravador do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] são automaticamente preparados quando você prepara uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Eles são concluídos quando você conclui a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] utilizando a etapa Concluir Imagem.  
   
-Para obter mais informações sobre as edições com suporte do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], consulte [Edições e recursos com suporte do SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md).  
+Para obter mais informações sobre as edições compatíveis do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], confira [Edições e recursos compatíveis do SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md) e [SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md)  
   
 É possível executar uma atualização de edição durante a configuração de uma instância preparada do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Essa opção não tem suporte em edições Express do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .  
   

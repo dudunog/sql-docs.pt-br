@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.assetid: 9a77dd32-d8c2-4961-ad37-2a971f9d6043
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: d83b2c6a19b7a73be4293dcb66edc6cbc22909d9
-ms.sourcegitcommit: c5078791a07330a87a92abb19b791e950672e198
+ms.openlocfilehash: 57bf9bd3863e5486c890088324641a5100581a02
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "88449728"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98099218"
 ---
 # <a name="lesson-1-2-add-and-configure-a-flat-file-connection-manager"></a>Lição 1-2: Adicionar e configurar um gerenciador de conexões de Arquivo Simples
 
@@ -48,7 +48,7 @@ Nesta lição, você pode configurar as propriedades a seguir no seu gerenciador
   
 4.  Na caixa de diálogo **Abrir**, localize o arquivo **SampleCurrencyData.txt** no computador.  
   
-5.  Desmarque os nomes de coluna na caixa de seleção da primeira linha de dados.  
+5.  Desmarque a caixa de seleção **Nomes de coluna na primeira linha de dados**.  
   
 ### <a name="set-locale-sensitive-properties"></a>Definir propriedades que diferenciam localidade  
   

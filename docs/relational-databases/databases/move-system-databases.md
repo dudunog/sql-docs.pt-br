@@ -28,12 +28,12 @@ helpviewer_keywords:
 ms.assetid: 72bb62ee-9602-4f71-be51-c466c1670878
 author: stevestein
 ms.author: sstein
-ms.openlocfilehash: a72ccacd9401a8b7955eae10751c5ac67ca211ac
-ms.sourcegitcommit: eeb30d9ac19d3ede8d07bfdb5d47f33c6c80a28f
+ms.openlocfilehash: c24a98684e87eb94a3cd9e100f203509789b7a0f
+ms.sourcegitcommit: 4a813a0741502c56c0cd5ecaafafad2e857a9d7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523055"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98031099"
 ---
 # <a name="move-system-databases"></a>Mover bancos de dados do sistema
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "96523055"
   
 2.  Pare a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ou desligue o sistema para realizar a manutenção. Para obter mais informações, consulte [Iniciar, parar, pausar, retomar e reiniciar os serviços SQL Server](../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md).  
   
-3.  Mova o arquivo ou os arquivos para o novo local.  
+3.  Mova o arquivo ou os arquivos para o novo local e verifique se a conta de serviço [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] ainda tem permissão para acessá-lo.
 
 4.  Reinicialize a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ou o servidor. Para obter mais informações, consulte [Iniciar, parar, pausar, retomar e reiniciar os serviços SQL Server](../../database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services.md).  
   
@@ -151,14 +151,10 @@ ms.locfileid: "96523055"
   
 3.  Na caixa de diálogo **Propriedades do SQL Server (** _nome_instância_ **)** , clique na guia **Parâmetros de Inicialização** .  
   
-4.  Na caixa **Parâmetros existentes**, selecione o parâmetro -d para mover o arquivo de dados mestre. Clique em **Atualizar** para salvar a alteração.  
+4.  Na caixa **Parâmetros existentes**, selecione o parâmetro -d. Na caixa **Especificar um parâmetro de inicialização**, altere o parâmetro para o novo caminho do arquivo de *dados* mestre. Clique em **Atualizar** para salvar a alteração.
   
-     Na caixa **Especificar um parâmetro de inicialização** , altere o parâmetro para o novo caminho do banco de dados mestre.  
-  
-5.  Na caixa **Parâmetros existentes**, selecione o parâmetro -l para mover o arquivo de log mestre. Clique em **Atualizar** para salvar a alteração.  
-  
-     Na caixa **Especificar um parâmetro de inicialização** , altere o parâmetro para o novo caminho do banco de dados mestre.  
-  
+5.  Na caixa **Parâmetros existentes**, selecione o parâmetro -I. Na caixa **Especificar um parâmetro de inicialização**, altere o parâmetro para o novo caminho do arquivo de *log* mestre. Clique em **Atualizar** para salvar a alteração.
+
      O valor do parâmetro para o arquivo de dados deve seguir o parâmetro `-d` e o valor para o arquivo de log deve seguir o parâmetro `-l` . O exemplo a seguir mostra os valores de parâmetro da localização padrão do arquivo de dados mestre.  
   
      `-dC:\Program Files\Microsoft SQL Server\MSSQL<version>.MSSQLSERVER\MSSQL\DATA\master.mdf`  
@@ -170,14 +166,16 @@ ms.locfileid: "96523055"
      `-dE:\SQLData\master.mdf`  
   
      `-lE:\SQLData\mastlog.ldf`  
+
+6.  Clique em **OK** para salvar as alterações permanentemente e fechar a caixa de diálogo **Propriedades do SQL Server (** _nome_da_instância_ **)** .
+
+7.  Interrompa a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] clicando com o botão direito do mouse no nome da instância e escolhendo **Interromper**.  
   
-6.  Interrompa a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] clicando com o botão direito do mouse no nome da instância e escolhendo **Interromper**.  
+8.  Mova os arquivos do master.mdf e mastlog.ldf para o local novo.  
   
-7.  Mova os arquivos do master.mdf e mastlog.ldf para o local novo.  
+9.  Reinicie a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
   
-8.  Reinicie a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
-  
-9. Verifique a alteração do arquivo para o banco de dados mestre executando a consulta a seguir.  
+10. Verifique a alteração do arquivo para o banco de dados mestre executando a consulta a seguir.  
   
     ```  
     SELECT name, physical_name AS CurrentLocation, state_desc  
@@ -186,7 +184,7 @@ ms.locfileid: "96523055"
     GO  
     ```  
 
-10. Neste ponto, o SQL Server deverá ser executado normalmente. Porém, a Microsoft também recomenda ajustar a entrada do Registro em `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\instance_ID\Setup`, em que *instance_ID* é como `MSSQL13.MSSQLSERVER`. Neste Hive, altere o valor `SQLDataRoot` para o novo caminho. Uma falha em atualizar o Registro poderá causar falha na atualização e aplicação de patch.
+11. Neste ponto, o SQL Server deverá ser executado normalmente. Porém, a Microsoft também recomenda ajustar a entrada do Registro em `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\instance_ID\Setup`, em que *instance_ID* é como `MSSQL13.MSSQLSERVER`. Neste Hive, altere o valor `SQLDataRoot` para o novo caminho. Uma falha em atualizar o Registro poderá causar falha na atualização e aplicação de patch.
 
   
 ##  <a name="moving-the-resource-database"></a><a name="Resource"></a> Movendo o banco de dados de recursos  

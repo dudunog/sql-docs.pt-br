@@ -2,7 +2,7 @@
 description: Partitioned Tables and Indexes
 title: Tabelas e índices particionados | Microsoft Docs
 ms.custom: ''
-ms.date: 01/20/2016
+ms.date: 1/5/2021
 ms.prod: sql
 ms.reviewer: ''
 ms.technology: ''
@@ -17,12 +17,12 @@ ms.assetid: cc5bf181-18a0-44d5-8bd7-8060d227c927
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 4cb894ef393f767d85af5c43b50bffce87f3a6fc
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: dcc5d8e3602261c975f5517ea859e19fc7902936
+ms.sourcegitcommit: 629229a7c33a3ed99db63b89127bb016449f7d3d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480037"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97952044"
 ---
 # <a name="partitioned-tables-and-indexes"></a>Partitioned Tables and Indexes
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -55,6 +55,9 @@ Um objeto de banco de dados que define como as linhas de uma tabela ou índice s
   
 ### <a name="partition-scheme"></a>Esquema de partição 
 Um objeto de banco de dados que mapeia as partições de uma função de partição para um conjunto de grupos de arquivos. O principal motivo para colocar suas partições em grupos de arquivos separados é para garantir que poderá efetuar operações de backup em partições de forma independente. Isso porque se pode executar backups em grupos de arquivos individuais.  
+
+> [!NOTE]
+> No [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)] do Azure, há suporte apenas para grupos de arquivos primários.  
   
 ### <a name="partitioning-column"></a>Coluna de particionamento  
 A coluna de uma tabela ou índice que uma função de partição usa para particionar a tabela ou índice. Colunas computadas que participam de uma função de partição devem ser marcadas explicitamente como PERSISTED. Todos os tipos de dados que são válidos para uso como colunas de índice podem ser usados como uma coluna de particionamento, exceto **timestamp**. Os tipos de dados **ntext**, **text**, **image**, **xml**, **varchar(max)** , **nvarchar(max)** ou **varbinary(max)** não podem ser especificados. Também, não podem ser especificados o tipo definido pelo usuário do CLR (Common Language Runtime) do Microsoft .NET Framework e colunas de tipo de dados do alias.  

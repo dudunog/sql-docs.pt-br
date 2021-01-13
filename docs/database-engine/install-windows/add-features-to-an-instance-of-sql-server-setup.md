@@ -15,18 +15,18 @@ ms.reviewer: ''
 ms.custom: ''
 ms.date: 09/07/2019
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 3481a3d5252752e1cf952375d1c35c1c4b9939f1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a8a0e3db546f4a74e1ec9bcc3c6312d8ca848777
+ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97438824"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97975450"
 ---
 # <a name="add-features-to-an-instance-of-sql-server-setup"></a>Adicionar recursos a uma instância do SQL Server (Instalação)
 
 [!INCLUDE [ SQL Server - Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
 
-Este artigo contém um procedimento passo a passo para adicionar recursos a uma instância do [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]. Alguns componentes ou serviços do SQL Server são específicos de uma instância do SQL Server. Eles também são conhecidos como capazes de reconhecimento de instância. Eles compartilham a mesma versão que a instância que os hospeda e são usados exclusivamente para aquela instância. Você poderá adicionar os componentes com reconhecimento de instância a uma instância do SQL Server junto com os componentes compartilhados, caso eles ainda não estejam instalados. Para obter uma lista de recursos com suporte nas diferentes edições do SQL Server, confira [Edições e recursos com suporte do SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md).
+Este artigo contém um procedimento passo a passo para adicionar recursos a uma instância do [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]. Alguns componentes ou serviços do SQL Server são específicos de uma instância do SQL Server. Eles também são conhecidos como capazes de reconhecimento de instância. Eles compartilham a mesma versão que a instância que os hospeda e são usados exclusivamente para aquela instância. Você poderá adicionar os componentes com reconhecimento de instância a uma instância do SQL Server junto com os componentes compartilhados, caso eles ainda não estejam instalados. Para obter uma lista de recursos com suporte nas diferentes edições do SQL Server, confira [Edições e recursos com suporte do SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md) ou [SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md).
 
 Para adicionar recursos a uma instância do SQL Server por meio do prompt de comando, confira [Instalar o SQL Server por meio do prompt de comando](./install-sql-server-from-the-command-prompt.md).
 
@@ -58,7 +58,7 @@ Antes de continuar, examine os artigos em [Planejando uma instalação do SQL Se
 
 7. Na página Tipo de Instalação, selecione a opção **Adicionar recursos a uma instância existente do [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]** e selecione a instância a ser atualizada.
 
-8. Na página Seleção de Recursos, selecione os componentes para a instalação. Uma descrição de cada grupo de componentes é exibida no painel à direita depois que você seleciona o nome do recurso. Você pode selecionar qualquer combinação de caixas de seleção. Para obter mais informações, consulte [Edições e recursos com suporte para o SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md). Cada componente pode ser instalado somente uma vez em uma determinada instância do SQL Server. Para instalar vários componentes, você precisa instalar uma instância adicional do SQL Server.
+8. Na página Seleção de Recursos, selecione os componentes para a instalação. Uma descrição de cada grupo de componentes é exibida no painel à direita depois que você seleciona o nome do recurso. Você pode selecionar qualquer combinação de caixas de seleção. Para obter mais informações, confira [Edições e recursos compatíveis do SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md) e [SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md). Cada componente pode ser instalado somente uma vez em uma determinada instância do SQL Server. Para instalar vários componentes, você precisa instalar uma instância adicional do SQL Server.
 
     Os pré-requisitos dos recursos selecionados são exibidos no painel à direita. A Instalação do SQL Server instalará os pré-requisitos que ainda não estiverem instalados durante a etapa descrita posteriormente neste procedimento.
 

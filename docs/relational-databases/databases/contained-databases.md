@@ -17,12 +17,12 @@ ms.assetid: 36af59d7-ce96-4a02-8598-ffdd78cdc948
 author: stevestein
 ms.author: sstein
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: cc6e5734edbf7203f98d1b7fc7a685e699aaa635
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: bbad843d482945a29cb03fde9545b1c19fb354f9
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97481427"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98098384"
 ---
 # <a name="contained-databases"></a>Bancos de dados independentes
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -128,15 +128,13 @@ ms.locfileid: "97481427"
 ##  <a name="limitations"></a><a name="Limitations"></a> Limitações  
  Bancos de dados parcialmente independentes não permitem os recursos a seguir.  
   
--   Os bancos de dados parcialmente independentes não podem usar replicação, Change Data Capture ou controle de alterações.  
+-   Replicação, captura de dados de alterações ou controle de alterações.  
   
 -   Procedimentos numerados  
   
 -   Objetos associados a esquema que dependem de funções internas com alterações de ordenação  
   
--   Alteração de associação resultante de alterações de ordenação, inclusive referências a objetos, colunas, símbolos ou tipos.  
-  
--   Replicação, captura de dados de alteração e controle de alterações.  
+-   Alteração de associação resultante de alterações de ordenação, inclusive referências a objetos, colunas, símbolos ou tipos.
   
 > [!WARNING]  
 >  Os procedimentos armazenados temporários são permitidos no momento. Como os procedimentos armazenados temporários violam a retenção, não se espera que eles tenham suporte em versões futuras de bancos de dados independentes.  

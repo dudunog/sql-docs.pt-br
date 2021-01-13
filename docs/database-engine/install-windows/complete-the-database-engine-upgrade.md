@@ -11,12 +11,12 @@ ms.assetid: 3f08087e-e532-416c-8caa-e0ec88c57596
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: be6c23f2943a437565ead1512922408e609c0300
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c309c86f4f6609f1bd5383d311e1ce5781350fd9
+ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97438809"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97975422"
 ---
 # <a name="complete-the-database-engine-upgrade"></a>Concluir a atualização do mecanismo de banco de dados
 
@@ -28,7 +28,7 @@ Depois de atualizar o [!INCLUDE[ssDE](../../includes/ssde-md.md)], conclua as se
   
 - **Fazer backup de seus bancos de dados:** realize um backup completo de cada banco de dados.  
 
-- **Habilitar novos recursos:** no SQL Server 2016 e SQL Server 2017, algumas alterações são habilitadas somente quando o nível de DATABASE_COMPATIBILITY de um banco de dados é alterado para 130 ou superior.  Para obter mais informações e para ver o fluxo de trabalho recomendado, consulte [Alterar o modo de compatibilidade do banco de dados e usar o repositório de consultas](../../database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store.md). Se o banco de dados tiver tabelas com otimização de memória criadas no SQL Server 2014, examine [Estatísticas para tabelas com otimização de memória](../../relational-databases/in-memory-oltp/statistics-for-memory-optimized-tables.md).
+- **Habilitar novos recursos:** no SQL Server 2016, 2017 e 2019, algumas alterações são habilitadas somente quando o nível de DATABASE_COMPATIBILITY de um banco de dados é alterado para 130 ou superior.  Para obter mais informações e para ver o fluxo de trabalho recomendado, consulte [Alterar o modo de compatibilidade do banco de dados e usar o repositório de consultas](../../database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store.md). Se o banco de dados tiver tabelas com otimização de memória criadas no SQL Server 2014, examine [Estatísticas para tabelas com otimização de memória](../../relational-databases/in-memory-oltp/statistics-for-memory-optimized-tables.md).
   
 - **Integration Services:**  
   
@@ -36,7 +36,7 @@ Depois de atualizar o [!INCLUDE[ssDE](../../includes/ssde-md.md)], conclua as se
   
 - **Reporting Services:** para a atualização de uma nova instalação, restaure as chaves de criptografia do Reporting Services. Para saber mais, confira [Back Up and Restore Reporting Services Encryption Keys](../../reporting-services/install-windows/ssrs-encryption-keys-back-up-and-restore-encryption-keys.md).  
   
-- **Master Data Services:**  atualize do esquema de banco de dados do MDS e crie o aplicativo Web do SQL Server 2017. Para saber mais, confira [Upgrade Master Data Services](../../database-engine/install-windows/upgrade-master-data-services.md).  
+- **Master Data Services:**  atualize o esquema de banco de dados do MDS e crie o aplicativo Web do SQL Server 2019. Para saber mais, confira [Upgrade Master Data Services](../../database-engine/install-windows/upgrade-master-data-services.md).  
   
 - **Data Quality Services:** atualize o esquema de bancos de dados do DQS e verifique a atualização do esquema de bancos de dados do DQS. Para saber mais, confira [Upgrade Data Quality Services](../../database-engine/install-windows/upgrade-data-quality-services.md).  
   
