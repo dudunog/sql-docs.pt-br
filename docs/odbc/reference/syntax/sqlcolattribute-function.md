@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 8c45c598-cb01-4789-a571-e93619a18ed9
 author: David-Engel
 ms.author: v-daenge
-ms.openlocfilehash: d5cc7020300fd9099b70ed6f33716f343d47d571
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 43980caf7a592284aba87d57725c30ae9fe8e949
+ms.sourcegitcommit: e40e75055c1435c5e3f9b6e3246be55526807b4c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88448811"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98151241"
 ---
 # <a name="sqlcolattribute-function"></a>Função SQLColAttribute
 **Conformidade**  
@@ -69,7 +69,7 @@ SQLRETURN SQLColAttribute (
  Se *CharacterAttributePtr* for NULL, *StringLengthPtr* ainda retornará o número total de bytes (excluindo o caractere de terminação nula para dados de caracteres) disponíveis para retornar no buffer apontado por *CharacterAttributePtr*.  
   
  *BufferLength*  
- Entrada Se *FieldIdentifier* for um campo definido pelo ODBC e *CharacterAttributePtr* apontar para uma cadeia de caracteres ou um buffer binário, esse argumento deverá ter o comprimento de \* *CharacterAttributePtr*. Se *FieldIdentifier* for um campo definido pelo ODBC e \* *characterattribute*PTR for um inteiro, esse campo será ignorado. Se * \* CharacterAttributePtr* for uma cadeia de caracteres Unicode (ao chamar **SQLColAttributeW**), o argumento *BufferLength* deverá ser um número par. Se *FieldIdentifier* for um campo definido pelo driver, o aplicativo indicará a natureza do campo para o Gerenciador de driver, definindo o argumento *BufferLength* . *BufferLength* pode ter os seguintes valores:  
+ Entrada Se *FieldIdentifier* for um campo definido pelo ODBC e *CharacterAttributePtr* apontar para uma cadeia de caracteres ou um buffer binário, esse argumento deverá ter o comprimento de \* *CharacterAttributePtr*. Se *FieldIdentifier* for um campo definido pelo ODBC e \* *characterattribute* PTR for um inteiro, esse campo será ignorado. Se *\* CharacterAttributePtr* for uma cadeia de caracteres Unicode (ao chamar **SQLColAttributeW**), o argumento *BufferLength* deverá ser um número par. Se *FieldIdentifier* for um campo definido pelo driver, o aplicativo indicará a natureza do campo para o Gerenciador de driver, definindo o argumento *BufferLength* . *BufferLength* pode ter os seguintes valores:  
   
 -   Se *CharacterAttributePtr* for um ponteiro para um ponteiro, *BufferLength* deverá ter o valor SQL_IS_POINTER.  
   
@@ -77,7 +77,7 @@ SQLRETURN SQLColAttribute (
   
 -   Se *CharacterAttributePtr* for um ponteiro para um buffer binário, o aplicativo colocará o resultado da macro SQL_LEN_BINARY_ATTR (*Length*) em *BufferLength*. Isso coloca um valor negativo em *BufferLength*.  
   
--   Se *CharacterAttributePtr* for um ponteiro para um tipo de dados de comprimento fixo, *BufferLength* deverá ser um dos seguintes: SQL_IS_INTEGER, SQL_IS_UNINTEGER, SQL_SMALLINT ou SQLUSMALLINT.  
+-   Se *CharacterAttributePtr* for um ponteiro para um tipo de dados de comprimento fixo, *BufferLength* deverá ser um dos seguintes: SQL_IS_INTEGER, SQL_IS_UINTEGER, SQL_IS_SMALLINT ou SQL_IS_USMALLINT.  
   
  *StringLengthPtr*  
  Der Ponteiro para um buffer no qual retornar o número total de bytes (excluindo o byte de terminação nula para dados de caractere) disponível para retornar em **CharacterAttributePtr*.  
@@ -104,9 +104,9 @@ SQLRETURN SQLColAttribute (
 |HY000|Erro geral|Ocorreu um erro para o qual não havia um SQLSTATE específico e para o qual nenhum SQLSTATE específico de implementação foi definido. A mensagem de erro retornada por **SQLGetDiagField** da estrutura de dados de diagnóstico descreve o erro e sua causa.|  
 |HY001|Erro de alocação de memória|O driver não pôde alocar memória necessária para dar suporte à execução ou à conclusão da função.|  
 |HY008|Operação cancelada|O processamento assíncrono foi habilitado para o *StatementHandle*. A função foi chamada e antes de concluir a execução, **SQLCancel** ou **SQLCancelHandle** foi chamado no *StatementHandle*. Em seguida, a função foi chamada novamente no *StatementHandle*.<br /><br /> A função foi chamada e, antes de concluir a execução, **SQLCancel** ou **SQLCancelHandle** foi chamado no *StatementHandle* de um thread diferente em um aplicativo multithread.|  
-|HY010|Erro de sequência de função|(DM) uma função de execução assíncrona foi chamada para o identificador de conexão que está associado ao *StatementHandle*. Esta função aynchronous ainda estava em execução quando SQLColAttribute foi chamado.<br /><br /> (DM) **SQLExecute**, **SQLExecDirect**ou **SQLMoreResults** foi chamado para *StatementHandle* e retornou SQL_PARAM_DATA_AVAILABLE. Esta função foi chamada antes de os dados serem recuperados para todos os parâmetros transmitidos.<br /><br /> (DM) a função foi chamada antes de chamar **SQLPrepare**, **SQLExecDirect**ou uma função de catálogo para o *StatementHandle*.<br /><br /> (DM) uma função de execução assíncrona (não esta) foi chamada para o *StatementHandle* e ainda estava em execução quando essa função foi chamada.<br /><br /> (DM) **SQLExecute**, **SQLExecDirect**, **SQLBulkOperations**ou **SQLSetPos** foi chamado para o *StatementHandle* e retornou SQL_NEED_DATA. Esta função foi chamada antes de os dados serem enviados para todos os parâmetros de dados em execução ou colunas.|  
+|HY010|Erro de sequência de função|(DM) uma função de execução assíncrona foi chamada para o identificador de conexão que está associado ao *StatementHandle*. Esta função aynchronous ainda estava em execução quando SQLColAttribute foi chamado.<br /><br /> (DM) **SQLExecute**, **SQLExecDirect** ou **SQLMoreResults** foi chamado para *StatementHandle* e retornou SQL_PARAM_DATA_AVAILABLE. Esta função foi chamada antes de os dados serem recuperados para todos os parâmetros transmitidos.<br /><br /> (DM) a função foi chamada antes de chamar **SQLPrepare**, **SQLExecDirect** ou uma função de catálogo para o *StatementHandle*.<br /><br /> (DM) uma função de execução assíncrona (não esta) foi chamada para o *StatementHandle* e ainda estava em execução quando essa função foi chamada.<br /><br /> (DM) **SQLExecute**, **SQLExecDirect**, **SQLBulkOperations** ou **SQLSetPos** foi chamado para o *StatementHandle* e retornou SQL_NEED_DATA. Esta função foi chamada antes de os dados serem enviados para todos os parâmetros de dados em execução ou colunas.|  
 |HY013|Erro de gerenciamento de memória|A chamada de função não pôde ser processada porque os objetos de memória subjacentes não puderam ser acessados, possivelmente devido a condições de memória insuficiente.|  
-|HY090|Comprimento de cadeia de caracteres ou buffer inválido|(DM) * \* CharacterAttributePtr* é uma cadeia de caracteres e *BufferLength* era menor que 0, mas não é igual a SQL_NTS.|  
+|HY090|Comprimento de cadeia de caracteres ou buffer inválido|(DM) *\* CharacterAttributePtr* é uma cadeia de caracteres e *BufferLength* era menor que 0, mas não é igual a SQL_NTS.|  
 |HY091|Identificador de campo de descritor inválido|O valor especificado para o argumento *FieldIdentifier* não era um dos valores definidos e não era um valor definido pela implementação.|  
 |HY117|A conexão foi suspensa devido a um estado de transação desconhecido. Somente funções de desconexão e somente leitura são permitidas.|(DM) para obter mais informações sobre o estado suspenso, consulte [função SQLEndTran](../../../odbc/reference/syntax/sqlendtran-function.md).|  
 |HYC00|Driver sem capacidade|O valor especificado para o argumento *FieldIdentifier* não tem suporte do driver.|  
@@ -122,7 +122,7 @@ SQLRETURN SQLColAttribute (
 ## <a name="comments"></a>Comentários  
  Para obter informações sobre como os aplicativos usam as informações retornadas por **SQLColAttribute**, consulte [metadados do conjunto de resultados](../../../odbc/reference/develop-app/result-set-metadata.md).  
   
- **SQLColAttribute** retorna informações em \* *NumericAttributePtr* ou em \* *CharacterAttributePtr*. As informações de inteiros são retornadas em \* *NumericAttributePtr* como um valor SQLLEN; todos os outros formatos de informações são retornados em \* *CharacterAttributePtr*. Quando as informações são retornadas em \* *NumericAttributePtr*, o driver ignora *CharacterAttributePtr*, *BufferLength*e *StringLengthPtr*. Quando as informações são retornadas em \* *CharacterAttributePtr*, o driver ignora *NumericAttributePtr*.  
+ **SQLColAttribute** retorna informações em \* *NumericAttributePtr* ou em \* *CharacterAttributePtr*. As informações de inteiros são retornadas em \* *NumericAttributePtr* como um valor SQLLEN; todos os outros formatos de informações são retornados em \* *CharacterAttributePtr*. Quando as informações são retornadas em \* *NumericAttributePtr*, o driver ignora *CharacterAttributePtr*, *BufferLength* e *StringLengthPtr*. Quando as informações são retornadas em \* *CharacterAttributePtr*, o driver ignora *NumericAttributePtr*.  
   
  **SQLColAttribute** retorna valores dos campos de descritor do IRD. A função é chamada com um identificador de instrução em vez de um identificador de descritor. Os valores retornados por **SQLColAttribute** para os valores de *FieldIdentifier* listados posteriormente nesta seção também podem ser recuperados chamando **SQLGetDescField** com o identificador IRD apropriado.  
   
@@ -131,7 +131,7 @@ SQLRETURN SQLColAttribute (
  Um ODBC 3. o driver *x* deve retornar um valor para cada um dos campos de descritor. Se um campo de descritor não se aplicar a um driver ou a uma fonte de dados e, a menos que indicado de outra forma, o driver retornará 0 em \* *StringLengthPtr* ou uma cadeia de caracteres vazia em **CharacterAttributePtr*.  
   
 ## <a name="backward-compatibility"></a>Backward Compatibility  
- O ODBC 3. a função *x* **SQLCOLATTRIBUTE** substitui o ODBC 2 substituído. *x* função x **SQLColAttributes**. Ao mapear **SQLColAttributes** para **SQLColAttribute** (quando um ODBC 2.* * o aplicativo x está trabalhando com um ODBC 3. *x* driver) ou mapeando **SQLColAttribute** para **SQLColAttributes** (quando um ODBC 3.* * o aplicativo x está funcionando com um ODBC 2. *x* driver), o Gerenciador de driver passa o valor de *FieldIdentifier* até, mapeia-o para um novo valor ou retorna um erro, da seguinte maneira:  
+ O ODBC 3. a função *x* **SQLCOLATTRIBUTE** substitui o ODBC 2 substituído.  função x **SQLColAttributes**. Ao mapear **SQLColAttributes** para **SQLColAttribute** (quando um ODBC 2.** o aplicativo x está trabalhando com um ODBC 3. *x* driver) ou mapeando **SQLColAttribute** para **SQLColAttributes** (quando um ODBC 3.** o aplicativo x está funcionando com um ODBC 2. *x* driver), o Gerenciador de driver passa o valor de *FieldIdentifier* até, mapeia-o para um novo valor ou retorna um erro, da seguinte maneira:  
   
 > [!NOTE]  
 >  O prefixo usado nos valores de *FieldIdentifier* no ODBC 3. *x* foi alterado de usado no ODBC 2. *x*. O novo prefixo é "SQL_DESC"; o prefixo antigo era "SQL_COLUMN".  
@@ -144,9 +144,9 @@ SQLRETURN SQLColAttribute (
   
 -   Se *FieldIdentifier* for um novo valor no ODBC 3. *x*, para o qual não havia nenhum valor correspondente no ODBC 2. *x*, ele não será mapeado quando um ODBC 3. o aplicativo *x* usa-o em uma chamada para **SQLCOLATTRIBUTE** em um ODBC 2. *x* Driver, e a chamada retornará SQLSTATE HY091 (identificador de campo de descritor inválido).  
   
- A tabela a seguir lista os tipos de descritores retornados por **SQLColAttribute**. O tipo de valores *NumericAttributePtr* é **SQLLEN \* **.  
+ A tabela a seguir lista os tipos de descritores retornados por **SQLColAttribute**. O tipo de valores *NumericAttributePtr* é **SQLLEN \** _.  
   
-|*FieldIdentifier*|Informações<br /><br /> retornado em|Descrição|  
+|_FieldIdentifier *|Informações<br /><br /> retornado em|Descrição|  
 |-----------------------|---------------------------------|-----------------|  
 |SQL_DESC_AUTO_UNIQUE_VALUE (ODBC 1,0)|*NumericAttributePtr*|SQL_TRUE se a coluna for uma coluna de incremento automático.<br /><br /> SQL_FALSE se a coluna não for uma coluna de incremento automático ou não for numérica.<br /><br /> Este campo é válido somente para colunas de tipo de dados numéricos. Um aplicativo pode inserir valores em uma linha que contém uma coluna AutoIncrement, mas normalmente não pode atualizar valores na coluna.<br /><br /> Quando uma inserção é feita em uma coluna de incremento automático, um valor exclusivo é inserido na coluna no momento da inserção. O incremento não está definido, mas é específico da fonte de dados. Um aplicativo não deve supor que uma coluna de incremento automático comece em qualquer ponto específico ou seja incrementada por qualquer valor específico.|  
 |SQL_DESC_BASE_COLUMN_NAME (ODBC 3,0)|*CharacterAttributePtr*|O nome da coluna base para a coluna do conjunto de resultados. Se um nome de coluna base não existir (como no caso de colunas que são expressões), essa variável conterá uma cadeia de caracteres vazia.<br /><br /> Essas informações são retornadas do campo de registro SQL_DESC_BASE_COLUMN_NAME do IRD, que é um campo somente leitura.|  
