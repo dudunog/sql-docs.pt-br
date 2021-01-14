@@ -9,12 +9,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15'
-ms.openlocfilehash: 85ee78e0d7558cf2ad683321a13a842ff5d8daf5
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 3e71b33eb08fd386232e992e9b47da7b5057aa32
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471327"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170718"
 ---
 # <a name="manage-python-and-r-workloads-with-resource-governor-in-sql-server-machine-learning-services"></a>Gerenciar cargas de trabalho do Python e do R com o Resource Governor nos Serviços de Machine Learning do SQL Server
 [!INCLUDE [SQL Server 2016 and later](../../includes/applies-to-version/sqlserver2016.md)]
@@ -36,7 +36,7 @@ Por padrão, os runtimes de script externo para aprendizado de máquina são lim
  
 Por padrão, os processos externos usam até 20% da memória total do host no servidor local. É possível modificar o pool de recursos padrão para fazer alterações em todo o servidor com processos de R e Python e usando qualquer capacidade que você disponibilizar para processos externos.
 
-Como opção, você pode criar **pools de recursos externos** personalizados, com grupos de carga de trabalho e classificadores associados, a fim de determinar a alocação de recurso para solicitações provenientes de programas, hosts ou outros critérios específicos que você definir. Um pool de recursos externos é um tipo de pool de recursos introduzido no [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] para ajudar a gerenciar os processos de R e Python externos ao mecanismo de banco de dados.
+Como opção, você pode criar **pools de recursos externos** personalizados, com grupos de carga de trabalho e classificadores associados, a fim de determinar a alocação de recurso para solicitações provenientes de programas, hosts ou outros critérios específicos que você definir. Um pool de recursos externos é um tipo de pool de recursos introduzido no [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] para ajudar a gerenciar os processos de R e Python externos ao mecanismo de banco de dados.
 
 1. [Habilite a governança de recursos](../../relational-databases/resource-governor/enable-resource-governor.md) (ela está desativada por padrão).
 

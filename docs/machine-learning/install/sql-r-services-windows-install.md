@@ -10,12 +10,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: contperf-fy20q4
 monikerRange: =sql-server-2016
-ms.openlocfilehash: 5a4aefa522486eda1a955254d33ca7dd312c6cc6
-ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
+ms.openlocfilehash: 78b208be4f893f7029ae09c7c0b624b3642b8f35
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97878869"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98100181"
 ---
 # <a name="install-sql-server-2016-r-services"></a>Instalar o SQL Server 2016 R Services
 
@@ -110,7 +110,7 @@ Esta etapa requer uma reinicialização do servidor. Você poderá segurar a rei
 
 ##  <a name="enable-script-execution"></a>Habilitar a execução do script
 
-1. Abra o [SSMS (SQL Server Management Studio)](../../ssms/download-sql-server-management-studio-ssms.md) ou o [Azure Data Studio](../../azure-data-studio/what-is.md).
+1. Abra o [SSMS (SQL Server Management Studio)](../../ssms/download-sql-server-management-studio-ssms.md) ou o [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md).
 
 1. Conecte-se à instância em que você instalou o R Services, clique em **Nova Consulta** para abrir uma janela de consulta e execute o seguinte comando:
 

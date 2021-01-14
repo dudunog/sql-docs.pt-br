@@ -10,12 +10,12 @@ author: cawrites
 ms.author: chadam
 ms.reviewer: pmasl
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 0ed29ad1b6a6b548b910ecce3d2b89da9bfb0180
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 94939adb2934e16ed7d1c81c33ebab4631c4b114
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97478877"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172508"
 ---
 # <a name="what-are-extended-security-updates-for-sql-server"></a>Quais são as Atualizações de Segurança Estendidas para o SQL Server?
 [!INCLUDE [SQL Server Windows Only - ASDBMI ](../../includes/applies-to-version/sql-windows-only-asdbmi.md)]
@@ -322,7 +322,7 @@ A Instância Gerenciada de SQL do Azure é um serviço que fornece quase 100% de
 
 Os clientes podem mover ambientes herdados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para a Instância Gerenciada de SQL do Azure, um serviço de plataforma de dados totalmente gerenciados (PaaS) que oferece uma opção "sem versão" para eliminar as preocupações com as das datas de fim do suporte ou para que as máquinas virtuais do Azure tenham acesso às atualizações de segurança. Os bancos de dados migrados reterão a compatibilidade com o sistema herdado. Para saber mais, confira [Certificação de Compatibilidade](../../database-engine/install-windows/compatibility-certification.md).
 
-As atualizações de segurança estendidas estarão disponíveis para [!INCLUDE[ssKatmai](../../includes/ssKatmai-md.md)] e [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] em Máquinas Virtuais do Azure após o fim da data de suporte de 9 de julho de 2019 pelos próximos três anos. Para clientes que procuram atualizar de [!INCLUDE[ssKatmai](../../includes/ssKatmai-md.md)] e [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)], todas as versões subsequentes do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] serão compatíveis. Para [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] a [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], os clientes precisam estar no Service Pack mais recente compatível. Do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] em diante, é aconselhável que os clientes estejam na atualização cumulativa mais recente. Observe que os Service Packs não estarão disponíveis do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] em diante, somente atualizações cumulativas e GDRs (versões de distribuição geral).
+As atualizações de segurança estendidas estarão disponíveis para [!INCLUDE[ssKatmai](../../includes/ssKatmai-md.md)] e [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] em Máquinas Virtuais do Azure após o fim da data de suporte de 9 de julho de 2019 pelos próximos três anos. Para clientes que procuram atualizar de [!INCLUDE[ssKatmai](../../includes/ssKatmai-md.md)] e [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)], todas as versões subsequentes do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] serão compatíveis. Para [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] a [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], os clientes precisam estar no Service Pack mais recente compatível. Do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] em diante, é aconselhável que os clientes estejam na atualização cumulativa mais recente. Observe que os Service Packs não estarão disponíveis do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] em diante, somente atualizações cumulativas e GDRs (versões de distribuição geral).
 
 A Instância Gerenciada de SQL do Azure é uma opção de implantação com escopo de instância no [!INCLUDE[ssSDS](../../includes/sssds-md.md)] que fornece a maior compatibilidade de mecanismo do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e suporte nativo para VNET (rede virtual), de modo que você possa migrar bancos de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para a Instância Gerenciada sem mudar de aplicativo. Ela combina a ampla área de superfície do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] com os benefícios operacionais e financeiros de um serviço inteligente e totalmente gerenciado. Aproveite o novo Serviço de Migração de Banco de Dados do Azure para mover o [!INCLUDE[ssKatmai](../../includes/ssKatmai-md.md)] e o [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] para a Instância Gerenciada de SQL do Azure com pouca ou nenhuma alteração de código do aplicativo.
 

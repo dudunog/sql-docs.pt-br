@@ -10,12 +10,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2017||>=sql-server-linux-ver15||=azuresqldb-mi-current'
-ms.openlocfilehash: b262b29028afbc0497c0efb2728fa1065cd14d10
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: f63ffdc74fab82ca5bbf803e3dbc34c66ae5e629
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470377"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101966"
 ---
 # <a name="python-tutorial-predict-ski-rental-with-linear-regression-with-sql-machine-learning"></a>Tutorial do Python: Prever o aluguel de esquis com regressão linear com aprendizado de máquina do SQL
 [!INCLUDE [SQL Server 2017 SQL MI](../../includes/applies-to-version/sqlserver2017-asdbmi.md)]
@@ -59,9 +59,9 @@ Na [parte quatro](python-ski-rental-linear-regression-deploy-model.md), você ap
 * [SQL Server Management Studio](../../ssms/download-sql-server-management-studio-ssms.md) para restaurar o banco de dados de exemplo na Instância Gerenciada de SQL do Azure.
 ::: moniker-end
 
-* IDE do Python – este tutorial usa um notebook Python no [Azure Data Studio](../../azure-data-studio/what-is.md). Para obter mais informações, confira [Como usar notebooks no Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
+* IDE do Python – este tutorial usa um notebook Python no [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md). Para obter mais informações, confira [Como usar notebooks no Azure Data Studio](../../azure-data-studio/notebooks/notebooks-guidance.md).
 
-* Ferramenta de consulta SQL – este tutorial pressupõe que você está usando o [Azure Data Studio](../../azure-data-studio/what-is.md).
+* Ferramenta de consulta SQL – este tutorial pressupõe que você está usando o [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md).
 
 * Pacotes adicionais do Python – os exemplos nesta série de tutoriais usam os seguintes pacotes do Python que podem ou não estar instalados por padrão:
 

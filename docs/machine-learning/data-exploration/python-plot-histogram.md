@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.prod: sql
 ms.technology: machine-learning
 monikerRange: '>=sql-server-2017||>=sql-server-linux-ver15||=azuresqldb-mi-current||=azuresqldb-current'
-ms.openlocfilehash: d4e47c95ec9deb98e06659f85e6ec9840409f629
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 466abc8687a7f325d216a6b5b6545bc516b2b34d
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471267"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101986"
 ---
 # <a name="plot-histograms-in-python"></a>Plotar histogramas no Python 
 [!INCLUDE[SQL Server SQL DB SQL MI](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
@@ -37,7 +37,7 @@ Este artigo descreve como plotar os dados usando o pacote [pandas'.hist()](https
 * [SQL Server Management Studio](../../ssms/download-sql-server-management-studio-ssms.md) para restaurar o banco de dados de exemplo na Instância Gerenciada de SQL do Azure.
 ::: moniker-end
 
-* Azure Data Studio. Para instalá-lo, confira [Azure Data Studio](../../azure-data-studio/what-is.md).
+* Azure Data Studio. Para instalá-lo, confira [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md).
 
 * [Restaure o banco de dados DW de exemplo](../../samples/adventureworks-install-configure.md) para obter os dados de exemplo usados neste artigo.
 

@@ -10,12 +10,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: contperf-fy21q1
 monikerRange: '>=sql-server-2017||>=sql-server-linux-ver15||=azuresqldb-mi-current'
-ms.openlocfilehash: b911915b612a198e405811aa0f3e5b685f0adbca
-ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
+ms.openlocfilehash: 95c009dda19220fb0f5f5901f1da9d5539ca9e11
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97878719"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101938"
 ---
 # <a name="quickstart-run-simple-python-scripts-with-sql-machine-learning"></a>Início Rápido: executar scripts simples do Python com o machine learning do SQL
 [!INCLUDE [SQL Server 2017 SQL MI](../../includes/applies-to-version/sqlserver2017-asdbmi.md)]
@@ -31,7 +31,7 @@ Para executar este início rápido, você precisará dos pré-requisitos a segui
   - Clusters de Big Data do SQL Server. Veja como [habilitar os Serviços de Machine Learning em Clusters de Big Data do SQL Server](../../big-data-cluster/machine-learning-services.md).
   - Serviços de Machine Learning da Instância Gerenciada de SQL do Azure. Para obter informações, confira a [Visão geral dos Serviços de Machine Learning da Instância Gerenciada de SQL do Azure](/azure/azure-sql/managed-instance/machine-learning-services-overview).
 
-- Uma ferramenta para executar consultas SQL que contenham scripts Python. Este início rápido usa o [Azure Data Studio](../../azure-data-studio/what-is.md).
+- Uma ferramenta para executar consultas SQL que contenham scripts Python. Este início rápido usa o [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md).
 
 ## <a name="run-a-simple-script"></a>Executar um script simples
 

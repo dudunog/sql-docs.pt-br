@@ -10,12 +10,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15||>=azuresqldb-mi-current'
-ms.openlocfilehash: 0b32d12a694062e56611abaff18dc4f1e2f23061
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 026090f3eb61e2bd2ffe2b96eb09751cc3543dbf
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470107"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98101850"
 ---
 # <a name="r-tutorial-run-predictions-in-sql-stored-procedures"></a>Tutorial do R: executar previsões em procedimentos armazenados do SQL
 [!INCLUDE [SQL Server 2016 SQL MI](../../includes/applies-to-version/sqlserver2016-asdbmi.md)]
@@ -70,7 +70,7 @@ GO
 
 + A instrução SELECT obtém o modelo serializado do banco de dados e armazena o modelo na variável `mod` do R para processamento adicional com o R.
 
-+ Os novos casos para pontuação são obtidos por meio da consulta [!INCLUDE[tsql](../../includes/tsql-md.md)] especificada no `@inquery`, o primeiro parâmetro do procedimento armazenado. Conforme os dados da consulta são lidos, as linhas são salvas no quadro de dados padrão, `InputDataSet`. Esse quadro de dados é passado para a função [PREDICT](/sql/t-sql/queries/predict-transact-sql), que gera as pontuações.
++ Os novos casos para pontuação são obtidos por meio da consulta [!INCLUDE[tsql](../../includes/tsql-md.md)] especificada no `@inquery`, o primeiro parâmetro do procedimento armazenado. Conforme os dados da consulta são lidos, as linhas são salvas no quadro de dados padrão, `InputDataSet`. Esse quadro de dados é passado para a função [PREDICT](../../t-sql/queries/predict-transact-sql.md), que gera as pontuações.
   
   `OutputDataSet <- data.frame(predict(mod, InputDataSet, type = "response"));`
   

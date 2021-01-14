@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: dda91d4f-77cc-4898-ad03-810ece5f8e74
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: c87da88bcec8d1fcc29c282a1e012121a81f6f45
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+ms.openlocfilehash: 38985454ae83a73fd27dac886fd0f4ee10e5ad55
+ms.sourcegitcommit: 1f826eb3f73bd4d94bc9638b9cdd60991a2e2fa0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91986682"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98125577"
 ---
 # <a name="register-a-service-principal-name-spn-for-a-report-server"></a>Registrar um SPN (Nome da Entidade de Serviço) para um servidor de relatório
   Se estiver implantando o [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] em uma rede que use o protocolo Kerberos para autenticação mútua, você deverá criar um SPN (Nome da Entidade de Serviço) para o serviço Servidor de Relatório se configurá-lo para execução como uma conta de usuário do domínio.  
@@ -66,7 +66,7 @@ Setspn -s http/<computer-name>.<domain-name> <domain-user-account>
   
 6.  Abra o arquivo **RsReportServer.config** e localize a seção `<AuthenticationTypes>` .  
   
-7.  Adicione `<RSWindowsNegotiate/>` como a primeira entrada desta seção para habilitar o Kerberos.  
+7.  Adicione `<RSWindowsNegotiate />` como a primeira entrada desta seção para habilitar o Kerberos.  
   
 ## <a name="see-also"></a>Consulte Também  
  [Configurar uma conta de serviço &#40;Gerenciador de Configurações do Servidor de Relatório&#41;](../install-windows/configure-the-report-server-service-account-ssrs-configuration-manager.md)   

@@ -9,12 +9,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2017'
-ms.openlocfilehash: 9df3f0d56e3d210389110cdf155bd79a32c7c978
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 592a365024edbbe4ee2743a156ee480b76849ba9
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471187"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98096834"
 ---
 # <a name="install-sql-server-machine-learning-services-python-and-r-on-windows"></a>Instalar Serviços de Machine Learning do SQL Server (R e Python) no Windows
 
@@ -191,7 +191,7 @@ Esta etapa requer uma reinicialização do servidor. Se estiver prestes a habili
     > [!TIP]
     > Você pode baixar e instalar a versão apropriada nesta página: [Baixe o SSMS (SQL Server Management Studio)](../../ssms/download-sql-server-management-studio-ssms.md).
     > 
-    > Você também pode usar o [Azure Data Studio](../../azure-data-studio/what-is.md), que dá suporte a tarefas administrativas e consultas no SQL Server.
+    > Você também pode usar o [Azure Data Studio](../../azure-data-studio/what-is-azure-data-studio.md), que dá suporte a tarefas administrativas e consultas no SQL Server.
   
 2. Conecte-se à instância em que você instalou os Serviços de Machine Learning, clique em **Nova Consulta** para abrir uma janela de consulta e execute o seguinte comando:
 

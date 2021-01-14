@@ -37,12 +37,12 @@ helpviewer_keywords:
 ms.assetid: e5186f02-dd91-47d0-8fa4-de3f41c76903
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 8e1544a46e84b77ce290dded936f86b75a251f13
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 80b93a4a55b6d12ee5177230b78447c21fc0cae8
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642912"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172528"
 ---
 # <a name="editions-and-supported-features-of-sql-server-2016"></a>Edições e recursos com suporte do SQL Server 2016
 [!INCLUDE [SQL Server 2016](../includes/applies-to-version/sqlserver2016.md)]  
@@ -67,7 +67,7 @@ Para notas de versão mais recentes e informações sobre novidades, consulte o 
 
 ### <a name="try-sql-server"></a>Experimente o SQL Server.    
     
-> [![Download no Centro de Avaliação](https://docs.microsoft.com/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016) **[Download do SQL Server 2016 no Centro de Avaliação](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)**    
+> [![Download no Centro de Avaliação](/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016) **[Download do SQL Server 2016 no Centro de Avaliação](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)**    
 > 
 > ![A máquina virtual pequena do Azure](/analysis-services/analysis-services/media/azure-virtual-machine-small.png) **[Criar uma máquina virtual com o SQL Server 2016 já instalado](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2019?tab=Overview)**   
   
@@ -142,7 +142,7 @@ A Developer edition continua a dar suporte a apenas um cliente para o [SQL Serve
   
 <sup>1</sup> O Enterprise Edition com Servidor + licenciamento baseado em CAL (Licença de Acesso para Cliente) (não disponível para novos contratos) é limitado ao máximo de 20 núcleos por instância do SQL Server. Não há limites no modelo de Licenciamento de Servidor Baseado em Núcleo. Para saber mais, confira [Compute Capacity Limits by Edition of SQL Server](../sql-server/compute-capacity-limits-by-edition-of-sql-server.md).  
   
-<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições. 
+<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições. 
 
 ##  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS High Availability  
   
@@ -195,7 +195,7 @@ A Developer edition continua a dar suporte a apenas um cliente para o [SQL Serve
 
 <sup>1</sup> Tamanho de dados de OLTP na memória e cache do segmento Columnstore são limitados a quantidade de memória especificada por edição na seção limites de escala. Os graus de máximos de paralelismo é limitado. Os graus de paralelismo do processo (DOP) de criação de um índice é limitado a 2 DOP para a Standard Edition e 1 DOP para a Web e a Express Editions. Refere-se a índices de columnstore criados em tabelas baseadas em disco e tabelas com otimização de memória.
 
-<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições. Aplicação de agregação, aplicação de predicado de cadeia de caracteres e otimizações de SIMD são aprimoramentos de escalabilidade do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Edição Enterprise. Para obter mais detalhes, confira [Índices columnstore – novidades](../relational-databases/indexes/columnstore-indexes-what-s-new.md). 
+<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições. Aplicação de agregação, aplicação de predicado de cadeia de caracteres e otimizações de SIMD são aprimoramentos de escalabilidade do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] Edição Enterprise. Para obter mais detalhes, confira [Índices columnstore – novidades](../relational-databases/indexes/columnstore-indexes-what-s-new.md). 
 
 <sup>3</sup> Esse recurso não está incluído na opção de instalação LocalDB.
 
@@ -215,7 +215,7 @@ A Developer edition continua a dar suporte a apenas um cliente para o [SQL Serve
 |Bancos de dados independentes|Sim|Sim|Sim|Sim|Sim| 
 |Criptografia para backups|Sim|Sim|Não|Não|Não|  
 
-<sup>1</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.      
+<sup>1</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.      
 
 ##  <a name="replication"></a><a name="Replication"></a> Replicação  
   
@@ -276,7 +276,7 @@ A Developer edition continua a dar suporte a apenas um cliente para o [SQL Serve
   
  <sup>1</sup> Para obter mais informações, veja [Considerações para instalação do SQL Server usando SysPrep](../database-engine/install-windows/considerations-for-installing-sql-server-using-sysprep.md).  
  
-<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.      
+<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.      
   
 ##  <a name="development-tools"></a><a name="DevTools"></a> Development Tools  
   
@@ -314,7 +314,7 @@ A Developer edition continua a dar suporte a apenas um cliente para o [SQL Serve
 
 <sup>1</sup> Expansão com vários nós de computação requer um nó de cabeçalho.
 
-<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.     
+<sup>2</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.     
   
 ## <a name="integration-services"></a><a name="IS"></a> Integration Services
 
@@ -336,7 +336,7 @@ Para obter informações sobre os recursos do SSIS (Integration Services) com su
 |Processamento paralelo de consultas em tabelas e índices particionados|Sim|Não|Não|Não|Não|   
 |Agregação em lote global|Sim|Não|Não|Não|Não| 
 
-<sup>1</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.     
+<sup>1</sup> Aplica-se ao [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] SP1 como parte da criação de uma CPSA (área de superfície de programação comum) em todas as edições.     
 
 ##  <a name="analysis-services"></a><a name="SSAS"></a> Analysis Services  
   
@@ -389,9 +389,8 @@ Para obter informações sobre os recursos do Business Intelligence Client compa
 |StreamInsight|StreamInsight Premium Edition|StreamInsight Standard Edition|StreamInsight Standard Edition|Não|Não| 
 |StreamInsight HA|StreamInsight Premium Edition|Não|Não|Não|Não|   
   
-> [![Baixar o SSMS](https://docs.microsoft.com/analysis-services/analysis-services/media/download.png)](../ssms/download-sql-server-management-studio-ssms.md) **[Baixar a versão mais recente do SQL Server Management Studio](../ssms/download-sql-server-management-studio-ssms.md)**      
+> [![Baixar o SSMS](/analysis-services/analysis-services/media/download.png)](../ssms/download-sql-server-management-studio-ssms.md) **[Baixar a versão mais recente do SQL Server Management Studio](../ssms/download-sql-server-management-studio-ssms.md)**      
   
 ## <a name="see-also"></a>Consulte Também  
  [Instalar o SQL Server](../database-engine/install-windows/install-sql-server.md)  
  
-  

@@ -11,12 +11,12 @@ ms.author: drskwier
 ms.reviewer: maghan
 ms.custom: seo-lt-2019
 ms.date: 12/17/2020
-ms.openlocfilehash: 346e964b30f76bf79c20d6f348636a626a8beee2
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 98211695d60592c8178c4b60e45f2105c3b86db4
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642363"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102645"
 ---
 # <a name="release-notes-for-sql-server-management-studio-ssms"></a>Notas sobre a versão do SQL Server Management Studio (SSMS)
 
@@ -188,7 +188,7 @@ O SSMS 18.7 é a última versão de GA (disponibilidade geral) do SSMS. Se você
 | SSMS geral | Corrigido um problema ao tentar se conectar a um Banco de Dados SQL do Azure, o que poderia levar vários segundos (logon do SQL em um banco de dados de usuário). |
 | SSMS geral | Corrigido um problema em que o SSMS não manipulava/exibia o deadlock capturado (arquivos .xdl). |
 | SSMS geral | Corrigido um problema em que tentar abrir as configurações do log de erros para o SQL Server 2008 R2 e anteriores falhava com a propriedade ErrorLogSizeKb não encontrada. |
-| SSMS geral | Correções gerais e melhorias em relação ao suporte do [pool de SQL sem servidor do Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview). |
+| SSMS geral | Correções gerais e melhorias em relação ao suporte do [pool de SQL sem servidor do Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview). |
 | Importar arquivo simples | Corrigido um problema em que o assistente não detectava que o arquivo poderia estar em uso por outro aplicativo e, em vez disso, gerava um erro. Confira os [Comentários do Usuário do SQL Server](https://feedback.azure.com/forums/908035/suggestions/40761574). |
 | Importar/exportar aplicativo da camada de dados | Corrigida a camada de serviço padrão para ser Padrão S0 ao importar um bacpac (o mesmo que portal do Azure e o comportamento de SqlPackage.exe). |
 | Importar arquivo simples | Corrigido um problema em que o assistente não detectava que o arquivo poderia estar em uso por outro aplicativo e, em vez disso, gerava um erro. Confira os [Comentários do Usuário do SQL Server](https://feedback.azure.com/forums/908035/suggestions/40761574). |
@@ -220,7 +220,7 @@ O SSMS 18.7 é a última versão de GA (disponibilidade geral) do SSMS. Se você
 | Assistente para Gerar Scripts | Ocorre uma falha no assistente durante a tentativa de enumerar objetos de banco de dados no SQL Server 2014 e mais antigo. Confira os [comentários do usuário do SQL Server](https://feedback.azure.com/forums/908035-sql-server/suggestions/41885587). | Use o SSMS 18.6 para selecionar objetos no Assistente para Gerar Scripts do SQL 2014 e mais antigo. |
 | Integration Services | Ao importar ou exportar pacotes no Integration Services ou exportar pacotes no Azure-SSIS Integration Runtime, os scripts são perdidos para pacotes que contêm componentes/tarefas de script. Solução alternativa: remova a pasta "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\MSBuild". | N/D |
 | Integration Services | As conexões remotas com o Integration Services podem falhar informando que "O serviço especificado não existe como um serviço instalado." em um sistema operacional mais recente. Solução alternativa: identifique o local do registro relacionado aos serviços de integração em Computer\HKEY_CLASSES_ROOT\AppID e Computer\HKEY_CLASSES_ROOT\ WOW6432Node\AppID e, dentro desses hives, renomeie a chave do Registro chamada "LocalService" para "LocalService_A" de acordo com a versão específica do serviço de integração que estamos tentando conectar | N/D |
-| Pesquisador de Objetos | As versões do SSMS anteriores à 18.7 têm uma alteração da falha no Pesquisador de Objetos devido às alterações do mecanismo relacionadas ao [pool de SQL sem servidor do Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview). | Para continuar utilizando o Pesquisador de Objetos no SSMS com o pool de SQL sem servidor do Azure Synapse Analytics, você precisa do SSMS 18.7 ou posterior. |
+| Pesquisador de Objetos | As versões do SSMS anteriores à 18.7 têm uma alteração da falha no Pesquisador de Objetos devido às alterações do mecanismo relacionadas ao [pool de SQL sem servidor do Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview). | Para continuar utilizando o Pesquisador de Objetos no SSMS com o pool de SQL sem servidor do Azure Synapse Analytics, você precisa do SSMS 18.7 ou posterior. |
 | Repositório de Consultas | O nó do pesquisador de objetos do Repositório de Consultas gera um erro ao clicar com o botão direito do mouse. | Acesse os itens diretamente expandindo o nó e clicando com o botão direito do mouse nas opções filho individuais. |
 
 ### <a name="186"></a>18.6

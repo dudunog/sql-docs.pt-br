@@ -16,12 +16,12 @@ ms.assetid: 5bf822fc-6dec-4806-a153-e200af28e9a5
 author: cawrites
 ms.author: chadam
 robots: noindex,nofollow
-ms.openlocfilehash: 837e1c099dba7d19100bdaf2216a2c0cf879c62e
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 8a136b1158f31cf6369bb29f404f4f6f58d6901c
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97482314"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172408"
 ---
 # <a name="installation-wizard-help"></a>Ajuda do Assistente de Instalação
 
@@ -365,11 +365,11 @@ Defina as configurações para **tempdb** de acordo com suas necessidades e carg
   
 * **Número de arquivos** é o número total de arquivos de dados para **tempdb**. O valor padrão é inferior a oito, ou o número de núcleos lógicos detectados pela Instalação. Como regra geral, se o número de processadores lógicos for menor ou igual a 8, use o mesmo número de arquivos de dados que o de processadores lógicos. Se o número de processadores lógicos for maior que 8, use 8 arquivos de dados. Se a contenção acontecer, aumente o número de arquivos de dados em múltiplos de quatro (até o número dos processadores lógicos) até que a contenção seja reduzida a níveis aceitáveis ou faça alterações no código ou na carga de trabalho.
   
-* **Tamanho inicial (MB)** é o tamanho inicial em megabytes de cada arquivo de dados **tempdb**. O valor padrão é 8 MB (ou 4 MB para [!INCLUDE[ssexpress](../../includes/ssexpress_md.md)]). [!INCLUDE[sssqlv14](../../includes/sssqlv14-md.md)] apresenta um tamanho do arquivo inicial máximo de 262.144 MB (256 GB). [!INCLUDE[sssql15](../../includes/sssql15-md.md)] tem um tamanho do arquivo inicial máximo de 1024 MB. Todos os arquivo de dados **tempdb** têm o mesmo tamanho inicial. Como o **tempdb** é recriado sempre que o SQL Server é iniciado ou passa por failover, especifique um tamanho próximo ao tamanho exigido por sua carga de trabalho para uma operação normal. Para otimizar ainda mais a criação de **tempdb** durante o início, habilite a [Inicialização instantânea de arquivo do banco de dados](../../relational-databases/databases/database-instant-file-initialization.md).  
+* **Tamanho inicial (MB)** é o tamanho inicial em megabytes de cada arquivo de dados **tempdb**. O valor padrão é 8 MB (ou 4 MB para [!INCLUDE[ssexpress](../../includes/ssexpress_md.md)]). [!INCLUDE[sssqlv14](../../includes/sssqlv14-md.md)] apresenta um tamanho do arquivo inicial máximo de 262.144 MB (256 GB). [!INCLUDE[sssql15](../../includes/sssql16-md.md)] tem um tamanho do arquivo inicial máximo de 1024 MB. Todos os arquivo de dados **tempdb** têm o mesmo tamanho inicial. Como o **tempdb** é recriado sempre que o SQL Server é iniciado ou passa por failover, especifique um tamanho próximo ao tamanho exigido por sua carga de trabalho para uma operação normal. Para otimizar ainda mais a criação de **tempdb** durante o início, habilite a [Inicialização instantânea de arquivo do banco de dados](../../relational-databases/databases/database-instant-file-initialization.md).  
   
 * **Tamanho inicial total (MB)** é o tamanho cumulativo de todos os arquivos de dados **tempdb**.  
   
-* **Expansão automática (MB)** é a quantidade de espaço em megabytes que cada arquivo de dados **tempdb** aumentará automaticamente quando ficar sem espaço. No [!INCLUDE[sssql15](../../includes/sssql15-md.md)] e posterior, todos os arquivos de dados aumentarão ao mesmo tempo conforme a quantidade especificada nessa configuração.  
+* **Expansão automática (MB)** é a quantidade de espaço em megabytes que cada arquivo de dados **tempdb** aumentará automaticamente quando ficar sem espaço. No [!INCLUDE[sssql15](../../includes/sssql16-md.md)] e posterior, todos os arquivos de dados aumentarão ao mesmo tempo conforme a quantidade especificada nessa configuração.  
   
 * **Expansão automática total (MB)** é o tamanho cumulativo de cada evento de expansão automática.  
 * **Diretórios de dados** mostra todos os diretórios que contêm arquivos de dados **tempdb**. Quando há vários diretórios, os arquivos de dados são colocados em diretórios por meio de um rodízio. Por exemplo, se você criar três diretórios e especificar oito arquivos de dados, os arquivos de dados 1, 4 e 7 serão criados no primeiro diretório. Os arquivos de dados 2, 5 e 8 serão criados no segundo diretório. Os arquivos de dados 3 e 6 estarão no terceiro diretório.  
@@ -380,7 +380,7 @@ Defina as configurações para **tempdb** de acordo com suas necessidades e carg
   
 **Arquivo de logs Tempdb** é o nome do arquivo de log. Esse arquivo é criado automaticamente. As configurações a seguir se aplicam apenas aos arquivos de dados **tempdb** :  
   
-* **Tamanho inicial (MB)** é o tamanho inicial do arquivo de log **tempdb** . O valor padrão é 8 MB (ou 4 MB para [!INCLUDE[ssexpress](../../includes/ssexpress_md.md)]). [!INCLUDE[sssqlv14](../../includes/sssqlv14-md.md)] apresenta um tamanho do arquivo inicial máximo de 262.144 MB (256 GB). [!INCLUDE[sssql15](../../includes/sssql15-md.md)] tem um tamanho do arquivo inicial máximo de 1024 MB. Como o **tempdb** é recriado sempre que o SQL Server é iniciado ou passa por failover, especifique um tamanho próximo ao tamanho exigido por sua carga de trabalho para uma operação normal. Para otimizar ainda mais a criação de **tempdb** durante o início, habilite a [Inicialização instantânea de arquivo do banco de dados](../../relational-databases/databases/database-instant-file-initialization.md).  
+* **Tamanho inicial (MB)** é o tamanho inicial do arquivo de log **tempdb** . O valor padrão é 8 MB (ou 4 MB para [!INCLUDE[ssexpress](../../includes/ssexpress_md.md)]). [!INCLUDE[sssqlv14](../../includes/sssqlv14-md.md)] apresenta um tamanho do arquivo inicial máximo de 262.144 MB (256 GB). [!INCLUDE[sssql15](../../includes/sssql16-md.md)] tem um tamanho do arquivo inicial máximo de 1024 MB. Como o **tempdb** é recriado sempre que o SQL Server é iniciado ou passa por failover, especifique um tamanho próximo ao tamanho exigido por sua carga de trabalho para uma operação normal. Para otimizar ainda mais a criação de **tempdb** durante o início, habilite a [Inicialização instantânea de arquivo do banco de dados](../../relational-databases/databases/database-instant-file-initialization.md).  
   
   > [!NOTE]
   > **Tempdb** usa o registro em log mínimo. O arquivo de log do **tempdb** não pode passar por backup. Ele é recriado sempre que o SQL Server é iniciado ou quando uma instância de cluster passa por failover.

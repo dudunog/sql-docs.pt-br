@@ -21,12 +21,12 @@ helpviewer_keywords:
 ms.assetid: 13e95046-0e76-4604-b561-d1a74dd824d7
 ms.author: mikeray
 author: MikeRayMSFT
-ms.openlocfilehash: 81a36f15a68d3b122a0ba7651c11bfb22fbfa2e2
-ms.sourcegitcommit: a41e1f4199785a2b8019a419a1f3dcdc15571044
+ms.openlocfilehash: 126ac3c36d7e72205c4e0268fcd4b1cedf993169
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91988552"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172378"
 ---
 # <a name="maximum-capacity-specifications-for-sql-server"></a>Especificações de capacidade máxima do SQL Server
 
@@ -56,7 +56,7 @@ Tamanhos e números máximos de vários objetos definidos nos bancos de dados do
 |Bytes por chave estrangeira|900||
 |Bytes por chave primária|900||
 |Bytes por linha|8,060|[!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] dá suporte ao armazenamento de estouro de linha, o que permite que colunas de comprimento variável sejam enviadas por push para fora da linha. Somente uma raiz de 24 bytes é armazenada no registro principal para colunas de comprimento variável empurradas para fora da linha. Esse recurso permite que o limite seja efetivamente maior do que nas versões anteriores do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]. Para saber mais, confira [Large Row Support](../relational-databases/pages-and-extents-architecture-guide.md#large-row-support) (Suporte de linha grande).|
-|Bytes por linha em tabelas com otimização de memória|8,060|Começando no [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] , as tabelas com otimização de memória dão suporte ao armazenamento fora da linha. Colunas de comprimento variável serão enviadas por push para fora da linha se os tamanhos máximos de todas as colunas na tabela excederem 8.060 bytes. Esta ação é uma decisão de tempo de compilação. Apenas uma referência de 8 bytes é armazenada na linha para colunas armazenadas fora de linha. Para obter mais informações, consulte [Tamanho da tabela e da linha em tabelas com otimização de memória](../relational-databases/in-memory-oltp/table-and-row-size-in-memory-optimized-tables.md).|
+|Bytes por linha em tabelas com otimização de memória|8,060|Começando no [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] , as tabelas com otimização de memória dão suporte ao armazenamento fora da linha. Colunas de comprimento variável serão enviadas por push para fora da linha se os tamanhos máximos de todas as colunas na tabela excederem 8.060 bytes. Esta ação é uma decisão de tempo de compilação. Apenas uma referência de 8 bytes é armazenada na linha para colunas armazenadas fora de linha. Para obter mais informações, consulte [Tamanho da tabela e da linha em tabelas com otimização de memória](../relational-databases/in-memory-oltp/table-and-row-size-in-memory-optimized-tables.md).|
 |Bytes em texto de fonte de um procedimento armazenado|Menor que o tamanho do lote ou 250 MB||
 |Bytes por coluna `varchar(max) `, `varbinary(max)`, `xml`, `text` ou `image`|2^31-1||
 |Caracteres por coluna `ntext` ou `nvarchar(max)`|2^30-1||
@@ -83,7 +83,7 @@ Tamanhos e números máximos de vários objetos definidos nos bancos de dados do
 |Referências de tabela de chave estrangeira por tabela|Saída = 253. Entrada= 10.000.|Para restrições, consulte [Create Foreign Key Relationships](../relational-databases/tables/create-foreign-key-relationships.md).|
 |Comprimento de identificador (em caracteres)|128||
 |Instâncias por computador|50 instâncias em um servidor autônomo.<br /><br />25 instâncias de cluster de failover ao usar discos de cluster compartilhados como armazenamento.<br/><br/>50 instâncias de cluster de failover com compartilhamentos de arquivos SMB como a opção de armazenamento.||
-|Índices por tabela com otimização de memória|999 a partir do [!INCLUDE[ssSQL17](../includes/ssSQL17-md.md)] e no [!INCLUDE[ssSDSFull](../includes/ssSDSFull-md.md)]<br/>8 no [!INCLUDE[ssSQL14](../includes/ssSQL14-md.md)] e [!INCLUDE[ssSQL15](../includes/ssSQL15-md.md)]||
+|Índices por tabela com otimização de memória|999 a partir do [!INCLUDE[ssSQL17](../includes/ssSQL17-md.md)] e no [!INCLUDE[ssSDSFull](../includes/ssSDSFull-md.md)]<br/>8 no [!INCLUDE[ssSQL14](../includes/ssSQL14-md.md)] e [!INCLUDE[ssSQL15](../includes/sssql16-md.md)]||
 |Comprimento de uma cadeia de caracteres que contém instruções SQL (tamanho do lote)|65.536 (tamanho do pacote de rede)|O tamanho do pacote de rede é o tamanho dos pacotes do protocolo TDS usados para comunicação entre aplicativos e o [!INCLUDE[ssDE](../includes/ssde-md.md)] relacional. O tamanho de pacote padrão é 4 KB e é controlado pela opção de configuração tamanho do pacote de rede.|
 |Bloqueios por conexão|Máximo de bloqueios por servidor||
 |Bloqueios por instância do [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]|Limitado somente por memória|Esse valor é para alocação de bloqueio estático. Os bloqueios dinâmicos são limitados somente por memória.|

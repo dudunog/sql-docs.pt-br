@@ -12,12 +12,12 @@ helpviewer_keywords:
 - failover clustering [SQL Server], upgrading
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 90ab761cdc9a84008803ebb4bc5493eb87778f20
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 4d9e3116902ae96eaa97e9624ea33ba3fa8952d3
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642670"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171578"
 ---
 # <a name="upgrade-sql-server-instances-running-on-windows-server-20082008-r22012-clusters"></a>Fazer upgrade das instâncias do SQL Server em execução em clusters do Windows Server 2008/2008 R2/2012
 
@@ -30,7 +30,7 @@ O [!INCLUDE[nextref-longhorn-md](../../../includes/nextref-longhorn-md.md)], [!I
 
 -   O cluster paralelo não deve ter nenhum [!INCLUDE[sshadrc-md](../../../includes/sshadrc-md.md)] instalado antes da migração.
 
--   O tempo de inatividade durante a migração de um cluster que usa estritamente Grupos de Disponibilidade (com ou sem FCIs do SQL) pode ser bastante limitado com Grupos de Disponibilidade Distribuídos, mas isso exige que todas as instâncias executem as versões [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] RTM (ou superior).
+-   O tempo de inatividade durante a migração de um cluster que usa estritamente Grupos de Disponibilidade (com ou sem FCIs do SQL) pode ser bastante limitado com Grupos de Disponibilidade Distribuídos, mas isso exige que todas as instâncias executem as versões [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] RTM (ou superior).
 
 -   Todas as estratégias de migração exigem a função sysadmin do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Todos os usuários do Windows usados pelos serviços do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] (ou seja, a conta do Windows que executa os agentes de replicação) devem ter as permissões no nível do sistema operacional em cada computador no novo ambiente.
 
@@ -54,11 +54,11 @@ A estratégia de migração adequada depende de determinados parâmetros da topo
 \* Excluindo nomes do ouvinte do Grupo de Disponibilidade
 
 ## <a name="scenario-1-windows-cluster-with-sql-server-availability-groups-and-no-failover-cluster-instances-fcis"></a>Cenário 1: Cluster do Windows com Grupos de Disponibilidade do SQL Server e nenhuma FCI (Instância do Cluster de Failover)
-Se você tiver uma instalação do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] que usa AGs (Grupos de Disponibilidade) e nenhuma instância de cluster de failover, poderá migrar para um novo cluster criando uma implantação paralela de [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] em um Cluster do Windows diferente com o Windows Server 2016/2012 R2. Depois disso, você poderá criar um AG distribuído em que o cluster de destino é o secundário para o cluster de produção atual. Isso exige que o usuário faça upgrade para o [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] ou superior.
+Se você tiver uma instalação do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] que usa AGs (Grupos de Disponibilidade) e nenhuma instância de cluster de failover, poderá migrar para um novo cluster criando uma implantação paralela de [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] em um Cluster do Windows diferente com o Windows Server 2016/2012 R2. Depois disso, você poderá criar um AG distribuído em que o cluster de destino é o secundário para o cluster de produção atual. Isso exige que o usuário faça upgrade para o [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] ou superior.
 
 ###  <a name="to-perform-the-upgrade"></a>Para fazer o upgrade
 
-1.  Se necessário, faça upgrade de todas as instâncias para o [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] ou superior. As instâncias paralelas devem executar a mesma versão do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)].
+1.  Se necessário, faça upgrade de todas as instâncias para o [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] ou superior. As instâncias paralelas devem executar a mesma versão do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)].
 
 2.  Crie um Grupo de Disponibilidade para o cluster de destino. Se o nó primário do cluster de destino não for uma FCI, crie um ouvinte.
 

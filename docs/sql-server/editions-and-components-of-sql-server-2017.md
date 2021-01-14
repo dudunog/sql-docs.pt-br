@@ -35,12 +35,12 @@ ms.assetid: ''
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>= sql-server-2017'
-ms.openlocfilehash: f5d591fb4ca068251cc0a4effbdd9477f80e4606
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 12e4018a5431284bbe7eb7f0faf5e930353c2880
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97402597"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98102635"
 ---
 # <a name="editions-and-supported-features-of-sql-server-2017"></a>Edições e recursos com suporte do SQL Server 2017
 [!INCLUDE[SQL Server 2017](../includes/applies-to-version/sqlserver2017.md)]
@@ -62,7 +62,7 @@ Para notas de versão mais recentes e informações sobre novidades, consulte o 
 
 ### <a name="try-sql-server"></a>Experimente o SQL Server    
     
-> [![Download no Centro de Avaliação](https://docs.microsoft.com/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/evalcenter/evaluate-sql-server-2017-ctp/) **[Download do SQL Server 2017 no Centro de Avaliação](https://www.microsoft.com/evalcenter/evaluate-sql-server-2017-ctp/)**    
+> [![Download no Centro de Avaliação](/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/evalcenter/evaluate-sql-server-2017-ctp/) **[Download do SQL Server 2017 no Centro de Avaliação](https://www.microsoft.com/evalcenter/evaluate-sql-server-2017-ctp/)**    
 
 <!---    
 > ![Azure Virtual Machine small](/analysis-services/analysis-services/media/azure-virtual-machine-small.png) **[Spin up a Virtual Machine with SQL Server 2016 already installed](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview?wt.mc_id=sqL16_vm)**   
@@ -400,7 +400,7 @@ Para obter informações sobre os recursos do Business Intelligence Client compa
 |StreamInsight|StreamInsight Premium Edition|StreamInsight Standard Edition|StreamInsight Standard Edition|Não|Não| 
 |StreamInsight HA|StreamInsight Premium Edition|Não|Não|Não|Não|   
 
-> [![Baixar o SSMS](https://docs.microsoft.com/analysis-services/analysis-services/media/download.png)](../ssms/download-sql-server-management-studio-ssms.md) **[Baixar a versão mais recente do SQL Server Management Studio](../ssms/download-sql-server-management-studio-ssms.md)**     
+> [![Baixar o SSMS](/analysis-services/analysis-services/media/download.png)](../ssms/download-sql-server-management-studio-ssms.md) **[Baixar a versão mais recente do SQL Server Management Studio](../ssms/download-sql-server-management-studio-ssms.md)**     
   
 ## <a name="next-steps"></a>Próximas etapas 
  [Especificações de produto para o SQL Server](./index.yml)   

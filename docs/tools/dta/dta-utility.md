@@ -21,12 +21,12 @@ ms.author: maghan
 ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 01/09/2017
-ms.openlocfilehash: ebeb72707e1dd65344b30ffe88c0ae5b4425f796
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: a80c3fc49962ad4a67430163f81d00b37c05329b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85786014"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98169214"
 ---
 # <a name="dta-utility"></a>utilitário dta
 
@@ -84,7 +84,7 @@ dta
  Exibe informações de uso.  
   
  **-A** _time_for_tuning_in_minutes_  
- Especifica o prazo de ajuste em minutos. O**dta** usa a quantidade especificada de tempo para ajustar a carga de trabalho e gerar um script com as mudanças de design físico recomendadas. Por padrão, o **dta** assume um tempo de ajuste de 8 horas. Especificar 0 permite um tempo de ajuste ilimitado. O**dta** pode terminar o ajuste da carga de trabalho inteira antes que o prazo expire. No entanto, para garantir que a carga de trabalho inteira seja ajustada, é aconselhável que você especifique um tempo de ajuste ilimitado (-A 0).  
+ Especifica o prazo de ajuste em minutos. O **dta** usa a quantidade especificada de tempo para ajustar a carga de trabalho e gerar um script com as mudanças de design físico recomendadas. Por padrão, o **dta** assume um tempo de ajuste de 8 horas. Especificar 0 permite um tempo de ajuste ilimitado. O **dta** pode terminar o ajuste da carga de trabalho inteira antes que o prazo expire. No entanto, para garantir que a carga de trabalho inteira seja ajustada, é aconselhável que você especifique um tempo de ajuste ilimitado (-A 0).  
   
  **-a**  
  Ajusta a carga de trabalho e aplica a recomendação sem uma solicitação.  
@@ -102,7 +102,7 @@ dta
  Especifica o número máximo de colunas nos índices proposto por **dta** . O valor máximo é 1024. Por padrão, esse argumento é definido como 16.  
   
  **-c** _max_key_columns_in_index_  
- Especifica o número máximo de colunas principais nos índices proposto por **dta** . O valor padrão é 16, o valor máximo permitido. O**dta** também considera a criação de índices com colunas incluídas. Os índices recomendados com colunas incluídas podem exceder o número de colunas especificado neste argumento.  
+ Especifica o número máximo de colunas principais nos índices proposto por **dta** . O valor padrão é 16, o valor máximo permitido. O **dta** também considera a criação de índices com colunas incluídas. Os índices recomendados com colunas incluídas podem exceder o número de colunas especificado neste argumento.  
   
  **-D** _database_name_  
  Especifica o nome de cada banco de dados que será ajustado. O primeiro banco de dados é o banco de dados padrão. É possível especificar bancos de dados múltiplos separando os nomes do banco de dados com vírgulas, por exemplo:  
@@ -164,7 +164,7 @@ dta -d AdventureWorks2012 ...
 >  O utilitário **dta** não excluirá o conteúdo das tabelas de log de ajuste especificadas pelo usuário se a sessão for excluída. Ao ajustar cargas de trabalho muito grandes, é recomendável que uma tabela seja especificada para o log de ajuste. Como o ajuste de cargas de trabalho grandes pode resultar em logs de ajuste grandes, as sessões podem ser excluídas muito mais rapidamente ao usar uma tabela.  
   
  **-F**  
- Permite que **dta** substitua um arquivo de saída existente. Se um arquivo de saída com o mesmo nome já existir e **-F** não for especificado, **dta**retornará um erro. Você pode usar **-F** com **-of**, **-or**ou **-ox**.  
+ Permite que **dta** substitua um arquivo de saída existente. Se um arquivo de saída com o mesmo nome já existir e **-F** não for especificado, **dta** retornará um erro. Você pode usar **-F** com **-of**, **-or** ou **-ox**.  
   
  **-fa** _physical_design_structures_to_add_  
  Especifica que tipos de estruturas de design físico **dta** deve incluir na recomendação. A tabela a seguir lista e descreve os valores que podem ser especificados para esse argumento. Quando nenhum valor é especificado, **dta** usa o padrão **-fa IDX**.  
@@ -184,7 +184,7 @@ dta -d AdventureWorks2012 ...
 [Recomendações de índice columnstore no Orientador de Otimização do Mecanismo de Banco de Dados (DTA)](../../relational-databases/performance/columnstore-index-recommendations-in-database-engine-tuning-advisor-dta.md).
  ||  
 |-|  
-|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.|  
+|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.|  
 
   
  **-fk** _keep_existing_option_  
@@ -210,7 +210,7 @@ dta -d AdventureWorks2012 ...
  ALIGNED significa que, na recomendação gerada por **dta** , todo índice proposto é particionado exatamente do mesmo modo que a tabela subjacente para a qual o índice foi definido. Índices não clusterizados em uma exibição indexada são alinhados com a exibição indexada. Só um valor pode ser especificado para esse argumento. O padrão é **-fp NONE**.  
   
  **-fx** _drop_only_mode_  
- Especifica que **dta** só considera a remoção das estruturas de design físico existentes. Nenhuma estrutura de design físico nova é considerada. Quando esta opção é especificada, o **dta** avalia a utilidade de estruturas de design físico existentes e recomenda descartar as estruturas raramente usadas. Este argumento não leva nenhum valor. Não pode ser usado com os argumentos **-fa**, **-fp**ou **-fk ALL**  
+ Especifica que **dta** só considera a remoção das estruturas de design físico existentes. Nenhuma estrutura de design físico nova é considerada. Quando esta opção é especificada, o **dta** avalia a utilidade de estruturas de design físico existentes e recomenda descartar as estruturas raramente usadas. Este argumento não leva nenhum valor. Não pode ser usado com os argumentos **-fa**, **-fp** ou **-fk ALL**  
   
  **-ID** _session_ID_  
  Especifica um identificador numérico para a sessão de ajuste. Se não estiver especificado, **dta** gerará um número de identificação. Você pode usar esse identificador para exibir informações para sessões de ajuste existentes. Se você não especificar um valor para **-ID**, um nome de sessão deverá ser especificado com **-s**.  
@@ -222,7 +222,7 @@ dta -d AdventureWorks2012 ...
  Especifica que o Repositório de Consultas seja usado como a carga de trabalho. Os mil principais eventos do Repositório de Consultas para bancos de dados explicitamente selecionados são analisados. Esse valor pode ser alterado usando a opção **-n**.  Confira [Repositório de Consultas](../../relational-databases/performance/how-query-store-collects-data.md) e [Ajustando o banco de dados usando a carga de trabalho do Repositório de Consultas](../../relational-databases/performance/tuning-database-using-workload-from-query-store.md) para obter mais informações.
  ||  
 |-|  
-|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.|  
+|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.|  
      
  **-if** _workload_file_  
  Especifica o caminho e o nome do arquivo de carga de trabalho a ser usado como entrada para ajuste. O arquivo deve estar em um destes formatos: .trc (arquivo de rastreamento do SQL Server Profiler), .sql (arquivo SQL) ou .log (arquivo de rastreamento do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]). Um arquivo de carga de trabalho ou uma tabela de carga de trabalho deve ser especificada.  
@@ -281,7 +281,7 @@ dta -iq -I 48
 Neste caso, o DTA usará o Repositório de Consultas como a origem da carga de trabalho e apenas considerará as consultas executadas nas últimas 48 horas.  
   ||  
 |-|  
-|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.|  
+|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.|  
 
 
   
@@ -409,7 +409,7 @@ AdventureWorks2012.Production.Product  2000000
 
 O conteúdo de table_list.txt especifica que:  
 
-- Deve-se ajustar apenas as tabelas **Customer**, **Store**e **Product** no banco de dados.  
+- Deve-se ajustar apenas as tabelas **Customer**, **Store** e **Product** no banco de dados.  
   
 - Presume-se que o número de linhas nas tabelas **Customer** e **Product** seja 100.000 e 2.000.000, respectivamente.  
   

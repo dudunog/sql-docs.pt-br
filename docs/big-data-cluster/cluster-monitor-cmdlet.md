@@ -10,22 +10,22 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: 80535a9baefe60301927723511a5bf1afeb805a8
-ms.sourcegitcommit: 29a2be59c56f8a4b630af47760ef38d2bf56a3eb
+ms.openlocfilehash: be07fa7f00f38f4f7ff3782593b19a584627e2f7
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378338"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091694"
 ---
 # <a name="monitor-cluster-with-azdata-and-kubectl"></a>Monitorar cluster com azdata e kubectl
 
 ## <a name="use-azdata"></a>Usar azdata
 
-Você também pode usar comandos [azdata](deploy-install-azdata.md) para exibir os pontos de extremidade e o status do cluster.
+Você também pode usar comandos [azdata](../azdata/install/deploy-install-azdata.md) para exibir os pontos de extremidade e o status do cluster.
 
 ### <a name="service-endpoints"></a>Pontos de extremidade de serviço
 
-1. Faça logon no cluster de Big Data usando [azdata login](reference-azdata.md). Defina o parâmetro **--controller-endpoint** como o endereço IP externo do ponto de extremidade do controlador.
+1. Faça logon no cluster de Big Data usando [azdata login](../azdata/reference/reference-azdata.md). Defina o parâmetro **--controller-endpoint** como o endereço IP externo do ponto de extremidade do controlador.
 
    ```bash
    azdata login --endpoint https://<ip-address-of-controller-svc-external>:30080 --username <user-name>
@@ -39,7 +39,7 @@ Você também pode usar comandos [azdata](deploy-install-azdata.md) para exibir 
    azdata login --endpoint https://<control_domain_name>:30080 --auth ad
    ```
 
-1. Execute [`azdata bdc endpoint list`](reference-azdata-bdc-endpoint.md) para obter uma lista com uma descrição de cada ponto de extremidade e seus valores de porta e endereço IP correspondentes. 
+1. Execute [`azdata bdc endpoint list`](../azdata/reference/reference-azdata-bdc-endpoint.md) para obter uma lista com uma descrição de cada ponto de extremidade e seus valores de porta e endereço IP correspondentes. 
 
    ```bash
    azdata bdc endpoint list -o table
@@ -65,14 +65,14 @@ Você também pode usar comandos [azdata](deploy-install-azdata.md) para exibir 
 
 ### <a name="view-cluster-status"></a>Exibir status do cluster
 
-Você pode exibir o status do cluster com o comando [`azdata bdc status show`](reference-azdata-bdc-status.md).
+Você pode exibir o status do cluster com o comando [`azdata bdc status show`](../azdata/reference/reference-azdata-bdc-status.md).
 
 ```bash
 azdata bdc status show
 ```
 
 > [!TIP]
-> Para executar os comandos de status, primeiro você precisa fazer logon usando o comando **azdata login** , que foi mostrado na seção anterior sobre pontos de extremidade.
+> Para executar os comandos de status, primeiro você precisa fazer logon usando o comando **azdata login**, que foi mostrado na seção anterior sobre pontos de extremidade.
 
 Veja a seguir a saída de exemplo deste comando:
 
@@ -150,7 +150,7 @@ Veja a seguir a saída de exemplo deste comando:
 
 ### <a name="view-specific-resource-status"></a>Exibir o status do recurso específico
 
-Você pode exibir o status de um recurso específico dentro do cluster usando o comando o [azdata bdc status show](reference-azdata-bdc-status.md). Ao usar esse comando, você pode filtrar usando o parâmetro `--resource`. Alguns exemplos de entradas para o parâmetro `--resource` são:
+Você pode exibir o status de um recurso específico dentro do cluster usando o comando o [azdata bdc status show](../azdata/reference/reference-azdata-bdc-status.md). Ao usar esse comando, você pode filtrar usando o parâmetro `--resource`. Alguns exemplos de entradas para o parâmetro `--resource` são:
 
 - master
 - controle
@@ -242,7 +242,7 @@ Aqui está uma amostra de saída:
 
 ### <a name="view-controller-status"></a>Exibir status do controlador
 
-Você pode exibir o status do controlador com o comando [`azdata bdc control status show`](reference-azdata-bdc-control-status.md). Ele fornece links semelhantes aos painéis de monitoramento relacionados aos componentes do controlador do cluster de Big Data.
+Você pode exibir o status do controlador com o comando [`azdata bdc control status show`](../azdata/reference/reference-azdata-bdc-control-status.md). Ele fornece links semelhantes aos painéis de monitoramento relacionados aos componentes do controlador do cluster de Big Data.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -10,12 +10,12 @@ ms.date: 10/01/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: 66b405f020728c0ed7040a712d56bcadc3180e38
-ms.sourcegitcommit: 29a2be59c56f8a4b630af47760ef38d2bf56a3eb
+ms.openlocfilehash: 55dc3056b9f66f7a96b55ab750a5f74fe9bfd394
+ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378337"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98091706"
 ---
 # <a name="check-out-cluster-logs--with-kibana-dashboard"></a>Confira os logs de cluster com o painel do Kibana
 
@@ -24,18 +24,18 @@ Este artigo descreve como monitorar um aplicativo em um Cluster de Big Data do S
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Cluster de Big Data do SQL Server 2019](deployment-guidance.md)
-- [Utilitário de linha de comando azdata](deploy-install-azdata.md)
+- [Utilitário de linha de comando azdata](../azdata/install/deploy-install-azdata.md)
 
 ## <a name="capabilities"></a>Funcionalidades
 
-No SQL Server 2019, você pode criar, excluir, descrever, inicializar, listar, executar e atualizar seu aplicativo. A tabela a seguir descreve os comandos de implantação de aplicativos que você pode usar com o **azdata** .
+No SQL Server 2019, você pode criar, excluir, descrever, inicializar, listar, executar e atualizar seu aplicativo. A tabela a seguir descreve os comandos de implantação de aplicativos que você pode usar com o **azdata**.
 
 |Comando |Descrição |
 |:---|:---|
 |`azdata bdc endpoint list` | Lista os pontos de extremidade para o cluster de Big Data. |
 
 
-Use o seguinte exemplo para listar o ponto de extremidade do **painel do Kibana** :
+Use o seguinte exemplo para listar o ponto de extremidade do **painel do Kibana**:
 
 ```bash
 azdata bdc endpoint list --endpoint-name logsui 
