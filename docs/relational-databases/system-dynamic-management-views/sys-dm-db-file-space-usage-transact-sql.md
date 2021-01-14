@@ -21,12 +21,12 @@ ms.assetid: 148a5276-a8d5-49d2-8146-3c63d24c2144
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: bca14dfbb84763a15791aa4bdefc8b857df9e87e
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 93bbb10cd8274b79aca1b40217f15b1ea19f65f4
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98095154"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172128"
 ---
 # <a name="sysdm_db_file_space_usage-transact-sql"></a>sys.dm_db_file_space_usage (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "98095154"
 |user_object_reserved_page_count|**bigint**|Número total de páginas alocadas de extensões uniformes para objetos de usuário no banco de dados. Páginas não usadas de uma extensão alocada são incluídas na contagem.<br /><br /> Páginas IAM não são incluídas, pois são sempre são alocadas de extensões mistas. As páginas PFS serão incluídas se forem alocadas de uma extensão uniforme.<br /><br /> Você pode usar a coluna total_pages na exibição de catálogo [Sys.allocation_units](../../relational-databases/system-catalog-views/sys-allocation-units-transact-sql.md) para retornar a contagem de páginas reservadas de cada unidade de alocação no objeto de usuário. No entanto, observe que a coluna total_pages inclui páginas IAM.|  
 |internal_object_reserved_page_count|**bigint**|Número total de páginas nas extensões uniformes alocadas para objetos internos no arquivo. Páginas não usadas de uma extensão alocada são incluídas na contagem.<br /><br /> Páginas IAM não são incluídas, pois são sempre são alocadas de extensões mistas. As páginas PFS serão incluídas se forem alocadas de uma extensão uniforme.<br /><br /> Não há exibição do catálogo ou objeto de gerenciamento dinâmico que retorne a contagem de páginas de cada objeto interno.|  
 |mixed_extent_page_count|**bigint**|Número total de páginas alocadas e não alocadas nas extensões mistas alocadas no arquivo. As extensões mistas contêm páginas alocadas a objetos diferentes. Essa contagem inclui todas as páginas IAM no arquivo.|
-|modified_extent_page_count|**bigint**|**Aplica-se ao**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 e posterior.<br /><br />Número total de páginas modificadas em extensões alocadas do arquivo desde o último backup completo do banco de dados. A contagem de páginas modificadas pode ser usada para rastrear a quantidade de alterações diferenciais no banco de dados desde o último backup completo, para decidir se o backup diferencial é necessário.|
+|modified_extent_page_count|**bigint**|**Aplica-se ao**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 e posterior.<br /><br />Número total de páginas modificadas em extensões alocadas do arquivo desde o último backup completo do banco de dados. A contagem de páginas modificadas pode ser usada para rastrear a quantidade de alterações diferenciais no banco de dados desde o último backup completo, para decidir se o backup diferencial é necessário.|
 |pdw_node_id|**int**|**Aplica-se a**: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] , [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]<br /><br /> O identificador do nó em que essa distribuição está.|  
 |distribution_id|**int**|**Aplica-se a**: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] , [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]<br /><br /> A ID numérica exclusiva associada à distribuição.|  
   

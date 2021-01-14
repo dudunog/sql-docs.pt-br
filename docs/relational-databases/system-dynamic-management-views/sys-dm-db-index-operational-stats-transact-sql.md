@@ -21,12 +21,12 @@ ms.assetid: 13adf2e5-2150-40a6-b346-e74a33ce29c6
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a6eb4083361d07fee44557d20dd4be4625cbdb12
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 819d0388ca7b358bb9b6cf455cfb061a1a38fd9a
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98095156"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172168"
 ---
 # <a name="sysdm_db_index_operational_stats-transact-sql"></a>sys.dm_db_index_operational_stats (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -91,7 +91,7 @@ sys.dm_db_index_operational_stats (
 |**object_id**|**int**|ID da tabela ou exibição.|    
 |**index_id**|**int**|ID do índice ou heap.<br /><br /> 0 = Heap| 
 |**partition_number**|**int**|Número de partição com base 1 no índice ou heap.| 
-|**hobt_id**|**bigint**|**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ( [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] até a [versão atual](../../sql-server/what-s-new-in-sql-server-2016.md)), [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] .<br /><br /> ID do conjunto de linhas de heap ou árvore B de dados que controla dados internos para um índice columnstore.<br /><br /> NULL-este não é um conjunto de linhas columnstore interno.<br /><br /> Para obter mais detalhes, consulte [sys.internal_partitions &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-internal-partitions-transact-sql.md)|       
+|**hobt_id**|**bigint**|**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ( [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] até a [versão atual](../../sql-server/what-s-new-in-sql-server-2016.md)), [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] .<br /><br /> ID do conjunto de linhas de heap ou árvore B de dados que controla dados internos para um índice columnstore.<br /><br /> NULL-este não é um conjunto de linhas columnstore interno.<br /><br /> Para obter mais detalhes, consulte [sys.internal_partitions &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-internal-partitions-transact-sql.md)|       
 |**leaf_insert_count**|**bigint**|Contagem cumulativa de inserções de nível folha.|    
 |**leaf_delete_count**|**bigint**|Contagem cumulativa de exclusões de nível folha. leaf_delete_count é incrementado apenas para registros excluídos que não são marcados como fantasma primeiro. Para registros excluídos que são fantasmas primeiro, **leaf_ghost_count** é incrementado em vez disso.|    
 |**leaf_update_count**|**bigint**|Contagem cumulativa de atualizações de nível folha.|    

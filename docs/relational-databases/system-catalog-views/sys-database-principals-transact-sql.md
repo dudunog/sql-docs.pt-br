@@ -21,12 +21,12 @@ ms.assetid: 8cb239e9-eb8c-4109-9cec-0d35de95fa0e
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: cf190b2c0a973db9e2955cd928e1b716d847d26b
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 43fb4dff1730aa0d8e19d411838f76b965fbca01
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97467017"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171988"
 ---
 # <a name="sysdatabase_principals-transact-sql"></a>sys.database_principals (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "97467017"
 |**authentication_type_desc**|**nvarchar(60)**|**Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior.<br /><br /> Descrição do tipo de autenticação. A seguir estão os possíveis valores e suas descrições.<br /><br /> NENHUM: sem autenticação<br />INSTÂNCIA: autenticação de instância<br />BANCO de dados: autenticação de banco de dados<br />WINDOWS: autenticação do Windows<br />EXTERNO: autenticação de Azure Active Directory|  
 |**default_language_name**|**sysname**|**Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior.<br /><br /> Significa o idioma padrão para esta entidade de segurança.|  
 |**default_language_lcid**|**int**|**Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior.<br /><br /> Significa o LCID padrão para esta entidade de segurança.|  
-|**allow_encrypted_value_modifications**|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] e posterior, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Suprime as verificações de metadados criptográficos no servidor em operações de cópia em massa. Isso permite que o usuário Copie dados em massa criptografados usando Always Encrypted, entre tabelas ou bancos de dados, sem descriptografá-los. O padrão é OFF. |      
+|**allow_encrypted_value_modifications**|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] e posterior, [!INCLUDE[ssSDS_md](../../includes/sssds-md.md)].<br /><br /> Suprime as verificações de metadados criptográficos no servidor em operações de cópia em massa. Isso permite que o usuário Copie dados em massa criptografados usando Always Encrypted, entre tabelas ou bancos de dados, sem descriptografá-los. O padrão é OFF. |      
   
 ## <a name="remarks"></a>Comentários  
  As propriedades *PasswordLastSetTime* estão disponíveis em todas as configurações com suporte de SQL Server, mas as outras propriedades só estarão disponíveis quando SQL Server estiver em execução no Windows Server 2003 ou posterior e CHECK_POLICY e CHECK_EXPIRATION estiverem habilitados. Consulte [política de senha](../../relational-databases/security/password-policy.md) para obter mais informações.

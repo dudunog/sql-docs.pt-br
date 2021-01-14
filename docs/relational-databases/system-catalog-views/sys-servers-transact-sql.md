@@ -21,12 +21,12 @@ ms.assetid: 4e774ed9-4e83-4726-9f1d-8efde8f9feff
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017
-ms.openlocfilehash: 542db6b144471e2942bb160f1b91d7e2628ace69
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 5324370d1635914fbf6436e97cfaaee7d062329b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097878"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171658"
 ---
 # <a name="sysservers-transact-sql"></a>sys.servers (Transact-SQL)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -60,7 +60,7 @@ ms.locfileid: "98097878"
 |**is_nonsql_subscriber**|**bit**|Servidor não é um Assinante de replicação.|  
 |**is_remote_proc_transaction_promotion_enabled**|**bit**|Se 1, chamando um procedimento armazenado remoto dará início a uma transação distribuída e inscrever a transação com o MS DTC. Para obter mais informações, consulte [sp_serveroption &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-serveroption-transact-sql.md).|  
 |**modify_date**|**datetime**|Data em que as informações do servidor foram alteradas pela última vez.|  
-|**is_rda_server**|**bit**|**Aplica-se a:** A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] .<br /><br />O servidor é o arquivo morto de dados remotos habilitar (habilitado para Stretch). Para obter mais informações, consulte [habilitar Stretch Database no servidor](../../sql-server/stretch-database/enable-stretch-database-for-a-database.md#EnableTSQLServer).|
+|**is_rda_server**|**bit**|**Aplica-se a:** A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] .<br /><br />O servidor é o arquivo morto de dados remotos habilitar (habilitado para Stretch). Para obter mais informações, consulte [habilitar Stretch Database no servidor](../../sql-server/stretch-database/enable-stretch-database-for-a-database.md#EnableTSQLServer).|
   
 ## <a name="permissions"></a>Permissões  
  O valor em **provider_string** é sempre nulo, a menos que o chamador tenha a permissão ALTER ANY linkd Server.  

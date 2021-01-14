@@ -18,12 +18,12 @@ ms.assetid: ''
 author: jovanpop-msft
 ms.author: jovanpop
 monikerRange: =azuresqldb-current||>=sql-server-2017||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 57a595a2bcb78d86c3a770db6b584974c229a0df
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 9c01a9e02576d666c39df13dc6e7e01f6d622a7d
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97483648"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98169868"
 ---
 # <a name="automatic-tuning"></a>Ajuste automático
 [!INCLUDE[sqlserver2017-asdb](../../includes/applies-to-version/sqlserver2017-asdb.md)]
@@ -99,7 +99,7 @@ Sem o ajuste automático, os usuários devem monitorar periodicamente o sistema 
 
 [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] fornece todas as exibições e os procedimentos necessários para monitorar o desempenho e corrigir problemas no Repositório de Consultas.
 
-No [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)] , você pode encontrar regressões de escolha de plano usando exibições do sistema repositório de consultas. A partir [!INCLUDE[sssqlv14-md](../../includes/sssqlv14-md.md)] do, o [!INCLUDE[ssde_md](../../includes/ssde_md.md)] detecta e mostra regressões de escolha de plano potencial e as ações recomendadas que devem ser aplicadas no [Sys.dm_db_tuning_recommendations &#40;DMV Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-tuning-recommendations-transact-sql.md) . A DMV mostra informações sobre o problema, a importância do problema e detalhes como a consulta identificada, a ID do plano regressivo, a ID do plano que foi usado como linha de base para comparação e a [!INCLUDE[tsql_md](../../includes/tsql-md.md)] instrução que pode ser executada para corrigir o problema.
+No [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)] , você pode encontrar regressões de escolha de plano usando exibições do sistema repositório de consultas. A partir [!INCLUDE[sssqlv14-md](../../includes/sssqlv14-md.md)] do, o [!INCLUDE[ssde_md](../../includes/ssde_md.md)] detecta e mostra regressões de escolha de plano potencial e as ações recomendadas que devem ser aplicadas no [Sys.dm_db_tuning_recommendations &#40;DMV Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-tuning-recommendations-transact-sql.md) . A DMV mostra informações sobre o problema, a importância do problema e detalhes como a consulta identificada, a ID do plano regressivo, a ID do plano que foi usado como linha de base para comparação e a [!INCLUDE[tsql_md](../../includes/tsql-md.md)] instrução que pode ser executada para corrigir o problema.
 
 | tipo | descrição | DATETIME | score | detalhes | ... |
 | --- | --- | --- | --- | --- | --- |

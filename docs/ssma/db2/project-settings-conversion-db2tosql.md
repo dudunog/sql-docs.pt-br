@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: 538c93cf-c5bb-43d5-b758-186d9fb00c19
 author: nahk-ivanov
 ms.author: alexiva
-ms.openlocfilehash: 165287fd2d699c56dc635d85fd58a1b081a497a4
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 2f39965e87911f7fef8d50c0b0888d552a451a90
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88427028"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172648"
 ---
 # <a name="project-settings-conversion-db2tosql"></a>Configurações do projeto (conversão) (DB2ToSQL)
 A página conversão da caixa de diálogo **configurações do projeto** contém configurações que personalizam como o SSMA converte a sintaxe do DB2 em [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] sintaxe.  
@@ -360,7 +360,7 @@ Quando você seleciona um modo de conversão na caixa **modo** , o SSMA aplica a
 **Modo padrão/otimista/completo:** Linha  
   
 ### <a name="use-isnull-in-string-concatenation"></a>Usar ISNULL em concatenação de cadeia de caracteres  
-DB2 e [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] retornam resultados diferentes quando as concatenações de cadeia de caracteres incluem valores nulos. O DB2 trata o valor nulo como um conjunto de caracteres vazio. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Retorna NULL.  
+DB2 e [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] retornam resultados diferentes quando as concatenações de cadeia de caracteres incluem valores nulos. O DB2 trata o valor nulo como um conjunto de caracteres vazio. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] retorna NULL.  
   
 -   Se você selecionar **Sim**, o SSMA substituirá o caractere de concatenação do DB2 (| |) pelo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] caractere de concatenação (+). O SSMA também verifica as expressões em ambos os lados da concatenação para valores nulos.  
   

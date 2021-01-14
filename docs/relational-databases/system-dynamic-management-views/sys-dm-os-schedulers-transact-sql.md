@@ -21,12 +21,12 @@ ms.assetid: 3a09d81b-55d5-416f-9cda-1a3a5492abe0
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a6ac7202b637b6760d88756aef60a722f99f5b7b
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 6a2d8ed3f8eb3aa5a89ee7176863165a2a0a0b74
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099804"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171718"
 ---
 # <a name="sysdm_os_schedulers-transact-sql"></a>sys.dm_os_schedulers (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -62,9 +62,9 @@ ms.locfileid: "98099804"
 |memory_object_address|**varbinary (8)**|Endereço de memória do objeto de memória do agendador. Não é NULLABLE.|  
 |task_memory_object_address|**varbinary (8)**|Endereço de memória do objeto de memória da tarefa. Não permite valor nulo. Para obter mais informações, consulte [sys.dm_os_memory_objects &#40;&#41;Transact-SQL ](../../relational-databases/system-dynamic-management-views/sys-dm-os-memory-objects-transact-sql.md).|  
 |quantum_length_us|**bigint**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)] Expõe o quantum do agendador usado por SQLOS.|  
-| total_cpu_usage_ms |**bigint**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior <br><br> Total de CPU consumida por este Agendador conforme relatado por trabalhadores não preemptivos. Não permite valor nulo.|
+| total_cpu_usage_ms |**bigint**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior <br><br> Total de CPU consumida por este Agendador conforme relatado por trabalhadores não preemptivos. Não permite valor nulo.|
 |total_cpu_idle_capped_ms|**bigint**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)] Indica a limitação com base no [objetivo de nível de serviço](/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu#service-level-objective), sempre será 0 para versões não Azure do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . Permite valor nulo.|
-|total_scheduler_delay_ms|**bigint**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior <br><br> O tempo entre um trabalho alternando e outro alternando. Pode ser causado por trabalhos preventivos atrasando o agendamento do próximo trabalho não preemptivo ou devido aos threads de agendamento do sistema operacional de outros processos. Não permite valor nulo.|
+|total_scheduler_delay_ms|**bigint**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior <br><br> O tempo entre um trabalho alternando e outro alternando. Pode ser causado por trabalhos preventivos atrasando o agendamento do próximo trabalho não preemptivo ou devido aos threads de agendamento do sistema operacional de outros processos. Não permite valor nulo.|
 |ideal_workers_limit|**int**|**Aplica-se a**: [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] e posterior <br><br> Quantos trabalhadores devem ser ideais no Agendador. Se os trabalhos atuais excederem o limite devido à carga de tarefa desbalanceada, quando eles ficarem ociosos, eles serão cortados. Não permite valor nulo.|
 |pdw_node_id|**int**|**Aplica-se a**: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] , [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]<br /><br /> O identificador do nó em que essa distribuição está.|  
   

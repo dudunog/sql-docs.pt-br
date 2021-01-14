@@ -21,12 +21,12 @@ ms.assetid: 8c42eba1-c19f-4045-ac82-b97a5e994090
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: c20bbd88f7f65ce16029913a63c4516aa935dbb3
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 0f033d0b414fab40a33a34490a0ef7ff08a2c232
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094456"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171128"
 ---
 # <a name="systables-transact-sql"></a>sys.tables (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -55,11 +55,11 @@ ms.locfileid: "98094456"
 |durabilidade|**tinyint**|**Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> O valores possíveis são os seguintes:<br /><br /> 0 = SCHEMA_AND_DATA<br /><br /> 1 = SCHEMA_ONLY<br /><br /> O valor de 0 é o valor padrão.|  
 |durability_desc|**nvarchar(60)**|**Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> O valores possíveis são os seguintes:<br /><br /> SCHEMA_ONLY<br /><br /> SCHEMA_AND_DATA<br /><br /> O valor de SCHEMA_AND_DATA indica que a tabela é uma tabela na memória e durável. SCHEMA_AND_DATA é o valor padrão para tabelas com otimização de memória. O valor de SCHEMA_ONLY indica que os dados da tabela não serão mantidos na reinicialização do banco de dados com objetos com otimização de memória.|  
 |is_memory_optimized|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> O valores possíveis são os seguintes:<br /><br /> 0 = sem otimização de memória.<br /><br /> 1 = com otimização de memória.<br /><br /> Um valor de 0 é o valor padrão.<br /><br /> As tabelas com otimização de memória são tabelas de usuário na memória, o esquema que é persistido em disco semelhante a outras tabelas de usuário. As tabelas otimizadas em memória podem ser acessadas de procedimentos armazenados compilados nativamente.|  
-|temporal_type|**tinyint**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> O valor numérico que representa o tipo de tabela:<br /><br /> 0 = NON_TEMPORAL_TABLE<br /><br /> 1 = HISTORY_TABLE<br /><br /> 2 = SYSTEM_VERSIONED_TEMPORAL_TABLE|  
-|temporal_type_desc|**nvarchar(60)**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> A descrição de texto do tipo de tabela:<br /><br /> NON_TEMPORAL_TABLE<br /><br /> HISTORY_TABLE<br /><br /> SYSTEM_VERSIONED_TEMPORAL_TABLE|  
-|history_table_id|**int**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Quando temporal_type em (2, 4) retorna object_id da tabela que mantém os dados históricos; caso contrário, retorna NULL.|  
-|is_remote_data_archive_enabled|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]<br /><br /> Indica se a tabela está habilitada para Stretch.<br /><br /> 0 = a tabela não está habilitada para Stretch.<br /><br /> 1 = a tabela é habilitada para Stretch.<br /><br /> Para obter mais informações, consulte [Stretch Database](../../sql-server/stretch-database/stretch-database.md).|  
-|is_external|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior, [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)] e [!INCLUDE[sssdwfull](../../includes/sssdwfull-md.md)] .<br /><br /> Indica que a tabela é uma tabela externa.<br /><br /> 0 = a tabela não é uma tabela externa.<br /><br /> 1 = a tabela é uma tabela externa.| 
+|temporal_type|**tinyint**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> O valor numérico que representa o tipo de tabela:<br /><br /> 0 = NON_TEMPORAL_TABLE<br /><br /> 1 = HISTORY_TABLE<br /><br /> 2 = SYSTEM_VERSIONED_TEMPORAL_TABLE|  
+|temporal_type_desc|**nvarchar(60)**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> A descrição de texto do tipo de tabela:<br /><br /> NON_TEMPORAL_TABLE<br /><br /> HISTORY_TABLE<br /><br /> SYSTEM_VERSIONED_TEMPORAL_TABLE|  
+|history_table_id|**int**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].<br /><br /> Quando temporal_type em (2, 4) retorna object_id da tabela que mantém os dados históricos; caso contrário, retorna NULL.|  
+|is_remote_data_archive_enabled|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]<br /><br /> Indica se a tabela está habilitada para Stretch.<br /><br /> 0 = a tabela não está habilitada para Stretch.<br /><br /> 1 = a tabela é habilitada para Stretch.<br /><br /> Para obter mais informações, consulte [Stretch Database](../../sql-server/stretch-database/stretch-database.md).|  
+|is_external|**bit**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior, [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)] e [!INCLUDE[sssdwfull](../../includes/sssdwfull-md.md)] .<br /><br /> Indica que a tabela é uma tabela externa.<br /><br /> 0 = a tabela não é uma tabela externa.<br /><br /> 1 = a tabela é uma tabela externa.| 
 |history_retention_period|**int**|**Aplica-se a**: [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]. <br/><br/>O valor numérico que representa a duração do período de retenção do histórico temporal em unidades especificadas com history_retention_period_unit. |  
 |history_retention_period_unit|**int**|**Aplica-se a**: [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]. <br/><br/>O valor numérico que representa o tipo de unidade de período de retenção do histórico temporal. <br /><br />-1: INFINITO <br /><br />3: DIA <br /><br />4: SEMANA <br /><br />5: MÊS <br /><br />6: ANO |  
 |history_retention_period_unit_desc|**nvarchar (10)**|**Aplica-se a**: [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)]. <br/><br/>A descrição de texto do tipo de unidade do período de retenção do histórico temporal. <br /><br />INFINITE <br /><br />DAY <br /><br />WEEK <br /><br />MONTH <br /><br />YEAR |  
@@ -84,7 +84,7 @@ GO
   
 O exemplo a seguir mostra como os dados temporais relacionados podem ser expostos.  
    
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sssdsfull](../../includes/sssdsfull-md.md)].
   
 ```  
 SELECT T1.object_id, T1.name as TemporalTableName, SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,  

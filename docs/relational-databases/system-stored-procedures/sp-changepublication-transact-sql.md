@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: c36e5865-25d5-42b7-b045-dc5036225081
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 86a86eec0b939a579d01c36d8c9739f8d9251636
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+ms.openlocfilehash: 6e29fade73adba6cb82b6d4ac22cae122d4c60cd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89543715"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98169439"
 ---
 # <a name="sp_changepublication-transact-sql"></a>sp_changepublication (Transact-SQL)
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -95,15 +95,15 @@ sp_changepublication [ [ @publication = ] 'publication' ]
 |**pre_snapshot_script**||Especifica o local de um arquivo de script [!INCLUDE[tsql](../../includes/tsql-md.md)] que o Distribution Agent executa antes que todos os outros scripts de objetos e dados replicados sejam aplicados durante uma sincronização inicial.|  
 |**publish_to_ActiveDirectory**|**true**|Esse parâmetro foi preterido e tem suporte somente para a compatibilidade com versões anteriores de scripts. Você não pode mais adicionar informações de publicação ao [!INCLUDE[msCoName](../../includes/msconame-md.md)] Active Directory.|  
 ||**false**|Remove as informações de publicação do Active Directory.|  
-|**queue_type**|**SQL**|Use o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para armazenar transações. Essa propriedade só poderá ser alterada se não houver assinaturas ativas.<br /><br /> Observação: o suporte para o uso do [!INCLUDE[msCoName](../../includes/msconame-md.md)] enfileiramento de mensagens foi descontinuado. A especificação de um valor de **MSMQ** para o *valor* resulta em um erro.|  
+|**queue_type**|**sql**|Use o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para armazenar transações. Essa propriedade só poderá ser alterada se não houver assinaturas ativas.<br /><br /> Observação: o suporte para o uso do [!INCLUDE[msCoName](../../includes/msconame-md.md)] enfileiramento de mensagens foi descontinuado. A especificação de um valor de **MSMQ** para o *valor* resulta em um erro.|  
 |**repl_freq**|**visa**|Publica saída de todas as transações com base em log.|  
-||**instantânea**|Publica somente eventos de sincronização agendados.|  
+||**instantâneo**|Publica somente eventos de sincronização agendados.|  
 |**replicate_ddl**|**1**|Instruções DDL (linguagem de definição de dados) executadas no Publicador são replicadas. Essa propriedade não pode ser alterada em publicações que não sejam do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].|  
 ||**0**|Instruções DDL não são replicadas. Essa propriedade não pode ser alterada em publicações que não sejam do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. A replicação de alterações de esquema não pode ser desabilitada ao usar replicação ponto a ponto.|  
 |**replicate_partition_switch**|**true**|ALTERAR TABELA... As instruções SWITCH executadas no banco de dados publicado devem ser replicadas para os assinantes. Essa opção só será válida se *allow_partition_switch* estiver definida como true. Para obter mais informações, consulte [Replicar tabelas e índices particionados](../../relational-databases/replication/publish/replicate-partitioned-tables-and-indexes.md).|  
 ||**false**|ALTERAR TABELA... As instruções SWITCH não devem ser replicadas para assinantes.|  
 |**políticas**||**int** que representa o período de retenção, em horas, para a atividade de assinatura. Se uma assinatura não estiver ativa dentro do período de retenção, será removida.|  
-|**snapshot_in_defaultfolder**|**true**|Arquivos de instantâneo são armazenados na pasta de instantâneos padrão. Se *alt_snapshot_folder*também for especificado, os arquivos de instantâneo serão armazenados nos locais padrão e alternativos.|  
+|**snapshot_in_defaultfolder**|**true**|Arquivos de instantâneo são armazenados na pasta de instantâneos padrão. Se *alt_snapshot_folder* também for especificado, os arquivos de instantâneo serão armazenados nos locais padrão e alternativos.|  
 ||**false**|Os arquivos de instantâneo são armazenados no local alternativo especificado pelo *alt_snapshot_folder*.|  
 |**status**|**active**|Dados de Publicação estão imediatamente disponíveis para os Assinantes quando a publicação é criada. Sem suporte para Publicadores Oracle.|  
 ||**inactive**|Dados de Publicação não estão disponíveis para os Assinantes quando a publicação é criada. Sem suporte para Publicadores Oracle.|  
@@ -112,7 +112,7 @@ sp_changepublication [ [ @publication = ] 'publication' ]
 ||**simultâneas**|Usa saída de programa de cópia em massa do modo nativo de todas as tabelas, mas não bloqueia as tabelas durante o processo de geração de instantâneo. Não válido para replicação de instantâneo.|  
 ||**concurrent_c**|Usa saída de programa de cópia em massa do modo de caractere de todas as tabelas, mas não bloqueia as tabelas durante o processo de geração de instantâneo. Não válido para replicação de instantâneo.|  
 |**TaskId**||Essa propriedade foi preterida e não tem mais suporte.|  
-|**allow_drop**|**true**|Habilita o `DROP TABLE` suporte a dll para artigos que fazem parte da replicação transacional. Versão mínima com suporte: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] Service Pack 2 ou superior e [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] Service Pack 1 ou superior. Referência adicional: [KB 3170123](https://support.microsoft.com/help/3170123/supports-drop-table-ddl-for-articles-that-are-included-in-transactional-replication-in-sql-server-2014-or-in-sql-server-2016-sp1)|
+|**allow_drop**|**true**|Habilita o `DROP TABLE` suporte a dll para artigos que fazem parte da replicação transacional. Versão mínima com suporte: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] Service Pack 2 ou superior e [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] Service Pack 1 ou superior. Referência adicional: [KB 3170123](https://support.microsoft.com/help/3170123/supports-drop-table-ddl-for-articles-that-are-included-in-transactional-replication-in-sql-server-2014-or-in-sql-server-2016-sp1)|
 ||**false**|Desabilita o `DROP TABLE` suporte à dll para artigos que fazem parte da replicação transacional. Esse é o valor **padrão** para essa propriedade.|
 |**NULL** (padrão)||Retorna a lista de valores com suporte para a *Propriedade*.|  
   
@@ -121,7 +121,7 @@ sp_changepublication [ [ @publication = ] 'publication' ]
   - **1** especifica que as alterações no artigo podem fazer com que o instantâneo seja inválido. Se houver assinaturas existentes que exigem um novo instantâneo, esse valor dará permissão para que o instantâneo existente seja marcado como obsoleto e um novo instantâneo seja gerado.   
 Consulte a seção Comentários das propriedades que, quando alteradas, requerem a geração de um novo instantâneo.  
   
-[** @force_reinit_subscription =** ] *force_reinit_subscription*  
+[**@force_reinit_subscription =** ] *force_reinit_subscription*  
  Confirma que a ação tomada por esse procedimento armazenado pode exigir que as assinaturas existentes sejam reinicializadas. *force_reinit_subscription* é um **bit** com um padrão de **0**.  
   - **0** especifica que as alterações no artigo não fazem com que a assinatura seja reinicializada. Se o procedimento armazenado detectar que a alteração irá requerer assinaturas existentes para ser reiniciada, ocorrerá um erro e nenhuma alteração será feita.  
   - **1** especifica que as alterações no artigo fazem com que a assinatura existente seja reinicializada e dá permissão para que a reinicialização da assinatura ocorra.  

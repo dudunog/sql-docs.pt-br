@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 1a17b0c9-2535-4f3d-8013-cd0a6d08f773
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 18642535521a50c7beb005c0ae8181f04ac3c6d5
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 8287eab936b7f95cc0cbaba78d4d7a90e403c42c
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097569"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171158"
 ---
 # <a name="sysdm_hadr_database_replica_states-transact-sql"></a>sys.dm_hadr_database_replica_states (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -72,7 +72,7 @@ ms.locfileid: "98097569"
 |**last_commit_lsn**|**Numeric (25, 0)**|O número de sequência de log real que corresponde ao último registro de confirmação no log de transações.<br /><br /> No banco de dados primário, corresponde ao último registro de confirmação processado. As linhas para bancos de dados secundários mostram o número de sequência de log que a réplica secundária enviou para a primária.<br /><br /> Na réplica secundária, é o último registro de confirmação refeito.|  
 |**last_commit_time**|**datetime**|A hora correspondente ao último registro de confirmação.<br /><br /> No banco de dados secundário, essa hora é a mesma do banco de dados primário.<br /><br /> Na réplica primária, cada linha de banco de dados secundário exibe a hora em que a réplica secundária que hospeda aquele banco de dados secundário relatou de volta para a réplica primária. A diferença no tempo entre a linha do banco de dados primário e uma determinada linha de banco de dados secundário representa aproximadamente o RPO (objetivo de ponto de recuperação), supondo que o processo de refazer seja atualizado e que o progresso tenha sido relatado de volta para a réplica primária pela réplica secundária.|  
 |**low_water_mark_for_ghosts**|**bigint**|Um número aumentado de maneira constante para o banco de dados, que indica uma marca d'água inferior usada pela limpeza de fantasma no banco de dados primário. Se esse número não estiver aumentando ao longo do tempo, isso indicará que a limpeza fantasma talvez não esteja ocorrendo. Para decidir quais linhas fantasmas devem ser limpas, a réplica primária usa o valor mínimo dessa coluna para este banco de dados em todas as réplicas de disponibilidade (inclusive a réplica primária).|  
-|**secondary_lag_seconds**|**bigint**|O número de segundos que a réplica secundária está atrás da réplica primária durante a sincronização.<br /><br />**Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posteriores.|  
+|**secondary_lag_seconds**|**bigint**|O número de segundos que a réplica secundária está atrás da réplica primária durante a sincronização.<br /><br />**Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posteriores.|  
   
 ##  <a name="understanding-the-lsn-column-values"></a><a name="LSNcolumns"></a> Compreendendo os valores de coluna LSN  
  Os valores das colunas **end_of_log_lsn**, **last_hardened_lsn**, **last_received_lsn**, **last_sent_lsn**, **recovery_lsn** e **truncation_lsn** não são números de sequência de log reais (LSNs). Em vez disso, cada um desses valores reflete uma ID de bloco de log preenchida com zeros.  

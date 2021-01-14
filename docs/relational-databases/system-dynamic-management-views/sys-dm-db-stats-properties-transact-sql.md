@@ -21,12 +21,12 @@ ms.assetid: 8a54889d-e263-4881-9fcb-b1db410a9453
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: e0b3fc39ead58c75422ac5cdf69311d909d3cf59
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 35787c46218b327eacc33dc40f652a04786bb156
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099910"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98168069"
 ---
 # <a name="sysdm_db_stats_properties-transact-sql"></a>sys.dm_db_stats_properties (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -57,8 +57,8 @@ sys.dm_db_stats_properties (object_id, stats_id)
 |rows_sampled|**bigint**|O número total de linhas amostradas para cálculos de estatísticas.|  
 |etapas|**int**|O número de etapas no histograma. Para obter mais informações, veja [DBCC SHOW_STATISTICS &#40;Transact-SQL&#41;](../../t-sql/database-console-commands/dbcc-show-statistics-transact-sql.md).|  
 |unfiltered_rows|**bigint**|O número total de linhas da tabela antes da aplicação da expressão de filtro (para estatísticas filtradas). Se as estatísticas não forem filtradas, unfiltered_rows será igual ao valor retornado na coluna de linhas.|  
-|modification_counter|**bigint**|Número total de modificações da coluna de estatísticas principal (a coluna em que o histograma é criado) desde que as últimas estatísticas de tempo foram atualizadas.<br /><br /> Tabelas com otimização de memória: Iniciando [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e nesta [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] coluna contém: o número total de modificações da tabela desde que as últimas estatísticas foram atualizadas ou o banco de dados foi reiniciado.|  
-|persisted_sample_percent|**float**|Percentual de amostra persistente usado para as atualizações de estatísticas que não especifica explicitamente um percentual de amostragem. Se o valor for zero, nenhum percentual de amostra persistente será definido para essa estatística.<br /><br /> **Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 CU4|  
+|modification_counter|**bigint**|Número total de modificações da coluna de estatísticas principal (a coluna em que o histograma é criado) desde que as últimas estatísticas de tempo foram atualizadas.<br /><br /> Tabelas com otimização de memória: Iniciando [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e nesta [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] coluna contém: o número total de modificações da tabela desde que as últimas estatísticas foram atualizadas ou o banco de dados foi reiniciado.|  
+|persisted_sample_percent|**float**|Percentual de amostra persistente usado para as atualizações de estatísticas que não especifica explicitamente um percentual de amostragem. Se o valor for zero, nenhum percentual de amostra persistente será definido para essa estatística.<br /><br /> **Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 CU4|  
   
 ## <a name="remarks"></a><a name="Remarks"></a> Comentários  
  **Sys.dm_db_stats_properties** retorna um conjunto de linhas vazio em qualquer uma das seguintes condições:  

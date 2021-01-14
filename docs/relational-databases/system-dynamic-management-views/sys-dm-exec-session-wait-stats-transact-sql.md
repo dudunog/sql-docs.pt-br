@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: df84842a-71eb-4fda-b448-5953cf9985dc
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 7555332848e338fe73e0add1a1fb4e9a3097256e
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: d0c91c8af4b0264c6cb418e858e18e0c252eda15
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98098926"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171418"
 ---
 # <a name="sysdm_exec_session_wait_stats-transact-sql"></a>sys.dm_exec_session_wait_stats (Transact-SQL)
 
@@ -30,7 +30,7 @@ ms.locfileid: "98098926"
 
   Retorna informações sobre todas as esperas encontradas por threads executados para cada sessão. Você pode usar essa exibição para diagnosticar problemas de desempenho com a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] sessão e também com consultas e lotes específicos.  Essa exibição retorna a sessão as mesmas informações agregadas para [sys.dm_os_wait_stats &#40;&#41;Transact-SQL](../../relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql.md) , mas também fornece o número de **session_id** .  
   
-**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior).  
+**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior).  
   
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  

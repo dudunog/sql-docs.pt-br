@@ -21,12 +21,12 @@ ms.assetid: 54efc6cb-eea8-4f6d-a4d0-aa05eeb54081
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 80c59436a83795f4111dfae2997b8678b94e617e
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 461898cf3bf9e694e8d8272608861fdbfa0aff79
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98096587"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170248"
 ---
 # <a name="sysdm_exec_query_profiles-transact-sql"></a>sys.dm_exec_query_profiles (Transact-SQL)
 [!INCLUDE[sql-asdb-asdbmi](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
@@ -73,7 +73,7 @@ Os contadores retornados são por operador por thread. Os resultados são dinâm
 |segment_read_count|**int**|Número de read-aheads de segmento até o momento.|  
 |segment_skip_count|**int**|Número de segmentos ignorados até o momento.| 
 |actual_read_row_count|**bigint**|Número de linhas lidas por um operador antes da aplicação do predicado residuais.| 
-|estimated_read_row_count|**bigint**|**Aplica-se a:** A partir do [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] SP1. <br/>Número estimado de linhas a serem lidas por um operador antes da aplicação do predicado residuais.|  
+|estimated_read_row_count|**bigint**|**Aplica-se a:** A partir do [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] SP1. <br/>Número estimado de linhas a serem lidas por um operador antes da aplicação do predicado residuais.|  
   
 ## <a name="general-remarks"></a>Comentários gerais  
  Se o nó do plano de consulta não tiver nenhuma e/s, todos os contadores relacionados à e/s serão definidos como NULL.  
@@ -84,7 +84,7 @@ Os contadores retornados são por operador por thread. Os resultados são dinâm
   
 -   Se houver uma varredura paralela, este DMV relata os contadores para cada um das threads paralelas que trabalham na varredura.
  
-A partir [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] do SP1, a *infraestrutura de criação de perfil de estatísticas de execução de consulta padrão* existe lado a lado com uma infraestrutura de criação de perfil de estatísticas de execução de *consulta leve*. `SET STATISTICS XML ON` e `SET STATISTICS PROFILE ON` sempre use a *infraestrutura de criação de perfil de estatísticas de execução de consulta padrão*. Para `sys.dm_exec_query_profiles` que o seja populado, uma das infraestruturas de criação de perfil de consulta deve ser habilitada. Para obter mais informações, confira [Infraestrutura de Criação de Perfil de Consulta](../../relational-databases/performance/query-profiling-infrastructure.md).    
+A partir [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] do SP1, a *infraestrutura de criação de perfil de estatísticas de execução de consulta padrão* existe lado a lado com uma infraestrutura de criação de perfil de estatísticas de execução de *consulta leve*. `SET STATISTICS XML ON` e `SET STATISTICS PROFILE ON` sempre use a *infraestrutura de criação de perfil de estatísticas de execução de consulta padrão*. Para `sys.dm_exec_query_profiles` que o seja populado, uma das infraestruturas de criação de perfil de consulta deve ser habilitada. Para obter mais informações, confira [Infraestrutura de Criação de Perfil de Consulta](../../relational-databases/performance/query-profiling-infrastructure.md).    
 
 >[!NOTE]
 > A consulta em investigação precisa ser iniciada **depois** que a infraestrutura de criação de perfil de consulta tiver sido habilitada, habilitá-la após a consulta iniciada não produzirá resultados no `sys.dm_exec_query_profiles` . Para saber mais sobre como habilitar as infraestruturas de criação de perfil de consulta, confira [infraestrutura de criação de perfil de consulta](../../relational-databases/performance/query-profiling-infrastructure.md).

@@ -22,12 +22,12 @@ ms.assetid: d294dd8e-82d5-4628-aa2d-e57702230613
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 603ad99e126f1175cce21a48933362e4ad6d7aaa
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 1cdcf7bdcca72f8c80576dcd68146ebfbd36e672
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094141"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171728"
 ---
 # <a name="sysdm_db_index_physical_stats-transact-sql"></a>sys.dm_db_index_physical_stats (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -66,7 +66,7 @@ sys.dm_db_index_physical_stats (
  *object_id* \| \|Padrão nulo 0 \|  
  É a ID do objeto da tabela ou exibição em que o índice está ativado. *object_id* é **int**.  
   
- As entradas válidas são o número da ID de uma tabela e de uma exibição, NULL, 0 ou DEFAULT. O padrão é 0. NULL, 0 e DEFAULT são valores equivalentes neste contexto. Desde o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] , as entradas válidas também incluem o nome da fila do Service Broker ou o nome da tabela interna da fila. Quando os parâmetros padrão são aplicados (ou seja, todos os objetos, todos os índices, etc.), as informações de fragmentação de todas as filas são incluídas no conjunto de resultados.  
+ As entradas válidas são o número da ID de uma tabela e de uma exibição, NULL, 0 ou DEFAULT. O padrão é 0. NULL, 0 e DEFAULT são valores equivalentes neste contexto. Desde o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] , as entradas válidas também incluem o nome da fila do Service Broker ou o nome da tabela interna da fila. Quando os parâmetros padrão são aplicados (ou seja, todos os objetos, todos os índices, etc.), as informações de fragmentação de todas as filas são incluídas no conjunto de resultados.  
   
  Especifique NULL para retornar informações de todas as tabelas e exibições no banco de dados especificado. Se você especificar NULL para *object_id*, também deverá especificar null para *index_id* e *partition_number*.  
   
@@ -417,7 +417,7 @@ FROM sys.dm_db_index_physical_stats (db_id(),
   
 ||  
 |-|  
-|**Aplica-se a**: do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] ao [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].|  
+|**Aplica-se a**: do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] ao [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].|  
   
  Os exemplos a seguir mostram como consultar as filas do agente do servidor para fragmentação.  
   

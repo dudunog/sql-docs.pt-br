@@ -21,12 +21,12 @@ author: pmasl
 ms.author: pelopes
 ms.reviewer: sstein
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: f1c9ac32f202766e118f7e44d3cf7c0d7fafdb6a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: a1ad13d4cdbcf8820a318a87f4ef9f52c488a406
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97482797"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171258"
 ---
 # <a name="sysdm_exec_requests-transact-sql"></a>sys.dm_exec_requests (Transact-SQL)
 
@@ -39,7 +39,7 @@ Retorna informações sobre cada solicitação que está sendo executada no [!IN
 |session_id|**smallint**|ID da sessão a que esta solicitação está relacionada. Não permite valor nulo.|  
 |request_id|**int**|ID da solicitação. Exclusiva no contexto da sessão. Não permite valor nulo.|  
 |start_time|**datetime**|Carimbo de data e hora em que a solicitação chegou. Não permite valor nulo.|  
-|status|**nvarchar(30)**|Status da solicitação. Pode ser um dos seguintes:<br /><br /> Segundo plano<br />Executando<br />Executável<br />Hibernando<br />Suspenso<br /><br /> Não permite valor nulo.|  
+|status|**nvarchar(30)**|Status da solicitação. Pode ser um dos seguintes:<br /><br /> Tela de fundo<br />Executando<br />Executável<br />Hibernando<br />Suspenso<br /><br /> Não permite valor nulo.|  
 |.|**nvarchar(32)**|Identifica o tipo atual de comando que está sendo processado. Os tipos de comando comuns incluem:<br /><br /> SELECT<br />INSERT<br />UPDATE<br />Delete (excluir)<br />BACKUP LOG<br />BACKUP DATABASE<br />DBCC<br />FOR<br /><br /> O texto da solicitação pode ser recuperado usando sys.dm_exec_sql_text com o sql_handle correspondente para a solicitação. Os processos de sistema internos definem o comando com base no tipo de tarefa que eles executam. As tarefas podem incluir o seguinte:<br /><br /> LOCK MONITOR<br />CHECKPOINTLAZY<br />WRITER<br /><br /> Não permite valor nulo.|  
 |sql_handle|**varbinary(64)**|É um token que identifica exclusivamente o lote ou o procedimento armazenado do qual a consulta faz parte. Permite valor nulo.| 
 |statement_start_offset|**int**|Indica, em bytes, começando com 0, a posição inicial da instrução atualmente em execução para o lote ou objeto persistente em execução no momento. Pode ser usado junto com o `sql_handle` , o `statement_end_offset` e a `sys.dm_exec_sql_text` função de gerenciamento dinâmico para recuperar a instrução atualmente em execução para a solicitação. Permite valor nulo.|  
@@ -91,9 +91,9 @@ Retorna informações sobre cada solicitação que está sendo executada no [!IN
 |query_plan_hash|**binário (8)**|Valor de hash binário calculado no plano de execução de consulta e usado para identificar planos de execução de consulta semelhantes. Você pode usar o hash de plano de consulta para localizar o custo cumulativo de consultas com planos de execução semelhantes.|  
 |statement_sql_handle|**varbinary(64)**|**Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior.<br /><br /> Identificador SQL da consulta individual.<br /><br />Esta coluna será nula se Repositório de Consultas não estiver habilitada para o banco de dados. |  
 |statement_context_id|**bigint**|**Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior.<br /><br /> A chave estrangeira opcional para sys.query_context_settings.<br /><br />Esta coluna será nula se Repositório de Consultas não estiver habilitada para o banco de dados. |  
-|dop |**int** |**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.<br /><br /> O grau de paralelismo da consulta. |  
-|parallel_worker_count |**int** |**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.<br /><br /> O número de operadores paralelos reservados se esta for uma consulta paralela.  |  
-|external_script_request_id |**uniqueidentifier** |**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.<br /><br /> A ID de solicitação de script externo associada à solicitação atual. |  
+|dop |**int** |**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.<br /><br /> O grau de paralelismo da consulta. |  
+|parallel_worker_count |**int** |**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.<br /><br /> O número de operadores paralelos reservados se esta for uma consulta paralela.  |  
+|external_script_request_id |**uniqueidentifier** |**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.<br /><br /> A ID de solicitação de script externo associada à solicitação atual. |  
 |is_resumable |**bit** |**Aplica-se a**: [!INCLUDE[sssqlv14-md](../../includes/sssqlv14-md.md)] e posterior.<br /><br /> Indica se a solicitação é uma operação de índice retomável. |  
 |page_resource |**binário (8)** |**Aplica-se ao**: [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]<br /><br /> Uma representação hexadecimal de 8 bytes do recurso de página se a `wait_resource` coluna contiver uma página. Para obter mais informações, consulte [Sys.fn_PageResCracker](../../relational-databases/system-functions/sys-fn-pagerescracker-transact-sql.md). |  
 |page_server_reads|**bigint**|**Aplica-se a**: hiperescala do banco de dados SQL do Azure<br /><br /> Número de leituras de servidor de página executadas por essa solicitação. Não permite valor nulo.|  

@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: b4b29e97-b523-41b9-9528-6d4e84b89e09
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 9221515e0c8a6c0704f0a036d851241d849d5f3d
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 89fd845ade31b7ca2de9559452bb04b15bc2c505
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98101651"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171428"
 ---
 # <a name="sysdm_db_persisted_sku_features-transact-sql"></a>sys.dm_db_persisted_sku_features (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -66,7 +66,7 @@ ms.locfileid: "98101651"
 -   **TransparentDataEncryption.** Indica que um banco de dados deve ser criptografado usando criptografia transparente de dados. Para remover a criptografia transparente de dados, use a instrução ALTER DATABASE. Para obter mais informações, veja [TDE &#40;Transparent Data Encryption&#41;](../../relational-databases/security/encryption/transparent-data-encryption.md).  
 
 > [!NOTE]
-> A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] Service Pack 1, esses recursos, exceto **TransparentDataEncryption.** estão disponíveis em várias [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] edições e não se limitam apenas às edições Enterprise ou Developer.
+> A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] Service Pack 1, esses recursos, exceto **TransparentDataEncryption.** estão disponíveis em várias [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] edições e não se limitam apenas às edições Enterprise ou Developer.
 
  Para determinar se um banco de dados usa qualquer recurso que seja restrito a edições específicas, execute a seguinte instrução no banco de dados:  
   

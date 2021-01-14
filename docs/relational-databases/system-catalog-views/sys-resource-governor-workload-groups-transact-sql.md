@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 619ba4b7-868f-4784-b527-ec1dfd703c4f
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 83d699e2da5e1de1e25a2618171924843c569188
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 70718b01e07cc883a030107e461e4390ca4e7cac
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98101741"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98169634"
 ---
 # <a name="sysresource_governor_workload_groups-transact-sql"></a>sys.resource_governor_workload_groups (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "98101741"
 |max_dop|**int**|Grau máximo de paralelismo para o grupo de carga de trabalho. O valor padrão, 0, usa configurações globais. Não permite valor nulo.<br /><br /> **Nó:** Essa configuração substituirá a opção de consulta **MAXDOP**.|  
 |group_max_requests|**int**|Número máximo de solicitações simultâneas. O valor padrão, 0, não especifica nenhum limite. Não permite valor nulo.|  
 |pool_id|**int**|ID do pool de recursos utilizado por este grupo de carga de trabalho.|  
-|external_pool_id|**int**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.<br /><br /> ID do pool de recursos externos que esse grupo de carga de trabalho usa.|  
+|external_pool_id|**int**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.<br /><br /> ID do pool de recursos externos que esse grupo de carga de trabalho usa.|  
   
 ## <a name="remarks"></a>Comentários  
  A exibição do catálogo exibe os metadados armazenados. Para ver a configuração na memória, use a exibição de gerenciamento dinâmico correspondente, [sys.dm_resource_governor_workload_groups &#40;&#41;Transact-SQL ](../../relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql.md).  

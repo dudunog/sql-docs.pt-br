@@ -21,12 +21,12 @@ ms.assetid: f63c4914-1272-43ef-b135-fe1aabd953e0
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 3b38844c891edaf9a7592a2dd573c86cc5fa1fcb
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 2db4a28a9199cc090f18cc1f79d8e755c621c7fd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097539"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172138"
 ---
 # <a name="sysdm_resource_governor_workload_groups-transact-sql"></a>sys.dm_resource_governor_workload_groups (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "98097539"
 |group_id|**int**|ID do grupo de carga de trabalho. Não permite valor nulo.|  
 |name|**sysname**|Nome do grupo de carga de trabalho. Não permite valor nulo.|  
 |pool_id|**int**|ID do pool de recursos. Não permite valor nulo.|  
-|external_pool_id|**int**|**Aplica-se a: a** partir de [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] .<br /><br /> ID do pool de recursos externos. Não permite valor nulo.|  
+|external_pool_id|**int**|**Aplica-se a: a** partir de [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] .<br /><br /> ID do pool de recursos externos. Não permite valor nulo.|  
 |statistics_start_time|**datetime**|Hora em que coleta de estatísticas foi redefinida para o grupo de carga de trabalho. Não permite valor nulo.|  
 |total_request_count|**bigint**|Conta cumulativa de solicitações concluídas no grupo de carga de trabalho. Não permite valor nulo.|  
 |total_queued_request_count|**bigint**|Conta cumulativa de solicitações em fila depois que o limite de GROUP_MAX_REQUESTS foi alcançado. Não permite valor nulo.|  
@@ -65,7 +65,7 @@ ms.locfileid: "98097539"
 |group_max_requests|**int**|Configuração atual do número máximo de solicitações simultâneas. Não permite valor nulo.|  
 |max_dop|**int**|Grau máximo de paralelismo configurado para o grupo de carga de trabalho. O valor padrão, 0, usa configurações globais. Não permite valor nulo.| 
 |effective_max_dop|**int**|**Aplica-se a: a** partir de [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] .<br /><br />Grau máximo de paralelismo efetivo para o grupo de carga de trabalho. Não permite valor nulo.| 
-|total_cpu_usage_preemptive_ms|**bigint**|**Aplica-se a: a** partir de [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] .<br /><br />Tempo total de CPU usado durante o agendamento do modo preemptivo para o grupo de carga de trabalho, medido em MS. Não permite valor nulo.<br /><br />Para executar código fora do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (por exemplo, procedimentos armazenados estendidos e consultas distribuídas), um thread deve ser executado fora do controle de um agendador não preventivo. Para fazer isso, um trabalhador muda para o modo preventivo.| 
+|total_cpu_usage_preemptive_ms|**bigint**|**Aplica-se a: a** partir de [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] .<br /><br />Tempo total de CPU usado durante o agendamento do modo preemptivo para o grupo de carga de trabalho, medido em MS. Não permite valor nulo.<br /><br />Para executar código fora do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (por exemplo, procedimentos armazenados estendidos e consultas distribuídas), um thread deve ser executado fora do controle de um agendador não preventivo. Para fazer isso, um trabalhador muda para o modo preventivo.| 
 |request_max_memory_grant_percent_numeric|**float**|**Aplica-se a: a** partir de [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] .<br /><br />Configuração atual da concessão de memória máxima, como uma porcentagem, para uma única solicitação. Não permite valor nulo.| 
 |pdw_node_id|**int**|**Aplica-se a**: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)] , [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]<br /><br /> O identificador do nó em que essa distribuição está.|  
   

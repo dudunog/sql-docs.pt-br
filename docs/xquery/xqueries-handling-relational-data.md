@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: 9812b71a-52ec-48a0-92f3-016a93660229
 author: rothja
 ms.author: jroth
-ms.openlocfilehash: 5ebd9c4d2bae1c491d2bd7a23e52c83457942fb6
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 6ac32119090ba7973ad628c35f6b5b994eb03561
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85775468"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172348"
 ---
 # <a name="xqueries-handling-relational-data"></a>XQueries que manipulam dados relacionais
 [!INCLUDE [SQL Server Azure SQL Database ](../includes/applies-to-version/sqlserver.md)]
@@ -34,15 +34,15 @@ ms.locfileid: "85775468"
   
 -   **SQL: função Variable ()**  
   
- Você pode usar essas extensões XQuery ao especificar um XQuery no método **Query ()** do tipo de dados **XML** . Como resultado, o método **Query ()** pode produzir XML que combina dados de tipos de dados XML e não**XML** .  
+ Você pode usar essas extensões XQuery ao especificar um XQuery no método **Query ()** do tipo de dados **XML** . Como resultado, o método **Query ()** pode produzir XML que combina dados de tipos de dados XML e não **XML** .  
   
  Você também pode usar essas funções ao usar os métodos de tipo de dados **XML** **Modify ()**, **Value ()**, **Query ()** e **exist ()** para expor um valor relacional dentro de XML.  
   
  Para obter mais informações, consulte a função [SQL: Column () (XQuery)](../xquery/xquery-extension-functions-sql-column.md) e [SQL: variable () (XQuery)](../xquery/xquery-extension-functions-sql-variable.md).  
   
 ## <a name="see-also"></a>Consulte Também  
- [&#40;de dados XML SQL Server&#41;](../relational-databases/xml/xml-data-sql-server.md)   
+ [Dados XML &#40;SQL Server&#41;](../relational-databases/xml/xml-data-sql-server.md)   
  [Referência de linguagem XQuery &#40;SQL Server&#41;](../xquery/xquery-language-reference-sql-server.md)   
- [Construção XML &#40;&#41;XQuery](../xquery/xml-construction-xquery.md)  
+ [Construção XML &#40;&#41;XQuery ](../xquery/xml-construction-xquery.md)  
   
   

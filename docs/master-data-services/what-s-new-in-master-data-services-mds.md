@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: ad530f60-d480-4457-ba7a-93a10c8a1695
 author: lrtoyou1223
 ms.author: lle
-ms.openlocfilehash: 1aa72c49e5862621da193d4e4a400813c7cd0d91
-ms.sourcegitcommit: 827ad02375793090fa8fee63cc372d130f11393f
+ms.openlocfilehash: 7e731d14967d808aa57f3fa0e001e5e593238ffd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89480562"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170428"
 ---
 # <a name="what39s-new-in-master-data-services-mds"></a>Novidades no MDS (Master Data Services)
 
@@ -30,7 +30,7 @@ ms.locfileid: "89480562"
   
  **Download**  
   
--   Para baixar o [!INCLUDE[ssSQL15](../includes/sssql15-md.md)], acesse o  **[Centro de Avaliação](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)** .  
+-   Para baixar o [!INCLUDE[ssSQL15](../includes/sssql16-md.md)], acesse o  **[Centro de Avaliação](https://www.microsoft.com/evalcenter/evaluate-sql-server-2016)** .  
   
 -   Tem uma conta do Azure?  Em seguida, acesse **[aqui](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview)** para criar uma Máquina Virtual com o [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)] já instalado.  
   
@@ -81,7 +81,7 @@ ms.locfileid: "89480562"
   
  Nesta versão do [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], estamos fornecendo mais níveis de permissões, apresentando estas novas permissões: Ler, Criar, Atualizar e Excluir. Por exemplo, um usuário que tenha somente a permissão Atualizar agora pode atualizar os dados mestre sem criar ou excluir os dados. Quando você concede a um usuário a permissão Criar, Atualizar ou Excluir, o usuário recebe automaticamente a permissão Ler. Você também pode combinar as permissões Ler, Criar, Atualizar e Excluir.  
   
- Quando você atualiza para [!INCLUDE[ssSQL15](../includes/sssql15-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], as permissões antigas são convertidas em novas permissões, conforme mostrado na tabela a seguir.  
+ Quando você atualiza para [!INCLUDE[ssSQL15](../includes/sssql16-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], as permissões antigas são convertidas em novas permissões, conforme mostrado na tabela a seguir.  
   
 |Permissão na versão anterior|Nova permissão|  
 |------------------------------------|--------------------|  
@@ -113,7 +113,7 @@ ms.locfileid: "89480562"
   
 ## <a name="improved-troubleshooting"></a>Solução de problemas aprimorada  
   
- No [!INCLUDE[ssSQL15](../includes/sssql15-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], foram adicionados recursos para melhorar a depuração e facilitar a solução de problemas. Para saber mais, veja [Rastreamento &#40;Master Data Services&#41;](../master-data-services/tracing-master-data-services.md).  
+ No [!INCLUDE[ssSQL15](../includes/sssql16-md.md)][!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], foram adicionados recursos para melhorar a depuração e facilitar a solução de problemas. Para saber mais, veja [Rastreamento &#40;Master Data Services&#41;](../master-data-services/tracing-master-data-services.md).  
   
 ## <a name="improved-manageability"></a>Capacidade de gerenciamento aprimorada  
   

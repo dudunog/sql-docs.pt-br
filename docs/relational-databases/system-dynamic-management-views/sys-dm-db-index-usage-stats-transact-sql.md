@@ -21,12 +21,12 @@ ms.assetid: d06a001f-0f72-4679-bc2f-66fff7958b86
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 10a6691dc481c09f02b0bd1dff2850cbe90e0656
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 23907a0b37bbc4804b9972d830c0c64f0f0d1712
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094124"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171288"
 ---
 # <a name="sysdm_db_index_usage_stats-transact-sql"></a>sys.dm_db_index_usage_stats (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -73,7 +73,7 @@ ms.locfileid: "98094124"
   
  Quando um índice é usado, uma linha é adicionada a **sys.dm_db_index_usage_stats** se já não existir uma para ele. Quando a linha é adicionada, seus contadores são definidos como zero inicialmente.  
   
- Durante a atualização para [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)] , [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] , ou [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] , as entradas em sys.dm_db_index_usage_stats são removidas. A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] , as entradas são retidas como estavam antes do [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)] .  
+ Durante a atualização para [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)] , [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] , ou [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] , as entradas em sys.dm_db_index_usage_stats são removidas. A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] , as entradas são retidas como estavam antes do [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)] .  
   
 ## <a name="permissions"></a>Permissões  
 Ativado [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] , requer `VIEW SERVER STATE` permissão.   

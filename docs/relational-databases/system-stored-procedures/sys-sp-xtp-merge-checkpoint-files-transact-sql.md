@@ -1,6 +1,6 @@
 ---
 description: sys.sp_xtp_merge_checkpoint_files (Transact-SQL)
-title: sys. sp_xtp_merge_checkpoint_files (Transact-SQL) | Microsoft Docs
+title: sys.sp_xtp_merge_checkpoint_files (Transact-SQL) | Microsoft Docs
 ms.custom: ''
 ms.date: 11/28/2016
 ms.prod: sql
@@ -18,25 +18,25 @@ helpviewer_keywords:
 ms.assetid: da04df2a-f7a1-41e7-a1ef-2d5d68919892
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 9bd8cf3735ecc240a0d99929fc0ef1c40d931887
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+ms.openlocfilehash: 16cf2326ad9b732d2d01f75a14ccb9026111803f
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89541035"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98167928"
 ---
 # <a name="syssp_xtp_merge_checkpoint_files-transact-sql"></a>sys.sp_xtp_merge_checkpoint_files (Transact-SQL)
 [!INCLUDE[sqlserver](../../includes/applies-to-version/sqlserver.md)]
 
-  **Sys. sp_xtp_merge_checkpoint_files** mescla todos os arquivos de dados e Delta no intervalo de transações especificado.  
+  **Sys.sp_xtp_merge_checkpoint_files** mescla todos os arquivos Delta e de dados no intervalo de transações especificado.  
   
- Para obter mais informações, consulte [criando e gerenciando armazenamento para objetos com otimização de memória](../../relational-databases/in-memory-oltp/creating-and-managing-storage-for-memory-optimized-objects.md).  
+ Para obter mais informações, consulte [criando e gerenciando armazenamento para objetos de Memory-Optimized](../../relational-databases/in-memory-oltp/creating-and-managing-storage-for-memory-optimized-objects.md).  
   
  ![Ícone de link do tópico](../../database-engine/configure-windows/media/topic-link.gif "Ícone de link do tópico") [Convenções da sintaxe Transact-SQL](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
   
 ||  
 |-|  
-|**Observação**: esse procedimento armazenado é preterido no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] . Ele não é mais necessário e não pode ser usado, iniciando [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] .|  
+|**Observação**: esse procedimento armazenado é preterido no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] . Ele não é mais necessário e não pode ser usado, iniciando [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] .|  
   
 ## <a name="syntax"></a>Sintaxe  
   
@@ -51,10 +51,10 @@ sys.sp_xtp_merge_checkpoint_files database_name, @transaction_lower_bound, @tran
  O nome do banco de dados no qual invocar a mesclagem. Se o banco de dados não tiver tabelas na memória, este procedimento retornará com erro do usuário. Se o banco de dados estiver offline, ele retornará um erro.  
   
  *lower_bound_Tid*  
- O limite inferior de transações para um arquivo de dados, conforme mostrado em [Sys. dm_db_xtp_checkpoint_files &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md) correspondente ao arquivo de ponto de verificação inicial da mesclagem. Um erro é gerado para o valor inválido de transactonId.  
+ O limite inferior de transações para um arquivo de dados, como mostrado em [sys.dm_db_xtp_checkpoint_files &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md) correspondente ao arquivo de ponto de verificação inicial da mesclagem. Um erro é gerado para o valor inválido de transactonId.  
   
  *upper_bound_Tid*  
- O (BIGINT) limite superior de transações para um arquivo de dados, conforme mostrado em [Sys. dm_db_xtp_checkpoint_files &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md). Um erro é gerado para o valor inválido de transactonId.  
+ O (BIGINT) limite superior de transações para um arquivo de dados, conforme mostrado em [sys.dm_db_xtp_checkpoint_files &#40;&#41;Transact-SQL ](../../relational-databases/system-dynamic-management-views/sys-dm-db-xtp-checkpoint-files-transact-sql.md). Um erro é gerado para o valor inválido de transactonId.  
   
 ## <a name="return-code-values"></a>Valores do código de retorno  
  Nenhum  

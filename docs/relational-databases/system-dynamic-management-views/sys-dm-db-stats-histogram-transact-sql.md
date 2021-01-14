@@ -21,12 +21,12 @@ ms.assetid: 1897fd4a-8d51-461e-8ef2-c60be9e563f2
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 02ab47e249eed0d82a2d373685b34c11584dcfe0
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 240737da03fa21d1076251062d99f64b46aecad8
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099916"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98168106"
 ---
 # <a name="sysdm_db_stats_histogram-transact-sql"></a>sys.dm_db_stats_histogram (Transact-SQL)
 
@@ -35,7 +35,7 @@ ms.locfileid: "98099916"
 Retorna o histograma de estatísticas para o objeto de banco de dados especificado (tabela ou exibição indexada) no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] banco de dados atual. Similar a `DBCC SHOW_STATISTICS WITH HISTOGRAM`.
 
 > [!NOTE] 
-> Essa DMF está disponível a partir do [!INCLUDE[ssSQL15](../../includes/ssSQL15-md.md)] SP1 Cu2
+> Essa DMF está disponível a partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 Cu2
 
 ## <a name="syntax"></a>Sintaxe  
   

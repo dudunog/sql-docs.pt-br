@@ -21,12 +21,12 @@ ms.assetid: 9e851f72-1f8e-4515-a25d-152ebc12ed56
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 205103ac734d4c5fe0028b85ad7e24c10cd9adea
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 32c0750619119072eb9e020b4a88f1f89feeff70
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98098388"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171968"
 ---
 # <a name="sysfilegroups-transact-sql"></a>sys.filegroups (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "98098388"
 |**filegroup_guid**|**uniqueidentifier**|GUID do grupo de arquivos.<br /><br /> NULL = Grupo de arquivos PRIMARY|  
 |**log_filegroup_id**|**int**|[!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)] No [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], o valor é NULL.|  
 |**is_read_only**|**bit**|1 = O grupo de arquivos é somente leitura.<br /><br /> 0 = O grupo de arquivos é leitura/gravação.|  
-|**is_autogrow_all_files**|**bit**|**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] até a [versão atual](../../sql-server/what-s-new-in-sql-server-2016.md)).<br /><br /> 1 = quando um arquivo no grupo de arquivos atende ao limite de aumento automático, todos os arquivos no grupo de arquivos crescem.<br /><br /> 0 = quando um arquivo no grupo de arquivos atender ao limite de aumento automático, somente esse arquivo aumentará. Este é o padrão.|  
+|**is_autogrow_all_files**|**bit**|**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] até a [versão atual](../../sql-server/what-s-new-in-sql-server-2016.md)).<br /><br /> 1 = quando um arquivo no grupo de arquivos atende ao limite de aumento automático, todos os arquivos no grupo de arquivos crescem.<br /><br /> 0 = quando um arquivo no grupo de arquivos atender ao limite de aumento automático, somente esse arquivo aumentará. Este é o padrão.|  
   
 ## <a name="permissions"></a>Permissões  
  Requer associação à função **pública** . Para obter mais informações, consulte [Metadata Visibility Configuration](../../relational-databases/security/metadata-visibility-configuration.md).  
