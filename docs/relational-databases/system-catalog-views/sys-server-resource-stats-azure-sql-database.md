@@ -19,12 +19,12 @@ ms.assetid: ''
 author: jovanpop-msft
 ms.author: jovanpop
 monikerRange: =azuresqldb-current
-ms.openlocfilehash: 142269f7c3cd8a5a1e764e2e48cf41f83490bd76
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 8a913c3bf4f01828fcf75df1e3c69dca9149e2de
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97464597"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241817"
 ---
 # <a name="sysserver_resource_stats-azure-sql-database"></a>sys.server_resource_stats (banco de dados SQL do Azure)
 [!INCLUDE[Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/asdb-asdbmi.md)]
@@ -44,7 +44,7 @@ A exibição **Sys.server_resource_stats** tem definições diferentes, dependen
 |resource_name|nvarchar(128)|Nome do recurso.|
 |sku|nvarchar(128)|Instância Gerenciada camada de serviço da instância. O valores possíveis são os seguintes: <br><ul><li>Uso Geral</li></ul><ul><li>Comercialmente Crítico</li></ul>|
 |hardware_generation|nvarchar(128)|Identificador de geração de hardware: como Gen 4 ou Gen 5|
-|virtual_core_count|INT|Representa o número de núcleos virtuais por instância (8, 16 ou 24 em visualização pública)|
+|virtual_core_count|int|Representa o número de núcleos virtuais por instância (8, 16 ou 24 em visualização pública)|
 |avg_cpu_percent|decimal (5, 2)|Média de utilização de computação em porcentagem do limite do Instância Gerenciada camada de serviço utilizada pela instância. Ele é calculado como a soma do tempo de CPU de todos os pools de recursos para todos os bancos de dados na instância e dividido por tempo de CPU disponível para essa camada no intervalo especificado.|
 |reserved_storage_mb|BIGINT|Armazenamento reservado por instância (quantidade de espaço de armazenamento que o cliente comprou para a instância gerenciada)|
 |storage_space_used_mb|decimal (18, 2)|Armazenamento usado por todos os arquivos de banco de dados em uma instância gerenciada (incluindo bancos de dados do usuário e do sistema)|
@@ -63,18 +63,17 @@ A exibição **Sys.server_resource_stats** tem definições diferentes, dependen
  Os dados retornados por **Sys.server_resource_stats** são expressos como o total usado em bytes ou megabytes (declarados em nomes de coluna) que não seja avg_cpu, que é expresso como uma porcentagem do limite máximo permitido para a camada de serviço/nível de desempenho que você está executando.  
  
 ## <a name="examples"></a>Exemplos  
- O exemplo a seguir retorna todos os bancos de dados que estão com média de pelo menos 80% de utilização de computação durante a última semana.  
+O exemplo a seguir retorna o uso médio da CPU nos últimos sete dias.  
   
 ```sql  
 DECLARE @s datetime;  
 DECLARE @e datetime;  
 SET @s= DateAdd(d,-7,GetUTCDate());  
 SET @e= GETUTCDATE();  
-SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization   
+SELECT AVG(avg_cpu_percent) AS Average_Compute_Utilization   
 FROM sys.server_resource_stats   
 WHERE start_time BETWEEN @s AND @e  
-GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80  
+GO;
 ```  
     
 ## <a name="see-also"></a>Consulte Também  
