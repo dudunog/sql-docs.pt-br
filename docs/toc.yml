@@ -8681,9 +8681,6 @@
                       href: ssms/scripting/generate-and-publish-scripts-wizard.md
                     - name: Objetos com suporte no Assistente para Gerar Scripts
                       href: ssms/scripting/objects-supported-by-the-generate-scripts-wizard.md
-                - name: Editores de texto e consulta
-                  href: ./ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md?view=sql-server-ver15
-                  items:
                     - name: Editor de XML
                       href: ssms/scripting/xml-editor-sql-server-management-studio.md
                     - name: Codificação por cores no Editor de Consultas
@@ -9103,8 +9100,6 @@
               items:
                 - name: Editores de texto e consulta
                   href: /previous-versions/sql/sql-server-2012/ms173477(v=sql.110)?redirectedfrom=MSDN
-                - name: Editor de Consultas do Mecanismo de Banco de Dados
-                  href: ./ssms/f1-help/database-engine-query-editor-sql-server-management-studio.md
                 - name: Editor de XML
                   href: ssms/scripting/xml-editor-sql-server-management-studio.md
                 - name: Configurar editores
@@ -9223,6 +9218,8 @@
                   href: ssms/menu-help/options-environment-fonts-and-colors-page.md
                 - name: Opções (Ambiente – Ajuda – página Geral)
                   href: ssms/menu-help/options-environment-help-general-page.md
+                - name: Opções (opções de Execução de Consulta – Ajuda – página Geral)
+                  href: ssms/menu-help/options-query-execution.md
                 - name: Ferramentas Externas
                   href: ssms/menu-help/external-tools.md
                 - name: Personalizar (página Comandos)
