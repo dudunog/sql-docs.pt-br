@@ -12,12 +12,12 @@ author: markingmyname
 ms.author: maghan
 ms.custom: seo-lt-2019
 ms.date: 03/14/2017
-ms.openlocfilehash: bc7cb3a37d2fc7683321ca666f408f475b9ffa02
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 9e1dbe5def1065874cf840245bfaa3f2676af042
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85726902"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171588"
 ---
 # <a name="save-trace-results-to-a-table-sql-server-profiler"></a>Salvar resultados de rastreamento em uma tabela (SQL Server Profiler)
 
@@ -27,12 +27,12 @@ Este tópico descreve como salvar resultados de rastreamento em uma tabela do ba
   
 ## <a name="to-save-trace-results-to-a-table"></a>Para salvar resultados de rastreamento em uma tabela
   
-1.  No menu **Arquivo** , clique em **Novo Rastreamento**e conecte-se a uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
+1.  No menu **Arquivo** , clique em **Novo Rastreamento** e conecte-se a uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
   
-     A caixa de diálogo **Propriedades do Rastreamento**é exibida.  
+     A caixa de diálogo **Propriedades do Rastreamento** é exibida.  
   
     > [!NOTE]  
-    >  Se **Iniciar rastreamento imediatamente após estabelecer a conexão**estiver selecionado, a caixa de diálogo **Propriedades do Rastreamento**não será exibida e o rastreamento será iniciado. Para desabilitar essa configuração, no menu **Ferramentas**, clique em **Opções**e desmarque a caixa de seleção **Iniciar rastreamento imediatamente após estabelecer a conexão** .  
+    >  Se **Iniciar rastreamento imediatamente após estabelecer a conexão** estiver selecionado, a caixa de diálogo **Propriedades do Rastreamento** não será exibida e o rastreamento será iniciado. Para desabilitar essa configuração, no menu **Ferramentas**, clique em **Opções** e desmarque a caixa de seleção **Iniciar rastreamento imediatamente após estabelecer a conexão** .  
   
 2.  Na caixa de diálogo **Nome do rastreamento** , digite um nome para o rastreamento e clique em **Salvar em tabela**.  
   
@@ -44,7 +44,7 @@ Este tópico descreve como salvar resultados de rastreamento em uma tabela do ba
   
 6.  Na lista **Tabela** , digite ou selecione o nome da tabela a conter os resultados do rastreamento. Clique em **OK.**  
   
-7.  Na caixa de diálogo **Propriedades do Rastreamento** , marque a caixa de seleção **Definir máximo de linhas (em milhares)** para especificar o número máximo de linhas a serem salvas.  
+7.  Na caixa de diálogo **Rastrear Propriedades**, marque a caixa de seleção **Definir máximo de linhas (em milhares)** para especificar o número máximo de linhas a salvar.  
   
 ## <a name="see-also"></a>Consulte Também  
  [SQL Server Profiler](../../tools/sql-server-profiler/sql-server-profiler.md)  

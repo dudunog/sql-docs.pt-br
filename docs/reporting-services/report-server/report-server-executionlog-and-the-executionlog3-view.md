@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: a7ead67d-1404-4e67-97e7-4c7b0d942070
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 15e8b648603952226af45d485d5678f5d0d3bbd6
-ms.sourcegitcommit: f0772f614482e0b3cde3609e178689ce62ca3a19
+ms.openlocfilehash: 28d083e053e31c1fcce26e233ba22211e211a993
+ms.sourcegitcommit: 1f826eb3f73bd4d94bc9638b9cdd60991a2e2fa0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84548008"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98125578"
 ---
 # <a name="report-server-executionlog-and-the-executionlog3-view"></a>ExecutionLog do servidor de relatório e exibição do ExecutionLog3
   O [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)], o log de execução do servidor de relatório contém informações sobre os relatórios executados no servidor ou em vários servidores em uma implantação em expansão no modo nativo ou no farm do SharePoint. É possível usar o log de execução de relatório para descobrir a frequência na qual um relatório é solicitado, quais são os formatos de saída mais usados e qual é o tempo de processamento em milissegundos em cada fase do processamento. O log contém informações sobre o período de tempo gasto na execução da consulta do conjunto de dados de um relatório e a hora gasta no processamento dos dados. Se você for um administrador de servidor de relatório, poderá revisar as informações de log, identificar tarefas demoradas e dar sugestões aos autores de relatório sobre as áreas do relatório (conjunto de dados ou processamento) que eles podem melhorar.  
@@ -27,7 +27,7 @@ ms.locfileid: "84548008"
 ##  <a name="viewing-log-information"></a><a name="bkmk_top"></a> Exibindo as informações do log  
  A execução do servidor de relatório registra dados sobre execução de relatório em uma tabela de banco de dados interna. As informações da tabela estão disponíveis nas exibições do SQL Server.  
   
- O log de execução de relatório é armazenado no banco de dados do servidor de relatório que, por padrão, é denominado **ReportServer**. As exibições SQL fornecem as informações do log de execução. As exibições "2" e "3" foram adicionadas às versões mais recentes e contêm novos campos ou contêm campos com nomes mais amigáveis que as versões anteriores. As exibições mais antigas permanecem no produto; portanto, os aplicativos que dependem delas não são impactados. Se você não tem uma dependência em uma exibição mais antiga, por exemplo, ExecutionLog, é recomendável que use a exibição mais recente, ExecutionLog**3**.  
+ O log de execução de relatório é armazenado no banco de dados do servidor de relatório que, por padrão, é denominado **ReportServer**. As exibições SQL fornecem as informações do log de execução. As exibições "2" e "3" foram adicionadas às versões mais recentes e contêm novos campos ou contêm campos com nomes mais amigáveis que as versões anteriores. As exibições mais antigas permanecem no produto; portanto, os aplicativos que dependem delas não são impactados. Se você não tem uma dependência em uma exibição mais antiga, por exemplo, ExecutionLog, é recomendável que use a exibição mais recente, ExecutionLog **3**.  
   
  Neste tópico:  
   
@@ -328,11 +328,11 @@ select * from ExecutionLog2 order by TimeStart DESC
 |Formatar|Formato de renderização.|  
 |Parâmetros|Valores de parâmetro usados em uma execução de relatório.|  
 |ReportAction|Valores possíveis: Render, Sort, BookMarkNavigation, DocumentNavigation, GetDocumentMap, Findstring|  
-|TimeStart|Horas de início e parada que indicam a duração de um processo de relatório.|  
-|TimeEnd||  
-|TimeDataRetrieval|Número de milissegundos gastos na recuperação dos dados, no processamento do relatório e na renderização do relatório.|  
-|TimeProcessing||  
-|TimeRendering||  
+|TimeStart|Hora de início que indica a duração de um processo de relatório.|
+|TimeEnd|Hora de término que indica a duração de um processo de relatório.|
+|TimeDataRetrieval|Número de milissegundos gastos na recuperação dos dados.|
+|TimeProcessing|Número de milissegundos gastos no processamento do relatório.|
+|TimeRendering|Número de milissegundos gastos na renderização do relatório.|
 |Fonte|Fonte da execução de relatório (1=Ativo, 2=Cache, 3=Instantâneo, 4=Histórico).|  
 |Status|Status (rsSuccess ou um código de erro; se vários erros ocorrerem, só o primeiro erro será registrado).|  
 |ByteCount|Tamanho de relatórios renderizados em bytes.|  

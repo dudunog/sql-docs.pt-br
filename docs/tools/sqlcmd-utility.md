@@ -28,12 +28,12 @@ ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017'
-ms.openlocfilehash: fcd184e195ce8c81e16ca4ceaaab03a1f156a812
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 0c822321323eb5f74fda34df2d540b7c5c79c382
+ms.sourcegitcommit: e40e75055c1435c5e3f9b6e3246be55526807b4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471827"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98151283"
 ---
 # <a name="sqlcmd-utility"></a>Utilitário sqlcmd
 
@@ -917,13 +917,21 @@ Use as seguintes práticas para ajudar a maximizar a segurança e a eficiência.
 
 - Use segurança integrada.  
 
-- Use **-X** em ambientes automatizados.  
+- Use **-X[1]** em ambientes automatizados.
 
 - Proteja arquivos de entrada e de saída usando permissões adequadas de sistema de arquivos NTFS.
 
 - Para aumentar o desempenho, faça o máximo possível em uma sessão **sqlcmd** , em vez de usar uma série de sessões.
 
 - Defina valores mais altos de tempo limite para execução em lote ou de consulta do que você imagina que levará para a execução em lote ou de consulta.
+
+Use as seguintes práticas para ajudar a maximizar a exatidão:
+
+- Use o **-v16** para registrar quaisquer [mensagens de nível de gravidade 16](../relational-databases/errors-events/database-engine-error-severities.md#levels-of-severity).  As mensagens de gravidade 16 indicam erros gerais que podem ser corrigidos pelo usuário.
+
+- Verifique o código de saída e a variável DOS ERRORLEVEL depois que o processo for encerrado.  O **sqlcmd** retornará 0 normalmente. Caso contrário, ele definirá o ERRORLEVEL como configurado pelo **-V**.  Em outras palavras, ERRORLEVEL não deve ser o mesmo valor que o Número de Erro relatado pelo SQL Server. O Número do Erro é um valor específico do SQL Server correspondente à função do sistema [ **@@ERROR** ](../t-sql/functions/error-transact-sql.md).  ERRORLEVEL é um valor específico do SQLCMD para indicar por que ele (por exemplo, SQLCMD) foi encerrado, e seu valor é influenciado especificando o argumento da linha de comando **-b**.
+
+Usar o **-V16** em combinação com a verificação do código de saída e DOS ERRORLEVEL pode ajudar a detectar erros em ambientes automatizados, especialmente gates de qualidade antes de uma versão de produção.
 
 ## <a name="next-steps"></a>Próximas etapas
 
