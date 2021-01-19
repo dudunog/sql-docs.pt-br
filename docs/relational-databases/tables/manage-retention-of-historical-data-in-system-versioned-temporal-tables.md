@@ -12,12 +12,12 @@ ms.assetid: 7925ebef-cdb1-4cfe-b660-a8604b9d2153
 author: markingmyname
 ms.author: maghan
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: f742ece496377a224a67b12223b09d198327812a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c0dac2b5d344969f96016a86622ee4e07ab8c23d
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484488"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98167960"
 ---
 # <a name="manage-retention-of-historical-data-in-system-versioned-temporal-tables"></a>Gerenciar a retenção de dados históricos em tabelas temporais com versão do sistema
 
@@ -70,7 +70,7 @@ Você pode configurar uma tabela de histórico temporal para o Stretch usando o 
 
 ### <a name="using-the-stretch-wizard-to-stretch-the-entire-history-table"></a>Usando o Assistente de Ampliação para ampliar a tabela de histórico inteira
 
-O método mais fácil para iniciantes é usar o Assistente de ampliação para habilitar a ampliação do banco de dados inteiro e escolher a tabela de histórico temporal no assistente de ampliação (este exemplo supõe que você tenha configurado a tabela Department como uma tabela temporal com versão do sistema em um banco de dados vazio). No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], não é possível clicar com o botão direito do mouse na própria tabela de histórico temporal e clicar em Ampliar.
+O método mais fácil para iniciantes é usar o Assistente de ampliação para habilitar a ampliação do banco de dados inteiro e escolher a tabela de histórico temporal no assistente de ampliação (este exemplo supõe que você tenha configurado a tabela Department como uma tabela temporal com versão do sistema em um banco de dados vazio). No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], não é possível clicar com o botão direito do mouse na própria tabela de histórico temporal e clicar em Ampliar.
 
 1. Clique com o botão direito do mouse em seu banco de dados e aponte para **Tarefas**, aponte para **Stretch** e clique em **Habilitar** para iniciar o assistente.
 2. Na janela **Selecionar tabelas** , marque a caixa de seleção da tabela de histórico temporal e clique em Avançar.

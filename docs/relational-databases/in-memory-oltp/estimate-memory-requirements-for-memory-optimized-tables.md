@@ -12,12 +12,12 @@ ms.assetid: 5c5cc1fc-1fdf-4562-9443-272ad9ab5ba8
 author: markingmyname
 ms.author: maghan
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 7dbbbf20d23c33e0aaef2bad8800cae457414db6
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c40cb726e20f015a46cd808200ebbe67d9c1dc10
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97460489"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98168240"
 ---
 # <a name="estimate-memory-requirements-for-memory-optimized-tables"></a>Estimar requisitos de memória para tabelas com otimização de memória
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -30,7 +30,7 @@ Se você pretende migrar de tabelas baseadas em disco para tabelas com otimizaç
   
 ## <a name="basic-guidance-for-estimating-memory-requirements"></a>Diretrizes básicas para estimar os requisitos de memória
 
-A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], não há nenhum limite no tamanho das tabelas com otimização de memória, embora as tabelas precisem caber na memória.  No [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] , o tamanho dos dados com suporte é de 256 GB para tabelas SCHEMA_AND_DATA.
+A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], não há nenhum limite no tamanho das tabelas com otimização de memória, embora as tabelas precisem caber na memória.  No [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] , o tamanho dos dados com suporte é de 256 GB para tabelas SCHEMA_AND_DATA.
 
 O tamanho de uma tabela com otimização de memória corresponde ao tamanho dos dados, além da sobrecarga para cabeçalhos de linha. Ao migrar uma tabela baseada em disco para uma tabela com otimização de memória, o tamanho da tabela com otimização de memória aproximadamente corresponderá ao tamanho do índice clusterizado ou do heap da tabela original baseada em disco.
 

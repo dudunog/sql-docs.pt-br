@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 6e005de0-3a77-4b91-b497-14cc0f9f6605
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: a88af1af1e814ee6340f72553d74fdba1247c51e
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+ms.openlocfilehash: ebedb1071dc5953bc78918f928f0f53a7145e282
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89542878"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98167768"
 ---
 # <a name="configuring-storage-for-memory-optimized-tables"></a>Configuração do armazenamento para tabelas com otimização de memória
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -44,7 +44,7 @@ Um bom ponto de partida para dimensionar o armazenamento para essa área é rese
 -   Arquivos de ponto de verificação normalmente são distribuídos uniformemente em todos os contêineres, se houver espaço. Com o SQL Server 2014, você precisa provisionar um número ímpar de contêineres para alcançar uma distribuição uniforme – a partir do 2016, números ímpar e par de contêineres levam a uma distribuição uniforme.
   
 ## <a name="encryption"></a>Criptografia  
- No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e versões posteriores, o armazenamento para tabelas com otimização de memória será criptografado em repouso como parte da habilitação de TDE (Transparent Data Encryption) no banco de dados. Para obter mais informações, confira [Transparent Data Encryption](../../relational-databases/security/encryption/transparent-data-encryption.md). No [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], os arquivos de ponto de verificação não são criptografados, mesmo se a TDE estiver habilitada no banco de dados.
+ No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e versões posteriores, o armazenamento para tabelas com otimização de memória será criptografado em repouso como parte da habilitação de TDE (Transparent Data Encryption) no banco de dados. Para obter mais informações, confira [Transparent Data Encryption](../../relational-databases/security/encryption/transparent-data-encryption.md). No [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], os arquivos de ponto de verificação não são criptografados, mesmo se a TDE estiver habilitada no banco de dados.
 
  Dados em tabelas com otimização de memória [não duráveis](../../relational-databases/in-memory-oltp/defining-durability-for-memory-optimized-objects.md) (SCHEMA_ONLY) não são gravadas no disco em nenhum momento. Portanto, o TDE não se aplica a essas tabelas.
   
