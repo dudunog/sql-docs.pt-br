@@ -12,17 +12,17 @@ ms.assetid: e1328615-6b59-4473-8a8d-4f360f73187d
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: e89b5ab77b4b77d5cca83f6b3691027122444fe1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 4e62692402f33bfc42957363794bad9a698b18bb
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97465337"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172758"
 ---
 # <a name="get-started-with-columnstore-for-real-time-operational-analytics"></a>Introdução ao Columnstore para análise operacional em tempo real
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
 
-  O [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] apresenta análise operacional em tempo real, a capacidade de executar cargas de trabalho OLTP e analíticas nas mesmas tabelas de banco de dados ao mesmo tempo. Além de executar análise em tempo real, você também pode eliminar a necessidade de ETL e de um data warehouse.  
+  O [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] apresenta análise operacional em tempo real, a capacidade de executar cargas de trabalho OLTP e analíticas nas mesmas tabelas de banco de dados ao mesmo tempo. Além de executar análise em tempo real, você também pode eliminar a necessidade de ETL e de um data warehouse.  
   
 ## <a name="real-time-operational-analytics-explained"></a>Análise operacional em tempo real explicado  
  Tradicionalmente, as empresas tinham sistemas separados para cargas de trabalho operacionais (isto é, OLTP) e analíticas. Para tais sistemas, os trabalhos ETL (Extrair, Transformar e Carregar) movem os dados regularmente do repositório operacional para um repositório analítico. Os dados analíticos geralmente são armazenados em um data warehouse ou data mart dedicado para execução de consultas analíticas. Embora essa solução tenha sido o padrão, ela apresenta estes três desafios principais:  

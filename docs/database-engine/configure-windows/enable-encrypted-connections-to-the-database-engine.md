@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: e1e55519-97ec-4404-81ef-881da3b42006
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: b18a3131329e0485221a0ae2cdaafd0726a4f31c
-ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
+ms.openlocfilehash: 1b5726aad103012b0ed7619749c1f6f669baa234
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97878944"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241827"
 ---
 # <a name="enable-encrypted-connections-to-the-database-engine"></a>Habilitar conexões criptografadas com o Mecanismo de Banco de Dados
 
@@ -40,7 +40,7 @@ ms.locfileid: "97878944"
  O computador servidor precisa ter um certificado provisionado. Para provisionar o certificado no computador servidor, [importe-o para o Windows](#single-server). O computador cliente precisa ser configurado para [confiar na autoridade raiz do certificado](#about).  
   
 > [!IMPORTANT]
-> Após o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], o protocolo SSL foi descontinuado. Use o protocolo TLS em vez disso.
+> Após o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], o protocolo SSL foi descontinuado. Use o protocolo TLS em vez disso.
 
 ## <a name="transport-layer-security-tls"></a>Protocolo TLS
 
@@ -92,7 +92,7 @@ Para o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] carregar um cer
 
 - A propriedade **Assunto** do certificado deve indicar que o nome comum (CN) é igual ao nome do host ou ao nome de domínio totalmente qualificado (FQDN) do computador servidor. Ao usar o nome do host, o sufixo DNS precisa ser especificado no certificado. Se o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] estiver em execução em um cluster de failover, o nome comum deverá corresponder ao nome do host ou ao FQDN do servidor virtual e os certificados deverão ser fornecidos em todos os nós no cluster de failover.
 
-- O [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] e o [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] SNAC (Cliente Nativo) dão suporte a certificados curinga. O SNAC foram preteridos desde então e substituídos pelo [Driver do Microsoft OLE DB para SQL Server](../../connect/oledb/oledb-driver-for-sql-server.md) e [Microsoft ODBC Driver for SQL Server](../../connect/odbc/microsoft-odbc-driver-for-sql-server.md). Outros clientes podem não dar suporte a certificados curinga. Para obter mais informações, confira a documentação do cliente e o [KB 258858](https://support.microsoft.com/kb/258858).       
+- O [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] e o [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] SNAC (Cliente Nativo) dão suporte a certificados curinga. O SNAC foram preteridos desde então e substituídos pelo [Driver do Microsoft OLE DB para SQL Server](../../connect/oledb/oledb-driver-for-sql-server.md) e [Microsoft ODBC Driver for SQL Server](../../connect/odbc/microsoft-odbc-driver-for-sql-server.md). Outros clientes podem não dar suporte a certificados curinga.      
   O certificado curinga não pode ser selecionado usando o SQL Server Configuration Manager. Para usar um certificado curinga, é necessário editar a chave do Registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQLServer\SuperSocketNetLib` e inserir a impressão digital do certificado, sem espaços, no valor **Certificado**.  
 
   > [!WARNING]  

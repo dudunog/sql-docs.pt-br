@@ -25,12 +25,12 @@ helpviewer_keywords:
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 77bd2f1cb2cd3e028bccbc5185f2336812f3f891
-ms.sourcegitcommit: d681796e8c012eca2d9629d3b816749e9f50f868
+ms.openlocfilehash: 7800e75ee2b35b491053bbcbc2ef3c05e86e1939
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98005421"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172778"
 ---
 # <a name="statistics"></a>Estatísticas
 
@@ -114,12 +114,12 @@ ORDER BY s.name;
     * Se a cardinalidade da tabela era de 500 ou menos quando as estatísticas foram avaliadas, é necessário atualizar a cada 500 modificações.
     * Se a cardinalidade da tabela era inferior a 500 quando as estatísticas foram avaliadas, é necessário atualizar a cada 500 + 20% de modificações.
 
-* Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e no [nível de compatibilidade de banco de dados](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 130, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] usa um limite de atualização de estatística dinâmico e decrescente, ajustado de acordo com o número de linhas da tabela. Isso é calculado como a raiz quadrada do produto de 1000 e da cardinalidade da tabela atual. Por exemplo, se a tabela contiver 2 milhões de linhas, o cálculo será sqrt(1000 * 2000000) = 44721,359. Com essa alteração, as estatísticas em tabelas grandes serão atualizadas com mais frequência. No entanto, quando um banco de dados tem um nível de compatibilidade inferior a 130, aplica-se o limite do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. 
+* Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e no [nível de compatibilidade de banco de dados](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 130, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] usa um limite de atualização de estatística dinâmico e decrescente, ajustado de acordo com o número de linhas da tabela. Isso é calculado como a raiz quadrada do produto de 1000 e da cardinalidade da tabela atual. Por exemplo, se a tabela contiver 2 milhões de linhas, o cálculo será sqrt(1000 * 2000000) = 44721,359. Com essa alteração, as estatísticas em tabelas grandes serão atualizadas com mais frequência. No entanto, quando um banco de dados tem um nível de compatibilidade inferior a 130, aplica-se o limite do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. 
 
 > [!IMPORTANT]
-> Do [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] até o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] ou no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e versões posteriores, em [nível de compatibilidade do banco de dados](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 120 e inferior, habilite o [sinalizador de rastreamento 2371](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) para que o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] use um limite de atualização de estatísticas dinâmico e decrescente.
+> Do [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] até o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] ou no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e versões posteriores, em [nível de compatibilidade do banco de dados](../../relational-databases/databases/view-or-change-the-compatibility-level-of-a-database.md) 120 e inferior, habilite o [sinalizador de rastreamento 2371](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) para que o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] use um limite de atualização de estatísticas dinâmico e decrescente.
 
-Você pode usar as seguintes diretrizes para habilitar o sinalizador de rastreamento 2371 em seu ambiente pré-[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]:
+Você pode usar as seguintes diretrizes para habilitar o sinalizador de rastreamento 2371 em seu ambiente pré-[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]:
 
  - Se você não observar problemas de desempenho devido a estatísticas desatualizadas, não será necessário habilitar esse sinalizador de rastreamento.
  - Se você estiver em sistemas SAP, habilite o sinalizador de rastreamento.  Confira mais informações neste [blog](/archive/blogs/saponsqlserver/changes-to-automatic-update-statistics-in-sql-server-traceflag-2371).
@@ -297,7 +297,7 @@ Somente o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] pode criar e
  Operações como reconstrução, desfragmentação ou reorganização de um índice não alteram a distribuição de dados. Portanto, não é necessário atualizar estatísticas depois de executar as operações [ALTER INDEX REBUILD](../../t-sql/statements/alter-index-transact-sql.md#rebuilding-indexes), [DBCC DBREINDEX](../../t-sql/database-console-commands/dbcc-dbreindex-transact-sql.md), [DBCC INDEXDEFRAG](../../t-sql/database-console-commands/dbcc-indexdefrag-transact-sql.md) ou [ALTER INDEX REORGANIZE](../../t-sql/statements/alter-index-transact-sql.md#reorganizing-indexes). O otimizador de consulta atualiza estatísticas quando você reconstrói um índice em uma tabela ou exibição com ALTER INDEX REBUILD ou DBCC DBREINDEX; no entanto, essa atualização de estatísticas é um subproduto da recriação do índice. O otimizador de consulta não atualiza estatísticas depois de operações DBCC INDEXDEFRAG ou ALTER INDEX REORGANIZE. 
  
 > [!TIP]
-> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 CU4, use a opção PERSIST_SAMPLE_PERCENT de [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md) ou [UPDATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/update-statistics-transact-sql.md) a fim de definir e reter uma porcentagem de amostragem específica para atualizações estatísticas subsequentes que não especificam explicitamente uma porcentagem de amostragem.
+> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 CU4, use a opção PERSIST_SAMPLE_PERCENT de [CREATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/create-statistics-transact-sql.md) ou [UPDATE STATISTICS &#40;Transact-SQL&#41;](../../t-sql/statements/update-statistics-transact-sql.md) a fim de definir e reter uma porcentagem de amostragem específica para atualizações estatísticas subsequentes que não especificam explicitamente uma porcentagem de amostragem.
 
 ### <a name="automatic-index-and-statistics-management"></a>Índice automático e gerenciamento de estatísticas
 

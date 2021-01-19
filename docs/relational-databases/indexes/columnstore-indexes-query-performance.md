@@ -12,12 +12,12 @@ ms.assetid: 83acbcc4-c51e-439e-ac48-6d4048eba189
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: e662c2fe2037725785b7c7caeeff1c52f45c34d1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 1ea031ed8c733a2ced272bf05c952b7f32aa7da4
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480137"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172768"
 ---
 # <a name="columnstore-indexes---query-performance"></a>Índices columnstore – desempenho de consultas
 
@@ -32,7 +32,7 @@ ms.locfileid: "97480137"
     
 ### <a name="1-organize-data-to-eliminate-more-rowgroups-from-a-full-table-scan"></a>1. Organizar dados para eliminar mais rowgroups de uma verificação de tabela completa    
     
--   **Aproveite a ordem de inserção.** Geralmente, no data warehouse tradicional, os dados são realmente inseridos na ordem de tempo e a análise é feita na dimensão temporal. Por exemplo, ao analisar vendas por trimestre. Para essa variante de carga de trabalho, a eliminação de rowgroup ocorre automaticamente. No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], você pode descobrir que rowgroups de número foram ignorados como parte do processamento de consulta.    
+-   **Aproveite a ordem de inserção.** Geralmente, no data warehouse tradicional, os dados são realmente inseridos na ordem de tempo e a análise é feita na dimensão temporal. Por exemplo, ao analisar vendas por trimestre. Para essa variante de carga de trabalho, a eliminação de rowgroup ocorre automaticamente. No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], você pode descobrir que rowgroups de número foram ignorados como parte do processamento de consulta.    
     
 -   **Aproveite o índice rowstore clusterizado.** Se o predicado de consulta comum estiver em uma coluna (por exemplo, C1) que não esteja relacionada à ordem de inserção da linha, você poderá criar um índice clusterizado rowstore em colunas C1 e, em seguida, criar o índice columstore clusterizado com a remoção do índice rowstore clusterizado. Se você criar o índice columnstore clusterizado explicitamente usando `MAXDOP = 1`, o índice columnstore clusterizado resultante estará ordenado perfeitamente na coluna C1. Se você especificar `MAXDOP = 8`, verá a sobreposição de valores em oito rowgroups. Um caso comum dessa estratégia é quando você cria inicialmente o índice columnstore com um grande conjunto de dados. Observe que, para o NCCI (índice columnstore não clusterizado), se a tabela rowstore base tiver um índice clusterizado, as linhas já estarão ordenadas. Nesse caso, o índice columnstore não clusterizado resultante será ordenado automaticamente. Um ponto importante a observar é que o índice columnstore não mantém a ordem das linhas inerentemente. Conforme novas linhas são inseridas ou linhas mais antigas são atualizadas, talvez seja necessário repetir o processo, já que o desempenho de consultas de análise pode se deteriorar    
     
@@ -52,7 +52,7 @@ ms.locfileid: "97480137"
     
  Se a tabela tiver mais de um milhão de linhas, mas o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] não puder obter uma concessão de memória suficiente para criar o índice usando MAXDOP, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] diminuirá automaticamente `MAXDOP`, conforme necessário, de acordo com a concessão de memória disponível.  Em alguns casos, o DOP deve ser diminuído para um para criar o índice na memória restrita.    
     
- A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], a consulta operará sempre no modo de lote. Em versões anteriores, a execução em lotes só é usada quando o DOP é maior do que um.    
+ A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], a consulta operará sempre no modo de lote. Em versões anteriores, a execução em lotes só é usada quando o DOP é maior do que um.    
     
 ## <a name="columnstore-performance-explained"></a>Desempenho ColumnStore explicado    
  Índices columnstore atingem alto desempenho de consultas combinando o processamento no modo de lotes in-memory em alta velocidade com técnicas que reduzem consideravelmente os requisitos de E/S. Já que consultas de análise examinam grandes números de linhas, elas são normalmente associadas a E/S e, portanto, a redução da E/S durante a execução da consulta é crítica para o design de índices columnstore. Depois que os dados forem lidos na memória, é essencial reduzir o número de operações na memória.    
@@ -82,7 +82,7 @@ ms.locfileid: "97480137"
     
  **Quando um índice columnstore precisa executar uma verificação de tabela completa?**    
     
- A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], é possível criar um ou mais índices de árvore B regulares não clusterizados em um índice columnstore clusterizado, assim como é possível fazer no heap de um rowstore. Os índices de árvore B não clusterizados podem acelerar uma consulta que contém um predicado de igualdade ou um predicado com um intervalo de valores pequeno. Para predicados mais complicados, o otimizador de consulta pode escolher uma verificação de tabela completa. Sem a capacidade de ignorar rowgroups, uma verificação de tabela completa seria muito demorada, especialmente para tabelas grandes.    
+ A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], é possível criar um ou mais índices de árvore B regulares não clusterizados em um índice columnstore clusterizado, assim como é possível fazer no heap de um rowstore. Os índices de árvore B não clusterizados podem acelerar uma consulta que contém um predicado de igualdade ou um predicado com um intervalo de valores pequeno. Para predicados mais complicados, o otimizador de consulta pode escolher uma verificação de tabela completa. Sem a capacidade de ignorar rowgroups, uma verificação de tabela completa seria muito demorada, especialmente para tabelas grandes.    
     
  **Quando uma consulta de análise se beneficia de eliminação de rowgroups para uma verificação de tabela completa?**    
     
@@ -99,7 +99,7 @@ ms.locfileid: "97480137"
     
  Nem todos os operadores de execução de consulta podem ser executados em modo de lote. Por exemplo, operações DML como Insert, Delete ou Update são executadas em uma linha por vez. O modo de lote destina-se a operadores voltados à aceleração do desempenho de consultas, como Scan, Join, Aggregate, sort e outros mais. Como o índice columnstore foi introduzido no [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)], há um esforço contínuo para expandir os operadores que podem ser executados no modo de lote. A tabela abaixo mostra os operadores executados no modo de lote, de acordo com a versão do produto.    
     
-|Operadores no modo de lote|Quando isso é usado?|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|[!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e [!INCLUDE[ssSDS](../../includes/sssds-md.md)]<sup>1</sup>|Comentários|    
+|Operadores no modo de lote|Quando isso é usado?|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|[!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e [!INCLUDE[ssSDS](../../includes/sssds-md.md)]<sup>1</sup>|Comentários|    
 |---------------------------|------------------------|---------------------|---------------------|---------------------------------------|--------------|    
 |Operações DML (insert, delete, update, merge)||não|não|não|DML não é uma operação de modo de lote porque ele não é paralelo. Mesmo quando podemos habilitar o processamento em lotes de modo serial, não vemos ganhos significativos ao permitir que o DML seja processado em modo em lote.|    
 |verificação de índice columnstore|SCAN|NA|sim|sim|Para índices columnstore, podemos enviar por push o predicado por push para o nó SCAN.|    
@@ -116,14 +116,14 @@ ms.locfileid: "97480137"
 |consultas de thread único com um plano de consulta serial||não|não|sim||    
 |sort|Classificar por cláusula em SCAN com índice columnstore.|não|não|sim||    
 |classificação superior||não|não|sim||    
-|agregações de janela||NA|NA|sim|Novo operador do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)].|    
+|agregações de janela||NA|NA|sim|Novo operador do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)].|    
     
-<sup>1</sup> Aplica-se ao [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], às camadas Premium do [!INCLUDE[ssSDS](../../includes/sssds-md.md)], às camadas Standard – S3 e posterior, a todas as camadas do vCore e ao [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]    
+<sup>1</sup> Aplica-se ao [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], às camadas Premium do [!INCLUDE[ssSDS](../../includes/sssds-md.md)], às camadas Standard – S3 e posterior, a todas as camadas do vCore e ao [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]    
 
 Para obter mais informações, confira o [Guia da Arquitetura de Processamento de Consultas](../../relational-databases/query-processing-architecture-guide.md#batch-mode-execution).
     
 ### <a name="aggregate-pushdown"></a>Aplicação de agregação    
- Um caminho de execução normal para a computação de agregação para buscar as linhas qualificadas do nó SCAN e agregar os valores no Modo de Lote. Embora isso ofereça bom desempenho, no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], a operação de agregação pode ser enviada por push para o nó SCAN para melhorar o desempenho da computação de agregação em ordens de magnitude além da execução do Modo de Lote, desde que as seguintes condições sejam atendidas: 
+ Um caminho de execução normal para a computação de agregação para buscar as linhas qualificadas do nó SCAN e agregar os valores no Modo de Lote. Embora isso ofereça bom desempenho, no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], a operação de agregação pode ser enviada por push para o nó SCAN para melhorar o desempenho da computação de agregação em ordens de magnitude além da execução do Modo de Lote, desde que as seguintes condições sejam atendidas: 
  
 -    As agregações são `MIN`, `MAX`, `SUM`, `COUNT` e `COUNT(*)`. 
 -  O operador de agregação deve ficar sobre o nó SCAN ou o nó SCAN com `GROUP BY`.
@@ -157,7 +157,7 @@ Por exemplo, um fato pode ser um registro que representa uma venda de um produto
     
 Vamos considerar uma tabela de dimensões `Products`. Uma chave primária típica será `ProductCode`, que normalmente é representada como um tipo de dados String. Para o desempenho de consultas, uma melhor prática é criar uma chave alternativa, normalmente uma coluna de inteiros, para referir-se à linha na tabela de dimensões da tabela de fatos. 
     
-O índice columnstore executa consultas de análise com junções/predicados que envolvem chaves baseadas em valores numéricos ou inteiros de maneira muito eficiente. No entanto, em muitas cargas de trabalho do cliente, observamos o uso de colunas baseadas em cadeias de caracteres vinculando tabelas de fatos/dimensões e, como resultado, o desempenho de consultas com um índice columnstore não era tão bom. O [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] melhora consideravelmente o desempenho de consultas de análise com colunas baseadas em cadeia de caracteres, ao realizar a aplicação dos predicados com colunas de cadeia de caracteres ao nó SCAN.    
+O índice columnstore executa consultas de análise com junções/predicados que envolvem chaves baseadas em valores numéricos ou inteiros de maneira muito eficiente. No entanto, em muitas cargas de trabalho do cliente, observamos o uso de colunas baseadas em cadeias de caracteres vinculando tabelas de fatos/dimensões e, como resultado, o desempenho de consultas com um índice columnstore não era tão bom. O [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] melhora consideravelmente o desempenho de consultas de análise com colunas baseadas em cadeia de caracteres, ao realizar a aplicação dos predicados com colunas de cadeia de caracteres ao nó SCAN.    
     
 A aplicação de predicado de cadeia de caracteres aproveita o dicionário primário/secundário criado para coluna(s) para melhorar o desempenho de consultas. Por exemplo, consideremos o segmento de coluna de cadeia de caracteres dentro de um rowgroup que consiste de 100 valores de cadeia de caracteres distintos. Isso significa que cada valor de cadeia de caracteres distinto é referenciado 10.000 vezes em média, supondo 1 milhão de linhas.    
     
