@@ -25,12 +25,12 @@ ms.assetid: 782798d3-9552-4514-9f58-e87be4b264e4
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: c06db04136d3e38ad62fe71313490c0a54670c46
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 5088cb94c4c4387cd77835bbe02502764d3c2384
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97479427"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171698"
 ---
 # <a name="create-a-database-user"></a>Criar um usuário de banco de dados
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -49,7 +49,7 @@ ms.locfileid: "97479427"
   
  Se você ainda não conhece o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], pode ser difícil determinar que tipo de usuário deseja criar. Primeiro pergunte-se: a pessoa ou grupo que precisa acessar o banco de dados tem um logon? Os logons no banco de dados mestre são comuns para as pessoas que gerenciam o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] e pessoas que precisam acessar muitos ou todos os bancos de dados na instância do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Nessa situação, você criará um **usuário do SQL com logon**. O usuário de banco de dados é a identidade do logon quando é conectado a um banco de dados. O usuário de banco de dados pode usar o mesmo nome como o logon, mas isso não é requerido. Este tópico pressupõe que já exista um logon no [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Para obter mais informações sobre como criar um logon, veja [Criar um logon](../../../relational-databases/security/authentication-access/create-a-login.md)  
   
- Se a pessoa ou grupo que precisa acessar o banco de dados não tiver um logon e se eles só precisarem de acesso para um ou alguns bancos de dados, crie um **usuário Windows** ou um **usuário do SQL com senha**. Também chamado de usuário de banco de dados independente, ele não está associado com logon no banco de dados mestre. Essa será uma excelente opção quando você quiser mover facilmente o banco de dados entre instâncias do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Para usar essa opção no [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)], um administrador deve primeiro habilitar bancos de dados independentes para o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], e o banco de dados deve ser habilitado para ser independente. Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](../../../relational-databases/security/contained-database-users-making-your-database-portable.md).  
+ Se a pessoa ou grupo que precisa acessar o banco de dados não tiver um logon e se eles só precisarem de acesso para um ou alguns bancos de dados, crie um **usuário Windows** ou um **usuário do SQL com senha**. Também chamado de usuário de banco de dados independente, ele não está associado com logon no banco de dados mestre. Essa será uma excelente opção quando você quiser mover facilmente o banco de dados entre instâncias do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Para usar essa opção no [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)], um administrador deve primeiro habilitar bancos de dados independentes para o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], e o banco de dados deve ser habilitado para ser independente. Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](../../../relational-databases/security/contained-database-users-making-your-database-portable.md).  
   
 > **IMPORTANTE:** Ao conectar-se como um usuário de banco de dados independente, você deverá fornecer o nome do banco de dados como parte da cadeia de conexão. Para especificar o banco de dados no [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)], na caixa de diálogo **Conectar a** , clique em **Opções** e depois clique na guia **Propriedades de Conexão** .  
   

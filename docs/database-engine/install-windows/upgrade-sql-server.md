@@ -13,17 +13,17 @@ ms.assetid: 5064e35b-b70d-4a0b-a9e9-fff04162f9d2
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: eaf66c17921094aa6a0e4ce10224ab4eaeaf108c
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 3e5bdb3488708bfd4c4e6463b1f87bda580c8fd4
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97460639"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170128"
 ---
 # <a name="upgrade-sql-server"></a>Atualizar o SQL Server
 [!INCLUDE [SQL Server -Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
  
- [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] Você pode atualizar instâncias do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], [!INCLUDE[ss2016](../../includes/sssql15-md.md)] ou [!INCLUDE[ss2017](../../includes/sssqlv14-md.md)] diretamente para [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]. Para [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] e [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)], você precisará fazer uma atualização lado a lado ou uma migração para mudar para o SQL Server 2019, já que não há nenhuma sobreposição comum entre um sistema operacional popular compatível. Antes de executar a Instalação do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para atualizar para o [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)], examine os artigos a seguir sobre o processo de atualização e as notas da versão.  
+ [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] Você pode atualizar instâncias do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], [!INCLUDE[ss2016](../../includes/sssql16-md.md)] ou [!INCLUDE[ss2017](../../includes/sssqlv14-md.md)] diretamente para [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]. Para [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] e [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)], você precisará fazer uma atualização lado a lado ou uma migração para mudar para o SQL Server 2019, já que não há nenhuma sobreposição comum entre um sistema operacional popular compatível. Antes de executar a Instalação do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para atualizar para o [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)], examine os artigos a seguir sobre o processo de atualização e as notas da versão.  
   
    - Para saber mais sobre a atualização do [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)], veja [Você está atualizando do SQL Server 2005?](../../sql-server/end-of-support/sql-server-end-of-life-overview.md).  
    - [Notas de Versão do SQL Server 2016.](../../sql-server/sql-server-2016-release-notes.md) 

@@ -22,12 +22,12 @@ helpviewer_keywords:
 ms.assetid: b7422911-7524-4bcd-9ab9-e460d5897b3d
 author: DavidTrigano
 ms.author: datrigan
-ms.openlocfilehash: 51f971caef999424e002a49ab357e33fd1f0657a
-ms.sourcegitcommit: 80701484b8f404316d934ad2a85fd773e26ca30c
+ms.openlocfilehash: e435d8c94dfdfc8f989875d48440554e04405376
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243565"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172488"
 ---
 # <a name="sql-server-audit-action-groups-and-actions"></a>Ações e grupos de ações de auditoria do SQL Server
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -126,7 +126,7 @@ ms.locfileid: "93243565"
  Ações no nível do servidor não permitem filtragem detalhada em ações no nível de banco de dados. Uma auditoria no nível do banco de dados, como auditoria de ações SELECT na tabela Clientes para logons no grupo Funcionário é necessária para implementar filtragem de ação detalhada. Não inclua objetos do escopo de servidor, como as exibições do sistema, em uma especificação de auditoria de banco de dados do usuário.  
 
  > [!NOTE]
- > Devido à sobrecarga envolvida em habilitar auditoria no nível da transação, do [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../../includes/sssql17-md.md)] CU4 em diante, a auditoria no nível da transação é desabilitada por padrão, a menos que você tenha Conformidade de Critérios Comuns habilitada.  Se Conformidade de Critérios Comuns estiver desabilitada, você ainda poderá adicionar uma ação de TRANSACTION_GROUP a uma especificação de auditoria, mas ela coletará de fato nenhuma ação da transação.  Se você quiser configurar quaisquer ações de auditoria do TRANSACTION_GROUP, habilite a infraestrutura de auditoria no nível da transação habilitando a Conformidade de Critérios Comuns do [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../../includes/sssql17-md.md)] CU4 e posteriores em diante.  Observe que, no [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)], a auditoria no nível da transação também pode ser desabilitada e com o sinalizador de rastreamento 3427 do SP1 CU2 em diante.
+ > Devido à sobrecarga envolvida em habilitar auditoria no nível da transação, do [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../../includes/sssql17-md.md)] CU4 em diante, a auditoria no nível da transação é desabilitada por padrão, a menos que você tenha Conformidade de Critérios Comuns habilitada.  Se Conformidade de Critérios Comuns estiver desabilitada, você ainda poderá adicionar uma ação de TRANSACTION_GROUP a uma especificação de auditoria, mas ela coletará de fato nenhuma ação da transação.  Se você quiser configurar quaisquer ações de auditoria do TRANSACTION_GROUP, habilite a infraestrutura de auditoria no nível da transação habilitando a Conformidade de Critérios Comuns do [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../../includes/sssql17-md.md)] CU4 e posteriores em diante.  Observe que, no [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)], a auditoria no nível da transação também pode ser desabilitada e com o sinalizador de rastreamento 3427 do SP1 CU2 em diante.
   
 ## <a name="database-level-audit-action-groups"></a>Grupos de ação de auditoria no nível de banco de dados  
  Grupos de ação de auditoria no nível de banco de dados são ações semelhantes às classes de evento Security Audit Event do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] . Para obter mais informações sobre classes de evento, consulte [Referência de classe de evento do SQL Server](../../../relational-databases/event-classes/sql-server-event-class-reference.md).  

@@ -25,12 +25,12 @@ ms.assetid: ca5fd220-d5ea-4182-8950-55d4101a86f6
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 168f902453d2897e50186cc513977b2eb10e8627
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 0f62ced8657ee943a947e26c5a2a2ed65a9d78b9
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094716"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171908"
 ---
 # <a name="alter-database-transact-sql-compatibility-level"></a>Nível de compatibilidade de ALTER DATABASE (Transact-SQL)
 
@@ -63,7 +63,7 @@ COMPATIBILITY_LEVEL { 150 \| 140 \| 130 \| 120 \| 110 \| 100 \| 90 \| 80 } É a 
 |[!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]|14|140|140, 130, 120, 110, 100|
 |[!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]|12|150|150, 140, 130, 120, 110, 100|
 |[!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] Instância gerenciada|12|150|150, 140, 130, 120, 110, 100|
-|[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]|13|130|130, 120, 110, 100|
+|[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]|13|130|130, 120, 110, 100|
 |[!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|12|120|120, 110, 100|
 |[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|11|110|110, 100, 90|
 |[!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)]|10.5|100|100, 90, 80|
@@ -93,7 +93,7 @@ Use `ALTER DATABASE` para alterar o nível de compatibilidade do banco de dados.
 Para exibir o nível de compatibilidade atual de um banco de dados, consulte a coluna `compatibility_level` na exibição de catálogo [sys.databases](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md).
 
 > [!NOTE]
-> Um [banco de dados de distribuição](../../relational-databases/replication/distribution-database.md) criado em uma versão anterior do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e atualizado para o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] RTM ou o Service Pack 1 tem um nível de compatibilidade 90, para o qual não há suporte em outros bancos de dados. Isso não tem um impacto sobre a funcionalidade de replicação. A atualização para service packs e versões posteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] resultará no aumento do nível de compatibilidade do banco de dados de distribuição para que ele corresponda ao banco de dados **mestre**.
+> Um [banco de dados de distribuição](../../relational-databases/replication/distribution-database.md) criado em uma versão anterior do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e atualizado para o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] RTM ou o Service Pack 1 tem um nível de compatibilidade 90, para o qual não há suporte em outros bancos de dados. Isso não tem um impacto sobre a funcionalidade de replicação. A atualização para service packs e versões posteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] resultará no aumento do nível de compatibilidade do banco de dados de distribuição para que ele corresponda ao banco de dados **mestre**.
 
 > [!NOTE]
 > A partir de **novembro de 2019**, no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], o nível de compatibilidade padrão é 150 para bancos de dados recém-criados. O [!INCLUDE[msCoName](../../includes/msconame-md.md)] não atualiza o nível de compatibilidade dos bancos de dados existentes. É responsabilidade dos clientes fazer isso a seu critério.        
@@ -167,9 +167,9 @@ Começando no Nível de Compatibilidade do Banco de Dados 130, todas as novas co
 
 As alterações fundamentais que afetam o plano adicionadas somente ao nível de compatibilidade padrão de uma nova versão do [!INCLUDE[ssDE](../../includes/ssde-md.md)] são:
 
-1.  **As correções do Otimizador de Consulta lançadas para versões anteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] no sinalizador de rastreamento 4199 são habilitadas automaticamente no nível de compatibilidade padrão de uma versão mais recente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]** . **Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].
+1.  **As correções do Otimizador de Consulta lançadas para versões anteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] no sinalizador de rastreamento 4199 são habilitadas automaticamente no nível de compatibilidade padrão de uma versão mais recente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]** . **Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].
 
-    Por exemplo, quando o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] foi lançado, todas as correções do Otimizador de Consulta lançadas para versões anteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (e os respectivos níveis de compatibilidade 100 a 120) foram habilitadas automaticamente para bancos de dados que usam o nível de compatibilidade padrão do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] (130). Somente correções do Otimizador de Consulta pós-RTM precisam ser habilitadas explicitamente.
+    Por exemplo, quando o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] foi lançado, todas as correções do Otimizador de Consulta lançadas para versões anteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (e os respectivos níveis de compatibilidade 100 a 120) foram habilitadas automaticamente para bancos de dados que usam o nível de compatibilidade padrão do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] (130). Somente correções do Otimizador de Consulta pós-RTM precisam ser habilitadas explicitamente.
     
     > [!NOTE]
     > Para habilitar as correções do Otimizador de Consulta, você pode usar os seguintes métodos:    
@@ -178,13 +178,13 @@ As alterações fundamentais que afetam o plano adicionadas somente ao nível de
     > - No nível de banco de dados, com a opção `QUERY_OPTIMIZER_HOTFIXES` em [ALTER DATABASE SCOPEed CONFIGURATION (Transact-SQL)](../../t-sql/statements/alter-database-scoped-configuration-transact-sql.md).
     > - No nível de consulta, com a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md#use_hint) `USE HINT 'ENABLE_QUERY_OPTIMIZER_HOTFIXES'`.
     
-    Posteriormente, quando [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] foi lançado, todas as correções do Otimizador de Consulta lançadas após o RTM [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] foram habilitadas automaticamente para bancos de dados usando o nível de compatibilidade do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] padrão (140). Esse é um comportamento cumulativo que inclui todas as correções de versões anteriores também. Novamente, somente correções do Otimizador de Consulta pós-RTM precisam ser habilitadas explicitamente.  
+    Posteriormente, quando [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] foi lançado, todas as correções do Otimizador de Consulta lançadas após o RTM [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] foram habilitadas automaticamente para bancos de dados usando o nível de compatibilidade do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] padrão (140). Esse é um comportamento cumulativo que inclui todas as correções de versões anteriores também. Novamente, somente correções do Otimizador de Consulta pós-RTM precisam ser habilitadas explicitamente.  
     
     A tabela a seguir resume esse comportamento:
     
     |Versão do DE (Mecanismo de Banco de Dados)|Nível de compatibilidade do banco de dados|TF 4199|Alterações do QO em relação a todos os níveis de compatibilidade do banco de dados anteriores|Alterações do QO para a versão do DE atual pós-RTM|
     |----------|----------|---|------------|--------|
-    |13 ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)])|100 a 120<br /><br /><br />130|Desativado<br />Por<br /><br />Desativado<br />Por|**Desabilitado**<br />habilitado<br /><br />**Enabled**<br />habilitado|Desabilitado<br />habilitado<br /><br />Desabilitado<br />habilitado|
+    |13 ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)])|100 a 120<br /><br /><br />130|Desativado<br />Por<br /><br />Desativado<br />Por|**Desabilitado**<br />habilitado<br /><br />**Enabled**<br />habilitado|Desabilitado<br />habilitado<br /><br />Desabilitado<br />habilitado|
     |14 ([!INCLUDE[ssSQL17](../../includes/sssql17-md.md)])|100 a 120<br /><br /><br />130<br /><br /><br />140|Desativado<br />Por<br /><br />Desativado<br />Por<br /><br />Desativado<br />Por|**Desabilitado**<br />habilitado<br /><br />**Enabled**<br />habilitado<br /><br />**Enabled**<br />habilitado|Desabilitado<br />habilitado<br /><br />Desabilitado<br />habilitado<br /><br />Desabilitado<br />habilitado|
     |15 ([!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]) e 12 ([!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)])|100 a 120<br /><br /><br />130 a 140<br /><br /><br />150|Desativado<br />Por<br /><br />Desativado<br />Por<br /><br />Desativado<br />Por|**Desabilitado**<br />habilitado<br /><br />**Enabled**<br />habilitado<br /><br />**Enabled**<br />habilitado|Desabilitado<br />habilitado<br /><br />Desabilitado<br />habilitado<br /><br />Desabilitado<br />habilitado|
     
@@ -193,15 +193,15 @@ As alterações fundamentais que afetam o plano adicionadas somente ao nível de
  
 2.  **As alterações no [Avaliador de Cardinalidade](../../relational-databases/performance/cardinality-estimation-sql-server.md) lançadas em [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] foram habilitadas apenas no nível de compatibilidade padrão de uma nova versão do [!INCLUDE[ssDE](../../includes/ssde-md.md)]** , mas não nos níveis de compatibilidade anteriores. 
 
-    Por exemplo, quando [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] foi lançado, as alterações no processo de estimativa de cardinalidade ficaram disponíveis somente para bancos de dados que usam nível de compatibilidade padrão [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] (130). Os níveis de compatibilidade anteriores mantiveram o comportamento de estimativa de cardinalidade que estava disponível antes de [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. 
+    Por exemplo, quando [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] foi lançado, as alterações no processo de estimativa de cardinalidade ficaram disponíveis somente para bancos de dados que usam nível de compatibilidade padrão [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] (130). Os níveis de compatibilidade anteriores mantiveram o comportamento de estimativa de cardinalidade que estava disponível antes de [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. 
     
-    Posteriormente, quando [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] foi lançado, alterações mais recentes no processo de estimativa de cardinalidade ficaram disponíveis somente para bancos de dados que usam nível de compatibilidade padrão [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] (140). O Nível de Compatibilidade do Banco de Dados 130 manteve o comportamento de estimativa de cardinalidade de [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)].
+    Posteriormente, quando [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] foi lançado, alterações mais recentes no processo de estimativa de cardinalidade ficaram disponíveis somente para bancos de dados que usam nível de compatibilidade padrão [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] (140). O Nível de Compatibilidade do Banco de Dados 130 manteve o comportamento de estimativa de cardinalidade de [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)].
     
     A tabela a seguir resume esse comportamento:
     
     |Versão do Mecanismo de Banco de Dados|Nível de compatibilidade do banco de dados|Novas alterações na versão do CE|
     |----------|--------|-------------|
-    |13 ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)])|< 130<br />130|Desabilitado<br />habilitado|
+    |13 ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)])|< 130<br />130|Desabilitado<br />habilitado|
     |14 ([!INCLUDE[ssSQL17](../../includes/sssql17-md.md)])<sup>1</sup>|< 140<br />140|Desabilitado<br />habilitado|
     |15 ([!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)])<sup>1</sup>|< 150<br />150|Desabilitado<br />habilitado|
     
@@ -250,14 +250,14 @@ Esta seção descreve os novos comportamentos introduzidos com o nível de compa
 |Introdução do avaliador de Cardinalidade do SQL 2014 **CardinalityEstimationModelVersion="120"**|Outras melhorias de CE (estimativa de cardinalidade) com o Modelo de Estimativa de Cardinalidade 130 que está visível em um Plano de consulta. **CardinalityEstimationModelVersion="130"**|
 |Alterações do modo de lote versus modo de linha com índices columnstore:<br /><ul><li>As classificações em uma tabela com índice Columnstore estão no modo de Linha <li>As agregações de função em janela operam no modo de linha, como `LAG` ou `LEAD` <li>Consultas em tabelas Columnstore com várias cláusulas distintas operadas no modo de Linha <li>Consultas em execução em MAXDOP 1 ou com um plano serial executadas no modo de Linha</li></ul>| Alterações do modo de lote versus modo de linha com índices columnstore:<br /><ul><li>As classificações em uma tabela com um índice Columnstore agora estão no modo de lote <li>As agregações em janela agora funcionam no modo de lote, como `LAG` ou `LEAD` <li>Consultas em tabelas Columnstore com várias cláusulas distintas operadas no modo de Lote <li>As consultas em execução em MAXDOP 1 ou com um plano serial são executadas no Modo de lote</li></ul>|
 |As estatísticas podem ser atualizadas automaticamente. | A lógica que atualiza automaticamente as estatísticas é mais agressiva em tabelas grandes. Na prática, isso deve reduzir casos em que os clientes observaram problemas de desempenho de consultas nas quais as linhas recém-inseridas são consultadas com frequência, mas nas quais as estatísticas não foram atualizadas para incluir esses valores. |
-|O rastreamento 2371 é OFF por padrão no [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. | O [Rastreamento 2371](/archive/blogs/psssql/default-auto-statistics-update-threshold-change-for-sql-server-2016) é ON por padrão no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. O sinalizador de rastreamento 2371 instrui o atualizador automático de estatísticas a coletar uma amostra de um subconjunto menor, porém, mais inteligente, de linhas em uma tabela que tem um grande número de linhas. <br/> <br/> Uma melhoria é incluir na amostra mais linhas que foram inseridas recentemente. <br/> <br/> Outra melhoria é permitir que as consultas sejam executadas enquanto o processo de atualização de estatísticas está em execução, em vez de bloquear a consulta. |
+|O rastreamento 2371 é OFF por padrão no [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. | O [Rastreamento 2371](/archive/blogs/psssql/default-auto-statistics-update-threshold-change-for-sql-server-2016) é ON por padrão no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. O sinalizador de rastreamento 2371 instrui o atualizador automático de estatísticas a coletar uma amostra de um subconjunto menor, porém, mais inteligente, de linhas em uma tabela que tem um grande número de linhas. <br/> <br/> Uma melhoria é incluir na amostra mais linhas que foram inseridas recentemente. <br/> <br/> Outra melhoria é permitir que as consultas sejam executadas enquanto o processo de atualização de estatísticas está em execução, em vez de bloquear a consulta. |
 |Para o nível 120, são coletadas amostras das estatísticas por um processo single-thread.|Para o nível 130, são coletadas amostras das estatísticas por um processo multi-thread. |
 |253 chaves estrangeiras de entrada é o limite.| Uma tabela especificada pode ser referenciada por até 10.000 chaves estrangeiras de entrada ou referências semelhantes. Para restrições, consulte [Create Foreign Key Relationships](../../relational-databases/tables/create-foreign-key-relationships.md). |
 |Os algoritmos de hash MD2, MD4, MD5, SHA e SHA1 preteridos são permitidos.|Apenas os algoritmos de hash SHA2_256 e SHA2_512 são permitidos.|
-||O [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] inclui melhorias em algumas conversões de tipos de dados e outras operações (normalmente incomuns). Para obter detalhes, consulte [Melhorias do SQL Server 2016 no tratamento de alguns tipos de dados e operações incomuns](https://support.microsoft.com/help/4010261/sql-server-2016-improvements-in-handling-some-data-types-and-uncommon).|
+||O [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] inclui melhorias em algumas conversões de tipos de dados e outras operações (normalmente incomuns). Para obter detalhes, consulte [Melhorias do SQL Server 2016 no tratamento de alguns tipos de dados e operações incomuns](https://support.microsoft.com/help/4010261/sql-server-2016-improvements-in-handling-some-data-types-and-uncommon).|
 |A função `STRING_SPLIT` não está disponível.|A função `STRING_SPLIT` está disponível no nível de compatibilidade 130 ou superior. Se o Nível de Compatibilidade do Banco de Dados for inferior a 130, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] não poderá localizar nem executar a função `STRING_SPLIT`.|
 
-As correções que estavam sob o sinalizador de rastreamento 4199 em versões anteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] anteriores ao [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] agora estão habilitadas por padrão. Com o modo de compatibilidade 130. O sinalizador de rastreamento 4199 ainda será aplicável para novas correções do otimizador de consulta que são liberadas após [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Para usar o otimizador de consulta mais antigo no [!INCLUDE[ssSDS](../../includes/sssds-md.md)], é necessário selecionar o nível de compatibilidade 110. Para obter informações sobre o Sinalizador de Rastreamento 4199, consulte [Sinalizador de rastreamento 4199](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md#4199).
+As correções que estavam sob o sinalizador de rastreamento 4199 em versões anteriores do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] anteriores ao [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] agora estão habilitadas por padrão. Com o modo de compatibilidade 130. O sinalizador de rastreamento 4199 ainda será aplicável para novas correções do otimizador de consulta que são liberadas após [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Para usar o otimizador de consulta mais antigo no [!INCLUDE[ssSDS](../../includes/sssds-md.md)], é necessário selecionar o nível de compatibilidade 110. Para obter informações sobre o Sinalizador de Rastreamento 4199, consulte [Sinalizador de rastreamento 4199](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md#4199).
 
 ## <a name="differences-between-lower-compatibility-levels-and-level-120"></a>Diferenças entre Níveis de Compatibilidade Inferiores e o Nível 120
 

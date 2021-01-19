@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 47d9a7e8-c597-4b95-a58a-dcf66df8e572
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 796a0423da44917251fa87828c71d0e47092d028
-ms.sourcegitcommit: 4d370399f6f142e25075b3714e5c2ce056b1bfd0
+ms.openlocfilehash: 0cbe2b75a46e63b5e388b91ace3d74c0db3be49b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91867053"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170728"
 ---
 # <a name="requirements-for-using-memory-optimized-tables"></a>Requisitos para usar tabelas com otimização de memória
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91867053"
   
  Além dos [Requisitos de hardware e software para a instalação do SQL Server](../../sql-server/install/hardware-and-software-requirements-for-installing-sql-server.md), estes são os requisitos para usar o OLTP in-memory:  
   
--   [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 (ou posterior), qualquer edição. Para o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] RTM (pré SP1), você precisará da edição Enterprise, Developer ou Evaluation.
+-   [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 (ou posterior), qualquer edição. Para o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] RTM (pré SP1), você precisará da edição Enterprise, Developer ou Evaluation.
     
     > [!NOTE]
     > O OLTP in-memory exige a versão de 64 bits do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
@@ -46,12 +46,12 @@ ms.locfileid: "91867053"
   
 ## <a name="important-notes-on-using-hek_2"></a>Observações importantes sobre o uso do [!INCLUDE[hek_2](../../includes/hek-2-md.md)]  
   
--   A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], não há limite no tamanho das tabelas com otimização de memória que não seja a memória disponível. 
+-   A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], não há limite no tamanho das tabelas com otimização de memória que não seja a memória disponível. 
 
 -   No [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], o tamanho total da memória de todas as tabelas duráveis em um banco de dados não deve exceder 250 GB. Para obter mais informações, consulte [Estimar requisitos de memória para tabelas com otimização de memória](../../relational-databases/in-memory-oltp/estimate-memory-requirements-for-memory-optimized-tables.md).  
 
 > [!NOTE]
-> A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1, as edições Standard e Express são compatíveis com a OLTP in-memory, mas elas impõem cotas na quantidade de memória que você pode usar para tabelas com otimização de memória em um determinado banco de dados. Na Standard Edition são 32 GB por banco de dados; na Express Edition são 352 MB por banco de dados. 
+> A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1, as edições Standard e Express são compatíveis com a OLTP in-memory, mas elas impõem cotas na quantidade de memória que você pode usar para tabelas com otimização de memória em um determinado banco de dados. Na Standard Edition são 32 GB por banco de dados; na Express Edition são 352 MB por banco de dados. 
   
 -   Se criar um ou vários bancos de dados com tabelas com otimização de memória, você deverá habilitar a IFI (Inicialização Imediata de Arquivo) ao conceder à conta de inicialização do serviço do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] o direito de usuário *SE_MANAGE_VOLUME_NAME*. Sem a IFI, os arquivos de armazenamento com otimização de memória (arquivos delta e de dados) serão inicializados após a criação, o que pode ter um impacto negativo no desempenho de sua carga de trabalho. Para obter mais informações sobre a IFI, inclusive sobre como habilitá-la, consulte [Inicialização imediata de arquivo do banco de dados](../../relational-databases/databases/database-instant-file-initialization.md).
   

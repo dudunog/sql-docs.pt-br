@@ -14,12 +14,12 @@ f1_keywords:
 ms.assetid: 457b1140-4819-4def-8f7c-54a406e6db12
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: fd729c01993f06c9017a898e1e804dde844e10f2
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 73ee631c0dc853a60e07f09aa2ade5ce58487a0e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642138"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171088"
 ---
 # <a name="select-initial-data-synchronization-page-always-on-availability-group-wizards"></a>Selecione a Página de Sincronização de Dados Inicial (Assistentes Grupo de Disponibilidade AlwaysOn)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "97642138"
   
 ## <a name="automatic-seeding"></a><a name="Auto"></a> Propagação automática
  
- O SQL Server cria automaticamente as réplicas secundárias para cada banco de dados no grupo. A propagação automática exige que os caminhos do arquivo de dados e de log sejam os mesmos em cada instância do SQL Server que faz parte do grupo. Disponível no [!INCLUDE[sssql15-md.md](../../../includes/sssql15-md.md)] e posterior. Consulte [Inicializar automaticamente o grupo de disponibilidade AlwaysOn](automatically-initialize-always-on-availability-group.md).
+ O SQL Server cria automaticamente as réplicas secundárias para cada banco de dados no grupo. A propagação automática exige que os caminhos do arquivo de dados e de log sejam os mesmos em cada instância do SQL Server que faz parte do grupo. Disponível no [!INCLUDE[sssql16-md.md](../../../includes/sssql16-md.md)] e posterior. Consulte [Inicializar automaticamente o grupo de disponibilidade AlwaysOn](automatically-initialize-always-on-availability-group.md).
 
 ##  <a name="full-database-and-log-backup"></a><a name="Full"></a> Backup completo de log e de banco de dados 
  Para cada banco de dados primário, a opção **Backup completo de log e de banco de dados** executa várias operações em um fluxo de trabalho: cria um backup completo e um backup de log do banco de dados primário, cria os bancos de dados secundários correspondentes restaurando esses backups em cada instância de servidor que hospeda uma réplica secundária e ingressa cada banco de dados secundário no grupo de disponibilidade.  

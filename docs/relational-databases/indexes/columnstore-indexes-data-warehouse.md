@@ -12,12 +12,12 @@ ms.assetid: 21fd153b-116d-47fc-a926-f1528299a391
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 702d2adcfda0f75937b9629467f14ca66f4acdad
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 0ca8263c5d75fca3bc59164d8d3ff7acaa9c5f2e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97407407"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172728"
 ---
 # <a name="columnstore-indexes---data-warehouse"></a>Índices columnstore – Data Warehouse
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "97407407"
   Os índices columnstore, junto com o particionamento, são essenciais para criar um data warehouse do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .  
   
 ## <a name="whats-new"></a>Novidades  
- O[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] introduz estes recursos para melhorias de desempenho de columnstore:  
+ O[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] introduz estes recursos para melhorias de desempenho de columnstore:  
   
 -   O AlwaysOn dá suporte à consulta de um índice columnstore em uma réplica secundária legível.  
 -   O MARS (Multiple Active Result Sets) oferece suporte aos índices columnstore.  
@@ -39,7 +39,7 @@ ms.locfileid: "97407407"
 -   Isolamento de instantâneo no nível de compatibilidade do banco de dados 130 e superior.  
   
 ## <a name="improve-performance-by-combining-nonclustered-and-columnstore-indexes"></a>Melhora o desempenho combinando índices não clusterizado e columnstore  
- A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], é possível definir índices não clusterizados em um índice columnstore clusterizado.   
+ A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], é possível definir índices não clusterizados em um índice columnstore clusterizado.   
   
 ### <a name="example-improve-efficiency-of-table-seeks-with-a-nonclustered-index"></a>Exemplo: melhorar a eficiência de buscas de tabelas com um índice não clusterizado  
  Para melhorar a eficiência das buscas de tabelas em um data warehouse, você pode criar um índice não clusterizado projetado para executar consultas que executam melhor com as buscas de tabelas. Por exemplo, as consultas que procuram valores correspondentes ou retornam um pequeno intervalo de valores terão um desempenho melhor em um índice de árvore B em vez de um índice columnstore. Elas não exigem uma verificação de tabela completa por meio do índice columnstore e retornarão o resultado correto com mais rapidez, fazendo uma pesquisa binária por meio de um índice de árvore B.  
@@ -101,7 +101,7 @@ WITH CHECK ADD FOREIGN KEY([AccountKey]) REFERENCES my_dimension(Accountkey);
 ```  
   
 ### <a name="improve-performance-by-enabling-row-level-and-row-group-level-locking"></a>Melhorar o desempenho permitindo o bloqueio no nível da linha e no nível do grupo de linhas  
- Para complementar o índice não clusterizado em um recurso de índice columnstore, o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] oferece o recurso de bloqueio granular para selecionar, atualizar e excluir operações. É possível executar consultas com o bloqueio no nível de linha em buscas de índice com base em um índice não clusterizado, e um bloqueio no nível do grupo de linhas em verificações de tabela completa com base no índice columnstore. Use isto para alcançar maior simultaneidade de leitura/gravação usando adequadamente o bloqueio no nível de linha e no nível do grupo de linhas.  
+ Para complementar o índice não clusterizado em um recurso de índice columnstore, o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] oferece o recurso de bloqueio granular para selecionar, atualizar e excluir operações. É possível executar consultas com o bloqueio no nível de linha em buscas de índice com base em um índice não clusterizado, e um bloqueio no nível do grupo de linhas em verificações de tabela completa com base no índice columnstore. Use isto para alcançar maior simultaneidade de leitura/gravação usando adequadamente o bloqueio no nível de linha e no nível do grupo de linhas.  
   
 ```sql  
 --Granular locking example  

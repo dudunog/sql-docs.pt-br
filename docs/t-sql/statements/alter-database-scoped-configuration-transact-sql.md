@@ -24,12 +24,12 @@ ms.assetid: 63373c2f-9a0b-431b-b9d2-6fa35641571a
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: = azuresqldb-current || = azuresqldb-mi-current || >= sql-server-2016 || >= sql-server-linux-2017 ||=azure-sqldw-latest
-ms.openlocfilehash: 85c4646af6f5801bd617baef47aecf913374ae95
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 8d314e90bbe869dec9ccdc31c45996c4834fc829
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099582"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170418"
 ---
 # <a name="alter-database-scoped-configuration-transact-sql"></a>ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)
 
@@ -170,7 +170,7 @@ Permite que você defina o modelo de estimativa de cardinalidade do otimizador d
 
 > [!TIP]
 > Para fazer isso no nível da consulta, adicione a [dica de consulta](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) do **QUERYTRACEON**.
-> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1, para fazer isso no nível da consulta, adicione a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** em vez de usar o sinalizador de rastreamento.
+> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1, para fazer isso no nível da consulta, adicione a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** em vez de usar o sinalizador de rastreamento.
 
 PRIMARY
 
@@ -182,7 +182,7 @@ Habilita ou desabilita a [detecção de parâmetro](../../relational-databases/q
 
 > [!TIP]
 > Para fazer isso no nível da consulta, confira a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md) **OPTIMIZE FOR UNKNOWN**.
-> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1, para fazer isso no nível da consulta, a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** também está disponível.
+> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1, para fazer isso no nível da consulta, a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md#use_hint) **USE HINT** também está disponível.
 
 PRIMARY
 
@@ -196,7 +196,7 @@ Habilita ou desabilita os hotfixes de otimização de consulta, independentement
 
 > [!TIP]
 > Para fazer isso no nível da consulta, adicione a [dica de consulta](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) do **QUERYTRACEON**.
-> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1, para fazer isso no nível da consulta, adicione a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md#use_hint) USE HINT em vez de usar o sinalizador de rastreamento.
+> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1, para fazer isso no nível da consulta, adicione a [dica de consulta](../../t-sql/queries/hints-transact-sql-query.md#use_hint) USE HINT em vez de usar o sinalizador de rastreamento.
 
 PRIMARY
 
@@ -466,7 +466,7 @@ Bancos de dados secundários legíveis (Grupos de Disponibilidade Always On e b
 
 ### <a name="dacfx"></a>DacFx
 
-Uma vez que `ALTER DATABASE SCOPED CONFIGURATION` é um novo recurso no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] e no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) que afeta o esquema de banco de dados, exportações do esquema (com ou sem dados) não podem ser importadas para uma versão mais antiga do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], como [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] ou [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. Por exemplo, uma exportação para um [DACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md) ou um [BACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md#bacpac) de um [!INCLUDE[ssSDS](../../includes/sssds-md.md)] ou de um banco de dados do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] que tiver usado esse novo recurso não poderá ser importada em um servidor de nível inferior.
+Uma vez que `ALTER DATABASE SCOPED CONFIGURATION` é um novo recurso no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] e no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) que afeta o esquema de banco de dados, exportações do esquema (com ou sem dados) não podem ser importadas para uma versão mais antiga do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], como [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] ou [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]. Por exemplo, uma exportação para um [DACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md) ou um [BACPAC](../../relational-databases/data-tier-applications/data-tier-applications.md#bacpac) de um [!INCLUDE[ssSDS](../../includes/sssds-md.md)] ou de um banco de dados do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] que tiver usado esse novo recurso não poderá ser importada em um servidor de nível inferior.
 
 ### <a name="elevate_online"></a>ELEVATE_ONLINE
 

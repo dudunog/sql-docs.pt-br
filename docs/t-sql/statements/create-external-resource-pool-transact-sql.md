@@ -23,12 +23,12 @@ author: dphansen
 ms.author: davidph
 manager: cgronlund
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15'
-ms.openlocfilehash: 2b4cd2af87ec181766ab98c9d1483ee6425e51e6
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 7f57b0e829c240813d6f1a453d764e64bce6b279
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97438991"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171598"
 ---
 # <a name="create-external-resource-pool-transact-sql"></a>CREATE EXTERNAL RESOURCE POOL (Transact-SQL)
 [!INCLUDE [SQL Server 2016 and later](../../includes/applies-to-version/sqlserver2016.md)]
@@ -36,7 +36,7 @@ ms.locfileid: "97438991"
 Cria um pool externo para definir recursos para processos externos. Um pool de recursos representa um subconjunto dos recursos físicos (memória e CPUs) de uma instância do Mecanismo de Banco de Dados. O Resource Governor pode distribuir recursos de servidor entre pools de recursos até um máximo de 64 pools.
 
 ::: moniker range="=sql-server-2016"
-Para o [!INCLUDE[rsql-productname-md](../../includes/rsql-productname-md.md)] no [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)], o pool externo controla `rterm.exe`, `BxlServer.exe` e outros processos gerados por eles.
+Para o [!INCLUDE[rsql-productname-md](../../includes/rsql-productname-md.md)] no [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)], o pool externo controla `rterm.exe`, `BxlServer.exe` e outros processos gerados por eles.
 ::: moniker-end
 
 ::: moniker range=">=sql-server-2017||>=sql-server-linux-ver15"

@@ -23,12 +23,12 @@ helpviewer_keywords:
 ms.assetid: 570a21b3-ad29-44a9-aa70-deb2fbd34f27
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: b6e369cc3677e399182f631885afdfb3b3ac53ee
-ms.sourcegitcommit: 5a1ed81749800c33059dac91b0e18bd8bb3081b1
+ms.openlocfilehash: 76aa3e890169e73d30d9a15aa57aa4fd832a7ef9
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96129412"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171308"
 ---
 # <a name="back-up-and-restore-of-sql-server-databases"></a>Fazer backup e restaurar bancos de dados do SQL Server
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "96129412"
   
  O componente de backup e restauração do SQL Server oferece uma proteção essencial para dados críticos armazenados em bancos de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . Para minimizar o risco de perda de dados catastrófica, você precisa fazer backup de seus bancos de dados para preservar as modificações nos seus dados regularmente. Uma estratégia de backup e restauração bem planejada ajuda a proteger os bancos de dados contra perda de dados causada por uma variedade de falhas. Teste sua estratégia restaurando um conjunto de backups e, em seguida, recuperando seu banco de dados para se preparar para responder com eficiência a um desastre.
   
- Além do armazenamento local para guardar os backups, o SQL Server também oferece suporte ao backup e à restauração no serviço de Armazenamento de Blobs do Azure. Para obter mais informações, consulte [Backup e restauração do SQL Server com o serviço de Armazenamento de Blobs do Microsoft Azure](../../relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service.md). Para os arquivos de banco de dados armazenados usando o serviço de armazenamento de Blob do Microsoft Azure, o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] fornece a opção de usar instantâneos do Azure para backups quase imediatos e restaurações mais rápidas. Para obter mais informações, consulte [Backups de instantâneo de arquivo para arquivos de banco de dados no Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md). O Azure também fornece uma solução de backup de classe empresarial para SQL Server em execução em VMs do Azure. Uma solução de backup totalmente gerenciada, compatível com grupos de disponibilidade Always On, retenção de longo prazo, recuperação pontual e gerenciamento e monitoramento central. Para obter mais informações, confira [Backup do Azure para o SQL Server em VM do Azure](/azure/backup/backup-azure-sql-database).
+ Além do armazenamento local para guardar os backups, o SQL Server também oferece suporte ao backup e à restauração no serviço de Armazenamento de Blobs do Azure. Para obter mais informações, consulte [Backup e restauração do SQL Server com o serviço de Armazenamento de Blobs do Microsoft Azure](../../relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service.md). Para os arquivos de banco de dados armazenados usando o serviço de armazenamento de Blob do Microsoft Azure, o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] fornece a opção de usar instantâneos do Azure para backups quase imediatos e restaurações mais rápidas. Para obter mais informações, consulte [Backups de instantâneo de arquivo para arquivos de banco de dados no Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md). O Azure também fornece uma solução de backup de classe empresarial para SQL Server em execução em VMs do Azure. Uma solução de backup totalmente gerenciada, compatível com grupos de disponibilidade Always On, retenção de longo prazo, recuperação pontual e gerenciamento e monitoramento central. Para obter mais informações, confira [Backup do Azure para o SQL Server em VM do Azure](/azure/backup/backup-azure-sql-database).
   
 ##  <a name="why-back-up"></a>Por que fazer backup?  
 -   O backup dos bancos de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , a execução de procedimentos de restauração de teste nos backups e o armazenamento de cópias de backups em um local externo seguro evita a perda de dados potencialmente catastrófica. **Realizar backup é a única maneira de proteger seus dados.**

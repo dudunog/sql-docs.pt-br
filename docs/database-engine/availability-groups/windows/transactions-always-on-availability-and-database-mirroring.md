@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: 9f7ed895-ad65-43e3-ba08-00d7bff1456d
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 79e04e64a4fc89bb3e745d67b1cdbe929850b6ec
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: f2295f8694a9573b0e9c541ea817e9e03e70f83e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642942"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171078"
 ---
 # <a name="transactions---availability-groups-and-database-mirroring"></a>Transações – grupos de disponibilidade e espelhamento de banco de dados
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -34,9 +34,9 @@ Este artigo descreve o suporte de transações distribuídas e entre bancos de d
 O SQL Server 2017 dá suporte para transações distribuídas em bancos de dados em grupos de disponibilidade. Esse suporte inclui bancos de dados na mesma instância do SQL Server ou bancos de dados em instâncias diferentes do SQL Server. Não há suporte para transações distribuídas em bancos de dados configurados para o espelhamento de banco de dados.
 
 > [!NOTE]
-> O [!INCLUDE[SQL Server 2016](../../../includes/sssql15-md.md)] Service Pack 2 e posteriores dão suporte completo para transações distribuídas em grupos de disponibilidade. 
+> O [!INCLUDE[SQL Server 2016](../../../includes/sssql16-md.md)] Service Pack 2 e posteriores dão suporte completo para transações distribuídas em grupos de disponibilidade. 
 > 
-> Nas versões do [!INCLUDE[SQL Server 2016](../../../includes/sssql15-md.md)] anteriores ao Service Pack 2, não há compatibilidade com as transações distribuídas entre bancos de dados (ou seja, transação usando bancos de dados na mesma instância do SQL Server) que envolvem um banco de dados em um grupo de disponibilidade.
+> Nas versões do [!INCLUDE[SQL Server 2016](../../../includes/sssql16-md.md)] anteriores ao Service Pack 2, não há compatibilidade com as transações distribuídas entre bancos de dados (ou seja, transação usando bancos de dados na mesma instância do SQL Server) que envolvem um banco de dados em um grupo de disponibilidade.
 
 Para configurar transações distribuídas em um grupo de disponibilidade, consulte [Configurar um grupo de disponibilidade para transações distribuídas](configure-availability-group-for-distributed-transactions.md).
 

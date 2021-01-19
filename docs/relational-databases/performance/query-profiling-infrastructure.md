@@ -18,12 +18,12 @@ ms.assetid: 07f8f594-75b4-4591-8c29-d63811d7753e
 author: pmasl
 ms.author: pelopes
 manager: amitban
-ms.openlocfilehash: 125a95f14f7082a3ed806d6dfa7fcb05b6d11c81
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 57372929f190ff2fe32e7688d16acc75fafc9700
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96505060"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171548"
 ---
 # <a name="query-profiling-infrastructure"></a>Infraestrutura de Criação de Perfil de Consulta
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -53,16 +53,16 @@ Ao executar uma sessão de eventos estendidos que usa o evento *query_post_execu
 
 ## <a name="the-lightweight-query-execution-statistics-profiling-infrastructure"></a><a name="lwp"></a> A infraestrutura de criação de perfil de estatísticas de execução de consulta leve
 
-Começando com o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 e [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], uma nova *infraestrutura de criação de perfil de estatísticas de execução de consulta leve* ou **criação de perfil leve** foi introduzida. 
+Começando com o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 e [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], uma nova *infraestrutura de criação de perfil de estatísticas de execução de consulta leve* ou **criação de perfil leve** foi introduzida. 
 
 > [!NOTE]
 > Os procedimentos armazenados compilados nativamente não são compatíveis com a criação de perfil leve.  
 
 ### <a name="lightweight-query-execution-statistics-profiling-infrastructure-v1"></a>Infraestrutura de criação de perfil de estatísticas de execução de consulta leve v1
 
-**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 a [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]). 
+**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 a [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]). 
   
-Começando com o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 e [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], a sobrecarga de desempenho para coletar informações sobre planos de execução foi reduzida com a introdução da criação de perfil leve. Ao contrário da criação de perfil padrão, a criação de perfil leve não coleta informações de runtime de CPU. No entanto, a criação de perfil leve ainda coleta informações de uso de E/S e de contagem de linhas.
+Começando com o [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 e [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], a sobrecarga de desempenho para coletar informações sobre planos de execução foi reduzida com a introdução da criação de perfil leve. Ao contrário da criação de perfil padrão, a criação de perfil leve não coleta informações de runtime de CPU. No entanto, a criação de perfil leve ainda coleta informações de uso de E/S e de contagem de linhas.
 
 Um novo evento **_query_thread_profile_* _ estendido que utiliza a criação de perfil leve também foi introduzido. Esse evento estendido expõe estatísticas de execução por operador, permitindo mais informações sobre o desempenho de cada nó e thread. Uma sessão de exemplo usando este evento estendido pode ser configurada como no exemplo abaixo:
 
@@ -90,11 +90,11 @@ Ao executar uma sessão de eventos estendidos que uso o evento _query_thread_pro
 
 ### <a name="lightweight-query-execution-statistics-profiling-infrastructure-v2"></a>Infraestrutura de criação de perfil de estatísticas de execução de consulta leve v2
 
-**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 a [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]). 
+**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 a [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]). 
 
-O [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 inclui uma versão revisada da criação de perfil leve com sobrecarga mínima. A criação de perfil leve também pode ser habilitada globalmente usando o [sinalizador de rastreamento 7412](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) para as versões mencionadas acima em *Aplica-se a*. Um novo DMF [DM exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md) é introduzido para retornar o plano de execução de consulta para as solicitações em trânsito.
+O [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 inclui uma versão revisada da criação de perfil leve com sobrecarga mínima. A criação de perfil leve também pode ser habilitada globalmente usando o [sinalizador de rastreamento 7412](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md) para as versões mencionadas acima em *Aplica-se a*. Um novo DMF [DM exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md) é introduzido para retornar o plano de execução de consulta para as solicitações em trânsito.
 
-Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11, se a criação de perfil leve não estiver habilitada globalmente, o novo argumento de [dica de consulta USE HINT](../../t-sql/queries/hints-transact-sql-query.md#use_hint)**QUERY_PLAN_PROFILE** poderá ser usado para habilitar a criação de perfil leve no nível da consulta, para qualquer sessão. Quando uma consulta que contém essas nova dica termina, um novo evento estendido **_query_plan_profile_* _ também é a saída que fornece um XML de plano de execução real semelhante ao evento estendido query_post_execution_showplan. 
+Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11, se a criação de perfil leve não estiver habilitada globalmente, o novo argumento de [dica de consulta USE HINT](../../t-sql/queries/hints-transact-sql-query.md#use_hint)**QUERY_PLAN_PROFILE** poderá ser usado para habilitar a criação de perfil leve no nível da consulta, para qualquer sessão. Quando uma consulta que contém essas nova dica termina, um novo evento estendido **_query_plan_profile_* _ também é a saída que fornece um XML de plano de execução real semelhante ao evento estendido query_post_execution_showplan. 
 
 > [!NOTE]
 > O evento estendido *query_plan_profile* também se beneficia da criação de perfil leve, mesmo se a dica de consulta não é usada. 
@@ -178,17 +178,17 @@ A tabela a seguir resume as ações para habilitar a criação de perfil padrão
 
 |Escopo|Criação de perfil padrão|Criação de perfil leve|
 |---------------|---------------|---------------|
-|Global|Sessão xEvent com o `query_post_execution_showplan` XE; a partir do [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|Sinalizador de rastreamento 7412; a partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1|
+|Global|Sessão xEvent com o `query_post_execution_showplan` XE; a partir do [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|Sinalizador de rastreamento 7412; a partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1|
 |Global|Rastreamento do SQL e SQL Server Profiler com o evento de rastreamento `Showplan XML`; a partir do SQL Server 2000|Sessão xEvent com o `query_thread_profile` XE; a partir do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2|
 |Global|-|Sessão xEvent com o `query_post_execution_plan_profile` XE; começando com o [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU14 e o [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]|
-|Session|Use `SET STATISTICS XML ON`; a partir do SQL Server 2000|Use a dica de consulta `QUERY_PLAN_PROFILE` com uma sessão de xEvent com o `query_plan_profile` XE; a partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] CU3 SP2 e do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11|
+|Session|Use `SET STATISTICS XML ON`; a partir do SQL Server 2000|Use a dica de consulta `QUERY_PLAN_PROFILE` com uma sessão de xEvent com o `query_plan_profile` XE; a partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] CU3 SP2 e do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11|
 |Session|Use `SET STATISTICS PROFILE ON`; a partir do SQL Server 2000|-|
 |Session|Clique no botão [Estatísticas de consulta dinâmica](../../relational-databases/performance/live-query-statistics.md) no SSMS; a partir do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2|-|
 
 ## <a name="remarks"></a>Comentários
 
 > [!IMPORTANT]
-> Devido a um possível AV aleatório ao executar um procedimento armazenado monitorado que faz referência a [sys.dm_exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md), verifique se [KB 4078596](https://support.microsoft.com/help/4078596) está instalado em [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)].
+> Devido a um possível AV aleatório ao executar um procedimento armazenado monitorado que faz referência a [sys.dm_exec_query_statistics_xml](../../relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql.md), verifique se [KB 4078596](https://support.microsoft.com/help/4078596) está instalado em [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)].
 
 Começando com a criação de perfil leve v2 e a baixa sobrecarga, qualquer servidor que não esteja vinculado à CPU poderá executar a criação de perfil leve **continuamente** e permitir que os profissionais de banco de dados explorem qualquer execução a qualquer momento, por exemplo, usando o Monitor de Atividade ou consultando `sys.dm_exec_query_profiles` diretamente e obtenham o plano de consulta com estatísticas de runtime.
 

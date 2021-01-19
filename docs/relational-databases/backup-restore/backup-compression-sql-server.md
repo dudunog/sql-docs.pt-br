@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 05bc9c4f-3947-4dd4-b823-db77519bd4d2
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 278ee9ecf44a90574d212e761089127342b2c9be
-ms.sourcegitcommit: 7a3fdd3f282f634f7382790841d2c2a06c917011
+ms.openlocfilehash: a98aaaea7d243853f31d19c0e7c3aa824ee2cc4e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563122"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171468"
 ---
 # <a name="backup-compression-sql-server"></a>Compactação de backup (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -94,7 +94,7 @@ SELECT backup_size/compressed_backup_size FROM msdb..backupset;
 
 ## <a name="backup-compression-with-tde"></a>Compactação de backup com TDE
 
-Começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], definir `MAXTRANSFERSIZE` **maior que 65.536 (64 KB)** permite um algoritmo de compactação otimizada para bancos de dados criptografados com [TDE (Transparent Data Encryption)](../../relational-databases/security/encryption/transparent-data-encryption.md) que primeiro descriptografa uma página, compacta-a e, depois, criptografa-a novamente. Se `MAXTRANSFERSIZE` não for especificado ou se `MAXTRANSFERSIZE = 65536` (64 KB) for usado, a compactação de backup com bancos de dados criptografados com TDE compactará diretamente as páginas criptografadas e poderá não resultar em taxas de compactação satisfatórias. Para obter mais informações, consulte [Compactação de backup para bancos de dados habilitados para TDE](/archive/blogs/sqlcat/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases).
+Começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], definir `MAXTRANSFERSIZE` **maior que 65.536 (64 KB)** permite um algoritmo de compactação otimizada para bancos de dados criptografados com [TDE (Transparent Data Encryption)](../../relational-databases/security/encryption/transparent-data-encryption.md) que primeiro descriptografa uma página, compacta-a e, depois, criptografa-a novamente. Se `MAXTRANSFERSIZE` não for especificado ou se `MAXTRANSFERSIZE = 65536` (64 KB) for usado, a compactação de backup com bancos de dados criptografados com TDE compactará diretamente as páginas criptografadas e poderá não resultar em taxas de compactação satisfatórias. Para obter mais informações, consulte [Compactação de backup para bancos de dados habilitados para TDE](/archive/blogs/sqlcat/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases).
 
 Do [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] CU5 em diante, a configuração de `MAXTRANSFERSIZE` não é mais necessária para habilitar esse algoritmo de compactação otimizado com TDE. Se o comando backup for especificado `WITH COMPRESSION` ou a configuração de servidor *padrão de compactação de backup* for definido como 1, `MAXTRANSFERSIZE` será automaticamente aumentado para 128 K para habilitar o algoritmo otimizado. Se `MAXTRANSFERSIZE` for especificado no comando de backup com um valor > 64 K, o valor fornecido será respeitado. Em outras palavras, o SQL Server nunca diminuirá o valor automaticamente, ele somente o aumentará. Se você precisar fazer backup de um banco de dados criptografado com TDE com `MAXTRANSFERSIZE = 65536`, será preciso especificar `WITH NO_COMPRESSION` ou garantir que a configuração de servidor *padrão de compactação de backup* seja definida como 0.
 

@@ -11,12 +11,12 @@ ms.assetid: 19c5b725-7400-4881-af8f-fd232ca28234
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 73c70e347de00a18f4c4ec5ce3228d6d000d16f0
-ms.sourcegitcommit: 3ec49252e82590de0fe559a8574606ae213f6f3b
+ms.openlocfilehash: 45b0ba2a207be68b0faaea0af0ba7592ae1f0f94
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97975426"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172268"
 ---
 # <a name="plan-and-test-the-database-engine-upgrade-plan"></a>Planejar e testar o plano de upgrade do mecanismo de banco de dados
 
@@ -39,7 +39,7 @@ ms.locfileid: "97975426"
   
 -   **Ambiente atual:** pesquise seu ambiente atual para entender os componentes do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que estão sendo usados e os clientes que se conectam ao seu ambiente.  
   
-    -   **Provedores de cliente:** embora a atualização não exija que você atualize o provedor de cada um de seus clientes, você pode optar por fazer isso. Se você estiver fazendo upgrade do [!INCLUDE[sql14](../../includes/sssql14-md.md)] ou anterior, os seguintes recursos do [!INCLUDE[sql15](../../includes/sssql15-md.md)] exigirão um provedor atualizado para cada cliente ou o provedor atualizado fornecerá funcionalidade adicional:  
+    -   **Provedores de cliente:** embora a atualização não exija que você atualize o provedor de cada um de seus clientes, você pode optar por fazer isso. Se você estiver fazendo upgrade do [!INCLUDE[sql14](../../includes/sssql14-md.md)] ou anterior, os seguintes recursos do [!INCLUDE[sql15](../../includes/sssql16-md.md)] exigirão um provedor atualizado para cada cliente ou o provedor atualizado fornecerá funcionalidade adicional:  
   
        -   [Always Encrypted &#40;Mecanismo de Banco de Dados&#41;](../../relational-databases/security/encryption/always-encrypted-database-engine.md)  
   

@@ -28,12 +28,12 @@ ms.assetid: a4274b2b-4cb0-446a-a956-1c8e6587515d
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 793adfcb5bbb59dc836bd7ec05728a9ccf979200
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 238fcde63bf0af459ab741f54a411fefb317bfe9
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471977"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170348"
 ---
 # <a name="create-certificate-transact-sql"></a>CREATE CERTIFICATE (Transact-SQL)
 [!INCLUDE [sql-asdb-pdw](../../includes/applies-to-version/sql-asdb-pdw.md)]
@@ -168,7 +168,7 @@ CREATE CERTIFICATE certificate_name
 ## <a name="remarks"></a>Comentários  
  Um certificado é um protegível em nível de banco de dados que segue o padrão X.509 e oferece suporte aos campos X.509 V1. `CREATE CERTIFICATE` pode carregar um certificado de um arquivo, uma constante binária ou um assembly. Essa instrução também pode gerar um par de chaves e criar um certificado autoassinado.  
   
- A Chave Privada deve ser \<= 2.500 bytes em formato criptografado. Chaves privadas geradas por [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] têm 1.024 bits de extensão até [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e 2.048 bits de extensão começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. As chaves particulares importadas de uma origem externa têm um comprimento mínimo de 384 bits e máximo de 4.096 bits. O comprimento de uma chave privada importada deve ser um número inteiro múltiplo de 64 bits. Certificados usados para TDE são limitados a um tamanho de chave privado de 3456 bits.  
+ A Chave Privada deve ser \<= 2.500 bytes em formato criptografado. Chaves privadas geradas por [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] têm 1.024 bits de extensão até [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e 2.048 bits de extensão começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. As chaves particulares importadas de uma origem externa têm um comprimento mínimo de 384 bits e máximo de 4.096 bits. O comprimento de uma chave privada importada deve ser um número inteiro múltiplo de 64 bits. Certificados usados para TDE são limitados a um tamanho de chave privado de 3456 bits.  
   
  Todo o Número de Série do certificado é armazenado, mas somente os primeiros 16 bytes aparecem na exibição do catálogo sys.certificates.  
   
@@ -187,7 +187,7 @@ CREATE CERTIFICATE certificate_name
   
  Uma descrição binária de um certificado pode ser criada usando as funções [CERTENCODED &#40;Transact-SQL&#41;](../../t-sql/functions/certencoded-transact-sql.md) e [CERTPRIVATEKEY &#40;Transact-SQL&#41;](../../t-sql/functions/certprivatekey-transact-sql.md). Para obter um exemplo que use **CERTPRIVATEKEY** e **CERTENCODED** para copiar um certificado para outro banco de dados, veja o exemplo B no artigo [CERTENCODED &#40;Transact-SQL&#41;](../../t-sql/functions/certencoded-transact-sql.md).  
 
-Os algoritmos MD2, MD4, MD5, SHA e SHA1 foram preteridos no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Até o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], um certificado autoassinado é criado usando SHA1. Do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] em diante, um certificado autoassinado é criado usando SHA2_256.
+Os algoritmos MD2, MD4, MD5, SHA e SHA1 foram preteridos no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Até o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], um certificado autoassinado é criado usando SHA1. Do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] em diante, um certificado autoassinado é criado usando SHA2_256.
 
 ## <a name="permissions"></a>Permissões  
  Requer a permissão `CREATE CERTIFICATE` no banco de dados. Somente logons do Windows, logons do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e funções de aplicativo podem ter certificados. Grupos e funções não podem possuir certificados.  

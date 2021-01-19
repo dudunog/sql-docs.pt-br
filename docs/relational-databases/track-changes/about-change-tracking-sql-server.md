@@ -18,12 +18,12 @@ ms.assetid: 5e0ef05a-8317-4c98-be20-b19d4cd78f12
 author: rothja
 ms.author: jroth
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 345601ea43048fca18fabb93b52d5d5f4eb153d0
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 0271ca850648af434d225429976b4e111e49d498
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97472597"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171378"
 ---
 # <a name="about-change-tracking-sql-server"></a>Sobre o controle de alterações (SQL Server)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -76,7 +76,7 @@ Informações de controle de alterações para todas as tabelas (habilitado para
 
 Cada tabela habilitada para Controle de Alterações tem uma tabela interna em disco que é usada por funções de Controle de Alterações para determinar a versão da alteração e as linhas que foram alteradas desde uma versão específica. Sempre que o thread **limpeza automática** é habilitado, ele examina todos os banco de dados na instância do SQL Server para identificar os bancos de dados habilitados para controle de alterações. Com base na configuração de período de retenção do banco de dados, é feita a limpeza dos registros expirados de cada tabela em disco interna.
 
-Um procedimento armazenado foi adicionado em Service Packs para [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] para executar a limpeza manual para tabelas internas de Controle de Alterações. Mais informações sobre o procedimento armazenado estão disponíveis em [KB173157](https://support.microsoft.com/help/3173157/adds-a-stored-procedure-for-the-manual-cleanup-of-the-change-tracking-side-table-in-sql-server-2014-sp2-or-2016-sp1). 
+Um procedimento armazenado foi adicionado em Service Packs para [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] para executar a limpeza manual para tabelas internas de Controle de Alterações. Mais informações sobre o procedimento armazenado estão disponíveis em [KB173157](https://support.microsoft.com/help/3173157/adds-a-stored-procedure-for-the-manual-cleanup-of-the-change-tracking-side-table-in-sql-server-2014-sp2-or-2016-sp1). 
   
 ## <a name="see-also"></a>Consulte Também  
  [Habilitar e desabilitar o controle de alterações &#40;SQL Server&#41;](../../relational-databases/track-changes/enable-and-disable-change-tracking-sql-server.md)   

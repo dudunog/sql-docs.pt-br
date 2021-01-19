@@ -72,7 +72,7 @@ ALTER WORKLOAD GROUP { group_name | "default" }
 > Por padrão, o Resource Governor não impedirá a continuação de uma solicitação se o tempo máximo for excedido. Porém, um evento será gerado. Para obter mais informações, consulte [Classe de evento CPU Threshold Exceeded](../relational-databases/event-classes/cpu-threshold-exceeded-event-class.md). 
 
 > [!IMPORTANT]
-> Começando com o [!INCLUDE[ssSQL15](sssql15-md.md)] SP2 e [!INCLUDE[ssSQL17](sssql17-md.md)] CU3 e usando o [sinalizador de rastreamento 2422](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md), o Resource Governor anulará uma solicitação quando o tempo máximo for excedido.
+> Começando com o [!INCLUDE[ssSQL15](sssql16-md.md)] SP2 e [!INCLUDE[ssSQL17](sssql17-md.md)] CU3 e usando o [sinalizador de rastreamento 2422](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md), o Resource Governor anulará uma solicitação quando o tempo máximo for excedido.
   
  REQUEST_MEMORY_GRANT_TIMEOUT_SEC =*value*  
  Especifica o tempo máximo, em segundos, que uma consulta pode aguardar pela concessão de memória (memória do buffer de trabalho).  

@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.assetid: afa01165-39e0-4efe-ac0e-664edb8599fd
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 32a48093f40d048532ff58a1f91f450e52d6019b
-ms.sourcegitcommit: 5a1ed81749800c33059dac91b0e18bd8bb3081b1
+ms.openlocfilehash: ce723dfbf0171d3c1885c1574bf681fbb2c8e714
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96129016"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172558"
 ---
 # <a name="sql-server-managed-backup-to-microsoft-azure"></a>Backup Gerenciado do SQL Server para o Microsoft Azure
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
 
   [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)] gerencia e automatiza os backups do SQL Server no Armazenamento de Blobs do Microsoft Azure. Você pode permitir que o SQL Server determine a agenda de backup com base na carga de trabalho de transação do banco de dados. Ou pode usar as opções avançadas para definir uma agenda. As configurações de retenção determinam por quanto tempo os backups são armazenados no Armazenamento de Blobs do Azure. [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)] oferece suporte para restauração pontual durante o período de retenção especificado.  
   
- Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], os procedimentos e o comportamento básico de [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)] foi alterado. Para saber mais, confira [Migrar configurações de backup gerenciado do SQL Server 2014 para o SQL Server 2016](../../relational-databases/backup-restore/migrate-sql-server-2014-managed-backup-settings-to-sql-server-2016.md).  
+ Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], os procedimentos e o comportamento básico de [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)] foi alterado. Para saber mais, confira [Migrar configurações de backup gerenciado do SQL Server 2014 para o SQL Server 2016](../../relational-databases/backup-restore/migrate-sql-server-2014-managed-backup-settings-to-sql-server-2016.md).  
   
 > [!TIP]  
 >  [!INCLUDE[ss_smartbackup](../../includes/ss-smartbackup-md.md)] é recomendado para as instâncias do SQL Server em execução em máquinas virtuais do Microsoft Azure.  

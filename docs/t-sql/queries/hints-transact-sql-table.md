@@ -37,12 +37,12 @@ helpviewer_keywords:
 ms.assetid: 8bf1316f-c0ef-49d0-90a7-3946bc8e7a89
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 830b03042589ac1e9f03e94b134a48d510a37c31
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+ms.openlocfilehash: 2043bf4c60a1154b719d81b583d055b60b85c6ec
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92035829"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172328"
 ---
 # <a name="hints-transact-sql---table"></a>Dicas (Transact-SQL) – tabela
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -398,7 +398,7 @@ GO
 O Otimizador de Consulta não considerará uma dica de índice se as opções SET não tiverem os valores necessários para índices filtrados. Para obter mais informações, consulte [CREATE INDEX &#40;Transact-SQL&#41;](../../t-sql/statements/create-index-transact-sql.md).  
   
 ## <a name="using-noexpand"></a>Usando NOEXPAND  
-NOEXPAND aplica-se somente a *exibições indexadas*. Uma exibição indexada é uma exibição com um índice clusterizado exclusivo criado nela. Se uma consulta tiver referências a colunas presentes em uma exibição indexada e em tabelas base, e o otimizador de consulta determinar que o uso da exibição indexada oferece o melhor método para a execução da consulta, o otimizador de consulta usará o índice na exibição. Essa funcionalidade é chamada de *correspondência de exibição indexada*. Antes do [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] SP1, o uso automático de uma exibição indexada pelo Otimizador de Consulta era compatível apenas em edições específicas do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Para obter uma lista de recursos com suporte nas edições do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], confira [Recursos com suporte nas edições do SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md), [Recursos com suporte nas edições do SQL Server 2017](../../SQL-server/editions-and-components-of-SQL-server-2017.md) e [Recursos com suporte nas edições do SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md).  
+NOEXPAND aplica-se somente a *exibições indexadas*. Uma exibição indexada é uma exibição com um índice clusterizado exclusivo criado nela. Se uma consulta tiver referências a colunas presentes em uma exibição indexada e em tabelas base, e o otimizador de consulta determinar que o uso da exibição indexada oferece o melhor método para a execução da consulta, o otimizador de consulta usará o índice na exibição. Essa funcionalidade é chamada de *correspondência de exibição indexada*. Antes do [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] SP1, o uso automático de uma exibição indexada pelo Otimizador de Consulta era compatível apenas em edições específicas do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Para obter uma lista de recursos com suporte nas edições do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], confira [Recursos com suporte nas edições do SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md), [Recursos com suporte nas edições do SQL Server 2017](../../SQL-server/editions-and-components-of-SQL-server-2017.md) e [Recursos com suporte nas edições do SQL Server 2019](../../sql-server/editions-and-components-of-sql-server-version-15.md).  
   
 No entanto, para que o Otimizador de Consulta considere exibições indexadas para correspondência ou use uma exibição indexada que é referenciada com a dica NOEXPAND, as opções SET a seguir devem ser definidas como ON.  
 

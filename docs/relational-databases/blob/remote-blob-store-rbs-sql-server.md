@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 31c947cf-53e9-4ff4-939b-4c1d034ea5b1
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 83abd087cab67c0b048ed6333e912ac1edc76f7c
-ms.sourcegitcommit: 04cf7905fa32e0a9a44575a6f9641d9a2e5ac0f8
+ms.openlocfilehash: bfd234025664e7508d7d9cf942ff81a216b447a2
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810152"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171748"
 ---
 # <a name="remote-blob-store-rbs-sql-server"></a>RBS (Armazenamento de Blob Remoto) [SQL Server]
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "91810152"
 
 | Versão do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] | Local de download do RBS |
 |:---|:---|
-| [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] | [[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] Feature Pack SP2](https://www.microsoft.com/download/details.aspx?id=56833) |
+| [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] | [[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] Feature Pack SP2](https://www.microsoft.com/download/details.aspx?id=56833) |
 | [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] | [[!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] Feature Pack](https://www.microsoft.com/download/details.aspx?id=55992) |
 | [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] | [[!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] Página de download do RBS](https://go.microsoft.com/fwlink/?linkid=2109005) |
 | &nbsp; | &nbsp; |
@@ -59,7 +59,7 @@ ms.locfileid: "91810152"
  Vários fornecedores de solução de armazenamento de terceiros desenvolveram provedores RBS que estão em conformidade com estas APIs padrão e oferecem suporte ao armazenamento de BLOB em várias plataformas de armazenamento.  
   
 ## <a name="rbs-requirements"></a>Requisitos de RBS  
- - O RBS requer o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Enterprise para o servidor de banco de dados principal no qual os metadados de BLOB são armazenados.  Porém, se você usar o provedor FILESTREAM fornecido, poderá armazenar os próprios BLOBs no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Standard. Para se conectar ao [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], o RBS exige, no mínimo, a versão do driver ODBC 11 para o [!INCLUDE[ssSQL14_md](../../includes/sssql14-md.md)] e a versão do driver ODBC 13 para o [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)]. Os drivers estão disponíveis em [Baixar o driver ODBC para SQL Server](../../connect/odbc/download-odbc-driver-for-sql-server.md).    
+ - O RBS requer o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Enterprise para o servidor de banco de dados principal no qual os metadados de BLOB são armazenados.  Porém, se você usar o provedor FILESTREAM fornecido, poderá armazenar os próprios BLOBs no [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Standard. Para se conectar ao [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], o RBS exige, no mínimo, a versão do driver ODBC 11 para o [!INCLUDE[ssSQL14_md](../../includes/sssql14-md.md)] e a versão do driver ODBC 13 para o [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)]. Os drivers estão disponíveis em [Baixar o driver ODBC para SQL Server](../../connect/odbc/download-odbc-driver-for-sql-server.md).    
   
  O RBS inclui um provedor FILESTREAM que permite usar o RBS para armazenar BLOBs em uma instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Caso deseje usar o RBS para armazenar BLOBs em uma solução de armazenamento diferente, utilize um provedor RBS de terceiros desenvolvido para essa solução de armazenamento ou desenvolva um provedor RBS personalizado usando a API do RBS. Um provedor de exemplo que armazena BLOBs no sistema de arquivos NTFS está disponível como um recurso de aprendizagem em [Codeplex](https://go.microsoft.com/fwlink/?LinkId=210190).  
   
@@ -72,7 +72,7 @@ ms.locfileid: "91810152"
 ### <a name="credential-store-symmetric-key"></a>Chave simétrica do repositório de credenciais  
  Se um provedor requer a instalação e o uso de um segredo armazenado no repositório de credenciais, o RBS usará uma chave simétrica para criptografar os segredos de provedor que um cliente pode usar para obter autorização para o repositório de blob do provedor.  
   
--   O RBS 2016 usa uma chave simétrica do **AES_128** . [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] não permite a criação de novas chaves do **TRIPLE_DES** , exceto por motivos de compatibilidade com versões anteriores. Para obter mais informações, consulte [CREATE SYMMETRIC KEY &#40;Transact-SQL&#41;](../../t-sql/statements/create-symmetric-key-transact-sql.md).  
+-   O RBS 2016 usa uma chave simétrica do **AES_128** . [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] não permite a criação de novas chaves do **TRIPLE_DES** , exceto por motivos de compatibilidade com versões anteriores. Para obter mais informações, consulte [CREATE SYMMETRIC KEY &#40;Transact-SQL&#41;](../../t-sql/statements/create-symmetric-key-transact-sql.md).  
   
 -   O RBS 2014 e versões anteriores usam um repositório de credenciais que mantém os segredos criptografados usando o algoritmo de chave simétrica **TRIPLE_DES** que está desatualizado. Se no momento você estiver usando o **TRIPLE_DES**, [!INCLUDE[msCoName](../../includes/msconame-md.md)] recomenda que você aperfeiçoe a segurança, seguindo as etapas deste tópico para girar sua chave para um método de criptografia mais forte.  
   

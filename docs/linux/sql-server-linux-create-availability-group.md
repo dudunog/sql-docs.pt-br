@@ -8,18 +8,18 @@ ms.date: 06/28/2018
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
-ms.openlocfilehash: 075a2e7ed11abe0ceadfa4f50ba82ca57ff97f0e
-ms.sourcegitcommit: 610e3ebe21ac6575850a29641a32f275e71557e3
+ms.openlocfilehash: ecb634a770b4990bfbbc094b15498b03bdea4a57
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91785155"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171998"
 ---
 # <a name="create-and-configure-an-availability-group-for-sql-server-on-linux"></a>Criar e configurar um grupo de disponibilidade para SQL Server em Linux
 
 [!INCLUDE [SQL Server - Linux](../includes/applies-to-version/sql-linux.md)]
 
-Este tutorial aborda como criar e configurar um AG (grupo de disponibilidade) para [!INCLUDE[ssnoversion-md](../includes/ssnoversion-md.md)] no Linux. Ao contrário de [!INCLUDE[sssql15-md](../includes/sssql15-md.md)] e anteriores no Windows, você pode habilitar AGs com ou sem criar o cluster subjacente do Pacemaker primeiro. A integração com o cluster, se necessário, não é feita até mais tarde.
+Este tutorial aborda como criar e configurar um AG (grupo de disponibilidade) para [!INCLUDE[ssnoversion-md](../includes/ssnoversion-md.md)] no Linux. Ao contrário de [!INCLUDE[sssql15-md](../includes/sssql16-md.md)] e anteriores no Windows, você pode habilitar AGs com ou sem criar o cluster subjacente do Pacemaker primeiro. A integração com o cluster, se necessário, não é feita até mais tarde.
 
 O tutorial inclui as seguintes tarefas:
  

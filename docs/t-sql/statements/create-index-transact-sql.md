@@ -55,12 +55,12 @@ ms.assetid: d2297805-412b-47b5-aeeb-53388349a5b9
 author: pmasl
 ms.author: pelopes
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 01a80dd71397a4528c1d56882cec5934d750bb8f
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: c472b3996683512fb6ac7cd3f001d53ca1fd73ae
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98093497"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170678"
 ---
 # <a name="create-index-transact-sql"></a>CREATE INDEX (Transact-SQL)
 
@@ -90,7 +90,7 @@ CREATE UNIQUE INDEX i1 ON t1 (col1 DESC, col2 ASC, col3 DESC);
 
 **Cenário principal:**
 
-Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e o [!INCLUDE[ssSDS](../../includes/sssds-md.md)], use um índice não clusterizado em um índice columnstore para melhorar o desempenho da consulta de armazenamento de dados. Para obter mais informações, veja [Índices Columnstore – data warehouse](../../relational-databases/indexes/columnstore-indexes-data-warehouse.md).
+Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e o [!INCLUDE[ssSDS](../../includes/sssds-md.md)], use um índice não clusterizado em um índice columnstore para melhorar o desempenho da consulta de armazenamento de dados. Para obter mais informações, veja [Índices Columnstore – data warehouse](../../relational-databases/indexes/columnstore-indexes-data-warehouse.md).
 
 Para ver tipos de índices adicionais, consulte:
 
@@ -250,7 +250,7 @@ Se não for especificado de outra forma, o tipo de índice padrão será NONCLUS
 *column*      
  É a coluna, ou colunas, em que o índice se baseia. Especifique dois ou mais nomes de coluna para criar um índice composto com os valores combinados das colunas especificadas. Liste as colunas que serão incluídas no índice composto, em ordem de prioridade de classificação, entre parênteses depois de *table_or_view_name*.
 
-Até 32 colunas podem ser combinadas em uma única chave de índice composto. Todas as colunas de uma chave de índice composto devem estar na mesma tabela ou exibição. O tamanho máximo permitido de valores de índice combinados é de 900 bytes para um índice clusterizado ou de 1.700 para um índice não clusterizado. Os limites são 16 colunas e 900 bytespara versões anteriores a [!INCLUDE[ssSDS](../../includes/sssds-md.md)] e a [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)].
+Até 32 colunas podem ser combinadas em uma única chave de índice composto. Todas as colunas de uma chave de índice composto devem estar na mesma tabela ou exibição. O tamanho máximo permitido de valores de índice combinados é de 900 bytes para um índice clusterizado ou de 1.700 para um índice não clusterizado. Os limites são 16 colunas e 900 bytespara versões anteriores a [!INCLUDE[ssSDS](../../includes/sssds-md.md)] e a [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)].
 
 Colunas que são dos tipos de dados LOB (Objeto Grande) **ntext**, **text**, **varchar(max)** , **nvarchar(max)** , **varbinary(max)** , **xml**, ou **image** não podem ser especificadas como colunas chave para um índice. Além disso, uma definição de exibição não pode incluir colunas **ntext**, **text** ou **image**, mesmo que elas não sejam referenciadas na instrução CREATE INDEX.
 
@@ -351,7 +351,7 @@ _database_name_
 
 A exibição deve ser definida com SCHEMABINDING para criar um índice nela. Um índice clusterizado exclusivo deve ser criado em uma exibição antes que qualquer índice não clusterizado seja criado. Para obter mais informações sobre exibições indexadas, consulte a seção Comentários.
 
-A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], o objeto pode ser uma tabela armazenada com um índice columnstore clusterizado.
+A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], o objeto pode ser uma tabela armazenada com um índice columnstore clusterizado.
 
 O [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] dá suporte ao formato de nome de três partes _database_name_.[_schema_name_]._object_name_ quando *database_name* é o banco de dados atual ou o _database_name_ é `tempdb` e o _object_name_ começa com #.
 
@@ -621,7 +621,7 @@ Os índices dão suporte a propriedades estendidas.
 Criar um índice clusterizado em uma tabela (heap) ou descartar e recriar um índice clusterizado existente requer workspace adicional disponível no banco de dados, para acomodar a classificação de dados e uma cópia temporária da tabela original ou dos dados do índice clusterizado existente. Para obter mais informações sobre índices clusterizados, confira [Criar índices clusterizados](../../relational-databases/indexes/create-clustered-indexes.md) e o [Guia de arquitetura e design de índices do SQL Server](../../relational-databases/sql-server-index-design-guide.md).
 
 ## <a name="nonclustered-indexes"></a>Índices não clusterizados
-A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], você pode criar um índice não clusterizado em uma tabela armazenada como um índice columnstore clusterizado. Se você primeiro criar um índice não clusterizado em uma tabela armazenada como um índice clusterizado ou heap, o índice persistirá se você depois converter a tabela em um índice columnstore clusterizado. Também não é necessário remover o índice não clusterizado ao recompilar o índice columnstore clusterizado.
+A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], você pode criar um índice não clusterizado em uma tabela armazenada como um índice columnstore clusterizado. Se você primeiro criar um índice não clusterizado em uma tabela armazenada como um índice clusterizado ou heap, o índice persistirá se você depois converter a tabela em um índice columnstore clusterizado. Também não é necessário remover o índice não clusterizado ao recompilar o índice columnstore clusterizado.
 
 Limitações e restrições:
 
@@ -682,7 +682,7 @@ Para obter informações sobre índices espaciais, veja [CREATE SPATIAL INDEX](.
 Para informações sobre índices XML, veja [CREATE XML INDEX](../../t-sql/statements/create-xml-index-transact-sql.md) e [Índices XML &#40;SQL Server&#41;](../../relational-databases/xml/xml-indexes-sql-server.md).
 
 ## <a name="index-key-size"></a>Tamanho de chave de índice
-O tamanho máximo para uma chave de índice é de 900 bytes para um índice clusterizado e de 1.700 bytes para um índice não clusterizado. (Antes de [!INCLUDE[ssSDS](../../includes/sssds-md.md)] e [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], o limite foi sempre 900 bytes). Os índices nas colunas **varchar** que excederem o limite de bytes poderão ser criados se os dados existentes nas colunas não excederem o limite bytes no momento da criação do índice; entretanto, as ações subsequentes de inserção ou atualização nas colunas que fazem com que o tamanho total seja maior que o limite de bytes falharão. A chave de um índice clusterizado não pode conter colunas **varchar** que tenham dados existentes na unidade de alocação ROW_OVERFLOW_DATA. Se um índice clusterizado for criado em uma coluna **varchar** e os dados existentes estiverem na unidade de alocação IN_ROW_DATA, as ações subsequentes de inserção ou atualização na coluna que faria o push dos dados da linha apresentarão falha.
+O tamanho máximo para uma chave de índice é de 900 bytes para um índice clusterizado e de 1.700 bytes para um índice não clusterizado. (Antes de [!INCLUDE[ssSDS](../../includes/sssds-md.md)] e [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], o limite foi sempre 900 bytes). Os índices nas colunas **varchar** que excederem o limite de bytes poderão ser criados se os dados existentes nas colunas não excederem o limite bytes no momento da criação do índice; entretanto, as ações subsequentes de inserção ou atualização nas colunas que fazem com que o tamanho total seja maior que o limite de bytes falharão. A chave de um índice clusterizado não pode conter colunas **varchar** que tenham dados existentes na unidade de alocação ROW_OVERFLOW_DATA. Se um índice clusterizado for criado em uma coluna **varchar** e os dados existentes estiverem na unidade de alocação IN_ROW_DATA, as ações subsequentes de inserção ou atualização na coluna que faria o push dos dados da linha apresentarão falha.
 
 Índices não clusterizados podem incluir colunas não chave no nível folha do índice. Essas colunas não são consideradas pelo [!INCLUDE[ssDE](../../includes/ssde-md.md)] ao calcular o tamanho da chave de índice. Para obter mais informações, confira [Criar índices com colunas incluídas](../../relational-databases/indexes/create-indexes-with-included-columns.md) e o [Guia de arquitetura e design de índices do SQL Server](../../relational-databases/sql-server-index-design-guide.md).
 

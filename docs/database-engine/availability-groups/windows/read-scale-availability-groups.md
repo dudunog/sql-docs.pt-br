@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: ''
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 4ccfc459fb5dbbc2a607fd0eb87853a776820098
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: c8f5f050598129e674a74e8b924c6b2ba274cb34
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642468"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171118"
 ---
 # <a name="use-read-scale-with-always-on-availability-groups"></a>Usar a escala de leitura com Grupos de Disponibilidade AlwaysOn
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -30,7 +30,7 @@ Os aplicativos cliente que executam cargas de trabalho de análises ou de relat�
 
 ## <a name="read-scale-availability-groups-without-cluster"></a>Grupos de disponibilidade de escala de leitura sem cluster
 
-No [!INCLUDE[sssql15-md](../../../includes/sssql15-md.md)] e anteriores, todos os grupos de disponibilidade exigiam um cluster. O cluster fornecia continuidade dos negócios para HADR (alta disponibilidade e recuperação de desastre). Além disso, as réplicas secundárias eram configuradas para operações de leitura. Se a meta não fosse a alta disponibilidade, uma sobrecarga operacional considerável seria consumida para configurar e operar um cluster. O SQL Server 2017 introduz grupos de disponibilidade de escala de leitura sem um cluster. 
+No [!INCLUDE[sssql15-md](../../../includes/sssql16-md.md)] e anteriores, todos os grupos de disponibilidade exigiam um cluster. O cluster fornecia continuidade dos negócios para HADR (alta disponibilidade e recuperação de desastre). Além disso, as réplicas secundárias eram configuradas para operações de leitura. Se a meta não fosse a alta disponibilidade, uma sobrecarga operacional considerável seria consumida para configurar e operar um cluster. O SQL Server 2017 introduz grupos de disponibilidade de escala de leitura sem um cluster. 
 
 Se seus requisitos de negócios estiverem relacionados a conservar recursos para cargas de trabalho críticas executadas na réplica primária, você poderá usar o roteamento somente leitura ou conectar-se diretamente a réplicas secundárias legíveis. Você não precisa depender da integração a nenhuma tecnologia de clustering. Essas novas funcionalidades estão disponíveis para o SQL Server 2017 em execução em plataformas Windows e Linux.
 

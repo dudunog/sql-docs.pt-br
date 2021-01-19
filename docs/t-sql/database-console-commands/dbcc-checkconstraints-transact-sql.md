@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: da6c9cee-6687-46e8-b504-738551f9068b
 author: pmasl
 ms.author: umajay
-ms.openlocfilehash: c9599042d8cab079c155496be1fb4e0194bc66fe
-ms.sourcegitcommit: cc23d8646041336d119b74bf239a6ac305ff3d31
+ms.openlocfilehash: a0257d403980bcb869a7ac1e06471cd1699dd16d
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91111141"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170598"
 ---
 # <a name="dbcc-checkconstraints-transact-sql"></a>DBCC CHECKCONSTRAINTS (Transact-SQL)
 
@@ -92,7 +92,7 @@ WHERE <table_being_checked.fkey1> IS NOT NULL
 Os dados de consulta são armazenados em uma tabela temporária. Depois que todas as tabelas e restrições solicitadas forem verificadas, o conjunto de resultados será retornado.
 DBCC CHECKCONSTRAINTS verifica a integridade das restrições FOREIGN KEY e CHECK, mas não verifica a integridade das estruturas de dados em disco de uma tabela. Essas verificações de estrutura de dados podem ser executadas usando [DBCC CHECKDB](../../t-sql/database-console-commands/dbcc-checkdb-transact-sql.md) e [DBCC CHECKTABLE](../../t-sql/database-console-commands/dbcc-checktable-transact-sql.md).
   
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior
   
 Se *table_name* ou *table_id* for especificado e estiver habilitado para controle de versão do sistema, DBCC CHECKCONSTRAINTS também executará as verificações de consistência de dados temporais na tabela especificada. Quando *NO_INFOMSGS* não for especificado, esse comando retornará cada violação de consistência na saída em uma linha separada. O formato da saída será ([pkcol1], [pkcol2]..) = (\<pkcol1_value>, \<pkcol2_value>...) AND \<what is wrong with temporal table record>.
   

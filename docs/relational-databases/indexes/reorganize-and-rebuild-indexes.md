@@ -31,12 +31,12 @@ ms.assetid: a28c684a-c4e9-4b24-a7ae-e248808b31e9
 author: pmasl
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: eca1dbef6ff7d519200e46cff7879d7cb0a9b128
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 991a30108d0683d89d8bece48eb0d2de1c1e0d37
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97478247"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171878"
 ---
 # <a name="resolve-index-fragmentation-by-reorganizing-or-rebuilding-indexes"></a>Resolver a fragmentação do índice reorganizando ou recompilando índices
 
@@ -110,7 +110,7 @@ Depois que o grau de fragmentação de índice for conhecido, use a seguinte tab
 |**fragmentação calculada em valor** percentual|Aplica-se à versão|Instrução corretiva|
 |-----------------------------------------------|--------------------------|--------------------------|
 |> = 20%|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|ALTER INDEX REBUILD|
-|> = 20%|A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]|ALTER INDEX REORGANIZE|
+|> = 20%|A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]|ALTER INDEX REORGANIZE|
 
 ### <a name="to-check-the-fragmentation-of-a-rowstore-index-using-tsql"></a>Para verificar a fragmentação de um índice rowstore usando [!INCLUDE[tsql](../../includes/tsql-md.md)]
 
@@ -234,7 +234,7 @@ A recriação de um índice descarta e recria o índice. Dependendo do tipo de �
 - Para [índices columnstore](columnstore-indexes-overview.md), a recompilação remove a fragmentação, move todas as linhas para o columnstore e recupera o espaço em disco excluindo fisicamente as linhas que foram excluídas logicamente da tabela. 
   
   > [!TIP]
-  > Iniciando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], normalmente, não é necessário recompilar o índice columnstore porque `REORGANIZE` executa as etapas básicas de uma recompilação em segundo plano como uma operação online. 
+  > Iniciando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], normalmente, não é necessário recompilar o índice columnstore porque `REORGANIZE` executa as etapas básicas de uma recompilação em segundo plano como uma operação online. 
   
   Para obter exemplos de sintaxe, confira [Exemplos: recompilação de ColumnStore](../../t-sql/statements/alter-index-transact-sql.md#examples-columnstore-indexes).
 
@@ -382,7 +382,7 @@ A recompilação de uma partição após o carregamento de dados garante que tod
 
 ## <a name="considerations-specific-to-reorganizing-a-columnstore-index"></a>Considerações específicas para reorganizar um índice columnstore
 
-Ao reorganizar um índice columnstore, [!INCLUDE[ssde_md](../../includes/ssde_md.md)] compacta cada rowgroup delta FECHADO no columnstore como um rowgroup compactado. A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], o comando `REORGANIZE` executa as seguintes otimizações adicionais de desfragmentação online:
+Ao reorganizar um índice columnstore, [!INCLUDE[ssde_md](../../includes/ssde_md.md)] compacta cada rowgroup delta FECHADO no columnstore como um rowgroup compactado. A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], o comando `REORGANIZE` executa as seguintes otimizações adicionais de desfragmentação online:
 
 - Remove fisicamente linhas de um grupo de linhas quando 10% ou mais linhas foram excluídas logicamente. Os bytes excluídos são recuperados na mídia física. Por exemplo, se um grupo de linhas compactado de 1 milhão de linhas tiver 100 mil linhas excluídas, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] removerá as linhas excluídas e recompactará o rowgroup com 900 mil linhas. Ele salva no armazenamento removendo as linhas excluídas.
 

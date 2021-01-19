@@ -12,12 +12,12 @@ ms.assetid: b29850b5-5530-498d-8298-c4d4a741cdaf
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 3dd7431a208db3f0da1e2ee53522920319b40af0
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: b6a0b60d8b690490074187d977d9bd636d88aea3
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97407462"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172678"
 ---
 # <a name="columnstore-indexes---data-loading-guidance"></a>Índices columnstore – diretrizes de carregamento de dados
 
@@ -89,7 +89,7 @@ INSERT INTO <columnstore index>
 SELECT <list of columns> FROM <Staging Table>  
 ```  
   
- Esse comando carrega os dados no índice columnstore de forma semelhante ao BCP ou à Inserção em Massa, mas em um único lote. Se o número de linhas na tabela de preparo for inferior a 102.400, as linhas serão carregadas em um rowgroup delta, caso contrário, as linhas serão carregadas diretamente no rowgroup compactado. Uma importante limitação era que essa operação `INSERT` era single-threaded. Para carregar dados em paralelo, era possível criar várias tabelas de preparo ou emitir `INSERT`/`SELECT` com intervalos não sobrepostos de linhas da tabela de preparo. Essa limitação não existe no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. O comando abaixo carrega os dados da tabela de preparo em paralelo, mas você precisará especificar `TABLOCK`. Você pode achar isso contraditório em relação ao que foi dito anteriormente com carregamento em massa, mas a principal diferença é que o carregamento de dados paralelos da tabela de preparo é executado na mesma transação.
+ Esse comando carrega os dados no índice columnstore de forma semelhante ao BCP ou à Inserção em Massa, mas em um único lote. Se o número de linhas na tabela de preparo for inferior a 102.400, as linhas serão carregadas em um rowgroup delta, caso contrário, as linhas serão carregadas diretamente no rowgroup compactado. Uma importante limitação era que essa operação `INSERT` era single-threaded. Para carregar dados em paralelo, era possível criar várias tabelas de preparo ou emitir `INSERT`/`SELECT` com intervalos não sobrepostos de linhas da tabela de preparo. Essa limitação não existe no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. O comando abaixo carrega os dados da tabela de preparo em paralelo, mas você precisará especificar `TABLOCK`. Você pode achar isso contraditório em relação ao que foi dito anteriormente com carregamento em massa, mas a principal diferença é que o carregamento de dados paralelos da tabela de preparo é executado na mesma transação.
   
 ```sql  
 INSERT INTO <columnstore index> WITH (TABLOCK) 

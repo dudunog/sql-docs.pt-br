@@ -26,12 +26,12 @@ ms.assetid: 344fc6ce-a008-47c8-a02e-47fae66cc590
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: ff06180d1abb67239407d91c564558e4d45c2550
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 21314c02ddb58aabcee33257fc4d8d44f56b9da7
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644409"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170568"
 ---
 # <a name="alter-user-transact-sql"></a>ALTER USER (Transact-SQL)
 
@@ -114,7 +114,7 @@ NAME = newUserName
 > [!NOTE]
 > Essa opção pode ser especificada apenas em um banco de dados independente e apenas para usuários contidos.
 
- ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = [ ON | **OFF** ]  **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].
+ ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = [ ON | **OFF** ]  **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].
 
  Suprime as verificações de metadados criptográficos no servidor em operações de cópia em massa. Isso permite que o usuário copie em massa dados criptografados entre tabelas ou bancos de dados sem descriptografá-los. O padrão é OFF.
 
@@ -302,7 +302,7 @@ ALTER USER userName
 > [!NOTE]
 > Essa opção está disponível apenas para usuários contidos.
 
- ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = [ ON | **OFF** ]  **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].
+ ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = [ ON | **OFF** ]  **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].
 
  Suprime as verificações de metadados criptográficos no servidor em operações de cópia em massa. Isso permite que o usuário copie em massa dados criptografados entre tabelas ou bancos de dados sem descriptografá-los. O padrão é OFF.
 

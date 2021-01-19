@@ -12,12 +12,12 @@ ms.assetid: df347f9b-b950-4e3a-85f4-b9f21735eae3
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: b4cf02b18cdaef035cd27b568d5f8d84f0a25619
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: bc7e46cf13da66476b53d68d5f2ea02fb29a69a5
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98094589"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172098"
 ---
 # <a name="sample-database-for-in-memory-oltp"></a>Banco de dados de exemplo para OLTP na memória
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "98094589"
   
 ##  <a name="prerequisites"></a><a name="Prerequisites"></a> Pré-requisitos  
   
--   [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]  
+-   [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]  
   
 -   Para testes de desempenho, um servidor com as especificações semelhantes ao ambiente de produção. Para este exemplo específico, você deve ter pelo menos 16 GB de memória disponível para o SQL Server. Para obter diretrizes gerais sobre hardware para o OLTP in-memory, confira a seguinte postagem no blog: [Considerações sobre hardware para OLTP in-memory no SQL Server 2014](blog-hardware-in-memory-oltp.md)
 
@@ -142,25 +142,25 @@ ms.locfileid: "98094589"
   
 -   *Restrições padrão* têm suporte para tabelas com otimização de memória, e migramos a maioria das restrições padrão como tal. No entanto, a tabela Sales.SalesOrderHeader original contém duas restrições padrão que recuperam a data atual, pata as colunas OrderDate e ModifiedDate. Em uma carga de trabalho de processamento de pedidos com alta taxa de transferência e muita simultaneidade, qualquer recurso global pode se tornar um ponto de contenção. O tempo do sistema é um recurso bem global e observamos que ele pode se tornar um gargalo quando você executa uma carga de trabalho do OLTP in-memory que insere pedidos de vendas, em particular se o tempo do sistema precisa ser recuperado para várias colunas no cabeçalho do pedido de vendas, bem como os detalhes do pedido de vendas. O problema é tratado neste exemplo através da recuperação do tempo do sistema apenas uma vez para cada pedido de vendas que é inserido, e o uso desse valor para as colunas de data e hora em SalesOrderHeader_inmem e em SalesOrderDetail_inmem, no procedimento armazenado Sales.usp_InsertSalesOrder_inmem.  
   
--   *UDTs (tipos de dados definidos pelo usuário) de alias* – a tabela original usa dois UDTs de alias, dbo.OrderNumber e dbo.AccountNumber, para as colunas PurchaseOrderNumber e AccountNumber, respectivamente. O[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] não dá suporte ao UDT de alias para tabelas com otimização de memória; portanto, as novas tabelas usam os tipos de dados do sistema nvarchar(25) e nvarchar(15), respectivamente.  
+-   *UDTs (tipos de dados definidos pelo usuário) de alias* – a tabela original usa dois UDTs de alias, dbo.OrderNumber e dbo.AccountNumber, para as colunas PurchaseOrderNumber e AccountNumber, respectivamente. O[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] não dá suporte ao UDT de alias para tabelas com otimização de memória; portanto, as novas tabelas usam os tipos de dados do sistema nvarchar(25) e nvarchar(15), respectivamente.  
   
 -   *Colunas que permitem valor nulo em chaves de índice* - na tabela original, a coluna SalesPersonID é anulável, enquanto em novas tabelas a coluna não é anulável e tem uma restrição padrão com valor (-1). Essa circunstância ocorre porque os índices nas tabelas com otimização de memória não podem ter colunas anuláveis na chave do índice; -1 é um substituto de NULL nesse caso.  
   
--   *Colunas computadas* - as colunas computadas SalesOrderNumber e TotalDue são omitidas, pois o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] não oferece suporte a colunas computadas em tabelas com otimização de memória. A nova exibição Sales.vSalesOrderHeader_extended_inmem reflete as colunas SalesOrderNumber e TotalDue. Por disso, você pode usar essa exibição se essas colunas são necessárias.  
+-   *Colunas computadas* - as colunas computadas SalesOrderNumber e TotalDue são omitidas, pois o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] não oferece suporte a colunas computadas em tabelas com otimização de memória. A nova exibição Sales.vSalesOrderHeader_extended_inmem reflete as colunas SalesOrderNumber e TotalDue. Por disso, você pode usar essa exibição se essas colunas são necessárias.  
 
     - **Aplica-se a:** [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] CTP 1.1.  
 Do [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] CTP 1.1 em diante, há suporte para colunas computadas em índices e tabelas com otimização de memória.
 
   
--   *Restrições de chave estrangeira* têm suporte para tabelas com otimização de memória no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], mas apenas se as tabelas referenciadas são também de otimização de memória. Chaves estrangeiras que referenciam tabelas que também são migradas para a otimização de memória são mantidas nas tabelas migradas, enquanto outras chaves estrangeiras são omitidas.  Além disso, SalesOrderHeader_inmem é uma tabela ativa na carga de trabalho de exemplo, e as restrições de chaves estrangeiras exigem processamento adicional para todas as operações DML, pois são necessárias pesquisas em todas as outras tabelas referenciadas nessas restrições. Consequentemente, a suposição é a de que o aplicativo garante a integridade referencial para a tabela Sales.SalesOrderHeader_inmem, e a integridade referencial não é validada quando linhas são inseridas.  
+-   *Restrições de chave estrangeira* têm suporte para tabelas com otimização de memória no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], mas apenas se as tabelas referenciadas são também de otimização de memória. Chaves estrangeiras que referenciam tabelas que também são migradas para a otimização de memória são mantidas nas tabelas migradas, enquanto outras chaves estrangeiras são omitidas.  Além disso, SalesOrderHeader_inmem é uma tabela ativa na carga de trabalho de exemplo, e as restrições de chaves estrangeiras exigem processamento adicional para todas as operações DML, pois são necessárias pesquisas em todas as outras tabelas referenciadas nessas restrições. Consequentemente, a suposição é a de que o aplicativo garante a integridade referencial para a tabela Sales.SalesOrderHeader_inmem, e a integridade referencial não é validada quando linhas são inseridas.  
   
--   *Rowguid* - a coluna rowguid é omitida. Apesar de uniqueidentifier ter suporte para tabelas com otimização de memória, a opção ROWGUIDCOL não tem suporte no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. As colunas desse tipo são geralmente usadas para a replicação de mesclagem ou para tabelas com colunas filestream. Este exemplo não inclui isso.  
+-   *Rowguid* - a coluna rowguid é omitida. Apesar de uniqueidentifier ter suporte para tabelas com otimização de memória, a opção ROWGUIDCOL não tem suporte no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. As colunas desse tipo são geralmente usadas para a replicação de mesclagem ou para tabelas com colunas filestream. Este exemplo não inclui isso.  
   
  Sales.SalesOrderDetail  
   
 -   *Restrições padrão* – semelhante ao SalesOrderHeader, a restrição padrão que requer a data/hora do sistema não é migrada; o procedimento armazenado que insere os pedidos de vendas fica responsável por inserir a data/hora atual do sistema na primeira inserção.  
   
--   *Colunas computadas* – a coluna computada LineTotal não foi migrada pois colunas computadas não são compatíveis com tabelas com otimização de memória no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Para acessar essa coluna, use a exibição Sales.vSalesOrderDetail_extended_inmem.  
+-   *Colunas computadas* – a coluna computada LineTotal não foi migrada pois colunas computadas não são compatíveis com tabelas com otimização de memória no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Para acessar essa coluna, use a exibição Sales.vSalesOrderDetail_extended_inmem.  
   
 -   *Rowguid* - a coluna rowguid é omitida. Para obter detalhes, consulte a descrição da tabela SalesOrderHeader.  
   

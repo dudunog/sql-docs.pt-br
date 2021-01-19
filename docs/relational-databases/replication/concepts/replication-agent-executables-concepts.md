@@ -18,12 +18,12 @@ ms.assetid: cba476df-d4ea-44c9-bb86-81488971e328
 author: MashaMSFT
 ms.author: mathoma
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016
-ms.openlocfilehash: 41525854d161d029beae6e0956bc11e536ab813b
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: bd6886f7ad5569d4eba40e9e603c9fccead17f71
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97460299"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171218"
 ---
 # <a name="replication-agent-executables-concepts"></a>Conceitos dos executáveis do Replication Agent
 [!INCLUDE[sql-asdbmi](../../../includes/applies-to-version/sql-asdbmi.md)]
@@ -57,7 +57,7 @@ ms.locfileid: "97460299"
 >  As quebras de linha destes exemplos foram adicionadas para melhorar a legibilidade. Em um arquivo em lotes, devem ser feitos comandos em uma única linha.  
   
 ### <a name="running-the-snapshot-agent"></a>Executando o Snapshot Agent  
- Esse arquivo em lotes de exemplo invoca o Snapshot Agent no prompt de comando para gerar um instantâneo para a publicação **AdvWorksSalesOrdersMerge**. (Os scripts abaixo usam o caminho para arquivos [!INCLUDE[ssSQL15_md](../../../includes/sssql15-md.md)] [versão 130]). Você deve ajustar os scripts para que eles apontem para os arquivos de sua versão do [!INCLUDE[ssNoVersion_md](../../../includes/ssnoversion-md.md)].)  
+ Esse arquivo em lotes de exemplo invoca o Snapshot Agent no prompt de comando para gerar um instantâneo para a publicação **AdvWorksSalesOrdersMerge**. (Os scripts abaixo usam o caminho para arquivos [!INCLUDE[ssSQL15_md](../../../includes/sssql16-md.md)] [versão 130]). Você deve ajustar os scripts para que eles apontem para os arquivos de sua versão do [!INCLUDE[ssNoVersion_md](../../../includes/ssnoversion-md.md)].)  
   
 ```  
 REM -- Declare variables  

@@ -27,12 +27,12 @@ helpviewer_keywords:
 ms.assetid: 0d6cb620-eb58-4745-8587-4133a1b16994
 author: pmasl
 ms.author: umajay
-ms.openlocfilehash: 1c4563a10433d4cbead089da026d086f9c021ccb
-ms.sourcegitcommit: 192f6a99e19e66f0f817fdb1977f564b2aaa133b
+ms.openlocfilehash: 78a84099b202ca55588e1365b27d80004d2cdaa5
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126282"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172608"
 ---
 # <a name="dbcc-checktable-transact-sql"></a>DBCC CHECKTABLE (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -156,7 +156,7 @@ A verificação de consistência lógica em índices varia de acordo com o níve
          Essas verificações de consistência lógica comparam a tabela de índice interna do objeto de índice com a tabela do usuário à qual se está fazendo referência. Para localizar linhas externas, uma consulta interna é construída para executar uma interseção completa das tabelas internas e do usuário. A execução dessa consulta pode afetar bastante o desempenho e não é possível controlar seu andamento. Portanto, recomendamos especificar WITH EXTENDED_LOGICAL_CHECKS apenas se você suspeitar de problemas de índice que não estão relacionados à dano físico ou se as somas de verificação em nível de página foram desativadas e você suspeitar de dano de hardware em nível de coluna.    
     -   Se o índice for filtrado, DBCC CHECKDB executará verificações de consistência para verificar se as entradas do índice atendem ao predicado do filtro.   
       
-- Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], as verificações adicionais em colunas computadas persistentes, em colunas de UDT e em índices filtrados não serão executadas por padrão, para evitar as avaliações de expressão caras. Essa alteração reduz significativamente a duração de CHECKDB em bancos de dados que contêm esses objetos. No entanto, as verificações de consistência física desses objetos sempre são concluídas. Somente quando a opção EXTENDED_LOGICAL_CHECKS for especificada as avaliações de expressão serão executadas além das verificações lógicas já presentes (exibição indexada, índices XML e índices espaciais) como parte da opção EXTENDED_LOGICAL_CHECKS.
+- Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], as verificações adicionais em colunas computadas persistentes, em colunas de UDT e em índices filtrados não serão executadas por padrão, para evitar as avaliações de expressão caras. Essa alteração reduz significativamente a duração de CHECKDB em bancos de dados que contêm esses objetos. No entanto, as verificações de consistência física desses objetos sempre são concluídas. Somente quando a opção EXTENDED_LOGICAL_CHECKS for especificada as avaliações de expressão serão executadas além das verificações lógicas já presentes (exibição indexada, índices XML e índices espaciais) como parte da opção EXTENDED_LOGICAL_CHECKS.
 -  Se o nível de compatibilidade for 90 ([!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)]) ou inferior, a menos que NOINDEX esteja especificado, DBCC CHECKTABLE executará verificações de consistência física e lógica em uma única tabela ou exibição indexada e em todos os índices XML e não clusterizados. Não há suporte para índices espaciais.
     
  **Para saber o nível de compatibilidade de um banco de dados**    

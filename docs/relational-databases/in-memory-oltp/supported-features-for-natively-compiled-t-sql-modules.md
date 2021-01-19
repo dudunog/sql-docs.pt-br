@@ -12,12 +12,12 @@ ms.assetid: 05515013-28b5-4ccf-9a54-ae861448945b
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 3624ab326c6712805d934839fe9403cfe14410e8
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 42d638afd9fc98fb68eb024c0a712bea5f278a26
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97485128"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170218"
 ---
 # <a name="supported-features-for-natively-compiled-t-sql-modules"></a>Recursos com suporte para módulos T-SQL compilados nativamente
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -42,20 +42,20 @@ Cláusula SELECT:
 -   Aliases de nome e colunas (usando a sintaxe = ou então AS).  
 
 -   Subconsultas escalares
-    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)].
-      A partir do [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)], agora há suporte para subconsultas escalares em módulos compilados nativamente.
+    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)].
+      A partir do [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)], agora há suporte para subconsultas escalares em módulos compilados nativamente.
 
 -   INÍCIO*  
 
 -   SELECT DISTINCT  
-    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)].
-      A partir do [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)], há suporte para o operador DISTINCT em módulos compilados nativamente.
+    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)].
+      A partir do [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)], há suporte para o operador DISTINCT em módulos compilados nativamente.
 
         - Não há suporte para agregações de DISTINCT.  
 
 -   UNION e UNION ALL
-    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)].
-      A partir do [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)], agora há suporte para os operadores UNION e UNION ALL em módulos compilados nativamente.
+    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)].
+      A partir do [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)], agora há suporte para os operadores UNION e UNION ALL em módulos compilados nativamente.
 
 -   Atribuições de variável  
 
@@ -66,12 +66,12 @@ Cláusula FROM:
 -   FROM \<natively compiled inline TVF>  
 
 -   LEFT OUTER JOIN, RIGHT OUTER JOIN, CROSS JOIN e INNER JOIN.
-    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)].
-      A partir do [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)], agora há suporte para JOINS em módulos compilados nativamente.
+    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)].
+      A partir do [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)], agora há suporte para JOINS em módulos compilados nativamente.
 
 -   Subconsultas `[AS] table_alias`. Para obter mais informações, consulte [FROM &#40;Transact-SQL&#41;](../../t-sql/queries/from-transact-sql.md). 
-    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)].
-      A partir do [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)], agora há suporte para subconsultas em módulos compilados nativamente.
+    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)].
+      A partir do [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)], agora há suporte para subconsultas em módulos compilados nativamente.
 
 Cláusula WHERE:  
 
@@ -79,8 +79,8 @@ Cláusula WHERE:
 
 -   AND, BETWEEN  
 -   OR, NOT, IN, EXISTS
-    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)].
-      A partir do [!INCLUDE[sssql15-md](../../includes/sssql15-md.md)], agora há suporte para operadores OR/NOT/IN/EXISTS em módulos compilados nativamente.
+    - **Aplica-se a:** [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)].
+      A partir do [!INCLUDE[sssql15-md](../../includes/sssql16-md.md)], agora há suporte para operadores OR/NOT/IN/EXISTS em módulos compilados nativamente.
 
 
 Cláusula[GROUP BY](../../t-sql/queries/select-group-by-transact-sql.md) :

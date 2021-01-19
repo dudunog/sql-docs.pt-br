@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: ''
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 93876b488d5e265bca363d213c04cb0611c185f4
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 5587622f0f61b7b7063b246d0599d46cc8c16f0c
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642172"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170778"
 ---
 # <a name="configure-distributed-transactions-for-an-always-on-availability-group"></a>Configurar transações distribuídas para um grupo de disponibilidade Always On
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -31,9 +31,9 @@ O [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)] dá suporte a todas as t
 Para garantir as transações distribuídas, o grupo de disponibilidade deve ser configurado para registrar bancos de dados como gerenciadores de recursos de transação distribuída.  
 
 >[!NOTE]
->O [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] Service Pack 2 e posteriores dão suporte completo para transações distribuídas em grupos de disponibilidade. Nas versões do [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] anteriores ao Service Pack 2, não há compatibilidade com as transações distribuídas entre bancos de dados (ou seja, transação usando bancos de dados na mesma instância do SQL Server) que envolvem um banco de dados em um grupo de disponibilidade. O [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)] não tem essa limitação. 
+>O [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] Service Pack 2 e posteriores dão suporte completo para transações distribuídas em grupos de disponibilidade. Nas versões do [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] anteriores ao Service Pack 2, não há compatibilidade com as transações distribuídas entre bancos de dados (ou seja, transação usando bancos de dados na mesma instância do SQL Server) que envolvem um banco de dados em um grupo de disponibilidade. O [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)] não tem essa limitação. 
 >
->No [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)], as etapas de configuração são as mesmas do [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)].
+>No [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)], as etapas de configuração são as mesmas do [!INCLUDE[SQL2017](../../../includes/sssqlv14-md.md)].
 
 Em uma transação distribuída, aplicativos cliente funcionam com o MS DTC (Coordenador de Transações Distribuídas da Microsoft) ou DTC para garantir a consistência transacional entre várias fontes de dados. O DTC é um serviço disponível em sistemas operacionais com suporte baseados no Windows Server. Para uma transação distribuída, o DTC é o *coordenador de transações*. Normalmente, uma instância do SQL Server é o *gerenciador de recursos*. Quando um banco de dados está em um grupo de disponibilidade, cada banco de dados precisa ser seu próprio gerenciador de recursos. 
 
@@ -45,7 +45,7 @@ O DTC não está envolvido no processamento do grupo de disponibilidade, a menos
 
 Antes de configurar um grupo de disponibilidade para dar suporte a transações distribuídas, você deve atender aos seguintes pré-requisitos:
 
-* Todas as instâncias do [!INCLUDE[SQLServer](../../../includes/ssnoversion-md.md)] que fazem parte da transação distribuída devem ser o [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] ou posterior.
+* Todas as instâncias do [!INCLUDE[SQLServer](../../../includes/ssnoversion-md.md)] que fazem parte da transação distribuída devem ser o [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] ou posterior.
 
 * Os grupos de disponibilidade devem estar em execuçaõ no Windows Server 2016 ou Windows Server 2012 R2. Para o Windows Server 2012 R2, é necessário instalar a atualização na KB3090973 disponível em [https://support.microsoft.com/kb/3090973](https://support.microsoft.com/kb/3090973).  
 
@@ -55,7 +55,7 @@ Configure um grupo de disponibilidade para dar suporte a transações distribuí
 
 
 
-É possível criar um grupo de disponibilidade para transações distribuídas no [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] ou posterior. Para criar um grupo de disponibilidade para transações distribuídas, inclua `DTC_SUPPORT = PER_DB` na definição do grupo de disponibilidade. O script a seguir cria um grupo de disponibilidade para transações distribuídas. 
+É possível criar um grupo de disponibilidade para transações distribuídas no [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] ou posterior. Para criar um grupo de disponibilidade para transações distribuídas, inclua `DTC_SUPPORT = PER_DB` na definição do grupo de disponibilidade. O script a seguir cria um grupo de disponibilidade para transações distribuídas. 
 
 ```sql
 CREATE AVAILABILITY GROUP MyAG
@@ -91,7 +91,7 @@ ALTER AVAILABILITY GROUP MyaAG
 ```
 
 >[!NOTE]
->Do [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] Service Pack 2 em diante, é possível alterar um grupo de disponibilidade para transações distribuídas. Para versões do [!INCLUDE[SQL2016](../../../includes/sssql15-md.md)] anteriores ao Service Pack 2, você precisa remover e recriar o grupo de disponibilidade com a configuração `DTC_SUPPORT = PER_DB`. 
+>Do [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] Service Pack 2 em diante, é possível alterar um grupo de disponibilidade para transações distribuídas. Para versões do [!INCLUDE[SQL2016](../../../includes/sssql16-md.md)] anteriores ao Service Pack 2, você precisa remover e recriar o grupo de disponibilidade com a configuração `DTC_SUPPORT = PER_DB`. 
 
 Para desabilitar as transações distribuídas, use o seguinte comando do Transact-SQL:
 

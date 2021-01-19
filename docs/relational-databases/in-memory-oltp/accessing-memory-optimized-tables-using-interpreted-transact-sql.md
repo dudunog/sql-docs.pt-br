@@ -11,12 +11,12 @@ ms.assetid: 92a44d4d-0e53-4fb0-b890-de264c65c95a
 author: MightyPen
 ms.author: genemi
 monikerRange: =azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 63e19c205bf635257d8b5b4957fe64b6ec310c64
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: c88fd07e9af86a3c12561935364514b23bc2ea91
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97465457"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172278"
 ---
 # <a name="accessing-memory-optimized-tables-using-interpreted-transact-sql"></a>Acessando tabelas com otimização de memória usando Transact-SQL interpretado
 [!INCLUDE[tsql-appliesto-ss2014-asdb-xxxx-xxx_md](../../includes/tsql-appliesto-ss2014-asdb-xxxx-xxx-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "97465457"
   
 O [!INCLUDE[tsql](../../includes/tsql-md.md)] interpretado se refere a lotes ou a procedimentos armazenados do [!INCLUDE[tsql](../../includes/tsql-md.md)] , que não sejam um procedimento armazenado nativamente compilado. O acesso do [!INCLUDE[tsql](../../includes/tsql-md.md)] interpretado às tabelas com otimização de memória é conhecido como acesso de interoperabilidade.  
 
-A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], as consultas em [!INCLUDE[tsql](../../includes/tsql-md.md)] interpretado podem examinar tabelas com otimização de memória em paralelo, em vez de apenas em modo serial.
+A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], as consultas em [!INCLUDE[tsql](../../includes/tsql-md.md)] interpretado podem examinar tabelas com otimização de memória em paralelo, em vez de apenas em modo serial.
 
 As tabelas com otimização de memória também podem ser acessadas usando um procedimento armazenado compilado nativamente. Os procedimentos armazenados nativamente compilados são recomendados para operações OLTP de desempenho crítico.  
   

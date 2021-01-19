@@ -24,12 +24,12 @@ ms.assetid: cba3b6a0-b48e-4c94-812b-5b3cbb408bd6
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017
-ms.openlocfilehash: 00926a8ee1244112d1fb5a01273e90d22a5753a7
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: eeae562c4cfbf093d3b7237a044c51084331e8a9
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97463974"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172238"
 ---
 # <a name="restore-statements---verifyonly-transact-sql"></a>Instruções RESTORE – VERIFYONLY (Transact-SQL)
 [!INCLUDE[tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md](../../includes/tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md.md )]
@@ -110,7 +110,7 @@ FROM <backup_device> [ ,...n ]
 >  RESTORE VERIFYONLY não funciona em um instantâneo do banco de dados. Para verificar um instantâneo do banco de dados antes uma operação de reversão, você pode executar DBCC CHECKDB.  
   
 > [!NOTE]  
->  Com backups de instantâneo, RESTORE VERIFYONLY confirma a existência dos instantâneos nos locais especificados no arquivo de backup. Backups de instantâneo são um novo recurso do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Para obter mais informações sobre Backups de Instantâneo, consulte [Backups de instantâneos de arquivos para arquivos de banco de dados no Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
+>  Com backups de instantâneo, RESTORE VERIFYONLY confirma a existência dos instantâneos nos locais especificados no arquivo de backup. Backups de instantâneo são um novo recurso do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Para obter mais informações sobre Backups de Instantâneo, consulte [Backups de instantâneos de arquivos para arquivos de banco de dados no Azure](../../relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure.md).  
   
 ## <a name="security"></a>Segurança  
  Uma operação de backup pode, opcionalmente, especificar senhas para um conjunto de mídias, um conjunto de backup ou ambos. Quando uma senha tiver sido definida em um conjunto de backup ou de mídias, será preciso especificar a senha ou as senhas corretas na instrução RESTORE. Essas senhas impedem operações de restauração não autorizadas e anexações não autorizadas de conjuntos de backup para mídia usando ferramentas do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Porém, uma senha não impede a substituição da mídia usando a opção FORMAT da instrução BACKUP.  

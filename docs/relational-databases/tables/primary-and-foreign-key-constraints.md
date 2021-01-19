@@ -17,12 +17,12 @@ ms.assetid: 31fbcc9f-2dc5-4bf9-aa50-ed70ec7b5bcd
 author: stevestein
 ms.author: sstein
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 7c16f1f430f0291d30d56faadee9e2779543ef61
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 091ebaf16d46cdde5604e532a80f1dd1177586c6
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97427169"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172458"
 ---
 # <a name="primary-and-foreign-key-constraints"></a>Restrições de chave primária e chave estrangeira
 
@@ -64,7 +64,7 @@ ms.locfileid: "97427169"
   
  Por exemplo, a tabela **Sales.SalesOrderHeader** tem um link de chave estrangeira para a tabela **Sales.SalesPerson** porque existe uma relação lógica entre os pedidos de vendas e os vendedores. A coluna **SalesPersonID** na tabela **SalesOrderHeader** corresponde à coluna de chave primária da tabela **SalesPerson** . A coluna **SalesPersonID** na tabela **SalesOrderHeader** é a chave estrangeira para a tabela **SalesPerson** . Criando essa relação de chave estrangeira, um valor para **SalesPersonID** não poderá ser inserido na tabela **SalesOrderHeader** se ela não existir na tabela **SalesPerson** .  
   
- Uma tabela pode fazer referência a no máximo 253 outras tabelas e colunas como chaves estrangeiras (referências de saída). [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] aumenta de 253 para 10.000 o limite para o número de outras tabelas e colunas que podem fazer referência a colunas em uma única tabela (referências de entrada). (Requer, no mínimo, o nível de compatibilidade 130.) O aumento tem as seguintes restrições:  
+ Uma tabela pode fazer referência a no máximo 253 outras tabelas e colunas como chaves estrangeiras (referências de saída). [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] aumenta de 253 para 10.000 o limite para o número de outras tabelas e colunas que podem fazer referência a colunas em uma única tabela (referências de entrada). (Requer, no mínimo, o nível de compatibilidade 130.) O aumento tem as seguintes restrições:  
   
 -   Só há suporte para mais de 253 referências de chave estrangeira em operações DELETE DML. As operações UPDATE e MERGE não têm suporte.  
   

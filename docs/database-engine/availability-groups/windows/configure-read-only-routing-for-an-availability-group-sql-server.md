@@ -17,18 +17,18 @@ helpviewer_keywords:
 ms.assetid: 7bd89ddd-0403-4930-a5eb-3c78718533d4
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 8e64eb57dbcfecabaa5c6f24881206152df4d8d0
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: f7e96df4eba36bbcb3da18a1423b5162aef557a7
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97639706"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170798"
 ---
 # <a name="configure-read-only-routing-for-an-always-on-availability-group"></a>Configurar o roteamento somente leitura para um grupo de disponibilidade Always On
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
   Para configurar um grupo de disponibilidade AlwaysOn para oferecer suporte ao roteamento somente leitura no [!INCLUDE[ssnoversion](../../../includes/ssnoversion-md.md)], você pode usar o [!INCLUDE[tsql](../../../includes/tsql-md.md)] ou o PowerShell. *Roteamento somente leitura* refere-se à capacidade do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] de encaminhar solicitações de conexão somente leitura para uma [réplica secundária legível](../../../database-engine/availability-groups/windows/active-secondaries-readable-secondary-replicas-always-on-availability-groups.md) AlwaysOn disponível (ou seja, uma réplica que é configurada para permitir cargas de trabalho somente leitura ao ser executada sob a função secundária). Para dar suporte ao roteamento somente leitura, o grupo de disponibilidade deve ter um [ouvinte do grupo de disponibilidade](../../../database-engine/availability-groups/windows/listeners-client-connectivity-application-failover.md). Clientes somente leitura devem direcionar suas solicitações de conexão para este ouvinte e as cadeias de conexão do cliente devem especificar a intenção do aplicativo como "somente leitura." Ou seja, elas devem ser *solicitações de conexão de intenção de leitura*.  
 
-O roteamento somente leitura está disponível no [!INCLUDE[sssql15](../../../includes/sssql15-md.md)] e posterior.
+O roteamento somente leitura está disponível no [!INCLUDE[sssql15](../../../includes/sssql16-md.md)] e posterior.
 
 > [!NOTE]  
 >  Para obter informações sobre como configurar uma réplica secundária legível, veja [Configurar o acesso somente leitura em uma réplica de disponibilidade &#40;SQL Server&#41;](../../../database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server.md).  
@@ -104,7 +104,7 @@ O roteamento somente leitura está disponível no [!INCLUDE[sssql15](../../../in
         >  Você precisa definir a URl de roteamento somente leitura antes de configurar a lista de roteamento somente leitura.  
   
 ###  <a name="configure-load-balancing-across-read-only-replicas"></a><a name="loadbalancing"></a> Configurar o balanceamento de carga entre réplicas somente leitura  
- A partir do [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)], é possível configurar o balanceamento de carga em um conjunto de réplicas somente leitura. Anteriormente, o roteamento somente leitura sempre direcionava o tráfego para a primeira réplica disponível na lista de roteamento. Para tirar proveito desse recurso, use um nível de parênteses aninhados em torno das instâncias de servidor **READ_ONLY_ROUTING_LIST** nos comandos **CREATE AVAILABILITY GROUP** ou **ALTER AVAILABILITY GROUP** .  
+ A partir do [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)], é possível configurar o balanceamento de carga em um conjunto de réplicas somente leitura. Anteriormente, o roteamento somente leitura sempre direcionava o tráfego para a primeira réplica disponível na lista de roteamento. Para tirar proveito desse recurso, use um nível de parênteses aninhados em torno das instâncias de servidor **READ_ONLY_ROUTING_LIST** nos comandos **CREATE AVAILABILITY GROUP** ou **ALTER AVAILABILITY GROUP** .  
   
  Por exemplo, a lista de roteamento a seguir balanceia a carga da solicitação de conexão de intenção de leitura entre duas réplicas somente leitura, `Server1` e `Server2`. Os parênteses aninhados que envolvem esses servidores identificam o conjunto de balanceamento de carga. Se nenhuma das réplicas estiver disponível neste conjunto, ele continuará a tentar se conectar consecutivamente a outras réplicas, `Server3` e `Server4`, na lista de roteamento somente leitura.  
   

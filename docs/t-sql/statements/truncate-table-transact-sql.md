@@ -26,12 +26,12 @@ ms.assetid: 3d544eed-3993-4055-983d-ea334f8c5c58
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 63abc3720e1a7c55eef67d0f8a1a43c5b237991e
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 04e6a49adfc24016557c1c55f1d7370b4dd80a80
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98079879"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171248"
 ---
 # <a name="truncate-table-transact-sql"></a>TRUNCATE TABLE (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -75,7 +75,7 @@ TRUNCATE TABLE { database_name.schema_name.table_name | schema_name.table_name |
  É o nome da tabela a ser truncada ou da qual todas as linhas são removidas. *table_name* deve ser um literal. *table_name* não pode ser a função **OBJECT_ID()** nem uma variável.  
   
  WITH ( PARTITIONS ( { \<*partition_number_expression*> | \<*range*> } [ , ...n ] ) )    
-**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658))
+**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658))
   
  Especifica as partições para truncar ou das quais todas as linhas são removidas. Se a tabela não for particionada, o argumento `WITH PARTITIONS` ON PARTITIONS gerará um erro. Se a cláusula `WITH PARTITIONS` não for fornecida, a tabela inteira será truncada.  
   
@@ -162,7 +162,7 @@ GO
   
 ### <a name="b-truncate-table-partitions"></a>B. Truncar a tabela de partições  
   
-**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658))
+**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658))
   
  O exemplo a seguir trunca as partições especificadas de uma tabela particionada. A sintaxe `WITH (PARTITIONS (2, 4, 6 TO 8))` faz com que os número de partição 2, 4, 6, 7 e 8 sejam truncados.  
   

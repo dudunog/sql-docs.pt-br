@@ -23,12 +23,12 @@ helpviewer_keywords:
 ms.assetid: f039d0de-ade7-4aaf-8b7b-d207deb3371a
 author: MikeRayMSFT
 ms.author: mikeray
-ms.openlocfilehash: 5c80e55d2a2dc54e90d33785bc64153fa1dbf8a6
-ms.sourcegitcommit: bd3a135f061e4a49183bbebc7add41ab11872bae
+ms.openlocfilehash: 23cd700fd8b25778118b2141bf0205dcbd87c92e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92300842"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170458"
 ---
 # <a name="alter-availability-group-transact-sql"></a>ALTER AVAILABILITY GROUP (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -94,7 +94,7 @@ ALTER AVAILABILITY GROUP group_name
      | PRIMARY_ROLE ( {   
             [ ALLOW_CONNECTIONS = { READ_WRITE | ALL } ]   
         [,] [ READ_ONLY_ROUTING_LIST = { ( '<server_instance>' [ ,...n ] ) | NONE } ]  
-        [,] [ READ_WRITE_ROUTING_URL = { ( '<server_instance>' ) ] 
+        [,] [ READ_WRITE_ROUTING_URL = { ( '<server_instance>' ) ] 
      } )  
      | SESSION_TIMEOUT = integer
   
@@ -228,10 +228,10 @@ ALTER AVAILABILITY GROUP group_name
  Para obter mais informações sobre essa configuração, consulte [Opção de detecção de integridade no nível do banco de dados](../../database-engine/availability-groups/windows/sql-server-always-on-database-health-detection-failover-option.md) 
 
 DTC_SUPPORT **=** { PER_DB | NONE }  
-Especifica se as transações distribuídas estão habilitadas para este Grupo de Disponibilidade. Somente há suporte para transações distribuídas para bancos de dados de grupo de disponibilidade do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] em diante e transações entre bancos de dados têm suporte apenas do [!INCLUDE[ssSQL16](../../includes/sssql15-md.md)] SP2 em diante. `PER_DB` cria o grupo de disponibilidade com suporte para essas transações e promoverá automaticamente transações entre bancos de dados envolvendo bancos de dados no grupo de disponibilidade para transações distribuídas. `NONE` impede a promoção automática de transações entre bancos de dados para transações distribuídas e não registra o banco de dados com um RMID estável no DTC. Transações distribuídas não são impedidas quando a configuração `NONE` é usada, mas o failover de banco de dados e a recuperação automática podem não ter êxito em algumas circunstâncias. Para obter mais informações, consulte [Transações entre bancos de dados e transações distribuídas para espelhamento de banco de dados e grupos de disponibilidade AlwaysOn &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/transactions-always-on-availability-and-database-mirroring.md). 
+Especifica se as transações distribuídas estão habilitadas para este Grupo de Disponibilidade. Somente há suporte para transações distribuídas para bancos de dados de grupo de disponibilidade do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] em diante e transações entre bancos de dados têm suporte apenas do [!INCLUDE[ssSQL16](../../includes/sssql16-md.md)] SP2 em diante. `PER_DB` cria o grupo de disponibilidade com suporte para essas transações e promoverá automaticamente transações entre bancos de dados envolvendo bancos de dados no grupo de disponibilidade para transações distribuídas. `NONE` impede a promoção automática de transações entre bancos de dados para transações distribuídas e não registra o banco de dados com um RMID estável no DTC. Transações distribuídas não são impedidas quando a configuração `NONE` é usada, mas o failover de banco de dados e a recuperação automática podem não ter êxito em algumas circunstâncias. Para obter mais informações, consulte [Transações entre bancos de dados e transações distribuídas para espelhamento de banco de dados e grupos de disponibilidade AlwaysOn &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/transactions-always-on-availability-and-database-mirroring.md). 
  
 > [!NOTE]
-> O suporte para alterar a configuração de DTC_SUPPORT de um grupo de disponibilidade foi introduzido no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] Service Pack 2. Essa opção não pode ser usada com versões anteriores. Para alterar essa configuração em versões anteriores do [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)], você deve usar as opções DROP para remover e CREATE para criar o grupo de disponibilidade novamente.
+> O suporte para alterar a configuração de DTC_SUPPORT de um grupo de disponibilidade foi introduzido no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] Service Pack 2. Essa opção não pode ser usada com versões anteriores. Para alterar essa configuração em versões anteriores do [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)], você deve usar as opções DROP para remover e CREATE para criar o grupo de disponibilidade novamente.
  
  REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT   
  Introduzida no SQL Server 2017. Usada para definir um número mínimo de réplicas secundárias síncronas que devem ser confirmadas antes que o primário confirme uma transação. Garante que as transações do SQL Server esperem até que os logs de transações sejam atualizados no número mínimo de réplicas secundárias. O padrão é 0, que fornece o mesmo comportamento que o SQL Server 2016. O valor mínimo é 0. O valor máximo é o número de réplicas menos 1. Essa opção está relacionada com as réplicas no modo de confirmação síncrona. Quando as réplicas estão no modo de confirmação síncrona, as gravações na réplica primária aguardam até que as gravações nas réplicas síncronas secundárias sejam confirmadas no log de transações do banco de dados de réplica. Se um SQL Server que hospeda uma réplica síncrona secundária parar de responder, o SQL Server que hospeda a réplica primária marcará essa réplica secundária como NOT SYNCHRONIZED e continuará. Quando o banco de dados que não estava respondendo voltar a ficar online, ele ficará em um estado "não sincronizado" e a réplica será marcada como não íntegra até que o primário possa ficar síncrono novamente. Essa configuração garante que a réplica primária não continue até que o número mínimo de réplicas confirmem cada transação. Se o número mínimo de réplicas não estiver disponível, as confirmações no primário falharão. Para o tipo de cluster `EXTERNAL`, a configuração é alterada quando o grupo de disponibilidade é adicionado a um recurso de cluster. Consulte [Alta disponibilidade e proteção de dados para as configurações de grupo de disponibilidade](../../linux/sql-server-linux-availability-group-ha.md).
@@ -259,7 +259,7 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
  \<server_instance>  
  Especifica o endereço da instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que é o host de uma réplica. O formato de endereço depende se a instância é a instância padrão ou uma instância nomeada, e se é uma instância autônoma ou uma instância de cluster de failover (FCI). A sintaxe é mostrada a seguir:  
   
- { ' *system_name* [\\*instance_name* ]' | ' *FCI_network_name* [\\*instance_name* ]' }  
+ { '*system_name*[\\*instance_name*]' | '*FCI_network_name*[\\*instance_name*]' }  
   
  Os componentes desse endereço são os seguintes:  
   
@@ -267,17 +267,17 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
  É o nome NetBIOS do computador do sistema no qual reside uma instância de destino do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Esse computador deve ser um nó WSFC.  
   
  *FCI_network_name*  
- É o nome da rede usada para acessar um cluster de failover do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Use-o se a instância de servidor participar como um parceiro de failover do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Executar SELECT [@@SERVERNAME](../../t-sql/functions/servername-transact-sql.md) em uma instância de servidor FCI retorna a cadeia de caracteres ' *FCI_network_name* [\\*instance_name* ]' inteira (que é o nome completo da réplica).  
+ É o nome da rede usada para acessar um cluster de failover do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Use-o se a instância de servidor participar como um parceiro de failover do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Executar SELECT [@@SERVERNAME](../../t-sql/functions/servername-transact-sql.md) em uma instância de servidor FCI retorna a cadeia de caracteres '*FCI_network_name*[\\*instance_name*]' inteira (que é o nome completo da réplica).  
   
  *instance_name*  
  É o nome de uma instância de um [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] hospedada por *system_name* ou *FCI_network_name* que tem Always On habilitado. Para uma instância de servidor padrão, *instance_name* é opcional. O nome da instância não diferencia maiúsculas de minúsculas. Em uma instância de servidor autônomo, esse nome de valor é igual ao valor retornado pela execução de SELECT [@@SERVERNAME](../../t-sql/functions/servername-transact-sql.md).  
   
  \  
- É um separador usado apenas ao especificar *instance_name* para separá-lo de *system_name* ou de *FCI_network_name* .  
+ É um separador usado apenas ao especificar *instance_name* para separá-lo de *system_name* ou de *FCI_network_name*.  
   
  Para obter informações sobre os pré-requisitos para nós WSFC e instâncias de servidor, consulte [Pré-requisitos, restrições e recomendações para Grupos de Disponibilidade AlwaysOn &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability.md).  
   
- ENDPOINT_URL ='TCP:// *system-address* : *port* '  
+ ENDPOINT_URL ='TCP://*system-address*:*port*'  
  Especifica o caminho da URL para a instância de [ponto de extremidade de espelhamento de banco de dados](../../database-engine/database-mirroring/the-database-mirroring-endpoint-sql-server.md) na instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que hospedará a réplica de disponibilidade que você está adicionando ou modificando.  
   
  ENDPOINT_URL é necessário na cláusula ADD REPLICA ON e opcional na cláusula MODIFY REPLICA ON.  Para obter mais informações, consulte [Especificar a URL do ponto de extremidade ao adicionar ou modificar uma réplica de disponibilidade &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/specify-endpoint-url-adding-or-modifying-availability-replica.md).  
@@ -324,7 +324,7 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
 >  As FCIs (Instâncias de cluster de failover) do SQL Server não dão suporte ao failover automático por grupos de disponibilidade, de modo que qualquer réplica de disponibilidade que esteja hospedado por um FCI só pode ser configurada para failover manual.  
   
  MANUAL  
- Habilita o failover manual ou o failover manual forçado ( *failover forçado* ) pelo administrador de banco de dados.  
+ Habilita o failover manual ou o failover manual forçado (*failover forçado*) pelo administrador de banco de dados.  
   
  FAILOVER_MODE é necessário na cláusula ADD REPLICA ON e opcional na cláusula MODIFY REPLICA ON. Existem dois tipos de failover manual: failover manual sem perda de dados e failover forçado (com possível perda de dados), que têm suporte em condições diferentes.  Para obter mais informações, consulte [Failover e modos de failover &#40;grupos de disponibilidade AlwaysOn&#41;](../../database-engine/availability-groups/windows/failover-and-failover-modes-always-on-availability-groups.md).  
   
@@ -335,7 +335,7 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
  Habilita a propagação direta. Esse método propagará a réplica secundária na rede. Esse método não exige que você faça backup e restauração de uma cópia do banco de dados primário na réplica.  
   
 > [!NOTE]  
->  Para a propagação direta, é necessário permitir a criação de banco de dados em cada réplica secundária chamando **ALTER AVAILABILITY GROUP** com a opção **GRANT CREATE ANY DATABASE** .  
+>  Para a propagação direta, é necessário permitir a criação de banco de dados em cada réplica secundária chamando **ALTER AVAILABILITY GROUP** com a opção **GRANT CREATE ANY DATABASE**.  
   
  MANUAL  
  Especifica a propagação manual (padrão). Esse método requer que você crie um backup do banco de dados na réplica primária e restaure manualmente esse backup na réplica secundária.  
@@ -361,7 +361,7 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
  Nenhuma conexão de usuário é permitida para bancos de dados secundários desta réplica. Eles não estão disponíveis para acesso de leitura. Esse é o comportamento padrão.  
   
  READ_ONLY  
- Apenas conexões são permitidas com os bancos de dados na réplica secundária em que a propriedade Application Intent está definida como **ReadOnly** . Para obter mais informações sobre essa propriedade, consulte [Using Connection String Keywords with SQL Server Native Client](../../relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client.md).  
+ Apenas conexões são permitidas com os bancos de dados na réplica secundária em que a propriedade Application Intent está definida como **ReadOnly**. Para obter mais informações sobre essa propriedade, consulte [Using Connection String Keywords with SQL Server Native Client](../../relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client.md).  
   
  ALL  
  Todas as conexões são permitidas com os bancos de dados na réplica secundária para acesso somente leitura.  
@@ -371,7 +371,7 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
  READ_ONLY_ROUTING_URL **='** TCP **://** _system-address_ **:** _port_ **'**  
  Especifica a URL a ser usada para rotear solicitações de conexão de intenção de leitura para esta réplica de disponibilidade. Esta é a URL na qual o Mecanismo de Banco de Dados do SQL Server escuta. Normalmente, a instância padrão do Mecanismo de Banco de Dados do SQL Server escuta na porta TCP 1433.  
   
- Para uma instância nomeada, você pode obter o número da porta consultando as colunas **port** e **type_desc** da exibição de gerenciamento dinâmico [sys.dm_tcp_listener_states](../../relational-databases/system-dynamic-management-views/sys-dm-tcp-listener-states-transact-sql.md). A instância do servidor usa o ouvinte Transact-SQL ( **type_desc='TSQL'** ).  
+ Para uma instância nomeada, você pode obter o número da porta consultando as colunas **port** e **type_desc** da exibição de gerenciamento dinâmico [sys.dm_tcp_listener_states](../../relational-databases/system-dynamic-management-views/sys-dm-tcp-listener-states-transact-sql.md). A instância do servidor usa o ouvinte Transact-SQL (**type_desc='TSQL'** ).  
   
  Para obter mais informações de como calcular a URL de roteamento somente leitura de uma réplica de disponibilidade, confira [Calculating read_only_routing_url for Always On](/archive/blogs/mattn/calculating-read_only_routing_url-for-alwayson) (Calculando a read_only_routing_url para Always On).  
   
@@ -392,7 +392,7 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
  ALL  
  Todas as conexões são permitidas com os bancos de dados na réplica primária. Esse é o comportamento padrão.  
   
- READ_ONLY_ROUTING_LIST **=** { **('** \<server_instance> **'** [ **,** ... *n* ] **)** | NONE }  
+ READ_ONLY_ROUTING_LIST **=** { **('** \<server_instance> **'** [ **,** ...*n* ] **)** | NONE }  
  Especifica uma lista separada por vírgulas de instâncias de servidor que hospedam réplicas para este grupo de disponibilidade que atendem aos seguintes requisitos ao serem executados na função secundária:  
   
 -   Ser configurado para permitir todas as conexões ou conexões somente leitura (veja o argumento ALLOW_CONNECTIONS da opção SECONDARY_ROLE acima).  
@@ -406,7 +406,7 @@ Especifica se as transações distribuídas estão habilitadas para este Grupo d
   
  Use uma lista separada por vírgulas para especificar todas as instâncias de servidor que podem hospedar uma réplica secundária legível. O roteamento somente leitura seguirá a ordem na qual as instâncias de servidor são especificadas na lista. Se você incluir uma instância de servidor de host de uma réplica na lista de roteamento somente leitura da réplica, colocar esta instância de servidor no final da lista geralmente é uma boa prática, de forma que as conexões de intenção de leitura vão para uma réplica secundária, se houver.  
   
- Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], você pode balancear a carga de solicitações de tentativa de leitura entre réplicas secundárias legíveis. Especifique isso colocando as réplicas em um conjunto aninhado de parênteses na lista de roteamento somente leitura. Para obter mais informações e exemplos, consulte [Configurar o balanceamento de carga entre réplicas somente leitura](../../database-engine/availability-groups/windows/configure-read-only-routing-for-an-availability-group-sql-server.md#loadbalancing).  
+ Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], você pode balancear a carga de solicitações de tentativa de leitura entre réplicas secundárias legíveis. Especifique isso colocando as réplicas em um conjunto aninhado de parênteses na lista de roteamento somente leitura. Para obter mais informações e exemplos, consulte [Configurar o balanceamento de carga entre réplicas somente leitura](../../database-engine/availability-groups/windows/configure-read-only-routing-for-an-availability-group-sql-server.md#loadbalancing).  
   
  Nenhuma  
  Especifica que, quando esta réplica de disponibilidade for a réplica primária, o roteamento somente leitura não terá suporte. Esse é o comportamento padrão. Quando usado com MODIFY REPLICA ON, este valor desabilita uma lista existente, se houver.  
@@ -449,7 +449,7 @@ Confira mais informações em [Redirecionamento de conexão leitura/gravação d
  Para obter mais informações, veja [Unir uma réplica secundária a um grupo de disponibilidade &#40;SQL Server&#41;](../../database-engine/availability-groups/windows/join-a-secondary-replica-to-an-availability-group-sql-server.md).  
   
  FAILOVER  
-Inicia um failover manual do grupo de disponibilidade sem perda de dados para a réplica secundária à qual você está conectado. A réplica que hospedará a réplica primária é o *destino de failover* .  O destino de failover assumirá a função primária, recuperará sua cópia de cada banco de dados e as colocará online como os novos bancos de dados primários. A réplica principal antiga faz a transição concorrente para a função secundária, seus bancos de dados se tornam bancos de dados secundários e são imediatamente suspensos. Potencialmente, estas funções podem ser alternadas de um lado para outro por uma série de falhas.  
+Inicia um failover manual do grupo de disponibilidade sem perda de dados para a réplica secundária à qual você está conectado. A réplica que hospedará a réplica primária é o *destino de failover*.  O destino de failover assumirá a função primária, recuperará sua cópia de cada banco de dados e as colocará online como os novos bancos de dados primários. A réplica principal antiga faz a transição concorrente para a função secundária, seus bancos de dados se tornam bancos de dados secundários e são imediatamente suspensos. Potencialmente, estas funções podem ser alternadas de um lado para outro por uma série de falhas.  
   
  Com suporte apenas em uma réplica secundária de confirmação síncrona que esteja sincronizada com a réplica principal. Observe que para que a réplica secundária seja sincronizada, a réplica principal também precisará estar sendo executada em modo de confirmação síncrona.  
   
@@ -462,7 +462,7 @@ Inicia um failover manual do grupo de disponibilidade sem perda de dados para a 
  > [!CAUTION]  
 >  Forçar o failover, o que pode envolver alguma perda de dados, é estritamente um método de recuperação de desastre. Portanto, é altamente recomendável forçar failover apenas se a réplica primária ainda não estiver em execução, se estiver disposto a arriscar a perda de dados, e você deve restaurar o serviço para o grupo de disponibilidade imediatamente.  
   
- Tem suporte apenas em uma réplica cuja função está no estado SECONDARY ou RESOLVING. – A réplica na qual você insere um comando de failover é conhecida como o *destino de failover* .  
+ Tem suporte apenas em uma réplica cuja função está no estado SECONDARY ou RESOLVING. – A réplica na qual você insere um comando de failover é conhecida como o *destino de failover*.  
   
  Força o failover do grupo de disponibilidade, com possível perda de dados, para o destino de failover. O destino de failover assumirá a função primária, recuperará sua cópia de cada banco de dados e as colocará online como os novos bancos de dados primários. Em qualquer réplica secundária restante, todo banco de dados secundário ficará suspenso até que seja retomado manualmente. Quando a réplica primária antiga ficar disponível, ela assumirá a função secundária e seus bancos de dados se tornarão bancos de dados secundários suspensos.  
   
@@ -493,7 +493,7 @@ Inicia um failover manual do grupo de disponibilidade sem perda de dados para a 
 >  O NetBIOS reconhece somente os primeiros 15 caracteres no dns_name. Se você tiver dois clusters do WSFC que sejam controlados pelo mesmo Active Directory e tentar criar ouvintes de grupo de disponibilidade nos dois clusters usando nomes com mais de 15 caracteres e um prefixo idêntico de 15 caracteres, você obterá um erro relatando que o recurso Nome de Rede virtual não pôde ser colocado online. Para obter informações sobre regras da nomenclatura de prefixos para nomes DNS, consulte [Atribuindo nomes de domínio](https://technet.microsoft.com/library/cc731265\(WS.10\).aspx).  
   
  JOIN AVAILABILITY GROUP ON  
- Une a um *grupo de disponibilidade distribuído* . Quando você cria um grupo de disponibilidade distribuído, o grupo de disponibilidade no cluster no qual ele é criado é o grupo de disponibilidade primário. O grupo de disponibilidade que se une ao grupo de disponibilidade distribuído é o grupo de disponibilidade secundário.  
+ Une a um *grupo de disponibilidade distribuído*. Quando você cria um grupo de disponibilidade distribuído, o grupo de disponibilidade no cluster no qual ele é criado é o grupo de disponibilidade primário. O grupo de disponibilidade que se une ao grupo de disponibilidade distribuído é o grupo de disponibilidade secundário.  
   
  \<ag_name>  
  Especifica o nome do grupo de disponibilidade que compõe metade do grupo de disponibilidade distribuído.  
@@ -527,7 +527,7 @@ Inicia um failover manual do grupo de disponibilidade sem perda de dados para a 
  Especifica o modo de failover do grupo de disponibilidade distribuído.  
   
  MANUAL  
- Habilita o failover manual planejado ou o failover manual forçado (em geral, chamado *failover forçado* ) pelo administrador de banco de dados.  
+ Habilita o failover manual planejado ou o failover manual forçado (em geral, chamado *failover forçado*) pelo administrador de banco de dados.  
   
  Não há suporte para failover automático para o grupo de disponibilidade secundário.  
   
@@ -565,7 +565,7 @@ Inicia um failover manual do grupo de disponibilidade sem perda de dados para a 
   
  `WITH DHCP ON ('10.120.19.0','255.255.254.0')`  
   
- WITH IP **(** { **('** _four\_part\_ipv4\_address_ **','** _four\_part\_ipv4\_mask_ **')**  |  **('** _ipv6\_address_ **')** } [ **,** ... _n_ ] **)** [ **,** PORT **=** _listener\_port_ ]  
+ WITH IP **(** { **('** _four\_part\_ipv4\_address_ **','** _four\_part\_ipv4\_mask_ **')**  |  **('** _ipv6\_address_ **')** } [ **,** ..._n_ ] **)** [ **,** PORT **=** _listener\_port_ ]  
  Especifica que, em vez de usar o DHCP, o ouvinte do grupo de disponibilidade usará um ou mais endereços IP estáticos. Para criar um grupo de disponibilidade em várias sub-redes, cada sub-rede exige um endereço IP estático na configuração de ouvinte. Para determinada sub-rede, o endereço IP estático pode ser um endereço IPv4 ou um endereço IPv6. Contate o administrador da rede para obter um endereço IP estático para cada sub-rede que hospedará uma réplica de disponibilidade para o novo grupo de disponibilidade.  
   
  Por exemplo:  
@@ -582,7 +582,7 @@ Inicia um failover manual do grupo de disponibilidade sem perda de dados para a 
  Especifica um endereço IPv6 de quatro partes para um ouvinte de grupo de disponibilidade. Por exemplo, `2001::4898:23:1002:20f:1fff:feff:b3a3`.  
   
  PORT **=** *listener_port*  
- Especifica o número da porta, *listener_port* , a ser usado por um ouvinte do grupo de disponibilidade especificado por uma cláusula WITH IP. PORT é opcional.  
+ Especifica o número da porta, *listener_port*, a ser usado por um ouvinte do grupo de disponibilidade especificado por uma cláusula WITH IP. PORT é opcional.  
   
  Não há suporte para o número da porta padrão 1433. No entanto, se você estiver preocupado com a segurança, nós recomendaremos usar um número de porta diferente.  
   
@@ -595,7 +595,7 @@ Inicia um failover manual do grupo de disponibilidade sem perda de dados para a 
  MODIFY LISTENER escolhe uma das seguintes opções:  
   
  ADD IP { **('** _four\_part\_ipv4\_address_ **','** _four\_part\_ipv4_mask_ **')** \| <b>('</b>dns\_name *ipv6\_address* __')__ }  
- Adiciona o endereço IP especificado ao ouvinte do grupo de disponibilidade especificado por *dns\_name* .  
+ Adiciona o endereço IP especificado ao ouvinte do grupo de disponibilidade especificado por *dns\_name*.  
   
  PORT **=** *listener_port*  
  Veja a descrição desse argumento anteriormente nesta seção.  

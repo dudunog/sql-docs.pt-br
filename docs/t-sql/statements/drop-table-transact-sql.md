@@ -38,12 +38,12 @@ ms.assetid: 0b6f2b6f-3aa3-4767-943f-43df3c3c5cfd
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 246ba275b1e918f063e05b22d9ec3637b9a5631e
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 7096cc309a826d88ba160882fe3b4da2bff87534
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099418"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171498"
 ---
 # <a name="drop-table-transact-sql"></a>DROP TABLE (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -77,7 +77,7 @@ DROP TABLE { database_name.schema_name.table_name | schema_name.table_name | tab
  O Banco de Dados SQL do Azure oferece suporte ao formato de nome de três partes database_name.[schema_name].object_name quando o database_name é o banco de dados atual ou o database_name é tempdb e o object_name começa com #. O Banco de Dados SQL do Azure não oferece suporte a nomes de quatro partes.  
   
  *IF EXISTS*  
- **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658)).  
+ **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658)).  
   
  Remove condicionalmente a tabela somente se ela já existe.  
   
@@ -123,7 +123,7 @@ DROP TABLE AdventureWorks2012.dbo.SalesPerson2 ;
 ```  
   
 ### <a name="c-dropping-a-temporary-table"></a>C. Descartando uma tabela temporária  
- O exemplo a seguir cria uma tabela temporária, testa sua existência, descarta a mesma e testa novamente sua existência. Este exemplo não usa a sintaxe **IF EXISTS** que está disponível com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)].  
+ O exemplo a seguir cria uma tabela temporária, testa sua existência, descarta a mesma e testa novamente sua existência. Este exemplo não usa a sintaxe **IF EXISTS** que está disponível com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)].  
   
 ```sql  
 CREATE TABLE #temptable (col1 INT);  
@@ -142,7 +142,7 @@ SELECT * FROM #temptable;
   
 ### <a name="d-dropping-a-table-using-if-exists"></a>D. Descartando uma tabela usando IF EXISTS  
   
-**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658)).  
+**Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658)).  
   
  O exemplo a seguir cria uma tabela chamada T1. Em seguida, a segunda instrução remove a tabela. A terceira instrução não realiza nenhuma ação porque a tabela já foi excluída, porém, não causa um erro.  
   

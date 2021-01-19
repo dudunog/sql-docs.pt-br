@@ -17,12 +17,12 @@ ms.assetid: 0c1fca2e-f22b-4fe8-806f-c87806664f00
 author: davidtrigano
 ms.author: datrigan
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017
-ms.openlocfilehash: e978c269a17f42bc75729303a860c61d4868f3fb
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 45b22073dd0ac7e4c87d8fb838e9e55e346b5b5d
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97468607"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171458"
 ---
 # <a name="sql-server-audit-database-engine"></a>Auditoria do SQL Server (Mecanismo de Banco de Dados)
 [!INCLUDE[sql-asdbmi](../../../includes/applies-to-version/sql-asdbmi.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "97468607"
   
  É possível gravar grupos de ação de auditoria de servidor por instância, e grupos de ação de auditoria de banco de dados ou ações de auditoria de banco de dados por banco de dados. O evento de auditoria ocorrerá sempre que a ação auditável for encontrada.  
   
- Todas as edições do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] oferecem suporte a auditorias no nível do servidor. Todas as edições oferecem suporte a auditorias no nível do banco de dados a partir do [!INCLUDE[ssSQL15_md](../../../includes/sssql15-md.md)] SP1. Antes disso, a auditoria no nível de banco de dados se limitava às edições Enterprise, Developer e Evaluation. Para obter mais informações, consulte [Recursos com suporte nas edições do SQL Server 2016](~/sql-server/editions-and-supported-features-for-sql-server-2016.md).  
+ Todas as edições do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] oferecem suporte a auditorias no nível do servidor. Todas as edições oferecem suporte a auditorias no nível do banco de dados a partir do [!INCLUDE[ssSQL15_md](../../../includes/sssql16-md.md)] SP1. Antes disso, a auditoria no nível de banco de dados se limitava às edições Enterprise, Developer e Evaluation. Para obter mais informações, consulte [Recursos com suporte nas edições do SQL Server 2016](~/sql-server/editions-and-supported-features-for-sql-server-2016.md).  
   
 > [!NOTE]  
 >  Este tópico aplica-se ao [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)].  Para [!INCLUDE[ssSDS](../../../includes/sssds-md.md)], confira [Introdução à auditoria de banco de dados SQL](/azure/azure-sql/database/auditing-overview).  

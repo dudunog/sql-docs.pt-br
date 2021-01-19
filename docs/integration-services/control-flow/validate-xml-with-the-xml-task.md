@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 224fc025-c21f-4d43-aa9d-5ffac337f9b0
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 01ccacdadefac0943e721c27d11287f28d66382b
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 97e0ea80dcc5cffefc99cbbc928eace94ade942a
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92196070"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172588"
 ---
 # <a name="validate-xml-with-the-xml-task"></a>Validate XML with the XML Task
 
@@ -37,7 +37,7 @@ ms.locfileid: "92196070"
  A funcionalidade de validação de XML é facilmente dimensionada para documentos XML e grandes números de erros. Como o arquivo de saída é em formato XML, você pode consultar e analisar a saída. Por exemplo, se a saída contiver um grande número de erros, você poderá agrupar os erros usando uma consulta [!INCLUDE[tsql](../../includes/tsql-md.md)] , conforme descrito neste tópico.  
   
 > [!NOTE]
->  O [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] ([!INCLUDE[ssIS](../../includes/ssis-md.md)]) introduziu a propriedade **ValidationDetails** no [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] Service Pack 2. A propriedade também está disponível em [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e em [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)].  
+>  O [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] ([!INCLUDE[ssIS](../../includes/ssis-md.md)]) introduziu a propriedade **ValidationDetails** no [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] Service Pack 2. A propriedade também está disponível em [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e em [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)].  
   
 ## <a name="sample-output-for-xml-thats-valid"></a>Exemplo de saída de XML válida  
  Veja um arquivo de saída de exemplo com os resultados da validação para um arquivo XML válido.  

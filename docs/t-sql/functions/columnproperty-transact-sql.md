@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 2408c264-6eca-4120-bb71-df043c7c2792
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 287b8ff6085658b863601fcc11a3e8c37cd50faa
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 4bd06800692eb8f27494055dfa391169ced45803
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98097253"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171358"
 ---
 # <a name="columnproperty-transact-sql"></a>COLUMNPROPERTY (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -57,7 +57,7 @@ Para o argumento *id*, o argumento *propriedade* especifica o tipo de informaç�
 |**AllowsNull**|Permite valores nulos.|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = entrada inválida.|  
 |**ColumnId**|Valor de ID da coluna que corresponde a **sys.columns.column_id**.|ID da coluna<br /><br /> **Observação:** ao consultar várias colunas, podem aparecer intervalos na sequência de valores de ID da coluna.|  
 |**FullTextTypeColumn**|A TYPE COLUMN na tabela contendo as informações de tipo de documento da *coluna*.|ID de TYPE COLUMN de texto completo da expressão de nome de coluna passada como segundo parâmetro dessa função.|  
-|**GeneratedAlwaysType**|O valor da coluna é gerado pelo sistema. Corresponde a **sys.columns.generated_always_type**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.<br /><br /> 0: não é gerado sempre<br /><br /> 1: gerado sempre no início da linha<br /><br /> 2: gerado sempre no fim da linha|  
+|**GeneratedAlwaysType**|O valor da coluna é gerado pelo sistema. Corresponde a **sys.columns.generated_always_type**|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.<br /><br /> 0: não é gerado sempre<br /><br /> 1: gerado sempre no início da linha<br /><br /> 2: gerado sempre no fim da linha|  
 |**IsColumnSet**|A coluna é um conjunto de colunas. Para obter mais informações, veja [Usar conjuntos de colunas](../../relational-databases/tables/use-column-sets.md).|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = entrada inválida.|  
 |**IsComputed**|É uma coluna computada.|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = entrada inválida.|  
 |**IsCursorType**|O parâmetro de procedimento é do tipo CURSOR.|1: TRUE<br /><br /> 0: FALSE<br /><br /> NULL = entrada inválida.|  

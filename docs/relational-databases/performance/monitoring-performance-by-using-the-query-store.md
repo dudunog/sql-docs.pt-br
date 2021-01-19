@@ -15,12 +15,12 @@ ms.assetid: e06344a4-22a5-4c67-b6c6-a7060deb5de6
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current||=azure-sqldw-latest
-ms.openlocfilehash: 24d5c3ff3e1b1c3f5c4be81af7a51e525dd102f4
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: e61f723ddbc3010cc705c076675b731482fdee6b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97417871"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171838"
 ---
 # <a name="monitoring-performance-by-using-the-query-store"></a>Monitorar o desempenho usando o Repositório de Consultas
 
@@ -31,7 +31,7 @@ O recurso Repositório de Consultas do [!INCLUDE[ssNoVersion](../../includes/ssn
 Para obter informações sobre como operar o Repositório de Consultas no [!INCLUDE[ssSDS](../../includes/sssds-md.md)] do Azure, consulte [Operando o Repositório de Consultas no Banco de dados SQL do Azure](best-practice-with-the-query-store.md#Insight).
 
 > [!IMPORTANT]
-> Se você estiver usando o Repositório de Consultas para obter informações de carga de trabalho em tempo real no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], planeje instalar as correções de escalabilidade de desempenho na [KB 4340759](https://support.microsoft.com/help/4340759) assim que possível.
+> Se você estiver usando o Repositório de Consultas para obter informações de carga de trabalho em tempo real no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], planeje instalar as correções de escalabilidade de desempenho na [KB 4340759](https://support.microsoft.com/help/4340759) assim que possível.
 
 ## <a name="enabling-the-query-store"></a><a name="Enabling"></a> Habilitando o Repositório de Consultas
 

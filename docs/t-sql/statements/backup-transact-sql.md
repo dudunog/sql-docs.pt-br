@@ -47,12 +47,12 @@ ms.assetid: 89a4658a-62f1-4289-8982-f072229720a1
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current||>=aps-pdw-2016'
-ms.openlocfilehash: 4f0529b6b6a60c2c4997c9f9d49ad9e76efa8455
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 55b1a81a5cbb5078f331df0fb7f1f93048555337
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97644418"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170558"
 ---
 # <a name="backup-transact-sql"></a>BACKUP (Transact-SQL)
 
@@ -250,7 +250,7 @@ Especifica um arquivo de disco ou dispositivo de fita, ou um serviço de Armazen
 > [!NOTE]
 > O dispositivo de disco NUL descartará todas as informações enviadas para ele e apenas deve ser usado para teste. Isso não se destina ao uso em produção.
 > [!IMPORTANT]
-> Começando pelo [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] SP1 CU2 ao [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], somente é possível fazer backup em um único dispositivo durante o backup em uma URL. Para fazer backup em vários dispositivos ao fazer backup em uma URL, use o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e tokens SAS (Assinatura de Acesso Compartilhado). Para obter exemplos sobre como criar uma Assinatura de Acesso Compartilhado, consulte [Backup do SQL Server em uma URL](../../relational-databases/backup-restore/sql-server-backup-to-url.md) e [Simplificando a criação de credenciais do SQL com tokens SAS (Assinatura de Acesso Compartilhado) no Armazenamento do Azure com o PowerShell](/archive/blogs/sqlcat/simplifying-creation-of-sql-credentials-with-shared-access-signature-sas-tokens-on-azure-storage-with-powershell).
+> Começando pelo [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] SP1 CU2 ao [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], somente é possível fazer backup em um único dispositivo durante o backup em uma URL. Para fazer backup em vários dispositivos ao fazer backup em uma URL, use o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e tokens SAS (Assinatura de Acesso Compartilhado). Para obter exemplos sobre como criar uma Assinatura de Acesso Compartilhado, consulte [Backup do SQL Server em uma URL](../../relational-databases/backup-restore/sql-server-backup-to-url.md) e [Simplificando a criação de credenciais do SQL com tokens SAS (Assinatura de Acesso Compartilhado) no Armazenamento do Azure com o PowerShell](/archive/blogs/sqlcat/simplifying-creation-of-sql-credentials-with-shared-access-signature-sas-tokens-on-azure-storage-with-powershell).
 
 **URL aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] SP1 CU2 e posterior).
 
@@ -288,7 +288,7 @@ Especifica opções a serem usadas com uma operação de backup.
 CREDENTIAL **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] SP1 CU2 e posterior).
 Usado somente durante a criação de um backup no serviço de Armazenamento de Blobs do Microsoft Azure.
 
-FILE_SNAPSHOT **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior).
+FILE_SNAPSHOT **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior).
 
 Usado para criar um instantâneo do Azure dos arquivos de banco de dados quando todos os arquivos de banco de dados do SQL Server são armazenados com o serviço de Armazenamento de Blobs do Azure. Para obter mais informações, consulte [Arquivos de dados do SQL Server no Microsoft Azure](../../relational-databases/databases/sql-server-data-files-in-microsoft-azure.md). Backup de Instantâneo do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] usa instantâneos do Azure dos arquivos de banco de dados (arquivos de log e de dados) em um estado consistente. Um conjunto consistente de instantâneos do Azure compõem um backup e são registrados no arquivo de backup. A única diferença entre o `BACKUP DATABASE TO URL WITH FILE_SNAPSHOT` e o `BACKUP LOG TO URL WITH FILE_SNAPSHOT` é que o último também trunca o log de transações, ao contrário do primeiro. Com o Backup do Instantâneo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], após o backup completo inicial exigido pelo [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para estabelecer a cadeia de backup, somente um único backup de log de transações é necessário para restaurar um banco de dados para o ponto no tempo do backup de log de transações. Além disso, apenas dois backups de log de transações são necessários para restaurar um banco de dados para um ponto no tempo entre a hora dos dois backups de log de transações.
 
@@ -696,7 +696,7 @@ A instrução BACKUP não é permitida em uma transação explícita ou implíci
 
 Operações de backup entre plataformas, mesmo entre tipos diferentes de processadores, podem ser executadas desde que a ordenação do banco de dados tenha suporte no sistema operacional.
 
-Começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], definir `MAXTRANSFERSIZE` **maior que 65.536 (64 KB)** permite um algoritmo de compactação otimizada para bancos de dados criptografados com [TDE (Transparent Data Encryption)](../../relational-databases/security/encryption/transparent-data-encryption.md) que primeiro descriptografa uma página, compacta-a e, depois, criptografa-a novamente. Se `MAXTRANSFERSIZE` não for especificado ou se `MAXTRANSFERSIZE = 65536` (64 KB) for usado, a compactação de backup com bancos de dados criptografados com TDE compactará diretamente as páginas criptografadas e poderá não resultar em taxas de compactação satisfatórias. Para obter mais informações, consulte [Compactação de backup para bancos de dados habilitados para TDE](/archive/blogs/sqlcat/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases).
+Começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], definir `MAXTRANSFERSIZE` **maior que 65.536 (64 KB)** permite um algoritmo de compactação otimizada para bancos de dados criptografados com [TDE (Transparent Data Encryption)](../../relational-databases/security/encryption/transparent-data-encryption.md) que primeiro descriptografa uma página, compacta-a e, depois, criptografa-a novamente. Se `MAXTRANSFERSIZE` não for especificado ou se `MAXTRANSFERSIZE = 65536` (64 KB) for usado, a compactação de backup com bancos de dados criptografados com TDE compactará diretamente as páginas criptografadas e poderá não resultar em taxas de compactação satisfatórias. Para obter mais informações, consulte [Compactação de backup para bancos de dados habilitados para TDE](/archive/blogs/sqlcat/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases).
 
 Do [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] CU5 em diante, a configuração de `MAXTRANSFERSIZE` não é mais necessária para habilitar esse algoritmo de compactação otimizado com TDE. Se o comando backup for especificado `WITH COMPRESSION` ou a configuração de servidor *padrão de compactação de backup* for definido como 1, `MAXTRANSFERSIZE` será automaticamente aumentado para 128 K para habilitar o algoritmo otimizado. Se `MAXTRANSFERSIZE` for especificado no comando de backup com um valor > 64 K, o valor fornecido será respeitado. Em outras palavras, o SQL Server nunca diminuirá o valor automaticamente, ele somente o aumentará. Se você precisar fazer backup de um banco de dados criptografado com TDE com `MAXTRANSFERSIZE = 65536`, será preciso especificar `WITH NO_COMPRESSION` ou garantir que a configuração de servidor *padrão de compactação de backup* seja definida como 0.
 

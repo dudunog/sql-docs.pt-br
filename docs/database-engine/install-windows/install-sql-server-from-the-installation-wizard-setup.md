@@ -15,18 +15,18 @@ ms.assetid: 6ad23de1-2bab-4933-9122-c09f5565028d
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 9cc9c07d69be1b08a887ddf4a7ac071647a4d89a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: d2c5f2fc245c981cf0c6d045333528aeff32536c
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97440227"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170188"
 ---
 # <a name="install-sql-server-from-the-installation-wizard-setup"></a>Instalar o SQL Server por meio do Assistente de Instalação (Instalação)
 
 [!INCLUDE [SQL Server -Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
 
-Este artigo explica como instalar o SQL Server com o Assistente de Instalação. Aplica-se ao [!INCLUDE[SQLServer2016](../../includes/sssql15-md.md)] e ao [!INCLUDE[SQLServer2017](../../includes/sssqlv14-md.md)].
+Este artigo explica como instalar o SQL Server com o Assistente de Instalação. Aplica-se ao [!INCLUDE[SQLServer2016](../../includes/sssql16-md.md)] e ao [!INCLUDE[SQLServer2017](../../includes/sssqlv14-md.md)].
 
 Este artigo apresenta um procedimento passo a passo sobre como instalar uma nova instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] usando o Assistente de Instalação do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. O Assistente de Instalação fornece uma única árvore de recursos para instalação de todos os componentes do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], para que você não precise instalá-los individualmente. Para instalar os componentes do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] individualmente, confira o tópico [Instalar o SQL Server](../../database-engine/install-windows/install-sql-server.md#individual-component-installation).  
 
@@ -131,7 +131,7 @@ Isso não se aplica a [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]
     > [!INCLUDE[ssNoteStrongPass](../../includes/ssnotestrongpass-md.md)]  
 
     > [!NOTE]
-    > Do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] em diante, marque a caixa de seleção **Conceder Realizar Tarefa de Manutenção de Volume para o Serviço do Mecanismo de Banco de Dados do SQL Server** para permitir que a conta de serviço do [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] use a [Inicialização Instantânea de Arquivo de Banco de Dados](../../relational-databases/databases/database-instant-file-initialization.md).
+    > Do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] em diante, marque a caixa de seleção **Conceder Realizar Tarefa de Manutenção de Volume para o Serviço do Mecanismo de Banco de Dados do SQL Server** para permitir que a conta de serviço do [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] use a [Inicialização Instantânea de Arquivo de Banco de Dados](../../relational-databases/databases/database-instant-file-initialization.md).
   
 1. Use a página **Configuração do Servidor – Ordenação** para especificar ordenações não padrão para o [!INCLUDE[ssDE](../../includes/ssde-md.md)] e o [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)].    
 
@@ -300,7 +300,7 @@ Isso não se aplica a [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]
     > [!INCLUDE[ssNoteStrongPass](../../includes/ssnotestrongpass-md.md)]  
 
     > [!NOTE]
-    > Do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] em diante, marque a caixa de seleção **Conceder Realizar Tarefa de Manutenção de Volume para o Serviço do Mecanismo de Banco de Dados do SQL Server** para permitir que a conta de serviço do [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] use a [Inicialização Instantânea de Arquivo de Banco de Dados](../../relational-databases/databases/database-instant-file-initialization.md).
+    > Do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] em diante, marque a caixa de seleção **Conceder Realizar Tarefa de Manutenção de Volume para o Serviço do Mecanismo de Banco de Dados do SQL Server** para permitir que a conta de serviço do [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] use a [Inicialização Instantânea de Arquivo de Banco de Dados](../../relational-databases/databases/database-instant-file-initialization.md).
   
      Use a página **Configuração do Servidor – Ordenação** para especificar ordenações não padrão para o [!INCLUDE[ssDE](../../includes/ssde-md.md)] e o [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)]. Para saber mais, confira [Suporte para ordenações e Unicode](../../relational-databases/collations/collation-and-unicode-support.md).  
   

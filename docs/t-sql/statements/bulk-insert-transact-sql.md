@@ -26,12 +26,12 @@ helpviewer_keywords:
 ms.assetid: be3984e1-5ab3-4226-a539-a9f58e1e01e2
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 9e0d729d951de184aa16717e784f14ae244639d8
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 12c1273473fd91c0ea5222add0288fac1b06f37b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98098468"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170588"
 ---
 # <a name="bulk-insert-transact-sql"></a>BULK INSERT (Transact-SQL)
 
@@ -135,7 +135,7 @@ CODEPAGE **=** { **'** ACP **'** \| **'** OEM **'** \| **'** RAW **'** \| **'** 
 |ACP|Colunas do tipo de dados **char**, **varchar** ou **text** são convertidas da página de código do Windows [!INCLUDE[vcpransi](../../includes/vcpransi-md.md)]/[!INCLUDE[msCoName](../../includes/msconame-md.md)] (ISO 1252) na página de código do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].|
 |OEM (padrão)|Colunas do tipo de dados **char**, **varchar** ou **text** são convertidas da página de código de OEM do sistema para a página de código [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].|
 |RAW|Nenhuma conversão de uma página de código em outra ocorre; essa opção é a mais rápida.|
-|*code_page*|Especifique o número da página de código, por exemplo, 850.<br /><br /> **&#42;&#42; Importante &#42;&#42;** As versões anteriores à [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] não são compatíveis com a página de código 65001 (codificação UTF-8).|
+|*code_page*|Especifique o número da página de código, por exemplo, 850.<br /><br /> **&#42;&#42; Importante &#42;&#42;** As versões anteriores à [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] não são compatíveis com a página de código 65001 (codificação UTF-8).|
 | &nbsp; | &nbsp; |
 
 DATAFILETYPE **=** { **'char'** \| **'native'** \| **'widechar'** \| **'widenative'** } Especifica que BULK INSERT executa a operação de importação usando o valor do tipo de arquivo de dados especificado.

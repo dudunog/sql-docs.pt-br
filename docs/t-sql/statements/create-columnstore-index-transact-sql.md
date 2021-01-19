@@ -30,12 +30,12 @@ ms.assetid: 7e1793b3-5383-4e3d-8cef-027c0c8cb5b1
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: b650e0fa1d1d6c02e657d3d5860908164ed5cd91
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 57665811cd12b4c31effb82a91a722780a774874
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099549"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170448"
 ---
 # <a name="create-columnstore-index-transact-sql"></a>CREATE COLUMNSTORE INDEX (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "98099549"
 Converta uma tabela rowstore em um índice columnstore clusterizado ou crie um índice columnstore não clusterizado. Use um índice columnstore para executar análise operacional em tempo real com eficiência em uma carga de trabalho OLTP ou para melhorar o desempenho da consulta e a compactação de dados em cargas de trabalho de data warehouse.  
   
 > [!NOTE]
-> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], você pode criar a tabela como um índice columnstore clusterizado.   Não é mais necessário criar uma tabela rowstore primeiro e, em seguida, convertê-la em um índice columnstore clusterizado.  
+> Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], você pode criar a tabela como um índice columnstore clusterizado.   Não é mais necessário criar uma tabela rowstore primeiro e, em seguida, convertê-la em um índice columnstore clusterizado.  
 
 > [!TIP]
 > Para obter informações sobre as diretrizes de design de índice, confira o [Guia de design de índice do SQL Server](../../relational-databases/sql-server-index-design-guide.md).
@@ -120,10 +120,10 @@ Algumas das opções não estão disponíveis em todas as versões de mecanismo 
 
 |Opção| CLUSTERED | NONCLUSTERED |
 |---|---|---|
-| COMPRESSION_DELAY | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] |
-| DATA_COMPRESSION | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] | 
+| COMPRESSION_DELAY | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] |
+| DATA_COMPRESSION | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] | 
 | ONLINE | [!INCLUDE[ssSQLv15_md](../../includes/sssqlv15-md.md)] | [!INCLUDE[ssSQLv14_md](../../includes/sssqlv14-md.md)] |
-| cláusula WHERE | N/D | [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] |
+| cláusula WHERE | N/D | [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] |
 
 Todas as opções estão disponíveis no Banco de Dados SQL do Azure.
 
@@ -369,7 +369,7 @@ Se a tabela subjacente tiver uma coluna de um tipo de dados não compatível com
   
 **As colunas que usam um dos seguintes tipos de dados não podem ser incluídas em um índice columnstore:**
 -   ntext, texto e imagem  
--   nvarchar(max), varchar(max) e varbinary(max) (aplica-se ao [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e às versões anteriores e a índices columnstore não clusterizados) 
+-   nvarchar(max), varchar(max) e varbinary(max) (aplica-se ao [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e às versões anteriores e a índices columnstore não clusterizados) 
 -   rowversion (e carimbo de data/hora)  
 -   sql_variant  
 -   Tipos CLR (hierarchyid e tipos espaciais)  
@@ -387,7 +387,7 @@ Se a tabela subjacente tiver uma coluna de um tipo de dados não compatível com
 
 
 > [!NOTE]  
-> Do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] em diante, é possível criar um índice columnstore não clusterizado em uma exibição indexada.  
+> Do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] em diante, é possível criar um índice columnstore não clusterizado em uma exibição indexada.  
 
 
  **Os índices columnstore não podem ser combinados com os seguintes recursos:**  
@@ -453,7 +453,7 @@ GO
 ```  
   
 ### <a name="c-handle-nonclustered-indexes-when-converting-a-rowstore-table-to-a-columnstore-index"></a>C. Tratar índices não clusterizados ao converter uma tabela rowstore em um índice columnstore.  
- Este exemplo mostra como tratar os índices não clusterizados ao converter uma tabela rowstore em um índice columnstore. Na verdade, começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] nenhuma ação especial é necessária, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] define e recompila automaticamente os índices não clusterizados no novo índice columnstore clusterizado.  
+ Este exemplo mostra como tratar os índices não clusterizados ao converter uma tabela rowstore em um índice columnstore. Na verdade, começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] nenhuma ação especial é necessária, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] define e recompila automaticamente os índices não clusterizados no novo índice columnstore clusterizado.  
   
  Se você desejar remover os índices não clusterizados, use a instrução DROP INDEX antes de criar o índice columnstore. A opção DROP EXISTING remove somente o índice clusterizado que está sendo convertido. Ela não descarta os índices não clusterizados.  
   
@@ -582,7 +582,7 @@ ON MyFactTable;
  Há duas maneiras de recriar o índice columnstore clusterizado completo. Você pode usar CREATE CLUSTERED COLUMNSTORE INDEX ou [ALTER INDEX &#40;Transact-SQL&#41; ](../../t-sql/statements/alter-index-transact-sql.md) e a opção REBUILD. Ambos os métodos geram os mesmos resultados.  
   
 > [!NOTE]  
-> A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], use `ALTER INDEX...REORGANIZE` em vez de reconstruir com os métodos descritos neste exemplo.  
+> A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], use `ALTER INDEX...REORGANIZE` em vez de reconstruir com os métodos descritos neste exemplo.  
   
 ```sql  
 --Determine the Clustered Columnstore Index name of MyDimTable.  

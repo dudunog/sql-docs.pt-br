@@ -12,17 +12,17 @@ ms.assetid: 1a8e6bc7-433e-471d-b646-092dc80a2d1a
 author: MashaMSFT
 ms.author: mathoma
 monikerRange: =azuresqldb-mi-current||>=sql-server-2016
-ms.openlocfilehash: 41dfd13fc3686bd8bb031df86c359ce96553f833
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 71a245f6263b938cef7a3841b3570a3a9137a1db
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97479787"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172198"
 ---
 # <a name="replication-to-memory-optimized-table-subscribers"></a>Replicação para assinantes de tabela com otimização de memória
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
 
-  As tabelas que atuam como assinantes de replicação transacional e de instantâneo, com exceção da replicação transacional Ponto a Ponto, podem ser configuradas como tabelas com otimização de memória. Outras configurações de replicação não são compatíveis com tabelas com otimização de memória. Este recurso está disponível a partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)].  
+  As tabelas que atuam como assinantes de replicação transacional e de instantâneo, com exceção da replicação transacional Ponto a Ponto, podem ser configuradas como tabelas com otimização de memória. Outras configurações de replicação não são compatíveis com tabelas com otimização de memória. Este recurso está disponível a partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)].  
   
 ## <a name="two-configurations-are-required"></a>São necessárias duas configurações  
   

@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: 3a70e606-303f-47a8-96d4-2456a18d4297
 author: MashaMSFT
 ms.author: mathoma
-ms.openlocfilehash: a722331a28cf741adb5b17ac8a398c106e7cd1c5
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: e0d5c070d961e71711189b9b32ad12508812b277
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85668004"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171538"
 ---
 # <a name="manage-the-size-of-the-transaction-log-file"></a>Gerenciar o tamanho do arquivo de log de transações
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -97,7 +97,7 @@ Estas são algumas recomendações gerais ao trabalhar com arquivos de log de tr
   
       |Versão|Valores padrão|  
       |-------------|--------------------|  
-      |A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]|Dados 64 MB. Arquivos de log 64 MB.|  
+      |A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]|Dados 64 MB. Arquivos de log 64 MB.|  
       |A partir do [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)]|Dados 1 MB. Arquivos de log 10%.|  
       |Antes do [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)]|Dados 10%. Arquivos de log 10%.|  
 

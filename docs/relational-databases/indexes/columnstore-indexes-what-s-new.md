@@ -11,12 +11,12 @@ ms.topic: conceptual
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: a9fc87cef0244afc4459c789f94855c0c0530ddd
-ms.sourcegitcommit: e5664d20ed507a6f1b5e8ae7429a172a427b066c
+ms.openlocfilehash: 58f0348a84362b48520c9bd5cf46868cdaea60e0
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697118"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171178"
 ---
 # <a name="columnstore-indexes---what39s-new"></a>Índices columnstore – novidades
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -24,12 +24,12 @@ ms.locfileid: "97697118"
   Resumo de recursos columnstore disponíveis para cada versão do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e para as versões mais recentes do [!INCLUDE[ssSDS](../../includes/sssds-md.md)], do [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] e do [!INCLUDE[ssPDW](../../includes/sspdw-md.md)].  
 
  > [!NOTE]
- > No [!INCLUDE[ssSDS](../../includes/sssds-md.md)], os índices columnstore estão disponíveis nas camadas Premium e Standard do [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] – S3 e superior, e em todas as camadas de vCore. Para o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 e posterior, índices columnstore estão disponíveis em todas as edições. Para o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] (anterior ao SP1) e versões mais antigas, os índices columnstore estão disponíveis apenas na Enterprise Edition.
+ > No [!INCLUDE[ssSDS](../../includes/sssds-md.md)], os índices columnstore estão disponíveis nas camadas Premium e Standard do [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] – S3 e superior, e em todas as camadas de vCore. Para o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 e posterior, índices columnstore estão disponíveis em todas as edições. Para o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] (anterior ao SP1) e versões mais antigas, os índices columnstore estão disponíveis apenas na Enterprise Edition.
  
 ## <a name="feature-summary-for-product-releases"></a>Resumo de recursos para versões do produto  
  Esta tabela resume os principais recursos para índices columnstore, e os produtos nos quais eles estão disponíveis.  
 
-|Recurso do índice columnstore|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|[!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]|[!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]|[!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]|[!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)]|[!INCLUDE[ssSDW](../../includes/sssdw-md.md)]|  
+|Recurso do índice columnstore|[!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]|[!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]|[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]|[!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]|[!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)]|[!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)]|[!INCLUDE[ssSDW](../../includes/sssdw-md.md)]|  
 |-------------------------------|---------------------------|---------------------------|---------------------------|---------------------------|--------------------------------------------|-------------------------|---|  
 |Execução em modo de lote para consultas com multithread|sim|sim|sim|sim|sim|sim|sim| 
 |Execução em modo de lote para consultas com thread único|||sim|sim|sim|sim|sim|  
@@ -67,8 +67,8 @@ ms.locfileid: "97697118"
 ### <a name="functional"></a>Funcional
 - [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] dá suporte a colunas computadas não persistentes em índices columnstore clusterizados. Não há suporte para colunas computadas em índices columnstore clusterizados. Você não pode criar um índice não clusterizado em um índice columnstore que tenha uma coluna computada. 
 
-## [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]  
- O[!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] adiciona aprimoramentos importantes para melhorar o desempenho e a flexibilidade dos índices columnstore. Esses aprimoramentos melhoram os cenários de data warehouse e habilitam a análise operacional em tempo real.  
+## [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]  
+ O[!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] adiciona aprimoramentos importantes para melhorar o desempenho e a flexibilidade dos índices columnstore. Esses aprimoramentos melhoram os cenários de data warehouse e habilitam a análise operacional em tempo real.  
   
 ### <a name="functional"></a>Funcional  
   

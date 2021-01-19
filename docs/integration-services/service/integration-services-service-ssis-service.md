@@ -23,12 +23,12 @@ helpviewer_keywords:
 ms.assetid: 2c785b3b-4a0c-4df7-b5cd-23756dc87842
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 465aef4e631602a645bbeff5b437cb2f09994d3c
-ms.sourcegitcommit: c5078791a07330a87a92abb19b791e950672e198
+ms.openlocfilehash: a665d78d180d87fe0d412b025bcce75d509285d4
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "90990382"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171198"
 ---
 # <a name="integration-services-service-ssis-service"></a>Serviço do Integration Services (Serviço SSIS)
 
@@ -274,7 +274,7 @@ Ao instalar o [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)], o p
 ```  
   
 ### <a name="modify-the-configuration-file-location"></a>Modificar o local do arquivo de configuração  
- A chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\130\SSIS\ServiceConfigFile** especifica o local e o nome do arquivo de configuração usado pelo serviço do [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)]. O valor padrão da chave do Registro é **C:\Program Files\Microsoft SQL Server\130\DTS\Binn\MsDtsSrvr.ini.xml**. Você pode atualizar o valor da chave do Registro para usar um nome e local diferentes para o arquivo de configuração. Observe que o número de versão no caminho (120 para o SQL Server [!INCLUDE[ssSQL14_md](../../includes/sssql14-md.md)], 130 para [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], etc.) pode variar dependendo da versão do SQL Server.
+ A chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\130\SSIS\ServiceConfigFile** especifica o local e o nome do arquivo de configuração usado pelo serviço do [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)]. O valor padrão da chave do Registro é **C:\Program Files\Microsoft SQL Server\130\DTS\Binn\MsDtsSrvr.ini.xml**. Você pode atualizar o valor da chave do Registro para usar um nome e local diferentes para o arquivo de configuração. Observe que o número de versão no caminho (120 para o SQL Server [!INCLUDE[ssSQL14_md](../../includes/sssql14-md.md)], 130 para [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], etc.) pode variar dependendo da versão do SQL Server.
   
 > [!CAUTION]  
 >  A edição incorreta do Registro pode provocar problemas sérios que exigem a reinstalação do sistema operacional. [!INCLUDE[msCoName](../../includes/msconame-md.md)] não pode garantir que os problemas resultantes da edição incorreta do Registro podem ser resolvidos. Antes de editar o Registro, faça backup de todos os dados valiosos. Para obter informações sobre como fazer backup, restaurar e editar o Registro, consulte o artigo da Base de Dados de Conhecimento sobre o [!INCLUDE[msCoName](../../includes/msconame-md.md)] , [Descrição do Registro do Microsoft Windows](https://support.microsoft.com/kb/256986).  

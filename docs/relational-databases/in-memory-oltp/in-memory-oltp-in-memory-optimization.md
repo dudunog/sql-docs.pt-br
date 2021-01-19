@@ -15,12 +15,12 @@ ms.assetid: e1d03d74-2572-4a55-afd6-7edf0bc28bdb
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 281fe018c5c2d5e0717fb2c35dfcc8c3c9e8c3fc
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 7af10ecc4753034948cc616cc85301afd7a7046d
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98100218"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172068"
 ---
 # <a name="in-memory-oltp-and-memory-optimization"></a>OLTP in-memory e otimização de memória
 
@@ -37,7 +37,7 @@ Para obter uma visão geral mais detalhada do OLTP in-memory e uma análise de c
  
  Observe que [!INCLUDE[hek_2](../../includes/hek-2-md.md)] é a tecnologia do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para melhoria de desempenho do processamento de transações. Para obter a tecnologia do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] que melhora o desempenho de consulta de relatório e analítica, veja [Guia de índices columnstore](../../relational-databases/indexes/columnstore-indexes-overview.md).
   
- Várias melhorias foram feitas no OLTP in-memory do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)], bem como do [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]. A área de superfície do Transact-SQL foi aumentada para facilitar a migração de aplicativos de banco de dados. O suporte para operações de ALTER para tabelas com otimização de memória e procedimentos armazenados compilados nativamente foi adicionado para facilitar a manutenção de aplicativos.
+ Várias melhorias foram feitas no OLTP in-memory do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e do [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)], bem como do [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]. A área de superfície do Transact-SQL foi aumentada para facilitar a migração de aplicativos de banco de dados. O suporte para operações de ALTER para tabelas com otimização de memória e procedimentos armazenados compilados nativamente foi adicionado para facilitar a manutenção de aplicativos.
   
 > [!NOTE]  
 >  **Experimente**  

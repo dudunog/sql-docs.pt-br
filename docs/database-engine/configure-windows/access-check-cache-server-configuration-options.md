@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: 0a992ea8-3ec6-4a4d-97b5-460ae7326247
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: f5790d5eb416f789bbe67f10d28f18a375b4c572
-ms.sourcegitcommit: 21c14308b1531e19b95c811ed11b37b9cf696d19
+ms.openlocfilehash: 893400411c6f3d2faf6313923aa0f6127a3f2cf0
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86158924"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171068"
 ---
 # <a name="access-check-cache-server-configuration-options"></a>Opções access check cache de configuração de servidor
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -31,7 +31,7 @@ A opção **número de buckets do cache de verificação de acesso** controla o 
 
 A opção **cota do cache de verificação de acesso** controla o número de entradas que são armazenadas no cache de resultados de verificação de acesso. Quando o número máximo de entradas é alcançado, as entradas mais antigas são removidas do cache de resultados de verificação de acesso.
   
-Os valores padrão de 0 indicam aquele o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] está gerenciando essas opções. Começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], os valores padrão são convertidos para as seguintes configurações internas:
+Os valores padrão de 0 indicam aquele o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] está gerenciando essas opções. Começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], os valores padrão são convertidos para as seguintes configurações internas:
 -   Para o número de buckets do cache de verificação de acesso, o valor 0 define um valor padrão igual a 256 buckets.
 -   Para a cota do cache de verificação de acesso, o valor 0 define um valor padrão igual a 1.024 entradas.
 

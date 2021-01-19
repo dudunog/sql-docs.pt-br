@@ -33,12 +33,12 @@ ms.assetid: 1054c76e-0fd5-4131-8c07-a6c5d024af50
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 6cccb11c84b9b5354d418dae19557f7f76e027cf
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 206aefdd3cd58b94124a0840cef7e788c5a29390
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98095719"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171268"
 ---
 # <a name="insert-transact-sql"></a>INSERT (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -319,7 +319,7 @@ As linhas inseridas em um heap como o resultado de uma ação de inserção em u
   
 Diferentemente da instrução `BULK INSERT`, que contém um bloqueio de BU (atualização em massa) menos restritivo, `INSERT INTO … SELECT` com a dica `TABLOCK` contém um bloqueio exclusivo (X) na tabela. Isso significa que você não pode inserir linhas usando várias operações de inserção em execução simultaneamente. 
 
-No entanto, a partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e do nível de compatibilidade do banco de dados 130, uma única instrução `INSERT INTO … SELECT` pode ser executada em paralelo ao inserir em heaps ou em CCI (índices columnstore clusterizados). Ao usar a dica de `TABLOCK`, é possível empregar inserções paralelas.  
+No entanto, a partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e do nível de compatibilidade do banco de dados 130, uma única instrução `INSERT INTO … SELECT` pode ser executada em paralelo ao inserir em heaps ou em CCI (índices columnstore clusterizados). Ao usar a dica de `TABLOCK`, é possível empregar inserções paralelas.  
 
 O paralelismo para a instrução acima tem os seguintes requisitos, que são semelhantes aos requisitos de registros de log mínimo:  
 -   A tabela de destino é um heap vazio ou não vazio.  

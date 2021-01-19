@@ -11,12 +11,12 @@ ms.assetid: e466419a-d8a4-48f7-8d97-13a903ad6b15
 author: MashaMSFT
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cbc9d56a0c084fe912ad9af0136166cdcf804ebf
-ms.sourcegitcommit: da88320c474c1c9124574f90d549c50ee3387b4c
+ms.openlocfilehash: 00c7778583545c56b886bfc30c4763bacd1404b3
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85734969"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171558"
 ---
 # <a name="change-the-target-recovery-time-of-a-database-sql-server"></a>Alterar o tempo de recuperação de destino de um banco de dados (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -62,7 +62,7 @@ ms.locfileid: "85734969"
      TARGET_RECOVERY_TIME **=** _target_recovery_time_ { SECONDS | MINUTES }  
   
      *target_recovery_time*  
-     A partir do [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)], o valor padrão é de 1 minuto. Quando maior que 0 (o padrão para versões mais antigas) especifica o limite superior do tempo de recuperação para o banco de dados especificado no caso de uma falha.  
+     A partir do [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)], o valor padrão é de 1 minuto. Quando maior que 0 (o padrão para versões mais antigas) especifica o limite superior do tempo de recuperação para o banco de dados especificado no caso de uma falha.  
   
      SECONDS  
      Indica que *target_recovery_time* é expresso como o número de segundos.  

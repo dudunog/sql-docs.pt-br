@@ -22,12 +22,12 @@ ms.assetid: d198648d-fea5-416d-9f30-f9d4aebbf4ec
 author: MikeRayMSFT
 ms.author: mikeray
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: ce010e0093e234c9095c440f3283b8c7942c78bc
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: d972f88744b6c8b108b1f52a54d4bf8507975017
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480047"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171148"
 ---
 # <a name="create-indexes-with-included-columns"></a>Criar índices com colunas incluídas
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "97480047"
   
 -   Redesenhe índices não clusterizados que tenham um tamanho grande de chave de índice, de tal forma que apenas as colunas usadas para buscas e pesquisas sejam colunas de chave. Transforme todas as outras colunas que abrangem a consulta em colunas não chave. Deste modo, você terá todas as colunas necessárias para abranger a consulta, mas a chave de índice em si é pequena e eficiente.  
   
--   Inclua colunas não chave em um índice não clusterizado para evitar exceder as limitações do tamanho atual do índice de um máximo de 32 colunas de chave e um tamanho máximo de chave de índice de 1.700 bytes (16 colunas de chave e 900 bytes antes de [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)]). O [!INCLUDE[ssDE](../../includes/ssde-md.md)] não considera as colunas não chave ao calcular o número de colunas de chave de índice, ou o tamanho da chave do índice.  
+-   Inclua colunas não chave em um índice não clusterizado para evitar exceder as limitações do tamanho atual do índice de um máximo de 32 colunas de chave e um tamanho máximo de chave de índice de 1.700 bytes (16 colunas de chave e 900 bytes antes de [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)]). O [!INCLUDE[ssDE](../../includes/ssde-md.md)] não considera as colunas não chave ao calcular o número de colunas de chave de índice, ou o tamanho da chave do índice.  
   
 ###  <a name="limitations-and-restrictions"></a><a name="Restrictions"></a> Limitações e restrições  
   

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.assetid: 2113a916-3b1e-496c-8650-7f495e492510
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 92a09ac4702cae987c4fa5f4ccd420819c29073a
-ms.sourcegitcommit: d56a834269132a83e5fe0a05b033936776cda8bb
+ms.openlocfilehash: 9b275387efa5cc44b012cccef82fb3284e594abb
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91529427"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170538"
 ---
 # <a name="high-availability-support-for-in-memory-oltp-databases"></a>Suporte de alta disponibilidade para bancos de dados OLTP na memória
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "91529427"
     As réplicas secundárias mantêm o estado na memória das tabelas duráveis com otimização de memória. No caso de failover automático ou forçado, o tempo de failover para o novo primário é comparável às tabelas baseadas em disco, já que nenhuma recuperação é necessária. As tabelas com otimização de memória criadas como SCHEMA_ONLY têm suporte nesta configuração. No entanto, as alterações para essas tabelas não são registradas, portanto, nenhum dado existirá nessas tabelas na réplica secundária.  
   
 -   **Secundária Legível**   
-    Você pode acessar e consultar tabelas com otimização de memória na réplica secundária, caso ela tenha sido configurada para acesso de leitura. No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], o carimbo de data/hora de leitura na réplica secundária está em sincronização próxima com o carimbo de data/hora de leitura na réplica primária, o que significa que as alterações na réplica primária se tornarão rapidamente visíveis na secundária. Esse comportamento de sincronização próxima é diferente do OLTP In-Memory do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)].  
+    Você pode acessar e consultar tabelas com otimização de memória na réplica secundária, caso ela tenha sido configurada para acesso de leitura. No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], o carimbo de data/hora de leitura na réplica secundária está em sincronização próxima com o carimbo de data/hora de leitura na réplica primária, o que significa que as alterações na réplica primária se tornarão rapidamente visíveis na secundária. Esse comportamento de sincronização próxima é diferente do OLTP In-Memory do [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)].  
 
 ### <a name="considerations"></a>Considerações
 

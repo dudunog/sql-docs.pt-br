@@ -56,12 +56,12 @@ helpviewer_keywords:
 ms.assetid: 66fb1520-dcdf-4aab-9ff1-7de8f79e5b2d
 author: pmasl
 ms.author: pelopes
-ms.openlocfilehash: eda240576ebb819e387e3fb93d55a06b6a1c1d9e
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 8f884c24acbb4499cbab2e7837367ec49e0c7cbb
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98102369"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172318"
 ---
 # <a name="hints-transact-sql---query"></a>Dicas (Transact-SQL) – consulta
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -217,12 +217,12 @@ IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX
 Impede a consulta de usar um índice columnstore otimizado para memória não clusterizado. Se a consulta contiver a dica de consulta para evitar o uso do índice columnstore e uma dica de índice para usar um índice columnstore, as dicas entrarão em conflito e a consulta retornará um erro.  
   
 MAX_GRANT_PERCENT = <numeric_value>     
-**Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].  
+**Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].  
 
 O tamanho máximo de concessão de memória em PERCENT do limite de memória configurado. É garantido que a consulta não excederá esse limite. O limite real poderá ser inferior se a configuração do Resource Governor for mais baixa que o valor especificado por esta dica. Os valores válidos estão entre 0,0 e 100,0.  
   
 MIN_GRANT_PERCENT = <numeric_value>        
-**Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].   
+**Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].   
 
 O tamanho mínimo de concessão de memória em PERCENT do limite de memória configurado. É garantido que a consulta obtenha `MAX(required memory, min grant)` porque é preciso pelo menos a memória necessária para iniciar uma consulta. Os valores válidos estão entre 0,0 e 100,0.  
  
@@ -244,7 +244,7 @@ Por causa desse erro, todos os efeitos da instrução são revertidos. Se a inst
 Para obter mais informações, confira [WITH common_table_expression &#40;Transact-SQL&#41;](../../t-sql/queries/with-common-table-expression-transact-sql.md).     
   
 NO_PERFORMANCE_SPOOL    
-**Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].   
+**Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].   
   
 Impede que um operador de spool seja adicionado aos planos de consulta (exceto para os planos em que o spool é necessário para assegurar uma semântica de atualização válida). O operador de spool pode reduzir o desempenho em alguns cenários. Por exemplo, o spool usa o tempdb e a contenção do tempdb pode ocorrer se há várias consultas simultâneas em execução com as operações de spool.  
   
@@ -296,7 +296,7 @@ Força o otimizador de consulta a tentar um plano que trabalhe para o tamanho m�
 Se um plano não for possível, o otimizador de consulta retornará um erro, em vez de adiar a detecção de erros para a execução da consulta. Linhas podem conter colunas de tamanho variável. O [!INCLUDE[ssDE](../../includes/ssde-md.md)] permite definir linhas com o tamanho potencial máximo para além da capacidade de processamento do [!INCLUDE[ssDE](../../includes/ssde-md.md)]. Geralmente, apesar do tamanho potencial máximo, um aplicativo armazena linhas cujos tamanhos reais estão dentro dos limites de processamento do [!INCLUDE[ssDE](../../includes/ssde-md.md)]. Se o [!INCLUDE[ssDE](../../includes/ssde-md.md)] encontrar uma linha longa demais, será retornado um erro de execução.  
  
 <a name="use_hint"></a> USE HINT ( **'** _hint\_name_ **'** )    
- **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].
+ **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].
  
 Fornece uma ou mais dicas adicionais ao processador de consultas. As dicas adicionais são especificadas por um nome de dica **entre aspas simples**.   
 
@@ -359,7 +359,7 @@ Os seguintes nomes de dica são compatíveis:
     
 *  'QUERY_PLAN_PROFILE'      
  Permite a criação de perfil leve para a consulta. Quando uma consulta que contém essa nova dica é concluída, um novo Evento Estendido, query_plan_profile, é disparado. Esse evento estendido expõe as estatísticas de execução e o plano de execução real XML semelhante ao evento estendido query_post_execution_showplan, mas apenas para consultas que contêm a nova dica.    
-   **Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11). 
+   **Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 CU3 e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU11). 
 
    > [!NOTE]
    > Se você habilitar a coleta de evento estendido query_post_execution_showplan, isso adicionará a infraestrutura de criação de perfil padrão a cada consulta que esteja sendo executada no servidor e, portanto, poderá afetar o desempenho geral do servidor.      

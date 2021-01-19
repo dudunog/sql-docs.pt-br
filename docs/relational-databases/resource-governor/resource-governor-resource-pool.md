@@ -14,12 +14,12 @@ helpviewer_keywords:
 ms.assetid: 306b6278-e54f-42e6-b746-95a9315e0cbe
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: d7de8dcd6291330e2e18136e2c16e16b36f3ef71
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 4028f19dc9d7ac319b083b5e6077021da59e7a9b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96506560"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172308"
 ---
 # <a name="resource-governor-resource-pool"></a>Pool de recursos do Administrador de Recursos
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -105,7 +105,7 @@ O pool interno representa os recursos consumidos pelo próprio [!INCLUDE[ssNoVer
   
 **Pool padrão**  
   
-O pool padrão é o primeiro pool definido previamente pelo usuário. Antes de qualquer configuração, o pool padrão só contém o grupo padrão. O pool padrão não pode ser criado ou descartado, mas pode ser alterado. O pool padrão pode conter grupos definidos pelo usuário além do grupo padrão. A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] , há um pool de recursos padrão para operações de rotina do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e um pool de recursos externos padrão para processos externos, como a execução de scripts R.  
+O pool padrão é o primeiro pool definido previamente pelo usuário. Antes de qualquer configuração, o pool padrão só contém o grupo padrão. O pool padrão não pode ser criado ou descartado, mas pode ser alterado. O pool padrão pode conter grupos definidos pelo usuário além do grupo padrão. A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] , há um pool de recursos padrão para operações de rotina do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] e um pool de recursos externos padrão para processos externos, como a execução de scripts R.  
   
 > [!NOTE]  
 >  O grupo padrão pode ser alterado, mas não pode ser se movido do pool padrão.  

@@ -14,12 +14,12 @@ ms.assetid: 867a54b8-5be4-46e6-9702-49ae6dabf67c
 author: stevestein
 ms.author: sstein
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: fdd110fd51d42ae13054a5d189c1180a9af623ee
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 933532a516f18aab01e1a32584590d65940c75b6
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97484508"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170198"
 ---
 # <a name="create-foreign-key-relationships"></a>Criar relações de chaves estrangeiras
 
@@ -42,7 +42,7 @@ Criar uma chave estrangeira em uma tabela existente requer a permissão [ALTER](
 - As restrições FOREIGN KEY podem fazer referência à outra coluna da mesma tabela e são autorreferenciadas.
 - Uma restrição FOREIGN KEY especificada no nível da coluna pode listar apenas uma coluna de referência. Essa coluna deve ter o mesmo tipo de dados da coluna na qual a restrição foi definida.
 - Uma restrição FOREIGN KEY especificada no nível da tabela deve ter o mesmo número de colunas de referência da lista de colunas de restrição. O tipo de dados de cada coluna de referência também deve ser igual ao da coluna correspondente na lista de colunas.
-- O [!INCLUDE[ssDE](../../includes/ssde-md.md)] não tem um limite predefinido do número de restrições FOREIGN KEY que uma tabela pode conter para fazer referência a outras tabelas. O [!INCLUDE[ssDE](../../includes/ssde-md.md)] também não limita o número de restrições FOREIGN KEY pertencentes a outras tabelas que fazem referência a uma tabela específica. Entretanto, o número real de restrições FOREIGN KEY usado é limitado pela configuração do hardware e pelo design do banco de dados e do aplicativo. Uma tabela pode fazer referência a no máximo 253 outras tabelas e colunas como chaves estrangeiras (referências de saída). O [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior aumenta de 253 para 10.000 o limite para o número de outras tabelas e colunas que podem fazer referência a colunas em uma tabela (referências de entrada). (Requer, no mínimo, o nível de compatibilidade 130.) O aumento tem as seguintes restrições:
+- O [!INCLUDE[ssDE](../../includes/ssde-md.md)] não tem um limite predefinido do número de restrições FOREIGN KEY que uma tabela pode conter para fazer referência a outras tabelas. O [!INCLUDE[ssDE](../../includes/ssde-md.md)] também não limita o número de restrições FOREIGN KEY pertencentes a outras tabelas que fazem referência a uma tabela específica. Entretanto, o número real de restrições FOREIGN KEY usado é limitado pela configuração do hardware e pelo design do banco de dados e do aplicativo. Uma tabela pode fazer referência a no máximo 253 outras tabelas e colunas como chaves estrangeiras (referências de saída). O [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior aumenta de 253 para 10.000 o limite para o número de outras tabelas e colunas que podem fazer referência a colunas em uma tabela (referências de entrada). (Requer, no mínimo, o nível de compatibilidade 130.) O aumento tem as seguintes restrições:
 
   - Há suporte para mais de 253 referências de chave estrangeira em operações DELETE and UPDATE DML. Não há suporte para operações MERGE.
   - Uma tabela com uma referência de chave estrangeira a ela mesma ainda é limitada a 253 referências de chave estrangeira.

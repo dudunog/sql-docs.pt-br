@@ -12,17 +12,17 @@ ms.assetid: b0a248a4-4488-4cc8-89fc-46906a8c24a1
 author: MightyPen
 ms.author: genemi
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 2e16ef746dd970926e61098eb66e8f8ddf6a98b1
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ddc8c6bf630994b66ecd2977edc44bec888a0e8e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97438739"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172668"
 ---
 # <a name="table-and-row-size-in-memory-optimized-tables"></a>Tamanho da tabela e da linha em tabelas com otimização de memória
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
 
-Antes do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], o tamanho dos dados na linha de uma tabela com otimização de memória não podia ter mais de [8.060 bytes](?viewFallbackFrom=sql-server-2014). No entanto, no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e no Banco de Dados SQL do Azure, agora é possível criar uma tabela com otimização de memória com várias colunas grandes [por exemplo, várias colunas de varbinary(8000)] e colunas LOB [ou seja, varbinary(max), varchar(max) e nvarchar(max)] e executar operações nela usando módulos T-SQL e tipos de tabela compilados nativamente. 
+Antes do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], o tamanho dos dados na linha de uma tabela com otimização de memória não podia ter mais de [8.060 bytes](?viewFallbackFrom=sql-server-2014). No entanto, no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e no Banco de Dados SQL do Azure, agora é possível criar uma tabela com otimização de memória com várias colunas grandes [por exemplo, várias colunas de varbinary(8000)] e colunas LOB [ou seja, varbinary(max), varchar(max) e nvarchar(max)] e executar operações nela usando módulos T-SQL e tipos de tabela compilados nativamente. 
   
 Colunas que não se ajustam ao limite de tamanho de linha de 8.060 bytes são colocadas fora de linha, em uma tabela interna separada. Cada coluna fora de linha tem uma tabela interna correspondente, que por sua vez, tem um único índice não clusterizado. Para obter detalhes sobre essas tabelas internas usadas para colunas fora da linha, consulte [sys.memory_optimized_tables_internal_attributes &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-memory-optimized-tables-internal-attributes-transact-sql.md). 
  

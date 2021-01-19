@@ -27,12 +27,12 @@ ms.assetid: b23e2f6b-076c-4e6d-9281-764bdb616ad2
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: f830b33303c626afe27e6e509348d13336a5daea
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: d0e799f28d327204707298dc63a4fb1a8470fa2f
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98102383"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170518"
 ---
 # <a name="create-statistics-transact-sql"></a>CREATE STATISTICS (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -171,7 +171,7 @@ CREATE STATISTICS statistics_name
  > [!NOTE]
  > Se a tabela estiver truncada, todas as estatísticas criadas no HoBT truncado serão revertidas para usar a porcentagem de amostragem padrão.
 
- **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] (no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP1 CU4 em diante) e posterior (no [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU1 em diante).    
+ **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] (no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP1 CU4 em diante) e posterior (no [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU1 em diante).    
   
  STATS_STREAM **=** _stats_stream_  
  [!INCLUDE[ssInternalOnly](../../includes/ssinternalonly-md.md)]  
@@ -202,7 +202,7 @@ CREATE STATISTICS statistics_name
 **Aplica-se a**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] e posterior.  
   
 MAXDOP = *max_degree_of_parallelism*  
-**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU3).  
+**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 e [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU3).  
   
  Substitui a opção de configuração **max degree of parallelism** enquanto durar a operação estatística. Para obter mais informações, veja [Configurar a opção max degree of parallelism de configuração de servidor](../../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md). Use MAXDOP para limitar o número de processadores usados em uma execução de plano paralelo. O máximo é de 64 processadores.  
   

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.assetid: 6a0c9b6a-cf71-4311-82f2-12c445f63935
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: d28d41c85b267d3920e62773f3694cabb252c64b
-ms.sourcegitcommit: 5a1ed81749800c33059dac91b0e18bd8bb3081b1
+ms.openlocfilehash: e1dcbea42043d1077dd2b0c9e0f1127c9319842b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96125453"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170738"
 ---
 # <a name="sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service"></a>Backup e restauração do SQL Server com o Serviço de Armazenamento de Blobs do Microsoft Azure
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "96125453"
   
  O SQL Server dá suporte ao armazenamento de backups no serviço de armazenamento de Blobs do Microsoft Azure, das seguintes maneiras:  
   
--   **Gerencie os backups para o Microsoft Azure:** usando os mesmos métodos usados para fazer backup em DISCO e FITA, agora você pode fazer backup para o armazenamento do Microsoft Azure especificando a URL como o destino do backup. Você pode usar esse recurso para fazer backup ou configurar manualmente sua própria estratégia de backup, como faria em um armazenamento local ou em outras opções fora do local. Esse recurso também é conhecido como **Backup do SQL Server para URL**. Para saber mais, confira [SQL Server Backup to URL](../../relational-databases/backup-restore/sql-server-backup-to-url.md). Esse recurso está disponível no SQL Server 2012 SP1 CU2 ou posterior. Esse recurso foi aprimorado no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] para fornecer melhor desempenho e funcionalidade com o uso de blobs de bloco, assinaturas de acesso compartilhado e distribuição.  
+-   **Gerencie os backups para o Microsoft Azure:** usando os mesmos métodos usados para fazer backup em DISCO e FITA, agora você pode fazer backup para o armazenamento do Microsoft Azure especificando a URL como o destino do backup. Você pode usar esse recurso para fazer backup ou configurar manualmente sua própria estratégia de backup, como faria em um armazenamento local ou em outras opções fora do local. Esse recurso também é conhecido como **Backup do SQL Server para URL**. Para saber mais, confira [SQL Server Backup to URL](../../relational-databases/backup-restore/sql-server-backup-to-url.md). Esse recurso está disponível no SQL Server 2012 SP1 CU2 ou posterior. Esse recurso foi aprimorado no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] para fornecer melhor desempenho e funcionalidade com o uso de blobs de bloco, assinaturas de acesso compartilhado e distribuição.  
   
     > [!NOTE]  
     >  Para as versões do SQL Server anteriores ao SQL Server 2012 SP1 CU2, você pode usar o suplemento Ferramenta de Backup do SQL Server para o Microsoft Azure para criar backups no armazenamento do Microsoft Azure com rapidez e facilidade. Para obter mais informações, consulte [centro de download](https://go.microsoft.com/fwlink/?LinkID=324399).  
@@ -42,7 +42,7 @@ ms.locfileid: "96125453"
 -   Armazenamento externo flexível, confiável e ilimitado: armazenar os backups no serviço Blob do Microsoft Azure pode ser uma opção conveniente, flexível e de fácil acesso externo. Criar o armazenamento externo para backups do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] pode ser tão fácil quanto modificar scripts/trabalhos existentes. O armazenamento externo deve estar, normalmente, distante o suficiente do local do banco de dados de produção para evitar um único desastre que possa afetar os locais dos bancos de dados externo e de produção. Ao optar por replicar geograficamente o armazenamento de Blob, você terá uma camada adicional de proteção caso ocorra algum desastre que possa afetar a região inteira. Além disso, os backups estão disponíveis em qualquer lugar e a qualquer momento, e podem ser facilmente acessados para restaurações.  
   
     > [!IMPORTANT]  
-    >  Com o uso de blobs de bloco no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], você pode distribuir o conjunto de backup para dar suporte a arquivos de backup com tamanho de até 12,8 TB.  
+    >  Com o uso de blobs de bloco no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], você pode distribuir o conjunto de backup para dar suporte a arquivos de backup com tamanho de até 12,8 TB.  
   
 -   Arquivamento do backup: o serviço de armazenamento de Blobs do Microsoft Azure oferece uma alternativa melhor para a opção de fita geralmente usada para arquivar backups. O armazenamento em fita pode exigir o transporte físico para uma instalação externa e medidas para proteger a mídia. O armazenamento dos backups no armazenamento de Blobs do Microsoft Azure oferece uma opção de arquivamento imediata, altamente disponível e durável.  
   

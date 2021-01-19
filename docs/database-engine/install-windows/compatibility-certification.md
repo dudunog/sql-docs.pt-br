@@ -19,12 +19,12 @@ ms.assetid: 3c036813-36cf-4415-a0c9-248d0a433856
 author: pmasl
 ms.author: pelopes
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 82d5aee8d0fa37ca66c49cf00b22385a896c653d
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 14b78d968fcb3350c488c9353df6017c4616f632
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98091767"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170898"
 ---
 # <a name="compatibility-certification"></a>Certificação de compatibilidade
 
@@ -37,7 +37,7 @@ O mesmo [!INCLUDE[ssde_md](../../includes/ssde_md.md)] alimenta [!INCLUDE[ssNoVe
 Para cada nova versão de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], o nível de compatibilidade padrão é definido como a versão do [!INCLUDE[ssDE](../../includes/ssde-md.md)]. Mas o nível de compatibilidade de versões anteriores é preservado para garantir a compatibilidade contínua dos aplicativos existentes. Essa matriz de compatibilidade pode ser vista [aqui](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#supported-dbcompats).
 Portanto, um aplicativo que foi certificado para funcionar com uma determinada versão do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] **estava, de fato, certificado para funcionar no nível de compatibilidade padrão dessa versão**.
 
-Por exemplo, o nível de compatibilidade do banco de dados 130 era o padrão em [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Como os níveis de compatibilidade forçam comportamentos de otimização de consulta e funcionais do [!INCLUDE[tsql](../../includes/tsql-md.md)] específicos, **um banco de dados certificado para trabalhar no [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] foi certificado implicitamente no nível de compatibilidade do banco de dados 130**. Esse banco de dados pode funcionar no estado em que se encontra em uma versão mais recente de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (como [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]) e [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)], desde que o nível de compatibilidade do banco de dados seja mantido como 130. 
+Por exemplo, o nível de compatibilidade do banco de dados 130 era o padrão em [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Como os níveis de compatibilidade forçam comportamentos de otimização de consulta e funcionais do [!INCLUDE[tsql](../../includes/tsql-md.md)] específicos, **um banco de dados certificado para trabalhar no [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] foi certificado implicitamente no nível de compatibilidade do banco de dados 130**. Esse banco de dados pode funcionar no estado em que se encontra em uma versão mais recente de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (como [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)]) e [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)], desde que o nível de compatibilidade do banco de dados seja mantido como 130. 
 
 Esse é um princípio fundamental do modelo de operação de integração contínua do [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)]. O [!INCLUDE[ssde_md](../../includes/ssde_md.md)] é continuamente aprimorado e atualizado no Azure, mas como os bancos de dados existentes mantêm seu nível de compatibilidade atual, eles continuam funcionando conforme projetado após as atualizações no [!INCLUDE[ssde_md](../../includes/ssde_md.md)] subjacente. 
 
@@ -95,7 +95,7 @@ Para atualizar o [!INCLUDE[ssde_md](../../includes/ssde_md.md)] para a versão m
 Isso pode ser feito facilmente usando a ferramenta [DMA (Assistente de Migração de Dados da Microsoft)](https://www.microsoft.com/download/details.aspx?id=53595). A ausência de erros na saída da ferramenta AMD, sobre a funcionalidade ausente ou incompatível, protege o aplicativo de qualquer regressão funcional na nova versão de destino. Se for necessário realizar alterações para garantir que o seu banco de dados funcione na nova versão, o DMA permitirá que você identifique quando as alterações são necessárias e quais soluções alternativas estão disponíveis. Para obter mais informações, confira [Visão geral do Assistente de Migração de Dados](../../dma/dma-overview.md).   
 
 > [!TIP]
-> Essa validação funcional é especialmente importante ao mover um banco de dados de uma versão herdada (como [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] ou [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]) para uma nova versão do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ou do [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)], porque o código do aplicativo pode estar usando um [!INCLUDE[tsql](../../includes/tsql-md.md)] descontinuado que não está protegido pelo nível de compatibilidade do banco de dados. Mas, quando estiver migrando de uma versão mais recente (como [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]) para [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] ou [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], não precisará se preocupar com nenhum [!INCLUDE[tsql](../../includes/tsql-md.md)] descontinuado. Para saber mais sobre o [!INCLUDE[tsql](../../includes/tsql-md.md)] descontinuado, confira [Usar níveis de compatibilidade para compatibilidade com versões anteriores](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#backwardCompat).
+> Essa validação funcional é especialmente importante ao mover um banco de dados de uma versão herdada (como [!INCLUDE[ssKilimanjaro](../../includes/ssKilimanjaro-md.md)] ou [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)]) para uma nova versão do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ou do [!INCLUDE[ssazure_md](../../includes/ssazure_md.md)], porque o código do aplicativo pode estar usando um [!INCLUDE[tsql](../../includes/tsql-md.md)] descontinuado que não está protegido pelo nível de compatibilidade do banco de dados. Mas, quando estiver migrando de uma versão mais recente (como [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]) para [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] ou [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], não precisará se preocupar com nenhum [!INCLUDE[tsql](../../includes/tsql-md.md)] descontinuado. Para saber mais sobre o [!INCLUDE[tsql](../../includes/tsql-md.md)] descontinuado, confira [Usar níveis de compatibilidade para compatibilidade com versões anteriores](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md#backwardCompat).
 
 > [!NOTE]
 > O AMD é compatível com o nível de compatibilidade do banco de dados de 100 ou mais. [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] como a versão de origem é excluído.   

@@ -24,12 +24,12 @@ helpviewer_keywords:
 ms.assetid: d54aa325-8761-4cd4-8da7-acf33df12296
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 385a84a0f92c41cbf661abe327d244a2e9b6ebd3
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 09303d17e8cb284251d9c8e585eeadb5a1a1e898
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98092069"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170838"
 ---
 # <a name="alter-queue-transact-sql"></a>ALTER QUEUE (Transact-SQL)
 [!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -107,12 +107,12 @@ WITH
  Especifica se a fila ativa ou não o procedimento armazenado. Quando o STATUS = ON, a fila começa o procedimento armazenado especificado com PROCEDURE_NAME quando o número de procedimentos atualmente sendo executados for menos que MAX_QUEUE_READERS e quando as mensagens chegarem à fila mais rápido do que os procedimentos armazenados recebam as mensagens. Quando o STATUS = OFF, a fila não ativa o procedimento armazenado.  
   
  REBUILD [ WITH \<queue_rebuild_options> ]  
- **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.  
+ **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.  
   
  Recompila todos os índices na tabela interna da fila. Use esse recurso quando estiver com problemas de fragmentação devido à alta carga. MAXDOP é a única opção de recompilação de fila com suporte. REBUILD sempre é uma operação offline.  
   
  REORGANIZE [ WITH ( LOB_COMPACTION = { ON | OFF } ) ]  
- **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.  
+ **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.  
   
  Reorganize todos os índices na tabela interna da fila.   
 Ao contrário de REORGANIZE em tabelas de usuário, REORGANIZE em uma fila sempre é executada como uma operação offline porque os bloqueios no nível da página são desabilitados explicitamente nas filas.  
@@ -121,7 +121,7 @@ Ao contrário de REORGANIZE em tabelas de usuário, REORGANIZE em uma fila sempr
 >  Para obter as diretrizes gerais sobre a fragmentação de índice, quando a fragmentação estiver entre 5% e 30%, reorganize o índice. Quando a fragmentação estiver acima de 30%, recompile o índice. No entanto, esses números são apenas para diretrizes gerais como um ponto inicial para o seu ambiente. Para determinar a quantidade de fragmentação de índice, use [sys.dm_db_index_physical_stats &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-db-index-physical-stats-transact-sql.md) – confira o exemplo G neste artigo para obter exemplos.  
   
  MOVE TO { *file_group* | "default" }  
- **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.  
+ **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.  
   
  Move a tabela interna da fila (com seus índices) para um grupo de arquivos especificado pelo usuário.  O novo grupo de arquivos não pode ser somente leitura.  
   
@@ -226,7 +226,7 @@ ALTER QUEUE ExpenseQueue WITH ACTIVATION (DROP) ;
   
 ### <a name="g-rebuilding-queue-indexes"></a>G. Recompilando índices de fila  
   
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.  
   
  O exemplo a seguir recompila índices de fila  
   
@@ -236,7 +236,7 @@ ALTER QUEUE ExpenseQueue REBUILD WITH (MAXDOP = 2)
   
 ### <a name="h-reorganizing-queue-indexes"></a>H. Reorganizando índices de fila  
   
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.  
   
  O exemplo a seguir reorganiza índices de fila  
   
@@ -246,7 +246,7 @@ ALTER QUEUE ExpenseQueue REORGANIZE
   
 ### <a name="i-moving-queue-internal-table-to-another-filegroup"></a>I: movendo a tabela interna da fila para outro grupo de arquivos  
   
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.  
   
 ```sql  
 ALTER QUEUE ExpenseQueue MOVE TO [NewFilegroup]   

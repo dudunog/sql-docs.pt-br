@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 1ad468f5-4f75-480b-aac6-0b01b048bd67
 author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 6598dc9812aed56b170c22d0ed1b4a470c5f7209
-ms.sourcegitcommit: cb8e2ce950d8199470ff1259c9430f0560f0dc1d
+ms.openlocfilehash: 47bb374abb29374fade7a4c2c158ea4e76abe71b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97878742"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171738"
 ---
 # <a name="database-instant-file-initialization"></a>Inicialização imediata de arquivo do banco de dados
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -46,7 +46,7 @@ A inicialização instantânea de arquivo estará disponível somente se a [!INC
 > O uso de alguns recursos, como o [TDE (Transparent Data Encryption)](../../relational-databases/security/encryption/transparent-data-encryption.md), pode impedir a Inicialização Instantânea de Arquivo.  
 
 > [!NOTE]
-> A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], essa permissão pode ser concedida à conta de serviço no momento da instalação. <br><br>Se estiver usando a [instalação do prompt de comando](../../database-engine/install-windows/install-sql-server-from-the-command-prompt.md), adicione o argumento /SQLSVCINSTANTFILEINIT ou marque a caixa *Conceder privilégio Realizar Tarefa de Manutenção de Volume para o Serviço de Mecanismo de Banco de Dados do SQL Server* no [assistente de instalação](../../database-engine/install-windows/install-sql-server-from-the-installation-wizard-setup.md).
+> A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], essa permissão pode ser concedida à conta de serviço no momento da instalação. <br><br>Se estiver usando a [instalação do prompt de comando](../../database-engine/install-windows/install-sql-server-from-the-command-prompt.md), adicione o argumento /SQLSVCINSTANTFILEINIT ou marque a caixa *Conceder privilégio Realizar Tarefa de Manutenção de Volume para o Serviço de Mecanismo de Banco de Dados do SQL Server* no [assistente de instalação](../../database-engine/install-windows/install-sql-server-from-the-installation-wizard-setup.md).
   
 Para conceder a permissão `Perform volume maintenance tasks` a uma conta:  
   
@@ -65,7 +65,7 @@ Para conceder a permissão `Perform volume maintenance tasks` a uma conta:
 1. Verifique o log de erros do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] na inicialização.
    
   
-    **Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com o [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] SP4, [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 e [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posteriores).
+    **Aplica-se a:** [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (começando com o [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] SP4, [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] SP2 e [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posteriores).
     1. Se a conta de inicialização de serviço do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] tiver a concessão de *SE_MANAGE_VOLUME_NAME*, uma mensagem informativa semelhante à seguinte será registrada no log:
 
         `Database Instant File Initialization: enabled. For security and performance considerations see the topic 'Database Instant File Initialization' in SQL Server Books Online. This is an informational message only. No user action is required.`

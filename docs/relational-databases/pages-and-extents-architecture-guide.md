@@ -15,12 +15,12 @@ ms.assetid: 83a4aa90-1c10-4de6-956b-7c3cd464c2d2
 author: rothja
 ms.author: jroth
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 4fdc13dcfa509ed2df3ec39afe5a9aa591aa6e39
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 22e1a4832e3ef02d2b596ecd0dd4af3a08a7ec6e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97461937"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171868"
 ---
 # <a name="pages-and-extents-architecture-guide"></a>Guia de arquitetura de página e extensões
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -92,12 +92,12 @@ O [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] tem dois tipos de exten
 
 Até, e incluindo, o [!INCLUDE[ssSQL14](../includes/sssql14-md.md)], o [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] não aloca extensões inteiras a tabelas com quantidades pequenas de dados. Uma nova tabela ou índice geralmente aloca páginas de extensões mistas. Quando a tabela ou o índice cresce até adquirir oito páginas, é alternado para usar extensões uniformes para alocações subsequentes. Se um índice for criado em uma tabela existente que tiver linhas suficientes para gerar oito páginas no índice, todas as alocações para o índice estarão em extensões uniformes. 
 
-A partir do [!INCLUDE[ssSQL15](../includes/sssql15-md.md)], o padrão para a maioria das alocações em um banco de dados de usuário e tempdb é usar extensões uniformes, exceto para alocações pertencentes às primeiras oito páginas de uma [cadeia de IAM](#IAM). As alocações para bancos de dados mestre, msdb e de modelo ainda mantêm o comportamento anterior. 
+A partir do [!INCLUDE[ssSQL15](../includes/sssql16-md.md)], o padrão para a maioria das alocações em um banco de dados de usuário e tempdb é usar extensões uniformes, exceto para alocações pertencentes às primeiras oito páginas de uma [cadeia de IAM](#IAM). As alocações para bancos de dados mestre, msdb e de modelo ainda mantêm o comportamento anterior. 
 
 > [!NOTE]
 > Até, e incluindo, o [!INCLUDE[ssSQL14](../includes/sssql14-md.md)], o sinalizador de rastreamento 1118 pode ser usado para alterar a alocação padrão para sempre usar extensões uniformes. Para obter mais informações sobre este sinalizador de rastreamento, consulte [DBCC TRACEON – Sinalizadores de rastreamento](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md).   
 >   
-> Do [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] em diante, a funcionalidade fornecida pelo TF 1118 é habilitada automaticamente no tempdb e em todos os bancos de dados de usuários. Para bancos de dados de usuário, esse comportamento é controlado pela opção `SET MIXED_PAGE_ALLOCATION` de `ALTER DATABASE`, com o valor padrão definido como OFF, e o sinalizador de rastreamento 1118 não tem nenhum efeito. Para obter mais informações, veja [Opções ALTER DATABASE SET (Transact-SQL)](../t-sql/statements/alter-database-transact-sql-set-options.md).
+> Do [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] em diante, a funcionalidade fornecida pelo TF 1118 é habilitada automaticamente no tempdb e em todos os bancos de dados de usuários. Para bancos de dados de usuário, esse comportamento é controlado pela opção `SET MIXED_PAGE_ALLOCATION` de `ALTER DATABASE`, com o valor padrão definido como OFF, e o sinalizador de rastreamento 1118 não tem nenhum efeito. Para obter mais informações, veja [Opções ALTER DATABASE SET (Transact-SQL)](../t-sql/statements/alter-database-transact-sql-set-options.md).
 
 A partir do [!INCLUDE[ssSQL11](../includes/sssql11-md.md)], a função do sistema `sys.dm_db_database_page_allocations` pode relatar informações de alocação de página para um banco de dados, uma tabela, um índice e uma partição.
 

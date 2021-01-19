@@ -64,24 +64,24 @@ Especifica o tempo máximo de CPU, em segundos, que uma solicitação pode usar.
 > [!NOTE]
 > Por padrão, o Resource Governor não impedirá a continuação de uma solicitação se o tempo máximo for excedido. Porém, um evento será gerado. Para obter mais informações, consulte [Classe de evento CPU Threshold Exceeded](../relational-databases/event-classes/cpu-threshold-exceeded-event-class.md).
 > [!IMPORTANT]
-> Começando com o [!INCLUDE[ssSQL15](sssql15-md.md)] SP2 e [!INCLUDE[ssSQL17](sssql17-md.md)] CU3 e usando o [sinalizador de rastreamento 2422](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md), o Resource Governor anulará uma solicitação quando o tempo máximo for excedido.
+> Começando com o [!INCLUDE[ssSQL15](sssql16-md.md)] SP2 e [!INCLUDE[ssSQL17](sssql17-md.md)] CU3 e usando o [sinalizador de rastreamento 2422](../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md), o Resource Governor anulará uma solicitação quando o tempo máximo for excedido.
 
 REQUEST_MEMORY_GRANT_TIMEOUT_SEC = *valor*</br>
-Especifica o tempo máximo, em segundos, que uma consulta pode esperar pela disponibilização de uma concessão de memória (memória do buffer do trabalho). *value* precisa ser 0 ou um inteiro positivo. A configuração padrão de *value* , 0, usa um cálculo interno baseado no custo da consulta para determinar o tempo máximo.
+Especifica o tempo máximo, em segundos, que uma consulta pode esperar pela disponibilização de uma concessão de memória (memória do buffer do trabalho). *value* precisa ser 0 ou um inteiro positivo. A configuração padrão de *value*, 0, usa um cálculo interno baseado no custo da consulta para determinar o tempo máximo.
 
 > [!NOTE]
 > Nem sempre uma consulta falha quando o tempo limite de concessão de memória é atingido. A consulta falhará somente se houver muitas consultas simultâneas em execução. Caso contrário, a consulta poderá obter apenas a concessão de memória mínima, resultando em uma queda no desempenho de consulta.
 
 MAX_DOP = *valor*</br>
-Especifica o **grau máximo de paralelismo (MAXDOP)** para execução de consulta paralela. *value* precisa ser 0 ou um inteiro positivo. O intervalo permitido para *value* é de 0 a 64. A configuração padrão para *value* , 0, usa a configuração global. MAX_DOP é tratado como segue:
+Especifica o **grau máximo de paralelismo (MAXDOP)** para execução de consulta paralela. *value* precisa ser 0 ou um inteiro positivo. O intervalo permitido para *value* é de 0 a 64. A configuração padrão para *value*, 0, usa a configuração global. MAX_DOP é tratado como segue:
 
 > [!NOTE]
-> O grupo de cargas de trabalho do MAX_DOP substitui a [configuração de servidor para o grau máximo de paralelismo](../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md) e a [configuração no escopo do banco de dados](../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) do **MAXDOP** .
+> O grupo de cargas de trabalho do MAX_DOP substitui a [configuração de servidor para o grau máximo de paralelismo](../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md) e a [configuração no escopo do banco de dados](../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) do **MAXDOP**.
 
 > [!TIP]
-> Para fazer isso no nível da consulta, use o **MAXDOP** , [dica de consulta](../t-sql/queries/hints-transact-sql-query.md). Definir o grau máximo de paralelismo como uma dica de consulta funciona, desde que não exceda o grupo de carga de trabalho do MAX_DOP. Se o valor de dica de consulta do MAXDOP ultrapassar o valor configurado no Resource Governor, o [!INCLUDE[ssDEnoversion](ssdenoversion-md.md)] usará o valor `MAX_DOP` do Resource Governor. A [dica de consulta](../t-sql/queries/hints-transact-sql-query.md) do MAXDOP sempre substitui a [configuração de servidor para o grau máximo de paralelismo](../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md).
+> Para fazer isso no nível da consulta, use o **MAXDOP**, [dica de consulta](../t-sql/queries/hints-transact-sql-query.md). Definir o grau máximo de paralelismo como uma dica de consulta funciona, desde que não exceda o grupo de carga de trabalho do MAX_DOP. Se o valor de dica de consulta do MAXDOP ultrapassar o valor configurado no Resource Governor, o [!INCLUDE[ssDEnoversion](ssdenoversion-md.md)] usará o valor `MAX_DOP` do Resource Governor. A [dica de consulta](../t-sql/queries/hints-transact-sql-query.md) do MAXDOP sempre substitui a [configuração de servidor para o grau máximo de paralelismo](../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md).
 >
-> Para fazer isso no nível do banco de dados, use a [configuração com escopo no banco de dados](../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) do **MAXDOP** .
+> Para fazer isso no nível do banco de dados, use a [configuração com escopo no banco de dados](../t-sql/statements/alter-database-scoped-configuration-transact-sql.md) do **MAXDOP**.
 >
 > Para fazer isso no nível do servidor, use o **MAXDOP (grau máximo de paralelismo)** na [opção de configuração do servidor](../database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option.md).
 
@@ -89,7 +89,7 @@ GROUP_MAX_REQUESTS = *valor*</br>
 Especifica o número máximo de solicitações simultâneas permitido para execução no grupo de carga de trabalho. *value* precisa ser 0 ou um inteiro positivo. A configuração padrão de *valor* é 0 e permite solicitações ilimitadas. Quando as solicitações simultâneas máximas são alcançadas, um usuário nesse grupo pode fazer logon, mas é colocado em um estado de espera até que as solicitações simultâneas sejam ignoradas abaixo do valor especificado.
 
 USING { *pool_name* |  **"default"** }</br>
-Associa o grupo de carga de trabalho ao pool de recursos definido pelo usuário, identificado por *pool_name* . Na realidade, isso coloca o grupo de carga de trabalho no pool de recursos. Se *pool_name* não for fornecido ou se o argumento USING não for usado, o grupo de carga de trabalho será colocado no pool padrão predefinido do Resource Governor.
+Associa o grupo de carga de trabalho ao pool de recursos definido pelo usuário, identificado por *pool_name*. Na realidade, isso coloca o grupo de carga de trabalho no pool de recursos. Se *pool_name* não for fornecido ou se o argumento USING não for usado, o grupo de carga de trabalho será colocado no pool padrão predefinido do Resource Governor.
 
 "default" é uma palavra reservada e, quando usada com USING, deve ficar entre aspas ("") ou colchetes ([]).
 
@@ -97,7 +97,7 @@ Associa o grupo de carga de trabalho ao pool de recursos definido pelo usuário,
 > Grupos de cargas de trabalho e pools de recursos predefinidos usam nomes em letras minúsculas, como "default". Isso deve ser levado em consideração nos servidores que usam ordenação com diferenciação de maiúsculas e minúsculas. Os servidores com ordenação sem diferenciação de maiúsculas e minúsculas, como SQL_Latin1_General_CP1_CI_AS, tratarão "default" e "Default" da mesma maneira.
 
 EXTERNAL external_pool_name | "padrão"</br>
-**Aplica-se a:** [!INCLUDE[ssNoVersion](ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](sssql15-md.md)]).
+**Aplica-se a:** [!INCLUDE[ssNoVersion](ssnoversion-md.md)] (começando com [!INCLUDE[ssSQL15](sssql16-md.md)]).
 
 O grupo de carga de trabalho pode especificar um pool de recursos externo. Você pode definir um grupo de carga de trabalho e associá-lo a dois pools:
 

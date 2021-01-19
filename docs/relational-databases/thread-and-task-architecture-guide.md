@@ -23,12 +23,12 @@ ms.assetid: 925b42e0-c5ea-4829-8ece-a53c6cddad3b
 author: pmasl
 ms.author: jroth
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 8b2e8810783bb3341f10b21c3068881558dfc611
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 02ddc1ad96f45ba67ed613ee7446d8a1c12e1e5b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97403782"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171398"
 ---
 # <a name="thread-and-task-architecture-guide"></a>guia de arquitetura de threads e tarefas
 [!INCLUDE [SQL Server Azure SQL Database](../includes/applies-to-version/sql-asdb.md)]
@@ -74,7 +74,7 @@ Em resumo, uma **solicitação** poderá gerar uma ou mais **tarefas** para conc
 > -  O Trabalho 2 está executando tarefas mais curtas, de menos de milissegundos, e precisa ser suspenso antes que seu quantum completo seja esgotado.     
 >
 > Nesse cenário e até [!INCLUDE[ssSQL14](../includes/sssql14-md.md)], o Trabalho 1 tem permissão para, basicamente, monopolizar o agendador tendo mais tempo de quantum em geral.   
-> Começando no [!INCLUDE[ssSQL15](../includes/sssql15-md.md)], o agendamento cooperativo inclui o agendamento LDF (Large Deficit First ou Déficit grande primeiro). Com o agendamento LDF, os padrões de uso do quantum são monitorados e um thread de trabalho não monopoliza um agendador. No mesmo cenário, o Trabalho 2 tem permissão para consumir o quantum repetidamente antes que o Trabalho 1 tenha acesso a mais quantum, evitando assim que o Trabalho 1 monopolize o agendador em um padrão hostil.
+> Começando no [!INCLUDE[ssSQL15](../includes/sssql16-md.md)], o agendamento cooperativo inclui o agendamento LDF (Large Deficit First ou Déficit grande primeiro). Com o agendamento LDF, os padrões de uso do quantum são monitorados e um thread de trabalho não monopoliza um agendador. No mesmo cenário, o Trabalho 2 tem permissão para consumir o quantum repetidamente antes que o Trabalho 1 tenha acesso a mais quantum, evitando assim que o Trabalho 1 monopolize o agendador em um padrão hostil.
 
 ### <a name="scheduling-parallel-tasks"></a>Como agendar tarefas paralelas
 Imagine um [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] configurado com um MaxDOP 8, bem como a afinidade da CPU configurada para 24 CPUs (agendadores) em nós NUMA 0 e 1. Os agendadores de 0 a 11 pertencerão ao nó NUMA 0, os agendadores de 12 a 23 pertencerão ao nó NUMA 1. Um aplicativo enviará a seguinte consulta (solicitação) para o [!INCLUDE[ssde_md](../includes/ssde_md.md)]:

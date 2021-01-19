@@ -31,12 +31,12 @@ ms.assetid: f76fbd84-df59-4404-806b-8ecb4497c9cc
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 monikerRange: =azuresqldb-current||=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azure-sqldw-latest||=azuresqldb-mi-current
-ms.openlocfilehash: 652a4b13db3fdd98b774a5c884e68848a3b0b847
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: d02a4199775c519602e88573c7fbca72c1e8f9a9
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98099559"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170478"
 ---
 # <a name="alter-database-set-options-transact-sql"></a>Opções ALTER DATABASE SET (Transact-SQL)
 
@@ -738,7 +738,7 @@ Um nome de diretório compatível com o Windows. Esse nome deve ser exclusivo en
 Veja [ALTER DATABASE SET HADR](../../t-sql/statements/alter-database-transact-sql-set-hadr.md).
 
 **\<mixed_page_allocation_option> ::=**      
-**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)])
+**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)])
 
 Controla se o banco de dados pode criar páginas iniciais usando uma extensão mista para as oito primeiras páginas de uma tabela ou um índice.
 
@@ -764,7 +764,7 @@ O [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] parametriza todas as
 A configuração atual dessa opção pode ser determinada por meio do exame da `is_parameterization_forced column` na exibição de catálogo [sys.databases](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md).
 
 <a name="query-store"></a> **\<query_store_options> ::=**      
-**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)])
+**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)])
 
 ON | **OFF** [ ( FORCED )  ] | CLEAR [ ALL ]     
 Controla se o Repositório de Consultas está habilitado neste banco de dados, além de controlar a remoção do conteúdo do Repositório de Consultas. Para obter mais informações, confira [Cenários de uso do Repositório de Consultas](../../relational-databases/performance/query-store-usage-scenarios.md).
@@ -773,7 +773,7 @@ ATIVADO
 Habilita o Repositório de Consultas.
 
 OFF [ ( FORCED ) ]      
-Desabilita o Repositório de Consultas. OFF é o valor padrão. FORCED é opcional. FORCED anula todas as tarefas em execução em segundo plano do Repositório de Consultas e ignora a liberação síncrona quando o Repositório de Consultas é desativado. Faz com que o Repositório de Consultas seja desligado o mais rápido possível. FORCED aplica-se a [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 CU14, [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU21, [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] CU6 e builds posteriores.
+Desabilita o Repositório de Consultas. OFF é o valor padrão. FORCED é opcional. FORCED anula todas as tarefas em execução em segundo plano do Repositório de Consultas e ignora a liberação síncrona quando o Repositório de Consultas é desativado. Faz com que o Repositório de Consultas seja desligado o mais rápido possível. FORCED aplica-se a [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 CU14, [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)] CU21, [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] CU6 e builds posteriores.
 
 > [!NOTE]  
 > O Repositório de Consultas não pode ser desabilitado no banco de dados individual do [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] e no Pool Elástico. Executar `ALTER DATABASE [database] SET QUERY_STORE = OFF` retornará o aviso `'QUERY_STORE=OFF' is not supported in this version of SQL Server.`. 
@@ -797,7 +797,7 @@ DATA_FLUSH_INTERVAL_SECONDS
 Determina a frequência na qual os dados gravados no Repositório de Consultas é persistida em disco. Para otimizar o desempenho, os dados coletados pelo Repositório de Consultas são gravados de maneira assíncrona no disco. A frequência em que essa transferência assíncrona ocorre é configurada usando o argumento DATA_FLUSH_INTERVAL_SECONDS. DATA_FLUSH_INTERVAL_SECONDS é do tipo **bigint**. O valor padrão é **900** (15 min).
 
 MAX_STORAGE_SIZE_MB     
-Determina o espaço emitido para o Repositório de Consultas. MAX_STORAGE_SIZE_MB é do tipo **bigint**. O valor padrão é **100 MB** para [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] ao [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]). No [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] em diante, o valor padrão é **1 GB**.
+Determina o espaço emitido para o Repositório de Consultas. MAX_STORAGE_SIZE_MB é do tipo **bigint**. O valor padrão é **100 MB** para [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] ao [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]). No [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] em diante, o valor padrão é **1 GB**.
 
 > [!NOTE]
 > O limite `MAX_STORAGE_SIZE_MB` não é imposto estritamente. O tamanho do armazenamento é verificado somente quando o Repositório de Consultas grava dados no disco. Esse intervalo é definido pela opção `DATA_FLUSH_INTERVAL_SECONDS` ou pela opção da caixa de diálogo do Repositório de Consultas [!INCLUDE[ssManStudio](../../includes/ssManStudio-md.md)], **Intervalo de Liberação de Dados**. O valor padrão do intervalo é de 900 segundos (ou 15 minutos).
@@ -829,7 +829,7 @@ Designa o modo de captura da consulta ativa no momento. Cada modo define políti
 > Cursores, consultas dentro de procedimentos armazenados e consultas compiladas nativamente são sempre capturados quando o modo de captura de consulta é definido como ALL, AUTO ou CUSTOM.
 
 ALL     
-Captura todas as consultas. **ALL** é o valor de configuração padrão de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] ao [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]).
+Captura todas as consultas. **ALL** é o valor de configuração padrão de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] ao [!INCLUDE[ssSQL17](../../includes/sssql17-md.md)]).
 
 AUTO     
 Captura as consultas relevantes baseadas na contagem de execução e no consumo de recursos. Esse é o valor de configuração padrão de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (no [!INCLUDE[sql-server-2019](../../includes/sssqlv15-md.md)] em diante) e [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)].
@@ -945,7 +945,7 @@ Para obter mais informações sobre mensagens de erro 823, 824 e 825, veja:
 A configuração atual dessa opção pode ser determinada por meio de um exame da coluna `page_verify_option` na exibição de catálogo [sys.databases](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md) ou da propriedade `IsTornPageDetectionEnabled` da função [DATABASEPROPERTYEX](../../t-sql/functions/databasepropertyex-transact-sql.md).
 
 **\<remote_data_archive_option> ::=**      
-**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)])
+**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)])
 
 Habilita ou desabilita o Stretch Database para o banco de dados. Para obter mais informações, consulte [Stretch Database](../../sql-server/stretch-database/stretch-database.md).
 
@@ -1206,7 +1206,7 @@ Você pode determinar o status dessa opção examinando a coluna `is_recursive_t
 **\<target_recovery_time_option> ::=**      
 **Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)])
 
-Especifica a frequência de pontos de verificação indiretos por banco de dados. No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] em diante, o valor padrão para novos bancos de dados é de **1 minuto**, o que indica que o banco de dados usará pontos de verificação indiretos. Para versões mais antigas, o padrão é 0, o que indica que o banco de dados usará pontos de verificação automáticos cuja frequência depende da configuração do intervalo de recuperação da instância de servidor. [!INCLUDE[msCoName](../../includes/msconame-md.md)] recomenda 1 minuto para a maioria dos sistemas.
+Especifica a frequência de pontos de verificação indiretos por banco de dados. No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] em diante, o valor padrão para novos bancos de dados é de **1 minuto**, o que indica que o banco de dados usará pontos de verificação indiretos. Para versões mais antigas, o padrão é 0, o que indica que o banco de dados usará pontos de verificação automáticos cuja frequência depende da configuração do intervalo de recuperação da instância de servidor. [!INCLUDE[msCoName](../../includes/msconame-md.md)] recomenda 1 minuto para a maioria dos sistemas.
 
 TARGET_RECOVERY_TIME **=** *target_recovery_time* { SECONDS | MINUTES }     
 *target_recovery_time*     
@@ -1400,7 +1400,7 @@ SET CHANGE_TRACKING = OFF;
 
 ### <a name="e-enabling-the-query-store"></a>E. Habilitando o repositório de consultas
 
-**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)])
+**Aplica-se ao**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)])
 
 O exemplo a seguir habilita o Repositório de Consultas e configura os parâmetros dele.
 
@@ -2178,7 +2178,7 @@ Você pode determinar o status dessa opção examinando a coluna `is_recursive_t
 Você pode determinar o status dessa opção examinando a coluna `is_recursive_triggers_on` na exibição de catálogo [sys.databases](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md) ou a propriedade `IsRecursiveTriggersEnabled` da função [DATABASEPROPERTYEX](../../t-sql/functions/databasepropertyex-transact-sql.md).
 
 **\<target_recovery_time_option> ::=**      
-Especifica a frequência de pontos de verificação indiretos por banco de dados. No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] em diante, o valor padrão para novos bancos de dados é de 1 minuto, o que indica que o banco de dados usará pontos de verificação indiretos. Para versões mais antigas, o padrão é 0, o que indica que o banco de dados usará pontos de verificação automáticos cuja frequência depende da configuração do intervalo de recuperação da instância de servidor. [!INCLUDE[msCoName](../../includes/msconame-md.md)] recomenda 1 minuto para a maioria dos sistemas.
+Especifica a frequência de pontos de verificação indiretos por banco de dados. No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] em diante, o valor padrão para novos bancos de dados é de 1 minuto, o que indica que o banco de dados usará pontos de verificação indiretos. Para versões mais antigas, o padrão é 0, o que indica que o banco de dados usará pontos de verificação automáticos cuja frequência depende da configuração do intervalo de recuperação da instância de servidor. [!INCLUDE[msCoName](../../includes/msconame-md.md)] recomenda 1 minuto para a maioria dos sistemas.
 
 TARGET_RECOVERY_TIME **=** tempo_de_recuperação_de_destino { SECONDS | MINUTES }     
 *target_recovery_time*     
@@ -2999,7 +2999,7 @@ Você pode determinar o status dessa opção examinando a coluna `is_recursive_t
 Você pode determinar o status dessa opção examinando a coluna `is_recursive_triggers_on` na exibição de catálogo [sys.databases](../../relational-databases/system-catalog-views/sys-databases-transact-sql.md) ou a propriedade `IsRecursiveTriggersEnabled` da função [DATABASEPROPERTYEX](../../t-sql/functions/databasepropertyex-transact-sql.md).
 
 **\<target_recovery_time_option> ::=**      
-Especifica a frequência de pontos de verificação indiretos por banco de dados. No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] em diante, o valor padrão para novos bancos de dados é de **1 minuto**, o que indica que o banco de dados usará pontos de verificação indiretos. Para versões mais antigas, o padrão é 0, o que indica que o banco de dados usará pontos de verificação automáticos cuja frequência depende da configuração do intervalo de recuperação da instância de servidor. [!INCLUDE[msCoName](../../includes/msconame-md.md)] recomenda 1 minuto para a maioria dos sistemas.
+Especifica a frequência de pontos de verificação indiretos por banco de dados. No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] em diante, o valor padrão para novos bancos de dados é de **1 minuto**, o que indica que o banco de dados usará pontos de verificação indiretos. Para versões mais antigas, o padrão é 0, o que indica que o banco de dados usará pontos de verificação automáticos cuja frequência depende da configuração do intervalo de recuperação da instância de servidor. [!INCLUDE[msCoName](../../includes/msconame-md.md)] recomenda 1 minuto para a maioria dos sistemas.
 
 TARGET_RECOVERY_TIME **=** _target_recovery_time_ { SECONDS | MINUTES }     
 *target_recovery_time*     

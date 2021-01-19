@@ -15,18 +15,18 @@ ms.assetid: 7e02a137-6867-4f6a-a45a-2b02674f7e65
 author: cawrites
 ms.author: chadam
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 6ca048300bdfa2a9640a54211f8d82d3120597a6
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 7d4394c5fe4d790668bcc6733ce0aba0f643f7f3
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97483728"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170888"
 ---
 # <a name="change-the-database-compatibility-level-and-use-the-query-store"></a>Alterar o nível de compatibilidade do banco de dados e usar o Repositório de Consultas
 
 [!INCLUDE [SQL Server -Windows Only](../../includes/applies-to-version/sql-windows-only.md)]
 
-No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior, algumas alterações são habilitadas somente quando o [nível de compatibilidade do banco de dados](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md) é alterado. Isso foi feito por vários motivos:  
+No [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior, algumas alterações são habilitadas somente quando o [nível de compatibilidade do banco de dados](../../t-sql/statements/alter-database-transact-sql-compatibility-level.md) é alterado. Isso foi feito por vários motivos:  
   
 - Uma vez que a atualização é uma operação unidirecional (não é possível fazer downgrade do formato de arquivo), há valor em separar a habilitação de novos recursos para uma operação separada dentro do banco de dados. É possível reverter uma configuração para um nível de compatibilidade do banco de dados anterior.  O novo modelo reduz o número de itens que devem ocorrer durante uma janela de interrupção.  
   
@@ -39,7 +39,7 @@ No [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior, algumas altera
 > - Os níveis de compatibilidade dos bancos de dados tempdb, model, msdb e Resource são definidos para o nível de compatibilidade atual após o upgrade.   
 > - O banco de dados do sistema mestre retém o nível de compatibilidade anterior ao upgrade.    
   
-O processo de atualização para habilitar a nova funcionalidade do processador de consulta está relacionado ao modelo de manutenção pós-lançamento do produto.  Algumas dessas correções são liberadas sob o [sinalizador de rastreamento 4199](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md#4199).  Clientes que precisam de correções podem optar por aceitar essas correções sem causar regressões inesperadas para outros clientes. O modelo de manutenção pós-lançamento para hotfixes do processador de consulta é documentado [aqui](https://support.microsoft.com/kb/974006). Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], a mudança para um novo nível de compatibilidade implica no sinalizador de rastreamento 4199 não ser mais necessário, porque essas correções agora estão habilitadas por padrão no último modo de compatibilidade. Portanto, como parte do processo de atualização, é importante validar que o 4199 não está habilitado quando o processo de atualização for concluído.  
+O processo de atualização para habilitar a nova funcionalidade do processador de consulta está relacionado ao modelo de manutenção pós-lançamento do produto.  Algumas dessas correções são liberadas sob o [sinalizador de rastreamento 4199](../../t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql.md#4199).  Clientes que precisam de correções podem optar por aceitar essas correções sem causar regressões inesperadas para outros clientes. O modelo de manutenção pós-lançamento para hotfixes do processador de consulta é documentado [aqui](https://support.microsoft.com/kb/974006). Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], a mudança para um novo nível de compatibilidade implica no sinalizador de rastreamento 4199 não ser mais necessário, porque essas correções agora estão habilitadas por padrão no último modo de compatibilidade. Portanto, como parte do processo de atualização, é importante validar que o 4199 não está habilitado quando o processo de atualização for concluído.  
 
 > [!NOTE]
 > No entanto, o sinalizador de rastreamento 4199 ainda é necessário para habilitar qualquer nova correção de processador de consulta lançada após o RTM, se aplicável.

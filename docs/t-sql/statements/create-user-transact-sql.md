@@ -30,12 +30,12 @@ ms.assetid: 01de7476-4b25-4d58-85b7-1118fe64aa80
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: c88b7acdabad8ff50b15a1dc840b9acf48e91d89
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 446e9fa7dc252da75bc1c14ecf3fbe0fdf92b3e8
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97464117"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170318"
 ---
 # <a name="create-user-transact-sql"></a>CREATE USER (Transact-SQL)
 
@@ -240,7 +240,7 @@ SID = *sid*
  Aplica-se somente a usuários com senhas (autenticação do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]) em um banco de dados independente. Especifica o SID do novo usuário de banco de dados. Se esta opção não for selecionada, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nomeará um SID automaticamente. Use o parâmetro do SID para criar usuários em vários bancos de dados que têm a mesma identidade (SID). Isso é útil ao criar usuários em vários bancos de dados para preparar-se para failover Always On. Para determinar o SID de um usuário, veja sys.database_principals.  
   
 ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = [ ON | **OFF** ]  
- **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].  
+ **Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].  
   
  Suprime as verificações de metadados criptográficos no servidor em operações de cópia em massa. Isso permite que o usuário copie em massa dados criptografado entre tabelas ou bancos de dados sem descriptografá-los. O padrão é OFF.  
   
@@ -458,7 +458,7 @@ CREATE USER CarmenW WITH PASSWORD = 'a8ea v*(Rd##+'
 ### <a name="h-creating-a-user-to-copy-encrypted-data"></a>H. Criando um usuário para copiar os dados criptografados  
  O exemplo a seguir cria um usuário que pode copiar os dados protegidos pelo recurso Always Encrypted de um conjunto de tabelas contendo colunas criptografadas para outro conjunto de tabelas com colunas criptografadas (no mesmo banco de dados ou em outro).  Para obter mais informações, veja [Migrar dados confidenciais protegidos por Always Encrypted](../../relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted.md).  
   
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior, [!INCLUDE[ssSDS](../../includes/sssds-md.md)].  
   
 ```sql  
 CREATE USER [Chin]   

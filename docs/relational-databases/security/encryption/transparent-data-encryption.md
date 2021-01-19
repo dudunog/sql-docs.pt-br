@@ -19,12 +19,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 2dfa929e7a669ef20eb178353fb7055f5f244f8a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 06288dc0bc6e16ab8928322005254f5fac1ddc61
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97475567"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171478"
 ---
 # <a name="transparent-data-encryption-tde"></a>Criptografia de Dados Transparente (TDE)
 
@@ -314,7 +314,7 @@ Quando você criptografa um banco de dados usando TDE, os arquivos relacionados 
 
 ## <a name="tde-and-in-memory-oltp"></a>TDE e OLTP in-memory
 
-Você pode habilitar a TDE em um banco de dados que tem objetos OLTP in-memory. No [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)] e no [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)], os dados e os registros de log do OLTP in-memory serão criptografados se a TDE estiver habilitada. No [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)], os registros de log do OLTP in-memory serão criptografados se você habilitar a TDE, mas os arquivos no grupo de arquivos MEMORY_OPTIMIZED_DATA ficarão descriptografados.
+Você pode habilitar a TDE em um banco de dados que tem objetos OLTP in-memory. No [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)] e no [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)], os dados e os registros de log do OLTP in-memory serão criptografados se a TDE estiver habilitada. No [!INCLUDE[ssSQL14](../../../includes/sssql14-md.md)], os registros de log do OLTP in-memory serão criptografados se você habilitar a TDE, mas os arquivos no grupo de arquivos MEMORY_OPTIMIZED_DATA ficarão descriptografados.
 
 ## <a name="related-tasks"></a>Tarefas relacionadas
 

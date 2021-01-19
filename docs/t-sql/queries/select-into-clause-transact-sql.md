@@ -30,12 +30,12 @@ ms.assetid: b48d69e8-5a00-48bf-b2f3-19278a72dd88
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 1e1d8f3d96adfd912ae1e4707d8aaaf17ffec20b
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 7afde8d9db8beedc46ea597dc47e31877d170942
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97476687"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172718"
 ---
 # <a name="select---into-clause-transact-sql"></a>SELECT – Cláusula INTO (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -66,7 +66,7 @@ SELECT…INTO cria uma tabela no grupo de arquivos padrão e insere nela as linh
  *filegroup*    
  Especifica o nome do grupo de arquivos no qual a nova tabela será criada. O grupo de arquivos especificado deverá existir no banco de dados, caso contrário, o mecanismo do SQL Server gerará um erro.   
  
- **Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 e posterior.
+ **Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 e posterior.
   
 ## <a name="data-types"></a>Tipos de dados  
  O atributo FILESTREAM não é transferido para a nova tabela. Os BLOBs do FILESTREAM são copiados e armazenados na nova tabela como BLOBs **varbinary(max)** . Sem o atributo FILESTREAM, o tipo de dados **varbinary(max)** tem uma limitação de 2 GB. Se um FILESTREAM BLOB exceder esse valor, ocorrerá o erro 7119, e a instrução será interrompida.  
@@ -236,7 +236,7 @@ ORDER BY YearlyIncome;
 ### <a name="f-copying-the-data-from-one-table-to-another-and-create-the-new-table-on-a-specified-filegroup"></a>F. Copiar os dados de uma tabela para outra e criar a tabela em questão em um grupo de arquivos especificado
 O exemplo a seguir demonstra a criação de uma nova tabela como uma cópia de outra tabela e seu carregamento em um grupo de arquivos especificado diferente do grupo de arquivos padrão do usuário.
 
- **Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] SP2 e posterior.
+ **Aplica-se a:** [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] SP2 e posterior.
 
 ```sql
 ALTER DATABASE [AdventureWorksDW2016] ADD FILEGROUP FG2;

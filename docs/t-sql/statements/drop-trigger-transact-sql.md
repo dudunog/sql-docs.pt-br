@@ -25,12 +25,12 @@ helpviewer_keywords:
 ms.assetid: 092d0d71-9f1e-4e38-a1c4-2487adfa5b4e
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 9b5aa3ac8158baca696b57706d2dc06cbf936937
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: de35e51632ef898e89e8ab6d036d58243ba03f4f
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98102304"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172078"
 ---
 # <a name="drop-trigger-transact-sql"></a>DROP TRIGGER (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -63,7 +63,7 @@ ON ALL SERVER
 
 ## <a name="arguments"></a>Argumentos
  *IF EXISTS*  
- **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658), [!INCLUDE[sssds](../../includes/sssds-md.md)]).  
+ **Aplica-se a**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] até a [versão atual](https://go.microsoft.com/fwlink/p/?LinkId=299658), [!INCLUDE[sssds](../../includes/sssds-md.md)]).  
   
  Remove condicionalmente o gatilho somente se ele já existe.  
   
@@ -107,7 +107,7 @@ ON ALL SERVER
 ## <a name="examples"></a>Exemplos  
   
 ### <a name="a-dropping-a-dml-trigger"></a>a. Descartando um gatilho DML  
- O exemplo a seguir remove o gatilho `employee_insupd` do banco de dados [!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal-md.md)]. (Começando com o [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], é possível usar a sintaxe DROP TRIGGER IF EXISTS.)  
+ O exemplo a seguir remove o gatilho `employee_insupd` do banco de dados [!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal-md.md)]. (Começando com o [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], é possível usar a sintaxe DROP TRIGGER IF EXISTS.)  
   
 ```sql  
 IF OBJECT_ID ('employee_insupd', 'TR') IS NOT NULL  

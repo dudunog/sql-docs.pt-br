@@ -23,12 +23,12 @@ ms.assetid: be36b3e3-3309-4332-bfb5-c7e9cf8dc8bd
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 5a2c4ba7f0a52a7a9eae4a9407685c95b0b179c8
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 371e5230707c4b82680213689f8e4cd4ddc45986
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480427"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170288"
 ---
 # <a name="objectpropertyex-transact-sql"></a>OBJECTPROPERTYEX (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -165,7 +165,7 @@ OBJECTPROPERTYEX ( id , property )
 |UserDataAccess|Função, exibição|Indica que o objeto acessa dados de usuário e tabelas de usuário na instância local do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].<br /><br /> 1 = Leitura<br /><br /> 0 = Nenhum<br /><br /> Tipo de dados base: **int**|  
 |TableHasColumnSet|Tabela|A tabela tem um conjunto de colunas.<br /><br /> 0 = False<br /><br /> 1 = True<br /><br /> Para obter mais informações, veja [Usar conjuntos de colunas](../../relational-databases/tables/use-column-sets.md).|  
 |Cardinalidade|Tabela (sistema ou definido pelo usuário), exibição ou índice|**Aplica-se a**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] e posterior.<br /><br /> O número de linhas no objeto especificado.|  
-|TableTemporalType|Tabela|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior.<br /><br /> Especifica o tipo de tabela.<br /><br /> 0 = tabela não temporal<br /><br /> 1 = tabela de histórico para tabela com controle de versão do sistema<br /><br /> 2 = tabela temporal com controle de versão do sistema|  
+|TableTemporalType|Tabela|**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior.<br /><br /> Especifica o tipo de tabela.<br /><br /> 0 = tabela não temporal<br /><br /> 1 = tabela de histórico para tabela com controle de versão do sistema<br /><br /> 2 = tabela temporal com controle de versão do sistema|  
   
 ## <a name="return-types"></a>Tipos de retorno  
  **sql_variant**  

@@ -23,12 +23,12 @@ helpviewer_keywords:
 ms.assetid: b5d23572-b79d-4cf1-9eef-d648fa3b1358
 author: VanMSFT
 ms.author: vanto
-ms.openlocfilehash: 48e25e4a2bc22d56503b3f0cc1819bb10b856e9d
-ms.sourcegitcommit: ac9feb0b10847b369b77f3c03f8200c86ee4f4e0
+ms.openlocfilehash: 581f49677f56c0d0c1360d5282c07205f18ee35a
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90688725"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170818"
 ---
 # <a name="create-symmetric-key-transact-sql"></a>CREATE SYMMETRIC KEY (Transact-SQL)
 [!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -117,7 +117,7 @@ CREATE SYMMETRIC KEY key_name
  \<algorithm>  
 Especifique o algoritmo de criptografia.   
 > [!WARNING]  
-> A partir do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], todos os algoritmos, exceto AES_128, AES_192 e AES_256, foram preteridos. Para usar algoritmos mais antigos (não recomendado), você deve definir o nível de compatibilidade do banco de dados para 120 ou menos.  
+> A partir do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], todos os algoritmos, exceto AES_128, AES_192 e AES_256, foram preteridos. Para usar algoritmos mais antigos (não recomendado), você deve definir o nível de compatibilidade do banco de dados para 120 ou menos.  
   
 ## <a name="remarks"></a>Comentários  
  Quando uma chave simétrica é criada, a chave simétrica deve ser criptografada usando pelo menos um dos seguintes: senha, certificado, chave simétrica, chave assimétrica ou provedor. A chave pode ter mais de uma criptografia de cada tipo. Em outras palavras, uma única chave simétrica pode ser criptografada com o uso de vários certificados, senhas, chaves simétricas e chaves assimétricas ao mesmo tempo.  

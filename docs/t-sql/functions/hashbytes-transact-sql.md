@@ -20,12 +20,12 @@ ms.assetid: 0ea6a4d1-313e-4f70-b939-dd2cd570f6d6
 author: VanMSFT
 ms.author: vanto
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 9b72eb876317282b421c64f0101c275970548f8f
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: da6f1b1bdb357a6321207720d2ea64938f4ada41
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97421792"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170238"
 ---
 # <a name="hashbytes-transact-sql"></a>HASHBYTES (Transact-SQL)
 
@@ -48,7 +48,7 @@ HASHBYTES ( '<algorithm>', { @input | 'input' } )
 ## <a name="arguments"></a>Argumentos
 
 `<algorithm>`  
-Identifica o algoritmo de hash a ser usado para aplicar o hash à entrada. Este é um argumento exigido sem padrão. As aspas simples são obrigatórias. Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)], todos os algoritmos, exceto SHA2_256 e SHA2_512, foram preteridos.  
+Identifica o algoritmo de hash a ser usado para aplicar o hash à entrada. Este é um argumento exigido sem padrão. As aspas simples são obrigatórias. Começando pelo [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)], todos os algoritmos, exceto SHA2_256 e SHA2_512, foram preteridos.  
   
 `@input`  
 Especifica uma variável que contém os dados a aceitar o hash. `@input` é **varchar**, **nvarchar** ou **varbinary**.  
@@ -68,7 +68,7 @@ Especifica uma expressão que é avaliada para uma cadeia de caracteres binária
 ## <a name="remarks"></a>Comentários  
 Considere o uso de `CHECKSUM` ou `BINARY_CHECKSUM` como alternativas para calcular um valor de hash.
 
-Os algoritmos MD2, MD4, MD5, SHA e SHA1 começando com [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] são preteridos. Use SHA2_256 ou SHA2_512. Os algoritmos mais antigos continuarão funcionando, mas acionarão um evento de reprovação.
+Os algoritmos MD2, MD4, MD5, SHA e SHA1 começando com [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] são preteridos. Use SHA2_256 ou SHA2_512. Os algoritmos mais antigos continuarão funcionando, mas acionarão um evento de reprovação.
 
 ## <a name="examples"></a>Exemplos  
 ### <a name="return-the-hash-of-a-variable"></a>Retornar o hash de uma variável  

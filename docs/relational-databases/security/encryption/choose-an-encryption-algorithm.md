@@ -17,12 +17,12 @@ ms.assetid: 8227028c-a9c9-489d-bd27-fbf8242634ae
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 16964047afc48102e89b92c807b6ed49c8f39d46
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 8fb31365f95cddc23739db02df9ba4ad9db0345e
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97468547"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171808"
 ---
 # <a name="choose-an-encryption-algorithm"></a>Escolher um algoritmo de criptografia
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "97468547"
  Os algoritmos de criptografia definem as transformações de dados que não podem ser facilmente revertidas por usuários não autorizados. [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] permite que administradores e desenvolvedores escolham entre diversos algoritmos, incluindo DES, Triple DES, TRIPLE_DES_3KEY, RC2, RC4, RC4 de 128 bits, DESX, AES de 128 bits, AES de 192 bits e AES de 256 bits.  
   
 > [!NOTE]  
->  A partir do [!INCLUDE[ssSQL15](../../../includes/sssql15-md.md)], todos os algoritmos, exceto AES_128, AES_192 e AES_256, foram preteridos. Para usar algoritmos mais antigos (não recomendado) você deve definir o nível de compatibilidade do banco de dados para 120 ou inferior.  
+>  A partir do [!INCLUDE[ssSQL15](../../../includes/sssql16-md.md)], todos os algoritmos, exceto AES_128, AES_192 e AES_256, foram preteridos. Para usar algoritmos mais antigos (não recomendado) você deve definir o nível de compatibilidade do banco de dados para 120 ou inferior.  
   
  Nenhum algoritmo é ideal para todas as situações e informações sobre o benefício de cada um está além do escopo dos Manuais Online do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] . Porém, os seguintes princípios gerais se aplicam:  
   
