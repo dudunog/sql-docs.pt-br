@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: c7167ed1-2b7e-4824-b82b-65f4667c4407
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 02b97900b86eac3c4fb5ffc61b7cf6922d4800e2
-ms.sourcegitcommit: dd36d1cbe32cd5a65c6638e8f252b0bd8145e165
+ms.openlocfilehash: 9aa65ff9b5b9c14441ac555d40788e92082f01c5
+ms.sourcegitcommit: 7791bd2ba339edc5cd2078a6537c8f6bfe72a19b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89546306"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98564445"
 ---
 # <a name="sp_addpublication-transact-sql"></a>sp_addpublication (Transact-SQL)
 [!INCLUDE [SQL Server SQL MI](../../includes/applies-to-version/sql-asdbmi.md)]
@@ -143,23 +143,23 @@ sp_addpublication [ @publication = ] 'publication'
 |NULL (padrão)|O padrão é **verdadeiro** quando as assinaturas de atualização estão habilitadas e para **falso** quando as assinaturas de atualização não estão habilitadas.|  
   
 > [!NOTE]  
->  O valor fornecido pelo usuário para *autogen_sync_procs*será substituído dependendo dos valores especificados para *allow_queued_tran* e *allow_sync_tran*.  
+>  O valor fornecido pelo usuário para *autogen_sync_procs* será substituído dependendo dos valores especificados para *allow_queued_tran* e *allow_sync_tran*.  
   
 `[ \@retention = ] retention` É o período de retenção em horas para a atividade de assinatura. a *retenção* é **int**, com um padrão de 336 horas. Se uma assinatura não estiver ativa dentro do período de retenção, expirará e será removida. O valor pode ser maior que o período de retenção de máximo do banco de dados de distribuição usado pelo Publicador. Se **0**, as assinaturas conhecidas para a publicação nunca expirarão e serão removidas pelo agente de limpeza de assinatura expirada.  
   
 `[ \@allow_queued_tran = ] 'allow_queued_updating'` Habilita ou desabilita o enfileiramento de alterações no Assinante até que elas possam ser aplicadas no Publicador. *allow_queued_updating* é **nvarchar (5)** com um padrão de false. Se **for false**, as alterações no Assinante não serão enfileiradas. **true** *não tem suporte para Publicadores Oracle*.  
   
-`[ \@snapshot_in_defaultfolder = ] 'snapshot_in_default_folder'` Especifica se os arquivos de instantâneo são armazenados na pasta padrão. *snapshot_in_default_folder* é **nvarchar (5)** com um padrão de true. Se **for true**, os arquivos de instantâneo poderão ser encontrados na pasta padrão. Se **for false**, os arquivos de instantâneo foram armazenados no local alternativo especificado pelo *alternate_snapshot_folder*. Locais alternativos podem ficar em outro servidor, em uma unidade de rede, ou uma mídia removível (como um CD-ROM ou disco removível). Você também pode salvar os arquivos de instantâneo em um site de FTP para ser recuperado pelo Assinante posteriormente Observe que esse parâmetro pode ser verdadeiro e ainda ter um local no parâmetro ** \@ alt_snapshot_folder** . Essa combinação especifica que os arquivos de instantâneo serão armazenados nos locais padrão e alternativos.  
+`[ \@snapshot_in_defaultfolder = ] 'snapshot_in_default_folder'` Especifica se os arquivos de instantâneo são armazenados na pasta padrão. *snapshot_in_default_folder* é **nvarchar (5)** com um padrão de true. Se **for true**, os arquivos de instantâneo poderão ser encontrados na pasta padrão. Se **for false**, os arquivos de instantâneo foram armazenados no local alternativo especificado pelo *alternate_snapshot_folder*. Locais alternativos podem ficar em outro servidor, em uma unidade de rede, ou uma mídia removível (como um CD-ROM ou disco removível). Você também pode salvar os arquivos de instantâneo em um site de FTP para ser recuperado pelo Assinante posteriormente Observe que esse parâmetro pode ser verdadeiro e ainda ter um local no parâmetro **\@ alt_snapshot_folder** . Essa combinação especifica que os arquivos de instantâneo serão armazenados nos locais padrão e alternativos.  
   
 `[ \@alt_snapshot_folder = ] 'alternate_snapshot_folder'` Especifica o local da pasta alternativa para o instantâneo. *alternate_snapshot_folder* é **nvarchar (255)** com um padrão de NULL.  
   
-`[ \@pre_snapshot_script = ] 'pre_snapshot_script'` Especifica um ponteiro para um local de arquivo **. SQL** . *pre_snapshot_script* é **nvarchar (255),** com um padrão de NULL. O Agente de Distribuição executará o script pré-instantâneo antes de executar qualquer script de objeto replicado, ao aplicar um instantâneo no Assinante. O script é executado no contexto de segurança usado pelo Distribution Agente na conexão com o banco de dados de assinatura.  
+`[ \@pre_snapshot_script = ] 'pre_snapshot_script'` Especifica um ponteiro para um local de arquivo **. SQL** . *pre_snapshot_script* é **nvarchar (255)**, com um padrão de NULL. O Agente de Distribuição executará o script pré-instantâneo antes de executar qualquer script de objeto replicado, ao aplicar um instantâneo no Assinante. O script é executado no contexto de segurança usado pelo Distribution Agente na conexão com o banco de dados de assinatura.  
   
 `[ \@post_snapshot_script = ] 'post_snapshot_script'` Especifica um ponteiro para um local de arquivo **. SQL** . *post_snapshot_script* é **nvarchar (255)**, com um padrão de NULL. O Agente de Distribuição executará o script pós-instantâneo depois que todos os outros scripts de objeto replicado tentam sido aplicados durante uma sincronização inicial. O script é executado no contexto de segurança usado pelo Distribution Agente na conexão com o banco de dados de assinatura.  
   
-`[ \@compress_snapshot = ] 'compress_snapshot'`Especifica que o instantâneo gravado no local de ** \@ alt_snapshot_folder** deve ser compactado no [!INCLUDE[msCoName](../../includes/msconame-md.md)] formato CAB. *compress_snapshot* é **nvarchar (5)**, com um padrão de false. **false** especifica que o instantâneo não será compactado; **true** especifica que o instantâneo será compactado. Arquivos de instantâneo maiores de 2 gigabytes (GB) não podem ser compactados. Arquivos de instantâneo compactados são descompactados no local onde o Distribution Agent é executado; assinaturas pull são geralmente usadas com instantâneos compactados para que os arquivos sejam descompactados no Assinante. O instantâneo na pasta padrão não pode ser compactado.  
+`[ \@compress_snapshot = ] 'compress_snapshot'`Especifica que o instantâneo gravado no local de **\@ alt_snapshot_folder** deve ser compactado no [!INCLUDE[msCoName](../../includes/msconame-md.md)] formato CAB. *compress_snapshot* é **nvarchar (5)**, com um padrão de false. **false** especifica que o instantâneo não será compactado; **true** especifica que o instantâneo será compactado. Arquivos de instantâneo maiores de 2 gigabytes (GB) não podem ser compactados. Arquivos de instantâneo compactados são descompactados no local onde o Distribution Agent é executado; assinaturas pull são geralmente usadas com instantâneos compactados para que os arquivos sejam descompactados no Assinante. O instantâneo na pasta padrão não pode ser compactado.  
   
-`[ \@ftp_address = ] 'ftp_address'` É o endereço de rede do serviço FTP para o distribuidor. *ftp_address* é **sysname**, com um padrão de NULL. Especifica onde os arquivos de instantâneo de publicação ficam localizados para serem captados pelo Agente de Distribuição ou por um Assinante. Como essa propriedade é armazenada para cada publicação, cada publicação pode ter um *ftp_address*diferente. A publicação deve oferecer suporte à propagação de instantâneos por meio de FTP.  
+`[ \@ftp_address = ] 'ftp_address'` É o endereço de rede do serviço FTP para o distribuidor. *ftp_address* é **sysname**, com um padrão de NULL. Especifica onde os arquivos de instantâneo de publicação ficam localizados para serem captados pelo Agente de Distribuição ou por um Assinante. Como essa propriedade é armazenada para cada publicação, cada publicação pode ter um *ftp_address* diferente. A publicação deve oferecer suporte à propagação de instantâneos por meio de FTP.  
   
 `[ \@ftp_port = ] ftp_port` É o número da porta do serviço FTP para o distribuidor. *ftp_port* é **int**, com um padrão de 21. Especifica onde os arquivos de instantâneo de publicação ficam localizados para serem captados pelo Distribution Agent ou por um Assinante. Como essa propriedade é armazenada para cada publicação, cada publicação pode ter sua própria *ftp_port*.  
   
@@ -173,7 +173,7 @@ sp_addpublication [ @publication = ] 'publication'
   
  **true** *não tem suporte para Publicadores Oracle*.  
   
-`[ \@allow_subscription_copy = ] 'allow_subscription_copy'` Habilita ou desabilita a capacidade de copiar os bancos de dados de assinatura que assinam essa publicação. *allow_subscription_copy* é**nvarchar (5)**, com um padrão de false.  
+`[ \@allow_subscription_copy = ] 'allow_subscription_copy'` Habilita ou desabilita a capacidade de copiar os bancos de dados de assinatura que assinam essa publicação. *allow_subscription_copy* é **nvarchar (5)**, com um padrão de false.  
   
 `[ \@conflict_policy = ] 'conflict_policy'` Especifica a política de resolução de conflitos seguida quando a opção de assinante de atualização em fila é usada. *conflict_policy* é **nvarchar (100)** com um padrão de NULL e pode ser um dos valores a seguir.  
   
@@ -194,7 +194,7 @@ sp_addpublication [ @publication = ] 'publication'
   
 |Valor|Descrição|  
 |-----------|-----------------|  
-|**SQL**|Use o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para armazenar transações.|  
+|**sql**|Use o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para armazenar transações.|  
 |NULL (padrão)|O padrão é **SQL**, que especifica o uso [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] para armazenar transações.|  
   
 > [!NOTE]  
@@ -228,11 +228,11 @@ sp_addpublication [ @publication = ] 'publication'
   
 `[ \@replicate_ddl = ] replicate_ddl` Indica se a replicação do esquema tem suporte para a publicação. *replicate_ddl* é **int**, com um padrão de **1** para [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Publicadores e **0** para não [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Publicadores. **1** indica que as instruções DDL (linguagem de definição de dados) executadas no Publicador são replicadas e **0** indica que as instruções DDL não são replicadas. *Replicação de esquema não tem suporte para Publicadores Oracle.* Para obter mais informações, consulte [Make Schema Changes on Publication Databases](../../relational-databases/replication/publish/make-schema-changes-on-publication-databases.md) (Fazer alterações de esquema em bancos de dados de publicação).  
   
- O parâmetro * \@ replicate_ddl* é respeitado quando uma instrução DDL adiciona uma coluna. O parâmetro * \@ replicate_ddl* é ignorado quando uma instrução DDL altera ou descarta uma coluna pelos seguintes motivos.  
+ O parâmetro *\@ replicate_ddl* é respeitado quando uma instrução DDL adiciona uma coluna. O parâmetro *\@ replicate_ddl* é ignorado quando uma instrução DDL altera ou descarta uma coluna pelos seguintes motivos.  
   
--   Quando uma coluna é removida, sysarticlecolumns deve ser atualizado para impedir que novas instruções DML incluam a coluna removida que causaria falha no agente de distribuição. O parâmetro * \@ replicate_ddl* é ignorado porque a replicação sempre deve replicar a alteração de esquema.  
+-   Quando uma coluna é removida, sysarticlecolumns deve ser atualizado para impedir que novas instruções DML incluam a coluna removida que causaria falha no agente de distribuição. O parâmetro *\@ replicate_ddl* é ignorado porque a replicação sempre deve replicar a alteração de esquema.  
   
--   Quando uma coluna é alterada, o tipo de dados de origem ou nulidade podem ter sido alterados, fazendo as instruções DML conterem um valor que pode não ser compatível com a tabela no assinante. Estas instruções DML podem causar falha no agente de distribuição. O parâmetro * \@ replicate_ddl* é ignorado porque a replicação sempre deve replicar a alteração de esquema.  
+-   Quando uma coluna é alterada, o tipo de dados de origem ou nulidade podem ter sido alterados, fazendo as instruções DML conterem um valor que pode não ser compatível com a tabela no assinante. Estas instruções DML podem causar falha no agente de distribuição. O parâmetro *\@ replicate_ddl* é ignorado porque a replicação sempre deve replicar a alteração de esquema.  
   
 -   Quando uma instrução DDL adiciona uma nova coluna, sysarticlecolumns não inclui a nova coluna. Instruções DML não tentarão replicar dados para a nova coluna. O parâmetro é honrado porque replicar ou não replicar o DDL são aceitáveis.  
   

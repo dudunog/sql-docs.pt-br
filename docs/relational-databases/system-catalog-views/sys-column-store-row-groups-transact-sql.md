@@ -21,12 +21,12 @@ helpviewer_keywords:
 ms.assetid: 76e7fef2-d1a4-4272-a2bb-5f5dcd84aedc
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: c6e99ae69d27bbaebbd0fa8bd720820f14064d9b
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: bb30e3c829dcdabde66fd1a330ec617eea7e5b34
+ms.sourcegitcommit: 7791bd2ba339edc5cd2078a6537c8f6bfe72a19b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98095616"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98564464"
 ---
 # <a name="syscolumn_store_row_groups-transact-sql"></a>sys.column_store_row_groups (Transact-SQL)
 [!INCLUDE[sqlserver](../../includes/applies-to-version/sqlserver.md)]
@@ -35,11 +35,11 @@ ms.locfileid: "98095616"
    
 |Nome da coluna|Tipo de dados|Descrição|  
 |-----------------|---------------|-----------------|  
-|**object_id**|INT|A ID da tabela na qual esse índice é definido.|  
-|**index_id**|INT|ID do índice para a tabela que contém esse índice columnstore.|  
-|**partition_number**|INT|ID da partição da tabela que contém o row_group_id do grupo de linhas. Você pode usar o partition_number para adicionar esse DMV a sys.partitions.|  
-|**row_group_id**|INT|O número do grupo de linhas associado a esse grupo de linhas. Isso é exclusivo dentro da partição.<br /><br /> -1 = cauda de uma tabela na memória.|  
-|* * delta_store_hobt_id|bigint * *|O hobt_id para o grupo de linhas aberto no armazenamento Delta.<br /><br /> NULL se o grupo de linhas não estiver no repositório Delta.<br /><br /> NULL para a parte final de uma tabela na memória.|  
+|**object_id**|int|A ID da tabela na qual esse índice é definido.|  
+|**index_id**|int|ID do índice para a tabela que contém esse índice columnstore.|  
+|**partition_number**|int|ID da partição da tabela que contém o row_group_id do grupo de linhas. Você pode usar o partition_number para adicionar esse DMV a sys.partitions.|  
+|**row_group_id**|int|O número do grupo de linhas associado a esse grupo de linhas. Isso é exclusivo dentro da partição.<br /><br /> -1 = cauda de uma tabela na memória.|  
+|**delta_store_hobt_id**|BIGINT|O hobt_id para o grupo de linhas aberto no armazenamento Delta.<br /><br /> NULL se o grupo de linhas não estiver no repositório Delta.<br /><br /> NULL para a parte final de uma tabela na memória.|  
 |**state**|TINYINT|O número de ID associado a state_description.<br /><br /> 0 = INVISIBLE<br /><br /> 1 = OPEN<br /><br /> 2 = CLOSED<br /><br /> 3 = COMPRESSED <br /><br /> 4 = MARCA PARA EXCLUSÃO|  
 |**state_description**|nvarchar(60)|Descrição do estado persistente do grupo de linhas:<br /><br /> INVISÍVEL-um segmento compactado oculto no processo de criação de dados em um armazenamento Delta. As ações de leitura usarão o repositório delta até que o segmento compactado invisível seja concluído. Em seguida, o novo segmento é tornado visível e o repositório delta da origem é removido.<br /><br /> ABRIR-um grupo de linhas de leitura/gravação que está aceitando novos registros. Um grupo de linhas aberto ainda está no formato rowstore e não foi compactado para o formato columnstore.<br /><br /> CLOSED-um grupo de linhas que foi preenchido, mas ainda não foi compactado pelo processo de movimentação de tupla.<br /><br /> COMPACTado-um grupo de linhas que foi preenchido e compactado.|  
 |**total_rows**|BIGINT|Total de linhas fisicamente armazenadas no grupo de linhas. Algumas podem ter sido excluídas, mas ainda estão armazenadas. O número máximo de linhas em um grupo de linhas é 1.048.576 (FFFFF hexadecimal).|  
