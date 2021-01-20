@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: d0233525-a83b-4279-813e-c554042abd0e
 author: nahk-ivanov
 ms.author: alexiva
-ms.openlocfilehash: 74420edaffb43ba1ea7d6ee20b7c1d12ea5d589d
-ms.sourcegitcommit: a5398f107599102af7c8cda815d8e5e9a367ce7e
+ms.openlocfilehash: 2de9fc7fdc730cb09f96bff6633cab29521e175e
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92005570"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596985"
 ---
 # <a name="sql-server-migration-assistant"></a>Assistente de Migração do SQL Server
 
@@ -66,9 +66,9 @@ As versões de destino a seguir têm suporte para o SSMA.
   
 - **SQL Server fóruns da Comunidade** – faça uma pergunta na comunidade de SQL Server  
   
-  - [SQL Server comunidade](https://go.microsoft.com/fwlink/?LinkId=42455) de grupos de notícias e fóruns que são monitorados pela comunidade de SQL Server. O site também lista fontes de informações da comunidade, como blogs e sites.  
+  - [SQL Server comunidade](../sql-server/index.yml) de grupos de notícias e fóruns que são monitorados pela comunidade de SQL Server. O site também lista fontes de informações da comunidade, como blogs e sites.  
   
-  - [Comunidade do SQL Server Developer Center](https://go.microsoft.com/fwlink/?LinkId=42456) – grupos de notícias, fóruns e outros recursos da Comunidade que são úteis para SQL Server desenvolvedores  
+  - [Comunidade do SQL Server Developer Center](../sql-server/index.yml) – grupos de notícias, fóruns e outros recursos da Comunidade que são úteis para SQL Server desenvolvedores  
   
 - **Suporte assistido** – vá para [https://support.microsoft.com/assistedsupportproducts](https://support.microsoft.com/assistedsupportproducts) e procure ' Assistente de migração do SQL Server '.  Selecione sua versão e, em seguida, selecione "Iniciar solicitação".  O suporte assistido está incluído na ferramenta de Assistente de Migração do SQL Server.  
   
@@ -102,4 +102,4 @@ Em alguns casos, determinado recurso pode não ser algo que os clientes devam us
   
 Os clientes não devem usar APIs não documentadas, incluindo, dentre outras, procedimentos armazenados, procedimentos armazenados estendidos, funções, exibições, tabelas, colunas, propriedades ou metadados. O atendimento ao cliente da Microsoft não oferece suporte a bancos de dados ou aplicativos que aproveitam ou usam pontos de entrada não documentados.  
   
-As atualizações de servidor e de banco de dados para versões futuras do SQL Server não estão garantidas para aplicativos e bancos de dados que aproveitem e usem pontos de entrada não documentados. O uso de recursos e funcionalidades do SQL Server deve ser limitado àqueles que estão incluídos na documentação do Microsoft SQL Server. Se um recurso não está descrito na documentação do Microsoft SQL Server, ele não tem suporte do SQL Server.  
+As atualizações de servidor e de banco de dados para versões futuras do SQL Server não estão garantidas para aplicativos e bancos de dados que aproveitem e usem pontos de entrada não documentados. O uso de recursos e funcionalidades do SQL Server deve ser limitado àqueles que estão incluídos na documentação do Microsoft SQL Server. Se um recurso não está descrito na documentação do Microsoft SQL Server, ele não tem suporte do SQL Server.

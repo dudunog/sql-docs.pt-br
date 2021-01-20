@@ -10,12 +10,12 @@ ms.technology: ssma
 ms.topic: conceptual
 ms.assetid: 23a48cb6-ff30-49bb-b4a7-603ebcab336f
 ms.author: alexiva
-ms.openlocfilehash: 497c3df711c2cfacbb2774edf791e4c36837bb87
-ms.sourcegitcommit: e572f1642f588b8c4c75bc9ea6adf4ccd48a353b
+ms.openlocfilehash: 8e13b9ea8bcd264d1668cf0979dc2956bd11bef7
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84779038"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596724"
 ---
 # <a name="connect-to-oracle-oracletosql"></a>Conectar-se ao Oracle (OracleToSQL)
 
@@ -70,7 +70,7 @@ Se você usar o modo de cadeia de conexão, insira a cadeia de conexão completa
 
 Cadeias de conexão consistem em pares de nome e valor de parâmetro.
 
-- Para OLE DB informações de cadeia de conexão, consulte o artigo [provedor Microsoft OLE DB para Oracle](https://go.microsoft.com/fwlink/?LinkId=85640) na biblioteca MSDN.
+- Para OLE DB informações de cadeia de conexão, consulte o artigo [provedor Microsoft OLE DB para Oracle](../../ado/guide/appendixes/microsoft-ole-db-provider-for-oracle.md) na biblioteca MSDN.
 
 Para cadeias de conexão do SSMA, inclua sempre o parâmetro Provider. Além disso, certifique-se de incluir o parâmetro Port ao se conectar ao Oracle.
 

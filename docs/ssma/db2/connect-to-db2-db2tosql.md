@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: 9d485fd0-ab5d-402a-a59a-e9982a61b7de
 author: nahk-ivanov
 ms.author: alexiva
-ms.openlocfilehash: cef31b2968ea0241b3c999e0dbd781d70974b360
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: c590a76696f2729bf5d1c6c5d4ca5b0242a63df6
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88426968"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596734"
 ---
 # <a name="connect-to-db2-db2tosql"></a>Conectar-se ao DB2 (DB2ToSQL)
 Use a caixa de diálogo **conectar-se ao DB2** para se conectar ao banco de dados DB2 que você deseja migrar.  
@@ -70,7 +70,6 @@ Se você usar o modo de cadeia de conexão, insira a cadeia de conexão completa
   
 Cadeias de conexão consistem em pares de nome e valor de parâmetro.  
   
--   Para OLE DB informações de cadeia de conexão, consulte o artigo [provedor Microsoft OLE DB para DB2](https://go.microsoft.com/fwlink/?LinkId=85640) na biblioteca MSDN.  
+-   Para OLE DB informações de cadeia de conexão, consulte o artigo [provedor Microsoft OLE DB para DB2](../../ado/guide/appendixes/microsoft-ole-db-provider-for-oracle.md) na biblioteca MSDN.  
   
 Para cadeias de conexão do SSMA, inclua sempre o parâmetro Provider. Além disso, certifique-se de incluir o parâmetro Port quando você se conectar ao DB2.  
-  

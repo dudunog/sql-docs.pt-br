@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1b275826c20944d11fb7e88266a882b3834fbfac
-ms.sourcegitcommit: 3bd188e652102f3703812af53ba877cce94b44a9
+ms.openlocfilehash: ec38d7eeed89d03bab4ebd92446517542e2e51a0
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97490086"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597000"
 ---
 # <a name="adventureworks-sample-databases"></a>Bancos de dados de exemplo AdventureWorks
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -63,7 +63,7 @@ Você pode usar o `.bak` arquivo para restaurar seu banco de dados de exemplo pa
 
 # <a name="sql-server-management-studio-ssms"></a>[SQL Server Management Studio (SSMS)](#tab/ssms)
 
-Se você não estiver familiarizado com o uso do SQL Server Management Studio (SSMS), poderá ver [conectar & consulta](../ssms/quickstarts/connect-query-sql-server.md) para começar. 
+Se você não estiver familiarizado com o uso do SQL Server Management Studio (SSMS), poderá ver [conectar & consulta](../ssms/quickstarts/ssms-connect-query-sql-server.md) para começar. 
 
 Para restaurar o banco de dados no SQL Server Management Studio, siga estas etapas:
 
@@ -208,5 +208,5 @@ Depois de restaurar o banco de dados de exemplo, usando os seguintes tutoriais p
 
 
 [Tutoriais para o mecanismo de banco de dados SQL Server](../relational-databases/database-engine-tutorials.md)   
-[Conectar e consultar com SQL Server Management Studio (SSMS)](../ssms/quickstarts/connect-query-sql-server.md)   
-[Conectar e consultar com Azure Data Studio](../ssms/quickstarts/connect-query-sql-server.md)
+[Conectar e consultar com SQL Server Management Studio (SSMS)](../ssms/quickstarts/ssms-connect-query-sql-server.md)   
+[Conectar e consultar com Azure Data Studio](../ssms/quickstarts/ssms-connect-query-sql-server.md)
