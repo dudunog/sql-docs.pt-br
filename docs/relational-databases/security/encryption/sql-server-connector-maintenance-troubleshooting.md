@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: 7f5b73fc-e699-49ac-a22d-f4adcfae62b1
 author: jaszymas
 ms.author: jaszymas
-ms.openlocfilehash: 4c8a74d33e75ab19b283f3b9d1bfdaf47dc69240
-ms.sourcegitcommit: 4d370399f6f142e25075b3714e5c2ce056b1bfd0
+ms.openlocfilehash: fa78eb8ef2da01514e161c58b05146b1699c93f7
+ms.sourcegitcommit: e40e75055c1435c5e3f9b6e3246be55526807b4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91869265"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98151262"
 ---
 # <a name="sql-server-connector-maintenance--troubleshooting"></a>Manutenção e solução de problemas do Conector do SQL Server
 
@@ -139,7 +139,7 @@ Links profundos para versões anteriores do Conector do SQL Server
 
 ### <a name="rolling-the-ssnoversion-service-principal"></a>Revertendo a Entidade de Serviço do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]
 
- [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] usa entidades de serviço criadas no Azure Active Directory como credenciais para acessar o Cofre de Chaves. A entidade de serviço tem uma ID do Cliente e uma Chave de Autenticação. Uma credencial do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] é configurada com o **VaultName**, a **ID do cliente**e a **Chave de Autenticação**. A **Chave de Autenticação** é válida por determinado período (um ou dois anos). Antes do período de tempo expirar, uma nova chave deve ser gerada no Azure AD para a Entidade de Serviço. Em seguida, a credencial deve ser alterada no [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] mantém um cache de credencial na sessão atual, portanto, quando uma credencial é alterada, [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] deve ser reiniciado.  
+ [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] usa entidades de serviço criadas no Azure Active Directory como credenciais para acessar o Cofre de Chaves. A entidade de serviço tem uma ID do Cliente e uma Chave de Autenticação. Uma credencial do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] é configurada com o **VaultName**, a **ID do cliente** e a **Chave de Autenticação**. A **Chave de Autenticação** é válida por determinado período (um ou dois anos). Antes do período de tempo expirar, uma nova chave deve ser gerada no Azure AD para a Entidade de Serviço. Em seguida, a credencial deve ser alterada no [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] mantém um cache de credencial na sessão atual, portanto, quando uma credencial é alterada, [!INCLUDE[ssManStudio](../../../includes/ssmanstudio-md.md)] deve ser reiniciado.  
   
 ### <a name="key-backup-and-recovery"></a>Backup e Recuperação de Chaves
 
@@ -227,6 +227,7 @@ Código do erro  |Símbolo  |Descrição
 2051 | scp_err_OutOfMemory | A memória do mecanismo SQL acabou e não foi possível alocar memória para o provedor EKM.
 2052 | scp_err_ConvertKeyNameToThumbprint | Falha ao converter o nome da chave para impressão digital.
 2053 | scp_err_ConvertThumbprintToKeyName|  Falha ao converter a impressão digital para o nome da chave.
+2058 | scp_err_FailureInRegistry|  Falha ao executar a operação no Registro. A conta de serviço SQL Server não tem permissão para criar a chave do Registro.
 3000 | ErrorSuccess | Êxito na operação de AKV.
 3001 | ErrorUnknown | A operação de AKV falhou com um erro não especificado.
 3002 | ErrorHttpCreateHttpClientOutOfMemory | Não é possível criar um HttpClient para a operação AKV devido à memória insuficiente.

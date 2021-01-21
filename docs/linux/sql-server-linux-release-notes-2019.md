@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
-ms.openlocfilehash: 262e2f222e6c30f3657e78c2a20862912b1aa970
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: 434345c505eaab389063fbc5b2c7fffc51708634
+ms.sourcegitcommit: af64e2b8d498af26b973e86db5c00f8d72991295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97643936"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98192993"
 ---
 # <a name="release-notes-for-sql-server-2019-on-linux"></a>Notas sobre a versão do SQL Server 2019 em Linux
 
@@ -35,6 +35,7 @@ A tabela a seguir lista o histórico de versões do SQL Server 2019.
 
 | Versão                   | Versão       | Data de liberação |
 |---------------------------|---------------|--------------|
+| [CU8-GDR](#cu8-GDR)               | 15.0.4083.2  | 12-01-2021   |
 | [CU8](#cu8)               | 15.0.4073.23  | 07/10/2020   |
 | [CU7 (Removido)](https://support.microsoft.com/help/4570012)     | 15.0.4063.15  | 2020-09-02   |
 | [CU6](#cu6)               | 15.0.4053.23  | 04-08-2020   |
@@ -58,6 +59,25 @@ Se você estiver atualizando pacotes de SQL Server existentes, execute o comando
 - [Instalar o suporte ao R e Python dos Serviços de Machine Learning do SQL Server 2019 no Linux](sql-server-linux-setup-machine-learning.md)
 - [Instalar pacote do PolyBase](../relational-databases/polybase/polybase-linux-setup.md)
 - [Habilitar o SQL Server Agent](sql-server-linux-setup-sql-agent.md)
+
+## <a name="cu8-gdr-january-2021"></a><a id="cu8-GDR"></a> CU8-GDR (janeiro de 2021)
+
+Esta é a versão CU8-GDR (atualização cumulativa 8-GDR) do SQL Server 2019 (15.x). A versão do Mecanismo de Banco de Dados do SQL Server é 15.0.4083.2. Para obter informações sobre as correções e os aprimoramentos, confira <https://support.microsoft.com/help/4577194>.
+
+### <a name="package-details"></a>Detalhes do pacote
+
+Para instalações de pacotes manuais ou offline, você pode baixar os pacotes RPM e Debian com as informações na tabela a seguir:
+
+> [!NOTE]
+> Da CU1 em diante, os links de instalação do pacote offline para Red Hat estão apontando para pacotes do RHEL 8. Se você estiver procurando pacotes do RHEL 7, consulte o caminho de download <https://packages.microsoft.com/rhel/7/mssql-server-2019/>
+>
+> O **Ubuntu 18.04** agora é compatível com o SQL Server 2019 da CU3 em diante. Os links de instalação do pacote offline para Ubuntu estão apontando para pacotes do Ubuntu 18.04. Se você estiver procurando pacotes do Ubuntu 16.04, confira o caminho de download <https://packages.microsoft.com/ubuntu/16.04/mssql-server-2019/pool/main/m/>
+
+| Pacote | Versão do pacote | Downloads |
+|-----|-----|-----|
+| Pacote RPM do Red Hat | 15.0.4083.2-15 | [Pacote RPM do mecanismo](https://packages.microsoft.com/rhel/8/mssql-server-2019/mssql-server-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de Alta Disponibilidade](https://packages.microsoft.com/rhel/8/mssql-server-2019/mssql-server-ha-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de pesquisa de texto completo](https://packages.microsoft.com/rhel/8/mssql-server-2019/mssql-server-fts-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de extensibilidade](https://packages.microsoft.com/rhel/8/mssql-server-2019/mssql-server-extensibility-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de extensibilidade do Java](https://packages.microsoft.com/rhel/8/mssql-server-2019/mssql-server-extensibility-java-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM do PolyBase](https://packages.microsoft.com/rhel/8/mssql-server-2019/mssql-server-polybase-15.0.4083.2-15.x86_64.rpm)|
+| Pacote RPM do SLES | 15.0.4083.2-15 | [Pacote RPM do mecanismo mssql-server](https://packages.microsoft.com/sles/12/mssql-server-2019/mssql-server-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de Alta Disponibilidade](https://packages.microsoft.com/sles/12/mssql-server-2019/mssql-server-ha-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de pesquisa de texto completo](https://packages.microsoft.com/sles/12/mssql-server-2019/mssql-server-fts-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de extensibilidade](https://packages.microsoft.com/sles/12/mssql-server-2019/mssql-server-extensibility-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM de extensibilidade do Java](https://packages.microsoft.com/sles/12/mssql-server-2019/mssql-server-extensibility-java-15.0.4083.2-15.x86_64.rpm)</br>[Pacote RPM do PolyBase](https://packages.microsoft.com/sles/12/mssql-server-2019/mssql-server-polybase-15.0.4083.2-15.x86_64.rpm)|
+| Pacote Debian do Ubuntu 18.04 | 15.0.4083.2-15 | [Pacote Debian do mecanismo](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2019/pool/main/m/mssql-server/mssql-server_15.0.4083.2-15_amd64.deb)</br>[Pacote Debian de alta disponibilidade](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2019/pool/main/m/mssql-server-ha/mssql-server-ha_15.0.4083.2-15_amd64.deb)</br>[Pacote Debian de pesquisa de texto completo](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2019/pool/main/m/mssql-server-fts/mssql-server-fts_15.0.4083.2-15_amd64.deb)</br>[Pacote Debian de extensibilidade](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2019/pool/main/m/mssql-server-extensibility/mssql-server-extensibility_15.0.4083.2-15_amd64.deb)</br>[Pacote Debian de extensibilidade do Java](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2019/pool/main/m/mssql-server-extensibility-java/mssql-server-extensibility-java_15.0.4083.2-15_amd64.deb)</br>[Pacote RPM do PolyBase](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2019/pool/main/m/mssql-server-polybase/mssql-server-polybase_15.0.4083.2-15_amd64.deb)|
 
 ## <a name="cu8-september-2020"></a><a id="cu8"></a> CU8 (setembro de 2020)
 
@@ -270,7 +290,7 @@ As seções a seguir descrevem problemas conhecidos com a versão de GA (Disponi
           sudo systemctl restart mssql-server
           ```
 
-- Bancos de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] no Windows que usam OLTP in-memory não podem ser restaurados no SQL Server 2019 (15.x) no Linux. Para restaurar um banco de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] que usa OLTP in-memory, primeiro atualize os bancos de dados para o [!INCLUDE[ssSQL15](../includes/sssql15-md.md)], o SQL Server 2017 ou o SQL Server 2019 no Windows antes de movê-los para o [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] em Linux por meio de backup/restauração ou de desanexar/anexar.
+- Bancos de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] no Windows que usam OLTP in-memory não podem ser restaurados no SQL Server 2019 (15.x) no Linux. Para restaurar um banco de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] que usa OLTP in-memory, primeiro atualize os bancos de dados para o [!INCLUDE[ssSQL15](../includes/sssql16-md.md)], o SQL Server 2017 ou o SQL Server 2019 no Windows antes de movê-los para o [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] em Linux por meio de backup/restauração ou de desanexar/anexar.
 
 - A permissão de usuário **ADMINISTRAR OPERAÇÕES EM MASSA** não tem suporte no Linux no momento.
 

@@ -31,12 +31,12 @@ helpviewer_keywords:
 ms.assetid: dd6cc2ba-631f-4adf-89dc-29ef449c6933
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 3265871cc1ddf221b3fb4090936d146f555dd3b5
-ms.sourcegitcommit: cfa04a73b26312bf18d8f6296891679166e2754d
+ms.openlocfilehash: 7ae64e777b08cdf4df6f7e8fdd05ff8c3822a06b
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92194285"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171518"
 ---
 # <a name="foreach-loop-container"></a>Contêiner Loop Foreach
 
@@ -55,7 +55,7 @@ ms.locfileid: "92194285"
   
 -   Enumerador de Arquivo Foreach para enumerar arquivos em uma pasta. O enumerador pode desviar subpastas. Por exemplo, você pode ler todos os arquivos que têm extensão de nome de arquivo * .log na pasta e respectivas subpastas do Windows. Não é possível especificar a ordem em que os arquivos são recuperados.  
   
--   Enumerador Foreach de Variável para enumerar o objeto enumerável que uma variável especificada contém. O objeto enumerável pode ser uma matriz, um **DataTable**ADO.NET, um enumerador do [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] , e assim por diante. Por exemplo, você pode enumerar os valores de uma matriz que contém o nome de servidores.  
+-   Enumerador Foreach de Variável para enumerar o objeto enumerável que uma variável especificada contém. O objeto enumerável pode ser uma matriz, um **DataTable** ADO.NET, um enumerador do [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] , e assim por diante. Por exemplo, você pode enumerar os valores de uma matriz que contém o nome de servidores.  
   
 -   Enumerador de Item Foreach para enumerar itens que são coleções. Por exemplo, você pode enumerar os nomes de executáveis e diretórios em funcionamento utilizados por uma tarefa Executar Processo.  
   
@@ -134,7 +134,7 @@ Este procedimento descreve como configurar um contêiner Loop Foreach, incluindo
   
     -   Para usar o enumerador de Arquivo Foreach, forneça a pasta que contém os arquivos a serem enumerados, especifique um filtro do nome e tipo de arquivo e especifique se o nome do arquivo totalmente qualificado deverá ser retornado. Indique também se você deseja a função recursiva em subpastas para obter mais arquivos.  
   
-    -   Para usar o enumerador de Item Foreach, clique em **Colunas**e, na caixa de diálogo **Colunas Para Cada Item** , clique em **Adicionar** para adicionar colunas. Selecione um tipo de dados para cada coluna na lista **Tipo de Dados** e clique em **OK**.  
+    -   Para usar o enumerador de Item Foreach, clique em **Colunas** e, na caixa de diálogo **Colunas Para Cada Item** , clique em **Adicionar** para adicionar colunas. Selecione um tipo de dados para cada coluna na lista **Tipo de Dados** e clique em **OK**.  
   
          Digite os valores nas colunas ou selecione-os nas listas.  
   
@@ -461,7 +461,7 @@ Use a página **Geral** da caixa de diálogo **Editor de Loop Foreach** para nom
 ####  <a name="enumerator--foreach-azure-blob-enumerator"></a><a name="ForeachAzureBlob"></a> Enumerador = Enumerador de Blob do Azure Foreach  
  O  **Enumerador de Blob do Azure** habilita um pacote do SSIS a enumerar arquivos de Blob no local de Blob especificado. Você pode armazenar o nome do arquivo de blob enumerado em uma variável e usá-lo em tarefas dentro do Contêiner do Loop Foreach.  
   
- O **Enumerador de Blob do Azure** é um componente do SSIS (SQL Server Integration Services) Feature Pack para Azure do [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)]. Baixe o Feature Pack [daqui](https://go.microsoft.com/fwlink/?LinkID=626967).  
+ O **Enumerador de Blob do Azure** é um componente do SSIS (SQL Server Integration Services) Feature Pack para Azure do [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)]. Baixe o Feature Pack [daqui](https://go.microsoft.com/fwlink/?LinkID=626967).  
   
  **Gerenciador de conexões do Armazenamento do Azure**  
  Selecione um Gerenciador de Conexão de Armazenamento do Azure existente ou crie um novo que se refere a uma Conta de Armazenamento do Azure.  
@@ -510,7 +510,7 @@ Especifica o caminho da pasta em que os arquivos serão enumerados.
 **SearchRecursively**  
 Especifica se é necessário pesquisar recursivamente na pasta especificada.
 
-***Observações sobre a configuração de permissão da entidade de serviço***
+**_Observações sobre a configuração de permissão da entidade de serviço_* _
 
 O Azure Data Lake Storage Gen2, a permissão é determinada pelo [RBAC](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal) e pelas [ACLs](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer).
 Preste atenção nas ACLs que são configuradas usando a OID (ID de objeto) da entidade de serviço para o registro do aplicativo, conforme detalhado [aqui](/azure/storage/blobs/data-lake-storage-access-control#how-do-i-set-acls-correctly-for-a-service-principal).
@@ -518,7 +518,7 @@ Isso é diferente da ID do aplicativo (cliente) que é usada com a configuraçã
 Quando uma entidade de segurança recebe permissões de dados RBAC por meio de uma função interna ou por meio de uma função personalizada, essas permissões são avaliadas primeiro após a autorização de uma solicitação.
 Se a operação solicitada for autorizada pelas atribuições de RBAC da entidade de segurança, a autorização será imediatamente resolvida e nenhuma verificação de ACL adicional será executada.
 Como alternativa, se a entidade de segurança não tiver uma atribuição de RBAC ou se a operação da solicitação não corresponder à permissão atribuída, as verificações de ACL serão executadas para determinar se a entidade de segurança está autorizada a executar a operação solicitada.
-Para o enumerador funcionar, conceda pelo menos a permissão de **execução** no sistema de arquivos raiz, juntamente com a permissão de **leitura** para a pasta de destino.
+Para que o enumerador funcione, conceda, no mínimo, a permissão de _ *Execução** no sistema de arquivos raiz, juntamente com a permissão de **Leitura** na pasta de destino.
 Como alternativa, conceda pelo menos a função de **Leitor de dados do blob de armazenamento** com RBAC.
 Consulte [este](/azure/storage/blobs/data-lake-storage-access-control) artigo para obter detalhes.
 

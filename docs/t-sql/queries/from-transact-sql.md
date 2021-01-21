@@ -37,12 +37,12 @@ ms.author: vanto
 ms.custom: ''
 ms.date: 06/01/2019
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: 70cda7e45f17bb1dbeeaa69178e0538296572ae7
-ms.sourcegitcommit: b652ff2f0f7edbb5bd2f8fdeac56348e4d84f8fc
+ms.openlocfilehash: d1ac3e525ba2e7f3cf459a7ce0ae309d22263aa1
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98112668"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98172398"
 ---
 # <a name="from-clause-plus-join-apply-pivot-transact-sql"></a>Cláusula FROM mais JOIN, APPLY, PIVOT (Transact-SQL)
 
@@ -229,8 +229,7 @@ Fornece uma exibição de conjunto de linhas em um documento XML. Para obter mai
  *column_alias*  
  É um alias opcional para substituir um nome de coluna no conjunto de resultados da tabela derivada. Inclua um alias para cada coluna na lista de seleção e encerre a lista completa de aliases de coluna entre parênteses.  
   
- *table_or_view_name* FOR SYSTEM_TIME \<system_time>
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+ *table_or_view_name* FOR SYSTEM_TIME \<system_time> Aplica-se ao**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Especifica que uma versão específica dos dados é retornada da tabela temporal especificada e sua tabela de histórico vinculada com controle de versão do sistema  
   
 ### <a name="tablesample-clause"></a>Cláusula Tablesample
@@ -370,19 +369,19 @@ ON (p.ProductID = v.ProductID);
  Especifica que a tabela de entrada é reduzida com base em várias colunas na *column_list* a uma única coluna chamada *pivot_column*. Para obter mais informações sobre PIVOT e UNPIVOT, consulte [Usando PIVOT e UNPIVOT](../../t-sql/queries/from-using-pivot-and-unpivot.md).  
   
 AS OF \<date_time>  
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Retorna uma tabela com um único registro para cada linha que contém os valores que foram reais (atuais) no momento passado especificado. Internamente, uma união é executada entre a tabela temporal e a tabela de histórico dela e os resultados são filtrados para retornar os valores na linha que era válida no ponto no tempo especificado pelo parâmetro *\<date_time>* . O valor de uma linha é considerado válido se o valor de *system_start_time_column_name* é menor ou igual ao valor do parâmetro *\<date_time>* e o valor de *system_end_time_column_name* é maior que o valor do parâmetro *\<date_time>* .   
   
 FROM \<start_date_time> TO \<end_date_time>
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].
 Retorna uma tabela com os valores para todas as versões de registro que estavam ativas dentro do intervalo de tempo especificado, não importando se eles começaram a ser ativos antes do valor de parâmetro *\<start_date_time>* para o argumento FROM ou deixaram de ser ativos após o valor de parâmetro *\<end_date_time>* para o argumento TO. Internamente, uma união é executada entre a tabela temporal e sua tabela de histórico e os resultados são filtrados para retornar os valores para todas as versões de linha que estavam ativas a qualquer momento durante o intervalo de tempo especificado. As linhas que se tornaram ativas exatamente no limite inferior definido pelo ponto de extremidade FROM são incluídas e as linhas que se tornaram ativas exatamente no limite superior definido pelo ponto de extremidade TO não são incluídas.  
   
 BETWEEN \<start_date_time> AND \<end_date_time>  
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 A mesma descrição acima para **FROM \<start_date_time> TO \<end_date_time>** é válida, exceto que ela inclui linhas que se tornaram ativas no limite superior definido pelo ponto de extremidade \<end_date_time>.  
   
 CONTAINED IN (\<start_date_time> , \<end_date_time>)  
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 Retorna uma tabela com os valores para todas as versões de registro que foram abertas e fechadas dentro do intervalo de tempo especificado definido por dois valores de data e hora para o argumento CONTAINED IN. As linhas que se tornaram ativas exatamente no limite inferior ou que deixaram de ser ativas exatamente no limite superior são incluídas.  
   
 ALL  
@@ -611,7 +610,7 @@ GO
   
 ### <a name="m-using-for-system_time"></a>M. Usando FOR SYSTEM_TIME  
   
-**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql15-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
+**Aplica-se a**: [!INCLUDE[ssSQL15](../../includes/sssql16-md.md)] e posterior e [!INCLUDE[sqldbesa](../../includes/sqldbesa-md.md)].  
 O exemplo a seguir usa o argumento FOR SYSTEM_TIME AS OF date_time_literal_or_variable para retornar linhas da tabela que eram reais (atuais) a partir de 1º de janeiro de 2014.  
   
 ```sql

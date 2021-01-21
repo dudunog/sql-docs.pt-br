@@ -13,12 +13,12 @@ ms.assetid: b1ae7b78-182a-459e-ab28-f743e43f8293
 author: MladjoA
 ms.author: mlandzic
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: b9d004ce88bba442dc17ff17c3d8a26e75bffd1a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: bedf575888445fb0e14684d4e325b60eb8547a79
+ms.sourcegitcommit: 7791bd2ba339edc5cd2078a6537c8f6bfe72a19b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97473137"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98564455"
 ---
 # <a name="spatial-indexes-overview"></a>Visão geral de índices espaciais
 [!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
@@ -101,7 +101,7 @@ ms.locfileid: "97473137"
   
  Por exemplo, considere a ilustração anterior que mostra um octógono que se ajusta completamente à célula 15 da grade de nível 1. Na figura, a célula 15 foi incluída no mosaico, dissecando o octógono em nove células de nível 2. Esta ilustração pressupõe que o limite de células por objeto é 9 ou maior. No entanto, se o limite de células por objeto fosse 8 ou menor, a célula 15 não seria incluída no mosaico e a apenas a célula 15 seria contada para o objeto.  
   
- Por padrão, o limite de células por objeto é de 16, o que fornece uma troca satisfatória entre espaço e precisão para a maior parte dos índices espaciais. No entanto a instrução [CREATE SPATIAL INDEX](../../t-sql/statements/create-spatial-index-transact-sql.md)[!INCLUDE[tsql](../../includes/tsql-md.md)] dá suporte a uma cláusula CELLS_PER_OBJECT **=** _n_ que permite especificar um limite de células por objeto entre 1 e 8192, inclusive.  
+ Por padrão, o limite de células por objeto é de 16, o que fornece uma troca satisfatória entre espaço e precisão para a maior parte dos índices espaciais. No entanto, a instrução [CREATE SPATIAL INDEX](../../t-sql/statements/create-spatial-index-transact-sql.md)[!INCLUDE[tsql](../../includes/tsql-md.md)] é compatível com uma cláusula CELLS_PER_OBJECT **=** _n_ que permite especificar um limite de células por objeto entre 1 e 8192, inclusive.  
   
 > [!NOTE]  
 >  A configuração **cells_per_object** de um índice espacial é visível na exibição de catálogo [sys.spatial_index_tessellations](../../relational-databases/system-catalog-views/sys-spatial-index-tessellations-transact-sql.md) .  

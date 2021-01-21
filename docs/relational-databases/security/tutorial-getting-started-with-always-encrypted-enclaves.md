@@ -1,8 +1,8 @@
 ---
-title: 'Tutorial: Always Encrypted com enclaves seguros usando SSMS'
-description: Este tutorial ensina a criar um Always Encrypted básico com um ambiente de enclaves seguros, criptografar dados in-loco e emitir consultas avançadas em colunas criptografadas usando o SSMS (SQL Server Management Studio).
+title: 'Tutorial: Introdução ao Always Encrypted com enclaves seguros no SQL Server'
+description: Este tutorial ensina como criar um ambiente básico do Always Encrypted com enclaves seguros no SQL Server usando os enclaves VBS (Segurança Baseada em Virtualização) e o HGS (Serviço Guardião de Host) para o atestado. Você também aprenderá a criptografar dados in-loco e emitir consultas confidenciais avançadas em colunas criptografadas usando o SSMS (SQL Server Management Studio).
 ms.custom: seo-lt-2019
-ms.date: 04/10/2020
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: vanto
@@ -13,25 +13,27 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: 99b04548244da3bda45346e7aa4a7c4d72481789
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 08e7674819e4dc52a8613e39d1f8ec82a42abc05
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97463087"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534715"
 ---
-# <a name="tutorial-always-encrypted-with-secure-enclaves-using-ssms"></a>Tutorial: Always Encrypted com enclaves seguros usando SSMS
+# <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-sql-server"></a>Tutorial: Introdução ao Always Encrypted com enclaves seguros no SQL Server
 [!INCLUDE [sqlserver2019-windows-only](../../includes/applies-to-version/sqlserver2019-windows-only.md)]
 
-Este tutorial ensina como começar a usar o [Always Encrypted com enclaves seguros](encryption/always-encrypted-enclaves.md). Ela mostrará a você:
-- Como criar um ambiente básico para testar e avaliar o Always Encrypted com enclaves seguros.
-- Como criptografar dados no local e emitir consultas avançadas em relação a colunas criptografadas usando o SSMS (SQL Server Management Studio).
+Este tutorial ensina você a começar a usar o [Always Encrypted com enclaves seguros](encryption/always-encrypted-enclaves.md) no [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)]. Ela mostrará a você:
+
+> [!div class="checklist"]
+> - Como criar um ambiente básico para testar e avaliar o Always Encrypted com enclaves seguros.
+> - Como criptografar dados in-loco e emitir consultas confidenciais avançadas em colunas criptografadas usando o SSMS (SQL Server Management Studio).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar com o Always Encrypted com enclaves seguros, você precisa de pelo menos dois computadores (podem ser máquinas virtuais):
 
-- O computador do SQL Server para hospedar o SQL Server e o SSMS.
+- O computador do [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] para hospedar o [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] e o SSMS.
 - O computador do HGS para executar o Serviço Guardião de Host, que é necessário para o atestado de enclave.
 
 ### <a name="sql-server-computer-requirements"></a>Requisitos do computador com SQL Server
@@ -44,7 +46,7 @@ Para começar com o Always Encrypted com enclaves seguros, você precisa de pelo
   - Se você estiver executando [!INCLUDE [ssnoversion-md](../../includes/ssnoversion-md.md)] em uma VM, o hipervisor e a CPU física deverão oferecer recursos de virtualização aninhados. 
     - No Hyper-V 2016 ou posterior, [habilite as extensões de virtualização aninhadas no processador da VM](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#configure-nested-virtualization).
     - No Azure, selecione um tamanho de VM que dê suporte à virtualização aninhada. Isso inclui todas as VMs da série v3, por exemplo, Dv3 e Ev3. Confira [Criar uma VM do Azure compatível com aninhamento](/azure/virtual-machines/windows/nested-virtualization#create-a-nesting-capable-azure-vm).
-    - No VMWare vSphere 6.7 ou posterior, habilite o suporte de segurança baseada em virtualização para a VM conforme descrito na [documentação do VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-C2E78F3E-9DE2-44DB-9B0A-11440800AADD.html).
+    - No VMware vSphere 6.7 ou posterior, habilite o suporte à Segurança Baseada em Virtualização para a VM, conforme descrito na [documentação da VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-C2E78F3E-9DE2-44DB-9B0A-11440800AADD.html).
     - Outros hipervisores e nuvens públicas podem dar suporte a recursos de virtualização aninhados que também permitem Always Encrypted com enclaves de VBS. Verifique a documentação da solução de virtualização para obter instruções sobre compatibilidade e configuração.
 - [SSMS (SQL Server Management Studio) 18.3 ou posterior](../../ssms/download-sql-server-management-studio-ssms.md).
 
@@ -115,7 +117,7 @@ Nesta etapa, você configurará o computador do SQL Server como um host protegid
 
 3. Reinicie o computador do SQL Server quando for solicitado que você conclua a instalação do Hyper-V.
 
-4. Se o computador do SQL Server for uma máquina virtual, um computador físico não compatível com a inicialização segura de UEFI ou um computador físico não equipado com IOMMU, será preciso remover o requisito de VBS dos recursos de segurança da plataforma.
+4. Se o computador do SQL Server for uma máquina virtual, um computador físico que não dê suporte à Inicialização Segura da UEFI ou um computador físico não equipado com IOMMU, será preciso remover o requisito de VBS dos recursos de segurança da plataforma.
     1. Remova o requisito de inicialização segura e IOMMU executando o seguinte comando em seu computador SQL Server em um console do PowerShell com privilégios elevados:
 
         ```powershell
@@ -167,6 +169,9 @@ Nesta etapa, você habilitará a funcionalidade de Always Encrypted usando encla
     1. Na caixa de diálogo **Conectar ao servidor**, especifique o nome do servidor, selecione um método de autenticação e especifique suas credenciais.
     1. Clique em **Opções >>** e selecione a guia **Always Encrypted**.
     1. Verifique se a caixa de seleção **Habilitar o Always Encrypted (criptografia de coluna)** **não** está selecionada.
+
+          ![Conectar-se ao servidor sem o Always Encrypted](./encryption/media/always-encrypted-enclaves/connect-without-always-encrypted-ssms.png)
+
     1. Selecione **Conectar**.
 
 2. Abra uma nova janela de consulta e execute a instrução abaixo para definir o tipo de enclave seguro para VBS (Segurança com base em virtualização).
@@ -191,15 +196,6 @@ Nesta etapa, você habilitará a funcionalidade de Always Encrypted usando encla
     | ------------------------------ | ----- | -------------- |
     | column encryption enclave type | 1     | 1              |
 
-5. Para habilitar cálculos avançados em colunas criptografadas, execute a consulta a seguir:
-
-   ```sql
-   DBCC traceon(127,-1);
-   ```
-
-    > [!NOTE]
-    > Cálculos avançados são desabilitados por padrão no [!INCLUDE [sssqlv15-md](../../includes/sssqlv15-md.md)]. Eles precisam ser habilitados usando a instrução acima após cada reinicialização de sua instância do SQL Server.
-
 ## <a name="step-4-create-a-sample-database"></a>Etapa 4: Criar banco de dados de exemplo
 Nesta etapa você criará um banco de dados com alguns dados de exemplo, os quais você criptografará mais tarde.
 
@@ -215,7 +211,10 @@ Nesta etapa você criará um banco de dados com alguns dados de exemplo, os quai
     USE [ContosoHR];
     GO
 
-    CREATE TABLE [dbo].[Employees]
+    CREATE SCHEMA [HR];
+    GO
+    
+    CREATE TABLE [HR].[Employees]
     (
         [EmployeeID] [int] IDENTITY(1,1) NOT NULL,
         [SSN] [char](11) NOT NULL,
@@ -231,7 +230,7 @@ Nesta etapa você criará um banco de dados com alguns dados de exemplo, os quai
     USE [ContosoHR];
     GO
 
-    INSERT INTO [dbo].[Employees]
+    INSERT INTO [HR].[Employees]
             ([SSN]
             ,[FirstName]
             ,[LastName]
@@ -242,7 +241,7 @@ Nesta etapa você criará um banco de dados com alguns dados de exemplo, os quai
             , N'Abel'
             , $31692);
 
-    INSERT INTO [dbo].[Employees]
+    INSERT INTO [HR].[Employees]
             ([SSN]
             ,[FirstName]
             ,[LastName]
@@ -286,6 +285,9 @@ Nesta etapa, você criptografará os dados armazenados nas colunas **SSN** e **S
     1. Na caixa de diálogo **Conectar ao servidor**, especifique o nome do servidor, selecione um método de autenticação e especifique suas credenciais.
     1. Clique em **Opções >>** e selecione a guia **Always Encrypted**.
     1. Marque a caixa de seleção **Habilitar o Always Encrypted (criptografia de coluna)** e especifique a URL do atestado do enclave (por exemplo, ht <span>tp://</span>hgs.bastion.local/Attestation).
+
+          ![Conectar-se ao servidor com o atestado usando o SSMS](./encryption/media/always-encrypted-enclaves/column-encryption-setting.png)
+
     1. Selecione **Conectar**.
     1. Se solicitado a habilitar a parametrização para consultas Always Encrypted, selecione **Habilitar**.
 
@@ -295,13 +297,13 @@ Nesta etapa, você criptografará os dados armazenados nas colunas **SSN** e **S
     USE [ContosoHR];
     GO
 
-    ALTER TABLE [dbo].[Employees]
+    ALTER TABLE [HR].[Employees]
     ALTER COLUMN [SSN] [char] (11) COLLATE Latin1_General_BIN2
     ENCRYPTED WITH (COLUMN_ENCRYPTION_KEY = [CEK1], ENCRYPTION_TYPE = Randomized, ALGORITHM = 'AEAD_AES_256_CBC_HMAC_SHA_256') NOT NULL
     WITH
     (ONLINE = ON);
 
-    ALTER TABLE [dbo].[Employees]
+    ALTER TABLE [HR].[Employees]
     ALTER COLUMN [Salary] [money]
     ENCRYPTED WITH (COLUMN_ENCRYPTION_KEY = [CEK1], ENCRYPTION_TYPE = Randomized, ALGORITHM = 'AEAD_AES_256_CBC_HMAC_SHA_256') NOT NULL
     WITH
@@ -316,7 +318,7 @@ Nesta etapa, você criptografará os dados armazenados nas colunas **SSN** e **S
 1. Para verificar se agora as colunas **SSN** e **Salário** estão criptografadas, abra uma nova janela de consulta na instância do SSMS **sem** Always Encrypted habilitado para a conexão de banco de dados e execute a instrução abaixo. A janela de consulta deve retornar valores criptografados nas colunas **SSN** e **Salário**. Se você executar a mesma consulta usando a instância do SSMS com o Always Encrypted habilitado, você deve ver os dados descriptografados.
 
     ```sql
-    SELECT * FROM [dbo].[Employees];
+    SELECT * FROM [HR].[Employees];
     ```
 
 ## <a name="step-7-run-rich-queries-against-encrypted-columns"></a>Etapa 7: Executar consultas avançadas em colunas criptografadas
@@ -334,19 +336,21 @@ Agora você pode executar consultas avançadas nas colunas criptografadas. Algum
     ```sql
     DECLARE @SSNPattern [char](11) = '%6818';
     DECLARE @MinSalary [money] = $1000;
-    SELECT * FROM [dbo].[Employees]
+    SELECT * FROM [HR].[Employees]
     WHERE SSN LIKE @SSNPattern AND [Salary] >= @MinSalary;
     ```
 
 3. Tente fazer a mesma consulta novamente na instância do SSMS que não tem o Always Encrypted habilitado e observe a falha que ocorre.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Depois de concluir este tutorial, você pode ir para um dos seguintes tutoriais:
+
+- [Tutorial: Desenvolver um aplicativo .NET usando o Always Encrypted com enclaves seguros](../../connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps.md)
 - [Tutorial: Desenvolver um aplicativo .NET Framework usando o Always Encrypted com enclaves seguros](tutorial-always-encrypted-enclaves-develop-net-framework-apps.md)
 - [Tutorial: Como criar e usar índices em colunas habilitadas para enclave com criptografia aleatória](./tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption.md)
 
 ## <a name="see-also"></a>Consulte Também
-- [Configurar o tipo de enclave para a Opção de Configuração de Servidor Always Encrypted](../../database-engine/configure-windows/configure-column-encryption-enclave-type.md)
-- [Provisionar chaves habilitadas para enclave](encryption/always-encrypted-enclaves-provision-keys.md)
-- [Configurar criptografia de coluna in-loco com Transact-SQL](encryption/always-encrypted-enclaves-configure-encryption-tsql.md)
-- [Consultar colunas usando o Always Encrypted com enclaves seguros](encryption/always-encrypted-enclaves-query-columns.md)
+
+- [Configurar e usar o Always Encrypted com enclaves seguros](encryption/configure-always-encrypted-enclaves.md)
+- [Tutorial: Always Encrypted com enclaves seguros no [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]](/azure/azure-sql/database/always-encrypted-enclaves-getting-started)

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.assetid: 56105f3f-e500-4669-8c8e-acf434527727
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 6e2e66d27fd8658cc0e060da036cca147817d5cb
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 32daaf012159bd42a6f73330bc8371157e459609
+ms.sourcegitcommit: 1f826eb3f73bd4d94bc9638b9cdd60991a2e2fa0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88422210"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98125602"
 ---
 # <a name="lesson-3-2-add-and-configure-logging"></a>Lição 3-2: Adicionar e configurar o registro em log
 
@@ -29,6 +29,7 @@ Nesta tarefa, você habilita o log do fluxo de dados no pacote Lesson 3.dtsx. En
 ## <a name="add-logging-to-the-package"></a>Adicionar registro em log ao pacote  
   
 1.  No menu **SSIS**, selecione **Registro em Log**.  
+    No Visual Studio 2019, o menu do **SSIS** está localizado em Extensões -> SSIS. Verifique se a guia **Fluxo de Dados** está selecionada e não **Fluxo de Controle**
   
 2.  Na caixa de diálogo **Configurar Logs de SSIS**, no painel **Contêineres**, verifique se o objeto mais alto está selecionado. Esse objeto representa o pacote da Lição 3.
   

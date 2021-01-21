@@ -2,7 +2,7 @@
 title: SQL Server, Réplica de banco de dados | Microsoft Docs
 description: Saiba mais sobre o objeto de desempenho SQLServer:Database Replica, que contém contadores de desempenho sobre os bancos de dados secundários de um grupo de disponibilidade Always On.
 ms.custom: ''
-ms.date: 08/24/2016
+ms.date: 01/13/2021
 ms.prod: sql
 ms.prod_service: database-engine
 ms.reviewer: ''
@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: a5f6bdce-2b13-4924-aaeb-b50b57d624d8
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.openlocfilehash: 176f7b9ba860e6ca7f72e35f6c6a87622948fc70
-ms.sourcegitcommit: 0e0cd9347c029e0c7c9f3fe6d39985a6d3af967d
+ms.openlocfilehash: 3dff6cb9b3a65ea5f38a97786e10701bc1f31749
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96505750"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170298"
 ---
 # <a name="sql-server-database-replica"></a>SQL Server, Réplica de Banco de Dados
 
@@ -42,7 +42,7 @@ ms.locfileid: "96505750"
 |**Bytes de Restauração Restantes**|A quantidade de log em quilobytes a ser refeita para concluir a fase de reversão.|Réplica secundária|  
 |**Bytes Refeitos/s**|Quantidade de registros de log refeitos no banco de dados secundário no último segundo.|Réplica secundária|  
 |**Total de Log a ser desfeito**|Total de quilobytes de log que deve ser desfeito.|Réplica secundária|  
-|**Atraso na Transação**|Atraso na espera por um reconhecimento de confirmação não terminado para todas as transações atuais, em milissegundos. Divida por *Transações de Gravação Espelhadas/s* para obter *Atraso Médio da Transação*. Para obter mais informações, veja [SQL Server 2012 AlwaysOn – Parte 12 – Aspectos de desempenho e monitoramento de desempenho II](/archive/blogs/saponsqlserver/sql-server-2012-alwayson-part-12-performance-aspects-and-performance-monitoring-ii)|Réplica primária|  
+|**Atraso na Transação**|Atraso total na espera por um reconhecimento de confirmação não terminado para todas as transações atuais, em milissegundos. Divida por *Transações de Gravação Espelhadas/s* para obter *Atraso Médio da Transação*. Para obter mais informações, veja [SQL Server 2012 AlwaysOn – Parte 12 – Aspectos de desempenho e monitoramento de desempenho II](/archive/blogs/saponsqlserver/sql-server-2012-alwayson-part-12-performance-aspects-and-performance-monitoring-ii)|Réplica primária|  
   
 ## <a name="see-also"></a>Consulte Também
   

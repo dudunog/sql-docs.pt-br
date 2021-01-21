@@ -17,19 +17,19 @@ ms.assetid: cc5bf181-18a0-44d5-8bd7-8060d227c927
 author: julieMSFT
 ms.author: jrasnick
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: dcc5d8e3602261c975f5517ea859e19fc7902936
-ms.sourcegitcommit: 629229a7c33a3ed99db63b89127bb016449f7d3d
+ms.openlocfilehash: 8471695cfde49d36ba107264fa23654757d8c2ab
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97952044"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241861"
 ---
 # <a name="partitioned-tables-and-indexes"></a>Partitioned Tables and Indexes
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
-  O[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oferece suporte ao particionamento de tabelas e índices. Os dados de tabelas e índices particionados são divididos em unidades que podem ser difundidas por mais de um grupo de arquivos em um banco de dados. Os dados são particionados horizontalmente, de forma que os grupos de linhas são mapeados em partições individuais. Todas as partições de um único índice ou de uma única tabela devem residir no mesmo banco de dados. A tabela ou o índice é tratado como uma única entidade lógica quando são executadas consultas ou atualizações nos dados. Antes do [!INCLUDE[ssSQL15_md](../../includes/sssql15-md.md)] SP1, as tabelas e os índices particionados não estavam disponíveis em todas as edições do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Para obter uma lista de recursos com suporte nas edições do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], consulte [Edições e recursos com suporte no SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md).  
+  O[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] oferece suporte ao particionamento de tabelas e índices. Os dados de tabelas e índices particionados são divididos em unidades que podem ser difundidas por mais de um grupo de arquivos em um banco de dados. Os dados são particionados horizontalmente, de forma que os grupos de linhas são mapeados em partições individuais. Todas as partições de um único índice ou de uma única tabela devem residir no mesmo banco de dados. A tabela ou o índice é tratado como uma única entidade lógica quando são executadas consultas ou atualizações nos dados. Antes do [!INCLUDE[ssSQL15_md](../../includes/sssql16-md.md)] SP1, as tabelas e os índices particionados não estavam disponíveis em todas as edições do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Para obter uma lista de recursos com suporte nas edições do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], consulte [Edições e recursos com suporte no SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md).  
   
 > [!IMPORTANT]  
-> O[!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] oferece suporte a até 15.000 partições por padrão. Em versões anteriores à [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)], o número de partições era limitado por padrão a 1.000. Em sistemas baseados em x86, é possível criar uma tabela ou índice com mais de 1.000 partições, mas isso não tem suporte.  
+> O[!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] oferece suporte a até 15.000 partições por padrão. Em versões anteriores à [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)], o número de partições era limitado por padrão a 1.000.  
   
 ## <a name="benefits-of-partitioning"></a>Benefícios do particionamento  
  O particionamento de tabelas ou índices grandes pode ter a capacidade de gerenciamento e os benefícios de desempenho a seguir.  
@@ -69,10 +69,10 @@ Um índice que é baseado no mesmo esquema de partição que sua tabela correspo
  3. elas definem os mesmos valores de limite para partições.  
 
 #### <a name="partitioning-clustered-indexes"></a>Particionando índices clusterizados
-Ao particionar um índice clusterizado, a chave de clustering deve conter a coluna de particionamento. Quando particiona um índice clusterizado não exclusivo e a coluna de particionamento não está explicitamente especificada na chave de clustering, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] adiciona a coluna de particionamento, por padrão, à lista de chaves de índices clusterizados. Se o índice clusterizado for exclusivo, você deve especificar explicitamente que a chave de índice clusterizado contém a coluna de particionamento.        
+Ao particionar um índice clusterizado, a chave de clustering deve conter a coluna de particionamento. Quando particiona um índice clusterizado não exclusivo e a coluna de particionamento não está explicitamente especificada na chave de clustering, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] adiciona a coluna de particionamento, por padrão, à lista de chaves de índices clusterizados. Se o índice clusterizado for exclusivo, você deve especificar explicitamente que a chave de índice clusterizado contém a coluna de particionamento. Para obter mais informações sobre os índices clusterizados e a arquitetura de índice, confira [Diretrizes de design de índices clusterizados](../../relational-databases/sql-server-index-design-guide.md#Clustered).       
 
 #### <a name="partitioning-nonclustered-indexes"></a>Particionando índices não clusterizados
-Ao particionar um índice não clusterizado exclusivo, a chave de índice deve conter a coluna de particionamento. Ao particionar um índice não clusterizado e não exclusivo, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] adiciona a coluna de particionamento, por padrão, como a coluna do índice não chave (incluída) para garantir que o índice estará alinhado com a tabela base. O [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] não adicionará a coluna de particionamento ao índice se este já estiver presente no índice. 
+Ao particionar um índice não clusterizado exclusivo, a chave de índice deve conter a coluna de particionamento. Ao particionar um índice não clusterizado e não exclusivo, o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] adiciona a coluna de particionamento, por padrão, como a coluna do índice não chave (incluída) para garantir que o índice estará alinhado com a tabela base. O [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] não adicionará a coluna de particionamento ao índice se este já estiver presente no índice. Para obter mais informações sobre os índices não clusterizados e a arquitetura de índice, confira [Diretrizes de design de índices não clusterizados](../../relational-databases/sql-server-index-design-guide.md#Nonclustered).
 
 ### <a name="non-aligned-index"></a>Índice não alinhado  
 Um índice particionado independentemente de sua tabela correspondente. Quer dizer, o índice tem um esquema de partição diferente ou é colocado em um grupo de arquivos separado da tabela base. A criação de um índice particionado não alinhado pode ser útil nos seguintes casos:  

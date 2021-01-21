@@ -1,11 +1,8 @@
 ---
+title: DATEDIFF_BIG (Transact-SQL)
 description: DATEDIFF_BIG (Transact-SQL)
-title: DATEDIFF_BIG (Transact-SQL) | Microsoft Docs
-ms.custom: ''
-ms.date: 07/18/2019
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
-ms.reviewer: ''
 ms.technology: t-sql
 ms.topic: language-reference
 f1_keywords:
@@ -21,12 +18,15 @@ helpviewer_keywords:
 ms.assetid: 19ac1693-3cfa-400d-bf83-20a9cb46599a
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: ea087da6532c43493fd10f647788297d98f35f72
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.reviewer: ''
+ms.custom: ''
+ms.date: 01/12/2021
+ms.openlocfilehash: 8f6078aebab5456b8867aca1b7f6987d8a1eb6fd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98093646"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98168056"
 ---
 # <a name="datediff_big-transact-sql"></a>DATEDIFF_BIG (Transact-SQL)
 
@@ -90,13 +90,13 @@ Consulte *startdate*.
 **bigint** com sinal  
   
 ## <a name="return-value"></a>Valor retornado  
-Retorna a diferença **bigint** entre *startdate* e *enddate* expressa no coundary definido por *datepart*.
+Retorna a diferença **bigint** entre *startdate* e *enddate* expressa no limite definido por *datepart*.
   
-Para um valor retornado fora do intervalo para **bigint** (-9.223.372.036.854.775.808 a 9.223.372.036.854.775.807), `DATEDIFF_BIG` retorna um erro. Diferentemente de `DATEDIFF`, que retorna um **int** e, portanto, pode estourar com uma precisão de **minuto** ou superior, `DATEDIFF_BIG` só poderá estourar se estiver usando uma precisão de **nanossegundos**, em que a diferença entre *enddate* e *startdate* é superior a 292 anos, 3 meses, 10 dias, 23 horas, 47 minutos e 16,8547758 segundos.
+Para um valor retornado fora do intervalo para **bigint** (-9.223.372.036.854.775.808 a 9.223.372.036.854.775.807), `DATEDIFF_BIG` retorna um erro. Ao contrário de, que retorna um **int** e, portanto, pode estourar um **minuto** ou mais, `DATEDIFF_BIG` só poderá estourar se estiver usando uma precisão de **nanossegundos**, em que a diferença entre *enddate* e *startdate* é superior a 292 anos, 3 meses, 10 dias, 23 horas, 47 minutos e 16,8547758 segundos.
   
 Se *startdate* e *enddate* receberem apenas um valor temporal e *datepart* não for um *datepart* de hora, `DATEDIFF_BIG` retornará 0.
   
-`DATEDIFF_BIG` não usa um componente de deslocamento de fuso horário de *startdate* ou *enddate* para calcular o valor retornado.
+`DATEDIFF_BIG` não usa um componente de diferença de fuso horário de *startdate* ou *enddate* para calcular o valor retornado.
   
 Para um valor **smalldatetime** usado para *startdate* ou para *enddate*, `DATEDIFF_BIG` sempre define segundos e milissegundos como 0 no valor retornado, porque [smalldatetime](../../t-sql/data-types/smalldatetime-transact-sql.md) tem apenas a precisão do minuto.
   
@@ -123,11 +123,11 @@ SELECT DATEDIFF_BIG(millisecond, '2005-12-31 23:59:59.9999999', '2006-01-01 00:0
 ## <a name="remarks"></a>Comentários  
 Use `DATEDIFF_BIG` nas cláusulas `SELECT <list>`, `WHERE`, `HAVING`, `GROUP BY` e `ORDER BY`.
   
-`DATEDIFF_BIG` converte implicitamente literais de cadeias de caracteres como um tipo **datetime2**. Isso significa que `DATEDIFF_BIG` não é compatível com o formato YDM quando a data é transmitida como cadeia de caracteres. É necessário converter explicitamente a cadeia de caracteres em um tipo de **datetime** ou **smalldatetime** para usar o formato YDM.
+`DATEDIFF_BIG` converte implicitamente literais de cadeias de caracteres como um tipo **datetime2**. Isso significa que `DATEDIFF_BIG` não dá suporte ao formato YDM quando a data é transmitida como uma cadeia de caracteres. É necessário converter explicitamente a cadeia de caracteres em um tipo de **datetime** ou **smalldatetime** para usar o formato YDM.
   
 Especificar `SET DATEFIRST` não tem efeito sobre `DATEDIFF_BIG`. `DATEDIFF_BIG` sempre usa domingo como o primeiro dia da semana para garantir que a função opere de maneira determinística.
 
-`DATEDIFF_BIG` poderá estourar com uma precisão de **nanossegundos** se a diferença entre *enddate* e *startdate* retornar um valor fora do intervalo para **bigint**.
+`DATEDIFF_BIG` poderá estourar um **nanossegundo** se a diferença entre *enddate* e *startdate* retornar um valor fora do intervalo para **bigint**.
   
 ## <a name="examples"></a>Exemplos 
   

@@ -13,12 +13,12 @@ helpviewer_keywords:
 ms.assetid: 4a121375-7424-4444-b876-baefa8fe9015
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 908aa73d20ce939696124fee2f92eb87c9b8bec8
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: b2723cef9d005ea1f5e2db7e9e915762a7cd6a11
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642723"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241835"
 ---
 # <a name="force-a-wsfc-cluster-to-start-without-a-quorum"></a>Forçar um cluster WSFC para iniciar sem um quorum
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -62,7 +62,7 @@ ms.locfileid: "97642723"
   
 4.  Use `Start-ClusterNode` com `-FixQuorum` para forçar o serviço de cluster a ser iniciado.  
   
-5.  Use `Get-ClusterNode` com `-Propery NodeWieght = 1` para definir o valor que garanta que o nó é um membro votante do quorum.  
+5.  Use `Get-ClusterNode` com `-Property NodeWieght = 1` para definir o valor que garanta que o nó é um membro votante do quorum.  
   
 6.  Gere as propriedades de nó de cluster em um formato legível.  
   

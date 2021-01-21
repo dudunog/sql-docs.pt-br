@@ -19,12 +19,12 @@ helpviewer_keywords:
 ms.assetid: 73a914ba-8b2d-4f4d-ac1b-db9bac676a30
 author: MashaMSFT
 ms.author: mathoma
-ms.openlocfilehash: bddffa3b6e57ffd33797fe5b50fca36d194b2345
-ms.sourcegitcommit: f7ac1976d4bfa224332edd9ef2f4377a4d55a2c9
+ms.openlocfilehash: 34911188162ac5b63f5a43d510d10d503820d200
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85897923"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170468"
 ---
 # <a name="enable-coordinated-backups-for-transactional-replication"></a>Habilitar backups coordenados para replicação transacional
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "85897923"
   
 ### <a name="to-enable-coordinated-backups-for-a-database-published-with-transactional-replication"></a>Para habilitar backups coordenados para um banco de dados publicado com replicação transacional  
   
-1.  No Publicador, use a função [DATABASEPROPERTYEX &#40;Transact-SQL&#41;](../../../t-sql/functions/databasepropertyex-transact-sql.md) para retornar a propriedade **IsSyncWithBackup** do banco de dados de publicação. Se a função retornar **1**, os backups coordenados já estarão habilitados para o banco de dados publicado.  
+1.  No Publicador, use a função `SELECT DATABASEPROPERTYEX(DB_NAME(),'IsSyncWithBackup')` [DATABASEPROPERTYEX &#40;Transact-SQL&#41;](../../../t-sql/functions/databasepropertyex-transact-sql.md) para retornar a propriedade **IsSyncWithBackup** do banco de dados de publicação. Se a função retornar **1**, os backups coordenados já estarão habilitados para o banco de dados publicado.  
   
 2.  Se a função na etapa 1 retornar **0**, execute [sp_replicationdboption &#40;Transact-SQL&#41;](../../../relational-databases/system-stored-procedures/sp-replicationdboption-transact-sql.md) no Publicador do banco de dados de publicação. Especifique um valor de **sync with backup** para **\@optname** e **true** para **\@value**.  
   
@@ -49,4 +49,20 @@ ms.locfileid: "85897923"
   
 1.  No Publicador do banco de dados de publicação ou no Distribuidor no banco de dados de distribuição, execute [sp_replicationdboption &#40;Transact-SQL&#41;](../../../relational-databases/system-stored-procedures/sp-replicationdboption-transact-sql.md). Especifique um valor **sync with backup** para **\@optname** e **false** para **\@value**.  
   
+## <a name="examples"></a>Exemplos  
   
+### <a name="a-retrieve-the-issyncwithbackup-property-for-the-current-database"></a>a. Recuperar a propriedade `IsSyncWithBackup` para o banco de dados atual
+
+Este exemplo retorna a propriedade `IsSyncWithBackup` para o banco de dados atual:
+  
+```sql
+SELECT DATABASEPROPERTYEX(DB_NAME(),'IsSyncWithBackup')`
+```
+
+### <a name="b-retrieve-the-issyncwithbackup-property-for-a-specific-database"></a>B. Recuperar a propriedade `IsSyncWithBackup` para um banco de dados específico
+
+Este exemplo retorna a propriedade `IsSyncWithBackup` para o banco de dados `NameOfDatabaseToCheck`:
+  
+```sql
+SELECT DATABASEPROPERTYEX('NameOfDatabaseToCheck','IsSyncWithBackup')`
+```

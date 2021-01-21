@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: e3ccf8ed-1cec-43ac-90b7-d8597c24b050
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 49701ce47afa3baeae4152d0b4be0b6ad7efaa5f
-ms.sourcegitcommit: a9e982e30e458866fcd64374e3458516182d604c
+ms.openlocfilehash: 8dd7e4faa4c8e175987254981f09d78da9445d1a
+ms.sourcegitcommit: e40e75055c1435c5e3f9b6e3246be55526807b4c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98100391"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98151272"
 ---
 # <a name="logical-functions---iif-transact-sql"></a>Funções lógicas – IIF (Transact-SQL)
 [!INCLUDE [SQL Server Azure SQL Database ](../../includes/applies-to-version/sql-asdb.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "98100391"
 ## <a name="syntax"></a>Sintaxe  
   
 ```syntaxsql
-IIF ( boolean_expression, true_value, false_value )  
+IIF( boolean_expression, true_value, false_value )
 ```  
   
 [!INCLUDE[sql-server-tsql-previous-offline-documentation](../../includes/sql-server-tsql-previous-offline-documentation.md)]
@@ -44,7 +44,7 @@ IIF ( boolean_expression, true_value, false_value )
  *boolean_expression*  
  Uma expressão Booliana válida.  
   
- Se esse argumento não for uma expressão Booliana, será gerado um erro de sintaxe.  
+ Se esse argumento não for uma expressão booliana, um erro de sintaxe será gerado.  
   
  *true_value*  
  Valor a ser retornado se *boolean_expression* for avaliada como verdadeira.  
@@ -65,8 +65,8 @@ IIF ( boolean_expression, true_value, false_value )
 ### <a name="a-simple-iif-example"></a>a. Exemplo de IIF simples  
   
 ```sql  
-DECLARE @a INT = 45, @b INT = 40;  
-SELECT IIF ( @a > @b, 'TRUE', 'FALSE' ) AS Result;  
+DECLARE @a INT = 45, @b INT = 40;
+SELECT [Result] = IIF( @a > @b, 'TRUE', 'FALSE' );
 ```  
   
  [!INCLUDE[ssResult](../../includes/ssresult-md.md)]  
@@ -75,14 +75,12 @@ SELECT IIF ( @a > @b, 'TRUE', 'FALSE' ) AS Result;
 Result  
 --------  
 TRUE  
-  
-(1 row(s) affected)  
 ```  
   
 ### <a name="b-iif-with-null-constants"></a>B. IIF com constantes NULL  
   
 ```sql 
-SELECT IIF ( 45 > 30, NULL, NULL ) AS Result;  
+SELECT [Result] = IIF( 45 > 30, NULL, NULL );
 ```  
   
  O resultado dessa instrução é um erro.  
@@ -91,7 +89,7 @@ SELECT IIF ( 45 > 30, NULL, NULL ) AS Result;
   
 ```sql  
 DECLARE @P INT = NULL, @S INT = NULL;  
-SELECT IIF ( 45 > 30, @p, @s ) AS Result;  
+SELECT [Result] = IIF( 45 > 30, @P, @S );
 ```  
   
  [!INCLUDE[ssResult](../../includes/ssresult-md.md)]  
@@ -100,8 +98,6 @@ SELECT IIF ( 45 > 30, @p, @s ) AS Result;
 Result  
 --------  
 NULL  
-  
-(1 row(s) affected)  
 ```  
   
 ## <a name="see-also"></a>Consulte Também  

@@ -2,7 +2,7 @@
 description: Configurar criptografia de coluna in-loco com Transact-SQL
 title: Configurar criptografia de coluna in-loco com Transact-SQL | Microsoft Docs
 ms.custom: ''
-ms.date: 10/10/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: database-engine, sql-database
 ms.reviewer: vanto
@@ -11,15 +11,16 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: e1e72a9e06c2012390a88243c3ef865ac222564b
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ab59eec637bd5afc127227b09445417ffa1fe4eb
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477687"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534845"
 ---
 # <a name="configure-column-encryption-in-place-with-transact-sql"></a>Configurar criptografia de coluna in-loco com Transact-SQL
-[!INCLUDE [sqlserver2019-windows-only](../../../includes/applies-to-version/sqlserver2019-windows-only.md)]
+
+[!INCLUDE [sqlserver2019-windows-only-asdb](../../../includes/applies-to-version/sqlserver2019-windows-only-asdb.md)]
 
 Este artigo descreve como executar operações de criptografia in-loco em colunas usando o Always Encrypted com enclaves seguros com a [instrução ALTER TABLE](../../../odbc/microsoft/alter-table-statement.md)/`ALTER COLUMN`. Para obter informações básicas sobre a criptografia in-loco e pré-requisitos gerais, confira [Configurar a criptografia de coluna in-loco usando o Always Encrypted com enclaves seguros](always-encrypted-enclaves-configure-encryption.md).
 
@@ -29,23 +30,24 @@ Com a instrução `ALTER TABLE` ou `ALTER COLUMN`, você pode definir a configur
 - Se a coluna estiver criptografada no momento, ela será criptografada novamente se você especificar a cláusula `ENCRYPTED WITH` e o tipo de criptografia de coluna especificada ou a chave de criptografia de coluna forem diferentes do tipo de criptografia ou da chave de criptografia de coluna usada no momento. 
 
 > [!NOTE]
-> Não é possível combinar operações criptográficas com outras alterações em uma única instrução `ALTER TABLE`/`ALTER COLUMN`, exceto para alterar a coluna para `NULL` ou `NOT NULL` ou alterar uma ordenação. Por exemplo, não é possível criptografar uma coluna E alterar um tipo de dados da coluna em uma única instrução `ALTER TABLE`/`ALTER COLUMN` do Transact-SQL. É necessário usar duas instruções separadas.
+> Não é possível combinar operações criptográficas com outras alterações em apenas uma instrução `ALTER TABLE`/`ALTER COLUMN`, exceto para alterar a coluna para `NULL` ou `NOT NULL` ou, então, para alterar uma ordenação. Por exemplo, não é possível criptografar uma coluna E alterar um tipo de dados da coluna em uma única instrução `ALTER TABLE`/`ALTER COLUMN` do Transact-SQL. É necessário usar duas instruções separadas.
 
 Como qualquer consulta que usa um enclave seguro no lado do servidor, uma instrução `ALTER TABLE`/`ALTER COLUMN` que dispara a criptografia in-loco deve ser enviada por uma conexão com o Always Encrypted e os cálculos de enclave habilitados. 
 
-O restante deste artigo descreve como disparar a criptografia in-loco usando a instrução `ALTER TABLE`/`ALTER COLUMN` do SQL Server Management Studio. Como alternativa, você pode emitir `ALTER TABLE`/`ALTER COLUMN` do seu aplicativo. 
+O restante deste artigo descreve como disparar a criptografia in-loco usando a instrução `ALTER TABLE`/`ALTER COLUMN` do SQL Server Management Studio. Como alternativa, você pode emitir `ALTER TABLE`/`ALTER COLUMN` do Azure Data Studio ou do aplicativo. 
 
 > [!NOTE]
-> Atualmente, ferramentas diferentes do SSMS, incluindo o cmdlet [Invoke-Sqlcmd](/powershell/module/sqlserver/invoke-sqlcmd) no módulo do SqlServer do PowerShell e [sqlcmd](../../../tools/sqlcmd-utility.md), não dão suporte ao uso de `ALTER TABLE`/`ALTER COLUMN` para operações criptográficas in-loco.
+> Atualmente, o cmdlet [Invoke-Sqlcmd](/powershell/module/sqlserver/invoke-sqlcmd) no módulo do SqlServer do PowerShell e [sqlcmd](../../../tools/sqlcmd-utility.md) não dão suporte ao uso de `ALTER TABLE`/`ALTER COLUMN` para operações criptográficas in-loco.
 
 ## <a name="perform-in-place-encryption-with-transact-sql-in-ssms"></a>Executar a criptografia in-loco com o Transact-SQL no SSMS
 ### <a name="pre-requisites"></a>Pré-requisitos
 - Pré-requisitos descritos em [Configurar a criptografia de coluna in-loco usando o Always Encrypted com enclaves seguros](always-encrypted-enclaves-configure-encryption.md).
-- SQL Server Management Studio 18.3 ou posterior.
+- SQL Server Management Studio 18.3 ou posterior ao usar [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)].
+- SQL Server Management Studio 18.8 ou posterior ao usar [!INCLUDE[ssSDSfull](../../../includes/sssdsfull-md.md)].
 
 ### <a name="steps"></a>Etapas
 1. Abra uma janela de consulta com Always Encrypted e cálculos de enclave habilitados na conexão de banco de dados. Para obter detalhes, confira [Habilitando e desabilitando Always Encrypted para uma conexão de banco de dados](always-encrypted-query-columns-ssms.md#en-dis).
-2. Na janela de consulta, emita a instrução `ALTER TABLE`/`ALTER COLUMN`, especificando uma chave de criptografia de coluna habilitada para enclave na cláusula `ENCRYPTED WITH`. Se a coluna for de cadeia de caracteres (por exemplo, `char`, `varchar`, `nchar`, `nvarchar`), você também precisará alterar a ordenação para uma ordenação BIN2. 
+2. Na janela de consulta, emita a instrução `ALTER TABLE`/`ALTER COLUMN`, especificando a configuração de criptografia de destino para uma coluna que você deseja criptografar, descriptografar ou criptografar novamente. Se você estiver criptografando ou criptografando novamente a coluna, usando a cláusula `ENCRYPTED WITH`. Se a coluna for de cadeia de caracteres (por exemplo, `char`, `varchar`, `nchar`, `nvarchar`), você também precisará alterar a ordenação para uma ordenação BIN2. 
     
     > [!NOTE]
     > Se a chave mestra de coluna estiver armazenada no Azure Key Vault, talvez seja solicitado que você entre no Azure.
@@ -67,7 +69,7 @@ O restante deste artigo descreve como disparar a criptografia in-loco usando a i
 #### <a name="encrypting-a-column-in-place"></a>Criptografar uma coluna in-loco
 O exemplo abaixo pressupõe que:
 - `CEK1` é uma chave de criptografia de coluna habilitada para enclave.
-- a coluna `SSN` é de texto sem formatação e atualmente está usando a ordenação de banco de dados padrão, como uma ordenação Latin1, não BIN2 (por exemplo, `Latin1_General_CI_AI_KS_WS`).
+- A coluna `SSN` é de texto sem formatação e atualmente está usando a ordenação de banco de dados padrão, como uma ordenação Latin1, não BIN2 (por exemplo, `Latin1_General_CI_AI_KS_WS`).
 
 A instrução criptografa a coluna `SSN` usando criptografia aleatória e a chave de criptografia de coluna habilitada para enclave no local. Ela também substitui a ordenação do banco de dados padrão pela ordenação BIN2 correspondente (na mesma página de código).
 
@@ -125,7 +127,7 @@ O exemplo abaixo pressupõe que:
 - A coluna `SSN` foi criptografada usando uma chave de criptografia de coluna habilitada para enclave.
 - A ordenação atual, definida no nível da coluna, é `Latin1_General_BIN2`.
 
-A instrução abaixo descriptografa a coluna (e mantém a ordenação inalterada – como alternativa, você pode optar por alterar a ordenação, por exemplo, para uma ordenação não BIN2 na mesma instrução).
+A instrução abaixo descriptografa a coluna e mantém a ordenação inalterada. Como alternativa, você pode optar por alterar a ordenação. Por exemplo, altere a ordenação para uma ordenação não BIN2 na mesma instrução.
 
 ```sql
 ALTER TABLE [dbo].[Employees]
@@ -137,11 +139,13 @@ GO
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Consultar colunas usando o Always Encrypted com enclaves seguros](always-encrypted-enclaves-query-columns.md)
+- [Executar instruções Transact-SQL usando os enclaves seguros](always-encrypted-enclaves-query-columns.md)
 - [Criar e usar índices em colunas usando o Always Encrypted com enclaves seguros](always-encrypted-enclaves-create-use-indexes.md)
 - [Desenvolver aplicativos usando o Always Encrypted com enclaves seguros](always-encrypted-enclaves-client-development.md)
 
 ## <a name="see-also"></a>Consulte Também  
+- [Solução de problemas comuns do Always Encrypted com enclaves seguros](always-encrypted-enclaves-troubleshooting.md)
 - [Configurar a criptografia de coluna in-loco usando o Always Encrypted com enclaves seguros](always-encrypted-enclaves-configure-encryption.md)
 - [Habilitar o Always Encrypted com enclaves seguros para as colunas criptografadas existentes](always-encrypted-enclaves-enable-for-encrypted-columns.md)
-- [Tutorial: Introdução ao Always Encrypted com enclaves seguros usando o SSMS](../tutorial-getting-started-with-always-encrypted-enclaves.md)
+- [Tutorial: Introdução ao Always Encrypted com enclaves seguros no SQL Server](../tutorial-getting-started-with-always-encrypted-enclaves.md)
+- [Tutorial: Introdução ao Always Encrypted com enclaves seguros no Banco de Dados SQL do Azure](/azure/azure-sql/database/always-encrypted-enclaves-getting-started)

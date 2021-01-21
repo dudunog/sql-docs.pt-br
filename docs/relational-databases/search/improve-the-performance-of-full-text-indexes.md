@@ -18,12 +18,12 @@ author: pmasl
 ms.author: pelopes
 ms.reviewer: mikeray
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 79368864ef41860d725772ee9136bb1e66e82790
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 2ec5532f22f50258334f815d12202eb4645b4b17
+ms.sourcegitcommit: 23649428528346930d7d5b8be7da3dcf1a2b3190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97479497"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98241830"
 ---
 # <a name="improve-the-performance-of-full-text-indexes"></a>Melhorar o desempenho de índices de texto completo
 [!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
@@ -42,7 +42,7 @@ A principal causa da diminuição do desempenho da indexação de texto completo
 -   **Disco**. Se a média de tamanho da lista de pendências de disco é duas vezes maior do que o número de cabeçotes de disco, há um gargalo no disco. A principal solução alternativa é criar catálogos de texto completo separados dos arquivos e logs de banco de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . Coloque os logs, arquivos de banco de dados e catálogos de texto completo em discos separados. Instalar discos mais rápidos e usar RAID também pode ajudar a melhorar desempenho de indexação.  
   
     > [!NOTE]  
-    >  A partir do [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)], o Mecanismo de Texto Completo pode usar memória AWE, pois o mecanismo faz parte do processo sqlservr.exe.  
+    > A partir do [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)], o Mecanismo de Texto Completo pode usar memória AWE, pois o mecanismo faz parte do processo sqlservr.exe. Para obter mais informações, confira [Arquitetura da pesquisa de texto completo](../../relational-databases/search/full-text-search.md#architecture).  
 
 ### <a name="full-text-batching-issues"></a>Problemas de envio em lote de texto completo
  Se o sistema não tiver gargalos de hardware, o desempenho de indexação da pesquisa de texto completo dependerá principalmente do seguinte:  
@@ -67,7 +67,7 @@ Para maximizar o desempenho de seus índices de texto completo, implemente as se
   
 -   Atualize as estatísticas da tabela base usando a instrução [UPDATE STATISTICS](../../t-sql/statements/update-statistics-transact-sql.md) . E, o mais importante, atualize as estatísticas no índice clusterizado ou na chave de texto completo para uma população completa. Isso ajuda uma população de vários intervalos a gerar boas partições na tabela.  
   
--   Antes de executar uma população completa em um computador com várias CPUs, é recomendável limitar o tamanho do pool de buffers temporariamente, definindo o valor **max server memory** para deixar memória suficiente para o processo do fdhost.exe e para uso do sistema operacional. Para obter mais informações, consulte "Estimando os requisitos de memória da memória compartilhada de saída do processo do host do daemon de filtro (fdhost.exe)", posteriormente neste tópico.
+-   Antes de executar uma população completa em um computador com várias CPUs, é recomendável limitar o tamanho do pool de buffers temporariamente, definindo o valor **max server memory** para deixar memória suficiente para o processo do fdhost.exe e para uso do sistema operacional. Para obter mais informações, confira [Estimativa dos requisitos de memória do processo de host do daemon de filtro (fdhost.exe)](#estimate), mais adiante neste tópico.
 
 -   Se você usar a população incremental com base em uma coluna de carimbo de data/hora, crie um índice secundário da coluna **carimbo de data/hora** para melhorar o desempenho da população incremental.  
   
@@ -89,24 +89,24 @@ As partes variáveis do nome do arquivo de log de rastreamento são as seguintes
  Por exemplo, `SQLFT0000500008.2` é o arquivo de log de rastreamento de um banco de dados com a ID de banco de dados = 5 e a ID de catálogo de texto completo = 8. O 2 no final do nome do arquivo indica que há dois arquivos de log de rastreamento para esse par de banco de dados/catálogo.  
 
 ### <a name="check-physical-memory-usage"></a>Verificar uso de memória física  
- Durante uma população de texto completo, é possível que o fdhost.exe ou o sqlservr.exe fique com pouca memória não tenha memória suficiente.
--   Se o log de rastreamento de texto completo mostrar que fdhost.exe está sendo reiniciado com frequência ou que o código de erro 8007008 está sendo retornado, isso indica que um desses processos está sendo executado sem memória.
--   Se fdhost.exe estiver gerando despejos, principalmente em computadores grandes com várias CPUs, talvez ele esteja ficando com memória insuficiente.  
+ Durante um preenchimento de texto completo, é possível que `fdhost.exe` ou `sqlservr.exe` seja executado com pouca memória ou que fique sem memória.
+-   Se o log de rastreamento de texto completo mostrar que `fdhost.exe` está sendo reiniciado com frequência ou que o código de erro 8007008 está sendo retornado, isso indicará que um desses processos está sendo executado sem memória.
+-   Se `fdhost.exe` estiver gerando despejos, principalmente em computadores grandes com várias CPUs, ele pode estar ficando sem memória.  
 -   Para obter informações sobre os buffers de memória usados por um rastreamento de texto completo, consulte [sys.dm_fts_memory_buffers &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-fts-memory-buffers-transact-sql.md).  
   
  As possíveis causas de memória insuficiente ou problemas de memória insuficiente são as seguintes:  
   
 -   **Memória insuficiente**. Se a quantidade de memória física disponível durante uma população completa for zero, o pool de buffers do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] talvez esteja consumindo a maior parte da memória física do sistema.  
   
-     O processo do sqlservr.exe tenta obter toda a memória disponível para o pool de buffers, até a memória máxima configurada para o servidor. Se a alocação de **max server memory** for muito grande, condições de memória insuficiente e falha para alocar memória compartilhada poderão ocorrer para o processo do fdhost.exe.  
+     O processo do `sqlservr.exe` tenta obter toda a memória disponível para o pool de buffers, até a memória máxima configurada para o servidor. Se a alocação de **max server memory** for muito grande, condições de memória insuficiente e falha para alocar memória compartilhada poderão ocorrer para o processo do fdhost.exe.  
   
-     Para resolver esse problema, defina o valor de **memória máxima do servidor** do pool de buffers do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] adequadamente. Para obter mais informações, consulte "Estimando os requisitos de memória da memória compartilhada de saída do processo do host do daemon de filtro (fdhost.exe)", posteriormente neste tópico. A redução do tamanho do lote usado para indexação de texto completo pode ajudar.  
+     Para resolver esse problema, defina o valor de **memória máxima do servidor** do pool de buffers do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] adequadamente. Para obter mais informações, confira [Estimativa dos requisitos de memória do processo de host do daemon de filtro (fdhost.exe)](#estimate), mais adiante neste tópico. A redução do tamanho do lote usado para indexação de texto completo pode ajudar.  
 
 -   **Contenção de memória**. Durante uma população de texto completo em um computador com várias CPUs, pode ocorrer a contenção da memória do pool de buffers entre fdhost.exe ou sqlservr.exe. A memória compartilhada insuficiente resultante provoca tentativas em lote, sobrecarga de memória e despejos do processo do fdhost.exe.  
 
 -   **Problemas de paginação**. O tamanho insuficiente do arquivo de paginação, como em um sistema que tem um arquivo de paginação pequeno com crescimento restrito, também pode fazer com que o fdhost.exe ou o sqlservr.exe fique com memória insuficiente. Se os logs de rastreamento não indicarem nenhuma falha relacionada à memória, é provável que o desempenho esteja lento devido a excesso de paginação.  
   
-### <a name="estimate-the-memory-requirements-of-the-filter-daemon-host-process-fdhostexe"></a>Estimar requisitos de memória do processo do host do daemon de filtro (fdhost.exe)  
+### <a name="estimate-the-memory-requirements-of-the-filter-daemon-host-process-fdhostexe"></a><a name="estimate"></a> Estimar os requisitos de memória do processo de host do daemon de filtro (fdhost.exe)  
  A quantidade de memória necessária para o processo do fdhost.exe para uma população depende principalmente do número de intervalos de rastreamento de texto completo que ele usa, do tamanho da ISM (memória compartilhada de entrada) e do número de máximo de instâncias da ISM.  
   
  A quantidade de memória consumida (em bytes) pelo host do daemon de filtro pode ser estimada aproximadamente usando a fórmula a seguir:  
@@ -143,19 +143,19 @@ Para obter informações essenciais sobre as fórmulas a seguir, consulte as not
   
  #### <a name="example-estimate-the-memory-requirements-of-fdhostexe"></a>Exemplo: estimar os requisitos de memória de fdhost.exe  
   
- Este exemplo é para um computador 8GM de RAM com 64 bits e 4 processadores de núcleo dual. O primeiro cálculo estima a memória necessária para fdhost.exe -*F*. O número de intervalos de rastreamento é `8`.  
+ Este exemplo refere-se a um computador de 64 bits que tem 8 GB de RAM e quatro processadores de núcleo duplo. A primeira computação estima a memória necessária para fdhost.exe -*F*. O número de intervalos de rastreamento é `8`.  
   
- `F = 8*10*8=640`  
+ `F = 8*10*8 = 640`  
   
- O próximo cálculo obtém o valor ideal para **memória máxima do servidor**-*M*. A memória física total disponível no sistema em MB-*T*- é `8192`.  
+ O próximo cálculo obtém o valor ideal para **memória máxima do servidor** -*M*. A memória física total disponível no sistema em MB-*T*- é `8192`.  
   
- `M = 8192-640-500=7052`  
+ `M = 8192-640-500 = 7052`  
   
  #### <a name="example-setting-max-server-memory"></a>Exemplo: configurando a memória máxima do servidor  
   
  Este exemplo usa as instruções [sp_configure](../../relational-databases/system-stored-procedures/sp-configure-transact-sql.md) e [RECONFIGURE](../../t-sql/language-elements/reconfigure-transact-sql.md) [!INCLUDE[tsql](../../includes/tsql-md.md)] para definir **max server memory** com o valor calculado para o *M* no exemplo anterior, `7052`:  
   
-```  
+```sql  
 USE master;  
 GO  
 EXEC sp_configure 'max server memory', 7052;  
@@ -173,7 +173,7 @@ O desempenho das populações completas não é ideal quando o consumo de CPU m�
   
      Para saber se o tempo de espera de uma página é alto, execute a seguinte instrução [!INCLUDE[tsql](../../includes/tsql-md.md)]:  
   
-    ```  
+    ```sql  
     SELECT TOP 10 * FROM sys.dm_os_wait_stats ORDER BY wait_time_ms DESC;  
     ```  
   
@@ -217,4 +217,4 @@ Para solucionar esse problema, marque o filtro para o documento de contêiner (n
  [sys.dm_fts_memory_buffers &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-fts-memory-buffers-transact-sql.md)   
  [sys.dm_fts_memory_pools &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-fts-memory-pools-transact-sql.md)   
  [Solucionar problemas na indexação de texto completo](../../relational-databases/search/troubleshoot-full-text-indexing.md)  
-  
+ [Arquitetura da pesquisa de texto completo](../../relational-databases/search/full-text-search.md#architecture) 

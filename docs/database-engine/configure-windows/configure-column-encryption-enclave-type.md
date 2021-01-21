@@ -2,7 +2,7 @@
 title: Configurar o tipo de enclave para a Opção de Configuração de Servidor Always Encrypted | Microsoft Docs
 description: Descubra como habilitar ou desabilitar um enclave seguro para Always Encrypted. Saiba como confirmar se um enclave foi inicializado corretamente.
 ms.custom: ''
-ms.date: 09/24/2018
+ms.date: 01/15/2021
 ms.prod: sql
 ms.prod_service: security
 ms.reviewer: ''
@@ -11,18 +11,18 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 monikerRange: '>= sql-server-ver15'
-ms.openlocfilehash: 45f6bdca2602a9a85cf9fc193269b445599c78ad
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 19e7349c3b8bb9ef104f95ef0963b6d7982a3669
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97480327"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534745"
 ---
 # <a name="configure-the-enclave-type-for-always-encrypted-server-configuration-option"></a>Configurar o tipo de enclave para a Opção de Configuração de Servidor Always Encrypted
 
 [!INCLUDE [sqlserver2019-windows-only](../../includes/applies-to-version/sqlserver2019-windows-only.md)]
 
-Este artigo descreve como habilitar ou desabilitar um enclave seguro para Always Encrypted com enclaves seguros. Para obter mais informações, consulte [Always Encrypted com enclaves seguros](../../relational-databases/security/encryption/always-encrypted-enclaves.md).
+Este artigo descreve como habilitar ou desabilitar um enclave seguro para Always Encrypted com enclaves seguros. Para obter mais informações, confira [Always Encrypted com enclaves seguros](../../relational-databases/security/encryption/always-encrypted-enclaves.md) e [Configurar o enclave seguro no SQL Server](../../relational-databases/security/encryption/always-encrypted-enclaves-configure-enclave-type.md).
 
 A Opção de Configuração do Servidor de **tipo de enclave de criptografia de coluna** controla o tipo de enclave seguro usado para Always Encrypted. A opção pode ser definida como um dos valores a seguir:  
   

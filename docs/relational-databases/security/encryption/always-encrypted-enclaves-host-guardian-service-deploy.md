@@ -2,7 +2,7 @@
 title: Implantar o Serviço Guardião de Host
 description: Implante o Serviço Guardião de Host para Always Encrypted com o enclaves seguros.
 ms.custom: ''
-ms.date: 11/15/2019
+ms.date: 01/15/2021
 ms.prod: sql
 ms.reviewer: vanto
 ms.technology: security
@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: rpsqrd
 ms.author: ryanpu
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: 9ce744de4f70e30a10fad36eef6c1f28f4d8e8d4
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 88e79166a8b44139f58192feece211bc3b3d2db3
+ms.sourcegitcommit: 8ca4b1398e090337ded64840bcb8d6c92d65c29e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477677"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98534785"
 ---
 # <a name="deploy-the-host-guardian-service-for-ssnoversion-md"></a>Implantar o Serviço Guardião de Host para [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)]
 
@@ -23,6 +23,9 @@ ms.locfileid: "97477677"
 
 Este artigo descreve como implantar o HGS (Serviço Guardião de Host) como um serviço de atestado para [!INCLUDE [ssnoversion-md](../../../includes/ssnoversion-md.md)].
 Antes de começar, leia o artigo [Planejar o atestado do Serviço Guardião de Host](./always-encrypted-enclaves-host-guardian-service-plan.md) para obter uma lista completa de pré-requisitos e diretrizes arquitetônicas.
+
+> [!NOTE]
+> O administrador do HGS é responsável por executar todas as etapas descritas neste artigo. Confira [Funções e responsabilidades ao configurar o atestado com o HGS](always-encrypted-enclaves-host-guardian-service-plan.md#roles-and-responsibilities-when-configuring-attestation-with-hgs).
 
 ## <a name="step-1-set-up-the-first-hgs-computer"></a>Etapa 1: Configurar o primeiro computador HGS
 
@@ -233,6 +236,27 @@ Você pode configurar uma associação HTTPS (porta 443) para criptografar todas
     ```
 
 3. Repita as Etapas 1 e 2 para cada computador HGS no cluster. Os certificados TLS não são replicados automaticamente entre os nós do HGS. Além disso, cada computador HGS pode ter o próprio certificado TLS exclusivo, contanto que o assunto corresponda ao nome do serviço HGS.
+
+## <a name="step-6-determine-and-share-the-hgs-attestation-url"></a>Etapa 6: Determinar e compartilhar a URL de atestado do HGS
+
+Como o administrador do HGS, você precisa compartilhar a URL de atestado do HGS com os administradores de computador do SQL Server e os administradores de aplicativos em sua organização. Os administradores de computadores do SQL Server precisarão da URL de atestado para verificar se os computadores do SQL Server podem atestar com o HGS. Os administradores de aplicativos precisarão da URL de atestado para configurar o modo como os aplicativos deles se conectam ao SQL Server.
+
+Para determinar a URL de atestado, execute o cmdlet a seguir.
+
+```powershell
+Get-HGSServer
+```
+A saída do comando terá uma aparência semelhante à seguinte:
+
+```
+Name                           Value                                                                         
+----                           -----                                                                         
+AttestationOperationMode       HostKey                                                                       
+AttestationUrl                 {http://hgs.bastion.local/Attestation}                                        
+KeyProtectionUrl               {}         
+```
+
+A URL de atestado para o HGS é o valor da propriedade AttestationUrl.
 
 ## <a name="next-steps"></a>Próximas etapas
 

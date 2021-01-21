@@ -9,12 +9,12 @@ ms.custom: ''
 ms.technology: integration-services
 author: chugugrace
 ms.author: chugu
-ms.openlocfilehash: 52578422cc9f68c728c901cf39bf05425576133b
-ms.sourcegitcommit: 36fe62a3ccf34979bfde3e192cfa778505add465
+ms.openlocfilehash: 65712139819c65c2fe8804cc8e0f6768025b322a
+ms.sourcegitcommit: e3ab17fe9822629eda4df5fb4550df5d495f3134
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94521090"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98207855"
 ---
 # <a name="standalone-sql-server-integration-service-ssis-devops-tools-preview"></a>Ferramentas autônomas de DevOps do SSIS (SQL Server Integration Services) (versão prévia)
 
@@ -128,6 +128,13 @@ SSISDeploy.exe -source|-s:<source path> -destination|-d:<type>;<path>[;server] [
     ```
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="version-012-preview"></a>Versão 0.1.2 Versão prévia
+
+Data de lançamento: 14 de janeiro de 2021
+
+- Correção de um problema que SSISBuild.exe falha ao compilar o projeto com a exceção NullReference quando os metadados de parâmetro do pacote no arquivo de projeto do SSIS e no pacote SSIS não correspondem.
+- Correção de um problema que o pacote não é executado com o erro que começa com “Falha ao descriptografar o nó XML protegido”, embora o pacote seja implantado no SSISDB com êxito com SSISDeploy.exe, quando o projeto SSIS que contém o pacote é criptografado com a EncryptSensitiveWithUserKey e o pacote contém o CM com os dados confidenciais.
 
 ### <a name="version-011-preview"></a>Versão 0.1.1 versão prévia
 

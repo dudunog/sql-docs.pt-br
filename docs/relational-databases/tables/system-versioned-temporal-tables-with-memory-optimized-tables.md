@@ -12,12 +12,12 @@ ms.assetid: 23274522-e5cf-4095-bed8-bf986d6342e0
 author: markingmyname
 ms.author: maghan
 monikerRange: =azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current
-ms.openlocfilehash: b93b419e4678b84684c524011ed4df4feb6fcb14
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 05ed5ec0d34d2a1a612b76c0117d0bf66675ad7a
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97474567"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98171888"
 ---
 # <a name="system-versioned-temporal-tables-with-memory-optimized-tables"></a>Tabelas temporais com controle da versão do sistema com tabelas com otimização de memória
 
@@ -70,7 +70,7 @@ A tarefa de limpeza de dados será ativada regularmente com uma agenda que varia
 
 A limpeza de dados exclui todos os registros de buffer interno de memória mais antigos do que a transação mais antiga em execução no momento para mover esses registros para a tabela de histórico com base em disco.
 
-Você pode impor uma limpeza de dados invocando [sp_xtp_flush_temporal_history](../../relational-databases/system-stored-procedures/temporal-table-sp-xtp-flush-temporal-history.md) e especificando o nome do esquema e da tabela: **sys.sp_xtp_flush_temporal_history @schema_name, @object_name** . Com este comando executado pelo usuário, o mesmo processo de movimentação de dados é invocado quando a tarefa de limpeza de dados é invocada pelo sistema na agenda interna.
+Você pode impor uma limpeza de dados invocando [sp_xtp_flush_temporal_history](../../relational-databases/system-stored-procedures/temporal-table-sp-xtp-flush-temporal-history.md) e especificando o nome do esquema e da tabela: **sys.sp_xtp_flush_temporal_history \@schema_name, \@object_name**. Com este comando executado pelo usuário, o mesmo processo de movimentação de dados é invocado quando a tarefa de limpeza de dados é invocada pelo sistema na agenda interna.
 
 ## <a name="see-also"></a>Consulte Também
 

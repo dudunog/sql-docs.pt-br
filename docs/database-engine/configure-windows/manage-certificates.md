@@ -1,11 +1,8 @@
 ---
-title: Gerenciamento de certificado (SQL Server Configuration Manager) | Microsoft Docs
+title: Gerenciamento de certificado (SQL Server Configuration Manager)
 description: Saiba como instalar certificados em várias configurações do SQL Server. Os exemplos incluem instâncias únicas, clusters de failover e grupos de disponibilidade Always On.
-ms.custom: ''
-ms.date: 01/16/2019
 ms.prod: sql
 ms.prod_service: high-availability
-ms.reviewer: ''
 ms.technology: configuration
 ms.topic: conceptual
 helpviewer_keywords:
@@ -21,12 +18,15 @@ helpviewer_keywords:
 ms.assetid: e1e55519-97ec-4404-81ef-881da3b42006
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: 835d0b1da11ba014b14ede9637117357e84dc208
-ms.sourcegitcommit: d498110ec0c7c62782fb694d14436f06681f2c30
+ms.reviewer: ''
+ms.custom: ''
+ms.date: 01/12/2021
+ms.openlocfilehash: e4f0c17e7502a0c1fa75c6459fae77683d0c3cbd
+ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196043"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98170918"
 ---
 # <a name="certificate-management-sql-server-configuration-manager"></a>Gerenciamento de certificado (SQL Server Configuration Manager)
 
@@ -43,18 +43,29 @@ Certificados SSL/TLS são amplamente usados para proteger o acesso ao SQL Server
 > Você pode usar gerenciamento de certificados no SQL Server Configuration Manager com versões anteriores do SQL Server, começando com o SQL Server 2008.
 
 ##  <a name="to-install-a-certificate-for-a-single-sql-server-instance"></a><a name="provision-single-server-cert"></a> Para instalar um certificado para uma única instância do SQL Server  
-  
+
+::: moniker range=">=sql-server-ver15"
 1. No SQL Server Configuration Manager, no painel de console, expanda **Configuração de Rede do SQL Server**.  
-  
+
 2. Clique com o botão direito do mouse em **Protocolos de** *&lt;Nome da instância&gt;* e, em seguida, selecione **Propriedades**.  
-  
+
 3. Escolha a guia **Certificado** e, em seguida, selecione **Importar**.  
-  
+
 4. Selecione **Procurar** e, em seguida, selecione o arquivo de certificado.  
-  
+
 5. Selecione **Avançar** para validar o certificado. Se não houver erros, selecione **Avançar** para importar o certificado para a instância local.  
-  
- 
+::: moniker-end
+
+::: moniker range="<= sql-server-2017"
+1. No SQL Server Configuration Manager, no painel de console, expanda **Configuração de Rede do SQL Server**.  
+
+2. Clique com o botão direito do mouse em **Protocolos de** *&lt;Nome da instância&gt;* e, em seguida, selecione **Propriedades**.  
+
+3. Selecione um certificado no menu suspenso **Certificado** e escolha **Aplicar**.  
+
+4. Selecione **OK**. 
+::: moniker-end
+
 ##  <a name="to-install-a-certificate-in-a-failover-cluster-instance-configuration"></a><a name="provision-failover-cluster-cert"></a> Para instalar um certificado em uma configuração de instância do cluster de failover  
   
 1. No SQL Server Configuration Manager, no painel de console, expanda **Configuração de Rede do SQL Server**.

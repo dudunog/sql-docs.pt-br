@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.prod: sql
 ms.technology: linux
 ms.assetid: 1314744f-fcaf-46db-800e-2918fa7e1b6c
-ms.openlocfilehash: a585314a26e90b76d18117be2eafe6f78e399dc3
-ms.sourcegitcommit: 2991ad5324601c8618739915aec9b184a8a49c74
+ms.openlocfilehash: 369c52eeb66a3d8ca5042f54d71ea9001d30b194
+ms.sourcegitcommit: af64e2b8d498af26b973e86db5c00f8d72991295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97321990"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98193023"
 ---
 # <a name="release-notes-for-sql-server-2017-on-linux"></a>Notas sobre a versão do SQL Server 2017 em Linux
 
@@ -46,6 +46,7 @@ A tabela a seguir lista o histórico de versões do [!INCLUDE[ssSQL17](../includ
 
 | Versão               | Versão       | Data de liberação |
 |-----------------------|---------------|--------------|
+| [CU22-GDR](#CU22)         | 14.0.3370.1  | 12-01-2021 |
 | [CU22](#CU22)         | 14.0.3356.20  | 2020-09-10   |
 | [CU21](#CU21)         | 14.0.3335.7   | 2020-07-01   |
 | [CU20](#CU20)         | 14.0.3294.2   | 10-04-2020   |
@@ -83,6 +84,27 @@ Se você estiver atualizando pacotes do [!INCLUDE[ssNoVersion](../includes/ssnov
 - [Instalar pacote de Pesquisa de texto completo](sql-server-linux-setup-full-text-search.md)
 - [Instalar o SQL Server Integration Services](sql-server-linux-setup-ssis.md)
 - [Habilitar o SQL Server Agent](sql-server-linux-setup-sql-agent.md)
+
+## <a name="cu22-gdr-january-2021"></a><a id="CU22-GDR"></a> CU22-GDR (janeiro de 2021)
+
+Esta é a versão CU22-GDR (atualização cumulativa 22-GDR) do [!INCLUDE[ssSQL17](../includes/sssql17-md.md)]. A versão do [!INCLUDE[ssDEnoversion](../includes/ssdenoversion-md.md)] é 14.0.3370.1. Para obter informações sobre as correções e aprimoramentos nesta versão, confira <https://support.microsoft.com/help/4577467>.
+
+### <a name="package-details"></a>Detalhes do pacote
+
+Para instalações de pacotes manuais ou offline, você pode baixar os pacotes RPM e Debian com as informações na tabela a seguir:
+
+> [!NOTE]
+> O **Ubuntu 18.04** e o **RHEL 8** agora são compatíveis com o SQL Server 2017 a partir da CU20.
+>
+> Os links de instalação do pacote offline do Ubuntu apontam para os pacotes do Ubuntu 18.04, exceto para o pacote SSIS (que não está disponível para o Ubuntu 18.04). Se você estiver procurando pacotes do Ubuntu 16.04, confira o caminho para baixar <https://packages.microsoft.com/ubuntu/16.04/mssql-server-2017/pool/main/m/>.
+>
+> Os links de instalação do pacote offline do Red Hat apontam para os pacotes do RHEL 8, exceto para o pacote SSIS (que não está disponível para o RHEL 8). Se você estiver procurando pacotes do RHEL 7, confira o caminho para baixar <https://packages.microsoft.com/rhel/7/mssql-server-2017/>.
+
+| Pacote | Versão do pacote | Downloads |
+|-----|-----|-----|
+| Pacote RPM do Red Hat | 14.0.3370.1-23-18 | [Pacote RPM do mecanismo](https://packages.microsoft.com/rhel/8/mssql-server-2017/mssql-server-14.0.3370.1-18.x86_64.rpm)</br>[Pacote RPM de Alta Disponibilidade](https://packages.microsoft.com/rhel/8/mssql-server-2017/mssql-server-ha-14.0.3370.1-18.x86_64.rpm)</br>[Pacote RPM de pesquisa de texto completo](https://packages.microsoft.com/rhel/8/mssql-server-2017/mssql-server-fts-14.0.3370.1-18.x86_64.rpm)</br>[Pacote SSIS](https://packages.microsoft.com/rhel/7/mssql-server-2017/mssql-server-is-14.0.1000.169-1.x86_64.rpm) |
+| Pacote RPM do SLES | 14.0.3370.1-18 | [Pacote RPM do mecanismo mssql-server](https://packages.microsoft.com/sles/12/mssql-server-2017/mssql-server-14.0.3370.1-18.x86_64.rpm)</br>[Pacote RPM de Alta Disponibilidade](https://packages.microsoft.com/sles/12/mssql-server-2017/mssql-server-ha-14.0.3370.1-18.x86_64.rpm)</br>[Pacote RPM de pesquisa de texto completo](https://packages.microsoft.com/sles/12/mssql-server-2017/mssql-server-fts-14.0.3370.1-18.x86_64.rpm) | 
+| Pacote Debian do Ubuntu 18.04 | 14.0.3370.1-18 | [Pacote Debian do mecanismo](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2017/pool/main/m/mssql-server/mssql-server_14.0.3370.1-18_amd64.deb)</br>[Pacote Debian de alta disponibilidade](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2017/pool/main/m/mssql-server-ha/mssql-server-ha_14.0.3370.1-18_amd64.deb)</br>[Pacote Debian de pesquisa de texto completo](https://packages.microsoft.com/ubuntu/18.04/mssql-server-2017/pool/main/m/mssql-server-fts/mssql-server-fts_14.0.3370.1-18_amd64.deb)<br/>[Pacote SSIS](https://packages.microsoft.com/ubuntu/16.04/mssql-server-2017/pool/main/m/mssql-server-is/mssql-server-is_14.0.1000.169-1_amd64.deb) |
 
 ## <a name="cu22-september-2020"></a><a id="CU22"></a> CU22 (setembro de 2020)
 
@@ -582,7 +604,7 @@ As seções a seguir descrevem problemas conhecidos com a versão de GA (Disponi
          sudo systemctl restart mssql-server
          ```
 
-- Bancos de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] no Windows que usam OLTP in-memory não podem ser restaurados no [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] no Linux. Para restaurar um banco de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] que usa OLTP in-memory, primeiro atualize os bancos de dados para [!INCLUDE[ssSQL15](../includes/sssql15-md.md)] ou [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] no Windows antes de movê-los para o [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] em Linux por meio de backup/restauração ou de desanexar/anexar.
+- Bancos de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] no Windows que usam OLTP in-memory não podem ser restaurados no [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] no Linux. Para restaurar um banco de dados do [!INCLUDE[ssSQL14](../includes/sssql14-md.md)] que usa OLTP in-memory, primeiro atualize os bancos de dados para [!INCLUDE[ssSQL15](../includes/sssql16-md.md)] ou [!INCLUDE[ssSQL17](../includes/sssql17-md.md)] no Windows antes de movê-los para o [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] em Linux por meio de backup/restauração ou de desanexar/anexar.
 
 - A permissão de usuário **ADMINISTRAR OPERAÇÕES EM MASSA** não tem suporte no Linux no momento.
 
