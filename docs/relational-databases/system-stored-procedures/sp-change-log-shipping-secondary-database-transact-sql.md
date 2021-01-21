@@ -18,12 +18,12 @@ helpviewer_keywords:
 ms.assetid: 3ebcf2f1-980f-4543-a84b-fbaeea54eeac
 author: MashaMSFT
 ms.author: mathoma
-ms.openlocfilehash: 5fc10c705564c88fe157860d00a61fa5ea682cc0
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 81a5c562ddade5c60458ad491a401dab916c59d4
+ms.sourcegitcommit: fc24f7ecc155d97e789676fffe55e45840fcb088
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88486260"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98620290"
 ---
 # <a name="sp_change_log_shipping_secondary_database-transact-sql"></a>sp_change_log_shipping_secondary_database (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -74,9 +74,9 @@ sp_change_log_shipping_secondary_database
   
 `[ @restore_threshold = ] 'restore_threshold'` O número de minutos permitido para decorrer entre as operações de restauração antes de um alerta ser gerado. *restore_threshold* é **int** e não pode ser NULL.  
   
-`[ @threshold_alert = ] 'threshold_alert'` É o alerta a ser gerado quando o limite de restauração é excedido. *threshold_alert* é **int**, com um padrão de 14420.  
+`[ @threshold_alert = ] 'threshold_alert'` É o alerta a ser gerado quando o limite de restauração é excedido. *threshold_alert* é **int**, com um padrão de 14421.  
   
-`[ @threshold_alert_enabled = ] 'threshold_alert_enabled'` Especifica se um alerta será gerado quando *restore_threshold*for excedido. 1 = habilitado; 0 = desabilitado. *threshold_alert_enabled* é **bit** e não pode ser nulo.  
+`[ @threshold_alert_enabled = ] 'threshold_alert_enabled'` Especifica se um alerta será gerado quando *restore_threshold* for excedido. 1 = habilitado; 0 = desabilitado. *threshold_alert_enabled* é **bit** e não pode ser nulo.  
   
 `[ @history_retention_period = ] 'history_retention_period'` É o período em minutos em que o histórico será retido. *history_retention_period* é **int**. Um valor de 1440 será usado se nenhum for especificado.  
   
