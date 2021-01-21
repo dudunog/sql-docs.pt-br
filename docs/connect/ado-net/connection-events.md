@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 8151915dc6c16c6225fec9ab90cb5a88e86b992f
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 3fb13f3cc163bb157f418d3bda99e0173d81b842
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771433"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596011"
 ---
 # <a name="connection-events"></a>Eventos de conexão
 
@@ -34,7 +34,7 @@ O Provedor de Dados do Microsoft SqlClient para SQL Server tem objetos **Connect
 
 ## <a name="work-with-the-infomessage-event"></a>Trabalhar com o evento InfoMessage
 
-Você pode recuperar avisos e mensagens informativas de uma fonte de dados do SQL Server usando o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> do objeto <xref:Microsoft.Data.SqlClient.SqlConnection>. Os erros retornados da fonte de dados com um nível de severidade de 11 a 16 geram uma exceção. No entanto, o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> pode ser usado para obter as mensagens da fonte de dados que não estão associadas a um erro. No caso do Microsoft SQL Server, qualquer erro com uma severidade de 10 ou menos é considerado uma mensagem informativa e podem ser capturado usando o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>. Para saber mais, leia o artigo [Severidade dos erros do Mecanismo de Banco de Dados](/sql/relational-databases/errors-events/database-engine-error-severities).
+Você pode recuperar avisos e mensagens informativas de uma fonte de dados do SQL Server usando o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> do objeto <xref:Microsoft.Data.SqlClient.SqlConnection>. Os erros retornados da fonte de dados com um nível de severidade de 11 a 16 geram uma exceção. No entanto, o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> pode ser usado para obter as mensagens da fonte de dados que não estão associadas a um erro. No caso do Microsoft SQL Server, qualquer erro com uma severidade de 10 ou menos é considerado uma mensagem informativa e podem ser capturado usando o evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage>. Para saber mais, leia o artigo [Severidade dos erros do Mecanismo de Banco de Dados](../../relational-databases/errors-events/database-engine-error-severities.md).
 
 O evento <xref:Microsoft.Data.SqlClient.SqlConnection.InfoMessage> recebe um objeto <xref:Microsoft.Data.SqlClient.SqlInfoMessageEventArgs> que contém, em sua propriedade **Errors**, uma coleção das mensagens da fonte de dados. Você pode consultar os objetos **Error** nessa coleção para ver o número do erro e o texto da mensagem, assim como a origem do erro. O Provedor de Dados do Microsoft SqlClient para SQL Server também inclui detalhes sobre o banco de dados, o procedimento armazenado e o número de linha de que a mensagem é proveniente.
 

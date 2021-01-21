@@ -8,12 +8,12 @@ ms.topic: how-to
 author: dphansen
 ms.author: davidph
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15'
-ms.openlocfilehash: 53c3e7f55fa21d033bfda3f2e660bd1b9a92991f
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 511a0d73bbc0e8df5c19ee563dca9c7eef8e53eb
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470737"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597041"
 ---
 # <a name="use-r-code-profiling-functions-to-improve-performance"></a>Use as funções de criação de perfil de código R para melhorar o desempenho
 [!INCLUDE [SQL Server 2016 and later](../../includes/applies-to-version/sqlserver2016.md)]
@@ -64,6 +64,6 @@ A documentação do Microsoft R Open, que é instalado por padrão, inclui um ma
 ## <a name="next-steps"></a>Próximas etapas
 
 + Para obter mais informações sobre como otimizar scripts R no SQL Server, confira [Ajuste de desempenho e otimização de dados para R](r-and-data-optimization-r-services.md).
-+ Para obter informações mais completas sobre o ajuste de desempenho no SQL Server, confira a [Central de Desempenho para o Mecanismo de Banco de Dados do SQL Server e Banco de Dados SQL do Azure](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database).
++ Para obter informações mais completas sobre o ajuste de desempenho no SQL Server, confira a [Central de Desempenho para o Mecanismo de Banco de Dados do SQL Server e Banco de Dados SQL do Azure](../../relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database.md).
 + Para obter mais informações sobre o pacote utils, confira [O pacote utils do R](https://www.rdocumentation.org/packages/utils/versions/3.5.1).
 + Para discussões aprofundadas sobre a programação em R, confira ["R avançado", de Hadley Wickham](http://adv-r.had.co.nz).

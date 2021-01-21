@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 42b1f8704be721c0b52b3c42946c9abbf7efd7db
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 6daf0dc719b284f753c6f089709ed6f0f51dfe2a
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771615"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596401"
 ---
 # <a name="connection-string-syntax"></a>Sintaxe de cadeia de conexão
 
@@ -123,7 +123,7 @@ A tabela a seguir descreve todos os casos.
 |Sim|Sim|Sim|Não (padrão)|A criptografia só ocorrerá se houver um certificado do servidor verificável; caso contrário, a tentativa de conexão falhará.|  
 |Sim|Sim|Sim|Sim|A criptografia sempre ocorre, mas pode usar um certificado do servidor autoassinado.|  
 
-Para obter mais informações, confira [Usando criptografia sem validação](/sql/relational-databases/native-client/features/using-encryption-without-validation).
+Para obter mais informações, confira [Usando criptografia sem validação](../../relational-databases/native-client/features/using-encryption-without-validation.md).
 
 ## <a name="see-also"></a>Confira também
 

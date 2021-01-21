@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 monikerRange: '>= aps-pdw-2016 || = azuresqldb-current || = azure-sqldw-latest || >= sql-server-2016 || >= sql-server-linux-2017'
-ms.openlocfilehash: 98fd46528437cd9a82ec7d47539db230b8be8eb8
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 4c8852c9b2ce3f7bce027632b741511a008cb646
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97409392"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595877"
 ---
 # <a name="sql-server-docs-navigation-guide"></a>Guia de navegação de documentos do SQL Server
 
@@ -23,7 +23,7 @@ Este tópico fornece algumas dicas e truques para navegar no espaço da document
 
 ## <a name="hub-page"></a>Página de hub
 
-A página de hub do SQL Server pode ser encontrada em [https://aka.ms/sqldocs](https://aka.ms/sqldocs) e é o ponto de entrada para localizar conteúdo relevante sobre o SQL Server.
+A página de hub do SQL Server pode ser encontrada em [https://aka.ms/sqldocs](../index.yml?WT.mc_id=akams) e é o ponto de entrada para localizar conteúdo relevante sobre o SQL Server.
 
 Você sempre pode navegar de volta para esta página selecionando **Documentos do SQL** no cabeçalho na parte superior de todas as páginas do conjunto da documentação técnica do SQL Server: 
 
@@ -31,7 +31,7 @@ Você sempre pode navegar de volta para esta página selecionando **Documentos d
 
 ## <a name="offline-documentation"></a>Documentação offline
 
-Se você deseja exibir a documentação do SQL Server em um sistema offline, há duas opções para fazer isso. Você pode criar um PDF sempre que estiver na documentação técnica do SQL Server ou pode baixar o conteúdo offline usando [Visualizador da Ajuda offline do SQL Server](sql-server-help-installation.md). 
+Se você deseja exibir a documentação do SQL Server em um sistema offline, há duas opções para fazer isso. Você pode criar um PDF sempre que estiver na documentação técnica do SQL Server ou pode baixar o conteúdo offline usando [Visualizador da Ajuda offline do SQL Server](./sql-server-offline-documentation.md). 
 
 Se quiser criar um PDF, selecione o link **Baixar PDF** localizado na parte inferior de cada sumário.
 

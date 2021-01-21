@@ -16,12 +16,12 @@ helpviewer_keywords:
 ms.assetid: 1e3be259-d453-4802-b2f5-6b81ef607edf
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: a4fa74909490cf7596faa1e38c83a83b6329bd28
-ms.sourcegitcommit: f0772f614482e0b3cde3609e178689ce62ca3a19
+ms.openlocfilehash: 5b5e8dbaee71c53f8f9491f8a1abcd15559e4800
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84547988"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596841"
 ---
 # <a name="report-and-snapshot-size-limits"></a>Limites de tamanho do relatório e do instantâneo
   Os administradores que gerenciam uma implantação do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] podem usar as informações deste tópico para entender os limites de tamanho de relatório quando este é publicado em um servidor de relatório, renderizado em tempo de execução e salvo no sistema de arquivos. Este tópico também fornece uma orientação prática sobre como medir o tamanho de um banco de dados do servidor de relatório e descreve o efeito do tamanho do instantâneo no desempenho do servidor.  
@@ -51,7 +51,7 @@ ms.locfileid: "84547988"
  O único limite fixo do tamanho do relatório é determinado durante a renderização em formato Excel. As planilhas não podem ter mais de 65536 linhas ou 256 colunas. Outros formatos de renderização não têm esses limites, de modo que o tamanho é limitado somente pela quantidade de recursos do servidor.  
   
 > [!NOTE]  
->  O processamento e a renderização do relatório ocorrem na memória. Se houver grandes relatórios ou um grande número de usuários, faça algum tipo de planejamento de capacidade para ter certeza de que a implantação do servidor de relatório seja executada em um nível satisfatório para os usuários. Para obter mais informações sobre ferramentas e diretrizes, consulte as seguintes publicações no MSDN: [Planning for Scalability and Performance with Reporting Services (Planejamento de escalabilidade e desempenho com o Reporting Services)](/previous-versions/sql/sql-server-2005/administrator/cc966418(v=technet.10)) e [Using Visual Studio 2005 to Perform Load Testing on a SQL Server 2005 Reporting Services Report Server (Usando o Visual Studio 2005 para realizar o teste de carga em um servidor de relatórios do Reporting Services do SQL Server 2005)](https://go.microsoft.com/fwlink/?LinkID=77519).  
+>  O processamento e a renderização do relatório ocorrem na memória. Se houver grandes relatórios ou um grande número de usuários, faça algum tipo de planejamento de capacidade para ter certeza de que a implantação do servidor de relatório seja executada em um nível satisfatório para os usuários. Para obter mais informações sobre ferramentas e diretrizes, consulte as seguintes publicações no MSDN: [Planning for Scalability and Performance with Reporting Services (Planejamento de escalabilidade e desempenho com o Reporting Services)](/previous-versions/sql/sql-server-2005/administrator/cc966418(v=technet.10)) e [Using Visual Studio 2005 to Perform Load Testing on a SQL Server 2005 Reporting Services Report Server (Usando o Visual Studio 2005 para realizar o teste de carga em um servidor de relatórios do Reporting Services do SQL Server 2005)](/previous-versions/sql/sql-server-2005/administrator/aa964139(v=sql.90)).  
   
 ## <a name="measuring-snapshot-storage"></a>Medindo o armazenamento de instantâneos  
  O tamanho de qualquer instantâneo é diretamente proporcional à quantidade de dados no relatório. Os instantâneos normalmente são muito maiores que outros itens armazenados em um servidor de relatório. O tamanho do instantâneo varia, em geral, de alguns megabytes a dezenas de megabytes. Se você tiver relatórios muito grandes, espere para ver instantâneos que são ainda muito maiores. Dependendo da frequência de uso dos instantâneos e da configuração do histórico de relatórios, a quantidade de espaço em disco necessária para o banco de dados do servidor de relatório pode aumentar rapidamente em um curto período de tempo.  
@@ -82,5 +82,4 @@ EXEC sp_spaceused
  [Definir as propriedades do processamento de relatórios](../../reporting-services/report-server/set-report-processing-properties.md)   
  [Banco de dados do servidor de relatório &#40;modo nativo do SSRS&#41;](../../reporting-services/report-server/report-server-database-ssrs-native-mode.md)   
  [Processar relatórios grandes](../../reporting-services/report-server/process-large-reports.md)  
-  
   

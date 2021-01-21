@@ -9,12 +9,12 @@ author: dphansen
 ms.author: davidph
 ms.custom: seo-lt-2019
 monikerRange: '>=sql-server-2016||>=sql-server-linux-ver15'
-ms.openlocfilehash: 995b30e9c69b14148a67f18c36e0f42d01c419eb
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 71c8852efd538ef0a702c8f96435facf4882b7d2
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97470817"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596664"
 ---
 # <a name="performance-tuning-and-data-optimization-for-r"></a>Ajuste de desempenho e otimização de dados para R
 [!INCLUDE [SQL Server 2016 and later](../../includes/applies-to-version/sqlserver2016.md)]
@@ -175,4 +175,4 @@ Também recomendamos examinar o novo pacote **MicrosoftML**, que fornece algorit
 
 + Para ver as funções do R que você pode usar a fim de melhorar o desempenho do código R, confira [Usar funções de criação de perfil de código R para melhorar o desempenho](using-r-code-profiling-functions.md).
 
-+ Para obter informações mais completas sobre o ajuste de desempenho no SQL Server, confira a [Central de Desempenho para o Mecanismo de Banco de Dados do SQL Server e Banco de Dados SQL do Azure](/sql/relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database).
++ Para obter informações mais completas sobre o ajuste de desempenho no SQL Server, confira a [Central de Desempenho para o Mecanismo de Banco de Dados do SQL Server e Banco de Dados SQL do Azure](../../relational-databases/performance/performance-center-for-sql-server-database-engine-and-azure-sql-database.md).

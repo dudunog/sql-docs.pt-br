@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: 8c7f145f-3ac2-4203-8cd6-2a4694395d09
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: f41eef01d203a873b3d5beac61ab5feb2995867f
-ms.sourcegitcommit: 783b35f6478006d654491cb52f6edf108acf2482
+ms.openlocfilehash: 7232e6b5d89ae9c73b81df16a03ebcd00859d7ee
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91891396"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597051"
 ---
 # <a name="configure-a-report-server-for-remote-administration"></a>Configurar um servidor de relatório para administração remota
   No [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)], você pode configurar instâncias de servidor de relatório local ou remotamente. Para configurar uma instância remota do servidor de relatório, é possível usar a ferramenta Configuração do Reporting Services ou gravar código personalizado que use o provedor WMI (Instrumentação de Gerenciamento do Windows) do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] . A ferramenta Configuração do Reporting Services fornece uma interface gráfica para o provedor WMI, de maneira que você possa configurar um servidor de relatório sem precisar gravar código. Ao iniciar a ferramenta, você pode especificar um servidor remoto para se conectar.  
@@ -40,7 +40,7 @@ ms.locfileid: "91891396"
   
  Algumas organizações têm políticas de grupo que impedem a administração remota do servidor em determinados sistemas operacionais ou para determinados usuários. Antes de começar a modificar as configurações do firewall, verifique com o administrador da rede se há restrições de administração remota.  
   
- Para obter mais informações, consulte [Conectando-se pelo Firewall do Windows](https://go.microsoft.com/fwlink/?LinkId=63615) na documentação do Platform SDK disponível no MSDN.  
+ Para obter mais informações, consulte [Conectando-se pelo Firewall do Windows](/windows/win32/wmisdk/connecting-to-wmi-remotely-with-vbscript) na documentação do Platform SDK disponível no MSDN.  
   
 ## <a name="tasks"></a>Tarefas  
  As tarefas que habilitam a configuração remota do servidor de relatório incluem as seguintes:  
@@ -59,9 +59,9 @@ ms.locfileid: "91891396"
   
 ### <a name="to-configure-remote-connections-to-the-report-server-database"></a>Para configurar conexões remotas com o banco de dados do servidor de relatório  
   
-1.  Clique em **Iniciar**, aponte para **Programas**, aponte para [!INCLUDE[ssCurrentUI](../../includes/sscurrentui-md.md)], aponte para **Ferramentas de Configuração**e clique em **SQL Server Configuration Manager**.  
+1.  Clique em **Iniciar**, aponte para **Programas**, aponte para [!INCLUDE[ssCurrentUI](../../includes/sscurrentui-md.md)], aponte para **Ferramentas de Configuração** e clique em **SQL Server Configuration Manager**.  
   
-2.  No painel esquerdo, expanda **Configuração de Rede do SQL Server**e clique em **Protocolos** da instância de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
+2.  No painel esquerdo, expanda **Configuração de Rede do SQL Server** e clique em **Protocolos** da instância de [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
   
 3.  No painel de detalhes, habilite os protocolos TCP/IP e Pipes Nomeados e reinicie o serviço [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .  
   
@@ -89,9 +89,9 @@ ms.locfileid: "91891396"
   
 ### <a name="to-set-dcom-permissions-to-enable-remote-wmi-access-for-non-administrators"></a>Para definir permissões DCOM a fim de habilitar o acesso WMI remoto para não administradores  
   
-1.  No menu Iniciar, aponte para **Ferramentas Administrativas**e clique em **Serviços de Componentes**.  
+1.  No menu Iniciar, aponte para **Ferramentas Administrativas** e clique em **Serviços de Componentes**.  
   
-     No Windows Vista, no menu Iniciar, clique em **Todos os Programas**, clique em **Executar**e digite **mmc comexp.msc**.  
+     No Windows Vista, no menu Iniciar, clique em **Todos os Programas**, clique em **Executar** e digite **mmc comexp.msc**.  
   
 2.  Abra a pasta Serviços de Componentes.  
   
@@ -113,11 +113,11 @@ ms.locfileid: "91891396"
   
 ### <a name="to-set-permissions-on-the-report-server-wmi-namespace-for-non-administrators"></a>Para definir permissões no namespace WMI do servidor de relatório para não administradores  
   
-1.  No menu Iniciar, aponte para **Ferramentas Administrativas**e clique em **Gerenciamento do Computador**.  
+1.  No menu Iniciar, aponte para **Ferramentas Administrativas** e clique em **Gerenciamento do Computador**.  
   
 2.  Abra a pasta Serviços e Aplicativos.  
   
-3.  Clique com o botão direito do mouse em **Controle WMI**e selecione **Propriedades**.  
+3.  Clique com o botão direito do mouse em **Controle WMI** e selecione **Propriedades**.  
   
 4.  Clique em **Segurança**.  
   
@@ -135,11 +135,10 @@ ms.locfileid: "91891396"
   
 11. Selecione a pasta Admin e clique em **Segurança**.  
   
-12. Clique em **Adicionar**e digite a conta de usuário que você usará para gerenciar o servidor.  
+12. Clique em **Adicionar** e digite a conta de usuário que você usará para gerenciar o servidor.  
   
-13. Na coluna **Permitir** , selecione **Habilitar Conta**, **Ativação Remota**e **Ler Segurança**e clique em **OK**.  
+13. Na coluna **Permitir** , selecione **Habilitar Conta**, **Ativação Remota** e **Ler Segurança** e clique em **OK**.  
   
 ## <a name="see-also"></a>Consulte Também  
  [Gerenciador de Configurações do Servidor de Relatório &#40;modo nativo&#41;](../../reporting-services/install-windows/reporting-services-configuration-manager-native-mode.md)  
-  
   

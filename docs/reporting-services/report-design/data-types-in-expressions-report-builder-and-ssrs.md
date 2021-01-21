@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 94fdf921-270c-4c12-87b3-46b1cc98fae5
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 74a15489c057490ddf358860f8cd0f78eb79ba20
-ms.sourcegitcommit: 93e4fd75e8fe0cc85e7949c9adf23b0e1c275465
+ms.openlocfilehash: 0202703dec933871d6b6a611ff1139a68ee2c938
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84255279"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595359"
 ---
 # <a name="data-types-in-expressions-report-builder-and-ssrs"></a>Tipos de dados em expressões (Construtor de Relatórios e SSRS)
   Os tipos de dados representam tipos diferentes de dados de forma que eles possam ser armazenados e processados com eficiência. Tipos de dados comuns incluem texto (também conhecido como cadeias de caracteres) com e sem casas decimais, datas e horas e imagens. Os valores em um relatório devem ser um tipo de dados RDL. Você pode formatar um valor de acordo com sua preferência ao exibi-lo em um relatório. Por exemplo, um campo que representa moeda pode ser armazenado na definição de relatório como um número de ponto flutuante, mas pode ser exibido em uma variedade de formatos, dependendo da propriedade de formato escolhida.  
@@ -88,7 +88,7 @@ ms.locfileid: "84255279"
 |Apenas a parte DateTime do valor DateTimeOffset|`=Fields!MyDatetimeOffset.Value.DateTime`|  
 |Apenas a parte Offset do valor DateTimeOffset|`=Fields!MyDatetimeOffset.Value.Offset`|  
   
- Você também pode usar a função Formatar para controlar o formato de exibição do valor. Para obter mais informações, consulte [Funções (Visual Basic)](https://go.microsoft.com/fwlink/?linkid=111483).  
+ Você também pode usar a função Formatar para controlar o formato de exibição do valor. Para obter mais informações, consulte [Funções (Visual Basic)](/dotnet/visual-basic/language-reference/functions/).  
   
 ## <a name="advanced-examples"></a>Exemplos avançados  
  Quando você se conecta a uma fonte de dados com um provedor de dados que não fornece suporte à conversão para todos os tipos de dados dessa fonte de dados, o tipo de dados padrão para tipos de dados não suportados é String. Os exemplos a seguir fornecem soluções para tipos de dados específicos retornados como uma cadeia.  
@@ -117,7 +117,7 @@ ms.locfileid: "84255279"
   
          Se a cadeia `MyDateTime.Value` tiver um deslocamento UTC, a função `DateTime.Parse` primeiro se ajustará para o deslocamento UTC (7 AM - [`+08:00`] para a hora UTC de 11 PM. da noite anterior). A função `DateTime.Parse` então aplicará o deslocamento UTC do servidor de relatórios local e, se necessário, ajustará a hora novamente para o Horário de Verão. Por exemplo, em Redmond, Washington, o deslocamento de horário local ajustado para o Horário de Verão é `[-07:00]`ou 7 horas antes de 11 PM. O resultado é o seguinte valor **DateTime**: `2007-07-06 04:07:07 PM` (6 de julho de 2007 às 16:07).  
   
- Para obter mais informações sobre como converter cadeias de caracteres em tipos de dados **DateTime** , confira [Analisando cadeias de caracteres de data e hora no .NET Framework](https://go.microsoft.com/fwlink/?LinkId=89703), [Formatação de data e time para uma cultura específica](https://go.microsoft.com/fwlink/?LinkId=89704)e [Escolhendo entre DateTime, DateTimeOffset e TimeZoneInfo](https://go.microsoft.com/fwlink/?linkid=110652) no MSDN.  
+ Para obter mais informações sobre como converter cadeias de caracteres em tipos de dados **DateTime** , confira [Analisando cadeias de caracteres de data e hora no .NET Framework](https://go.microsoft.com/fwlink/?LinkId=89703), [Formatação de data e time para uma cultura específica](https://go.microsoft.com/fwlink/?LinkId=89704)e [Escolhendo entre DateTime, DateTimeOffset e TimeZoneInfo](/dotnet/standard/datetime/choosing-between-datetime) no MSDN.  
   
 -   Adicione um novo campo calculado ao conjunto de dados de relatório que use uma expressão para extrair partes da cadeia. Para saber mais, confira [Adicionar, editar e atualizar campos no painel de dados do relatório &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-data/add-edit-refresh-fields-in-the-report-data-pane-report-builder-and-ssrs.md).  
   
@@ -139,9 +139,8 @@ ms.locfileid: "84255279"
   
  Para obter mais informações sobre tipos de dados do banco de dados [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], consulte [Tipos de dados (Transact-SQL)](../../t-sql/data-types/data-types-transact-sql.md) e [Tipos e funções de dados de data e hora (Transact-SQL)](../../t-sql/functions/date-and-time-data-types-and-functions-transact-sql.md).  
   
- Para obter mais informações sobre os tipos de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)], confira [Tipos de dados no Analysis Services](https://docs.microsoft.com/analysis-services/multidimensional-models/olap-physical/data-types-in-analysis-services).  
+ Para obter mais informações sobre os tipos de dados do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)], confira [Tipos de dados no Analysis Services](/analysis-services/multidimensional-models/olap-physical/data-types-in-analysis-services).  
   
 ## <a name="see-also"></a>Consulte Também  
  [Formatando itens de relatório &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/formatting-report-items-report-builder-and-ssrs.md)  
-  
   

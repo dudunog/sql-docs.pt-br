@@ -15,12 +15,12 @@ helpviewer_keywords:
 ms.assetid: c5275a9f-c95b-46d7-bc62-633879a8a291
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 9b263aa61d02c20f55933744449151fa7676bad1
-ms.sourcegitcommit: f0772f614482e0b3cde3609e178689ce62ca3a19
+ms.openlocfilehash: 022751a3ec4b47a8e7a3a5f5295306265f659512
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84544508"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98594980"
 ---
 # <a name="process-large-reports"></a>Processar relatórios grandes
   Relatórios grandes apresentam certos desafios de processamento e requerem certas configurações para que sejam executados corretamente. Relatórios grandes não devem ser executados sob demanda, salvo se estiverem configurados para oferecer suporte à paginação.  
@@ -32,7 +32,7 @@ ms.locfileid: "84544508"
   
  Para relatórios que contêm dados voláteis, o tamanho do relatório pode variar radicalmente de uma execução de relatório para outra. Nesse caso, você deve monitorar a fonte de dados para determinar como a volatilidade dos dados afeta o seu relatório e se é necessário seguir as etapas descritas neste tópico.  
   
- Para saber mais sobre como diagnosticar erros de tempo limite e de falta de memória, consulte o artigo [Como diagnosticar problemas ao executar relatórios no servidor de relatório](https://go.microsoft.com/fwlink/?LinkId=85634) em blogs.msdn.microsoft.com.  
+ Para saber mais sobre como diagnosticar erros de tempo limite e de falta de memória, consulte o artigo [Como diagnosticar problemas ao executar relatórios no servidor de relatório](/archive/blogs/lukaszp/) em blogs.msdn.microsoft.com.  
   
 ## <a name="configuration-recommendations"></a>Recomendações de configuração  
  As recomendações para execução e renderização de relatório e o acesso a ele incluem os seguintes itens:  
@@ -72,4 +72,4 @@ ms.locfileid: "84544508"
  [Definir as propriedades do processamento de relatórios](../../reporting-services/report-server/set-report-processing-properties.md)   
  [Especificar informações de credenciais e de conexão para fontes de dados de relatório](../../reporting-services/report-data/specify-credential-and-connection-information-for-report-data-sources.md)   
  [Gerenciamento do conteúdo do Servidor de Relatório &#40;Modo Nativo do SSRS&#41;](../../reporting-services/report-server/report-server-content-management-ssrs-native-mode.md)   
- [Pré-carregar o cache (SSRS)](../../reporting-services/report-server/preload-the-cache-report-manager.md)  
+ [Pré-carregar o cache (SSRS)](../../reporting-services/report-server/preload-the-cache-report-manager.md)

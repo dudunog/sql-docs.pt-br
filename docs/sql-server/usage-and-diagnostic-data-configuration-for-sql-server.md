@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.prod: sql
 ms.custom: ''
 ms.technology: configuration
-ms.openlocfilehash: 76ffe524200c2f8df136074bc089b13e7404d6bd
-ms.sourcegitcommit: c8e1553ff3fdf295e8dc6ce30d1c454d6fde8088
+ms.openlocfilehash: 6580e33a824807312fb7f2d37d5cab893dbab2a9
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86901918"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596517"
 ---
 # <a name="configure-usage-and-diagnostic-data-collection-for-sql-server-ceip"></a>Configurar a coleta de dados de diagnóstico e uso do SQL Server (Programa de Aperfeiçoamento da Experiência do Usuário)
 
@@ -50,7 +50,7 @@ Lembre-se de que esse processo enfoca os mecanismos necessários para fornecer v
 - Usando o aplicativo de Relatório de Uso e Erro
 - Definindo sub-chaves de registro no servidor
 
-Para o SQL Server no Linux, confira [Comentários de Clientes para o SQL Server no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-customer-feedback)
+Para o SQL Server no Linux, confira [Comentários de Clientes para o SQL Server no Linux](../linux/usage-and-diagnostic-data-configuration-for-sql-server-linux.md)
 
 > [!NOTE]
 > Você só pode desabilitar o envio de informações para a Microsoft em versões pagas do SQL Server.
@@ -66,7 +66,7 @@ Para recusar a coleta de dados, veja [Ativando ou desativando a auditoria local]
 Após a instalação, a configuração de coleta de dados de diagnóstico e uso para instâncias e componentes do SQL Server pode ser alterada por meio do aplicativo de Relatório de Uso e Erro. Esse aplicativo está disponível como parte da instalação do SQL Server. Essa ferramenta permite que cada instância do SQL Server defina sua própria configuração de Relatórios de Uso.
 
 > [!NOTE]
-> O aplicativo de Relatório de Uso e Erro é listado em Ferramentas de Configuração do SQL Server. Você pode usar essa ferramenta para gerenciar sua preferência para a coleta de Dados de Diagnóstico e de Uso e o Relatórios de Erro da mesma maneira do SQL Server 2017. O Relatório de Erros é separado da coleta de Dados de Diagnóstico e de Uso, portanto pode ser ativado ou desativado independentemente da coleta de Dados de Diagnóstico e de Uso. O Relatório de Erros coleta despejos de memória que são enviados à Microsoft e que podem conter informações confidenciais, conforme descrito na [Política de Privacidade](https://go.microsoft.com/fwlink/?LinkID=868444).
+> O aplicativo de Relatório de Uso e Erro é listado em Ferramentas de Configuração do SQL Server. Você pode usar essa ferramenta para gerenciar sua preferência para a coleta de Dados de Diagnóstico e de Uso e o Relatórios de Erro da mesma maneira do SQL Server 2017. O Relatório de Erros é separado da coleta de Dados de Diagnóstico e de Uso, portanto pode ser ativado ou desativado independentemente da coleta de Dados de Diagnóstico e de Uso. O Relatório de Erros coleta despejos de memória que são enviados à Microsoft e que podem conter informações confidenciais, conforme descrito na [Política de Privacidade](./sql-server-privacy.md).
 
 Para iniciar o Relatório de Uso e Erro do SQL Server, clique ou toque em **Iniciar** e pesquise "Erro" na caixa de pesquisa. O item de Relatório de Uso e Erro do SQL Server será exibido. Depois de iniciar a ferramenta, você pode gerenciar os dados de diagnóstico e uso, bem como os erros graves que são coletados para instâncias e componentes que estão instalados no computador.
 
@@ -144,7 +144,7 @@ O procedimento para ativar ou desativar este recurso depende da versão do SO. P
  
 - Windows Server 2016 e Windows 10
 
-    [Configurar os dados de diagnóstico do Windows na organização](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization)
+    [Configurar os dados de diagnóstico do Windows na organização](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)
 - Windows Server 2008 R2 e Windows 7
 
     [Configurações WER](/windows/desktop/wer/wer-settings)

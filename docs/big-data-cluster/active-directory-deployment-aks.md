@@ -9,16 +9,16 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: 3f6b3ce5f6a594e5be385ee1f7ea7d1c03c1f92a
-ms.sourcegitcommit: 0f484f32709a414f05562bbaafeca9a9fc57c9ed
+ms.openlocfilehash: 4b11cef91203a9c7939d4d044220283db378e296
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94632929"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595634"
 ---
 # <a name="deploy-sql-server-big-data-clusters-in-ad-mode-on-azure-kubernetes-services-aks"></a>Implantar Clusters de Big Data do SQL Server no modo AD no AKS (Serviço de Kubernetes do Azure)
 
-Os Clusters de Big Data do SQL Server dão suporte ao [modo de implantação AD (Active Directory)](deploy-active-directory.md) para o **IAM (Gerenciamento de Identidades e Acesso)** . O IAM para o **AKS (Serviço de Kubernetes do Azure)** foi um grande desafio, porque os protocolos padrão do setor, como o OAuth 2.0 e o OpenID Connect, que têm amplo suporte na plataforma de identidade da Microsoft não são compatíveis com o SQL Server.  
+Os Clusters de Big Data do SQL Server dão suporte ao [modo de implantação AD (Active Directory)](./active-directory-prerequisites.md) para o **IAM (Gerenciamento de Identidades e Acesso)** . O IAM para o **AKS (Serviço de Kubernetes do Azure)** foi um grande desafio, porque os protocolos padrão do setor, como o OAuth 2.0 e o OpenID Connect, que têm amplo suporte na plataforma de identidade da Microsoft não são compatíveis com o SQL Server.  
 
 Este artigo explica como implantar um BDC (cluster de Big Data) no modo AD durante a implantação no [AKS (Serviço de Kubernetes do Azure)](/azure/aks/intro-kubernetes). 
 

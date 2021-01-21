@@ -10,12 +10,12 @@ ms.author: maghan
 ms.reviewer: “”
 ms.custom: seo-lt-2019
 ms.date: 02/09/2017
-ms.openlocfilehash: 9a9e1b3b6dd7e46872c6196ef3257805c1f5a72f
-ms.sourcegitcommit: b860fe41b873977649dca8c1fd5619f294c37a58
+ms.openlocfilehash: b77373adb76921ee526aea70528399970bda9246
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85518756"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597017"
 ---
 # <a name="how-to--debug-database-objects"></a>Como fazer:  Depurar objetos de banco de dados
 
@@ -23,7 +23,7 @@ Um teste de unidade do SQL Server consiste no seguinte:
   
 -   Código de teste de unidade escrito em Visual C\# ou Visual Basic. Este código, que é gerado pelo Designer de Teste de Unidade do SQL Server, é responsável por enviar o script Transact\-SQL que forma o corpo do teste.  
   
--   Uma ou mais condições de teste, que são gravadas na linguagem Visual C\# ou Visual Basic. Para depurar condições de teste, siga o procedimento para depurar um teste de unidade conforme descrito em [Como depurar enquanto um teste está sendo executado (Visual Studio 2010)](https://msdn.microsoft.com/library/ms182484(VS.100).aspx) ou [Como depurar enquanto um teste está sendo executado (Visual Studio 2012)](https://msdn.microsoft.com/library/ms182484.aspx).  
+-   Uma ou mais condições de teste, que são gravadas na linguagem Visual C\# ou Visual Basic. Para depurar condições de teste, siga o procedimento para depurar um teste de unidade conforme descrito em [Como depurar enquanto um teste está sendo executado (Visual Studio 2010)](/previous-versions/visualstudio/visual-studio-2010/ms182484(v=vs.100)) ou [Como depurar enquanto um teste está sendo executado (Visual Studio 2012)](/previous-versions/ms182484(v=vs.140)).  
   
 -   Um ou mais scripts Transact\-SQL executados nos objetos do banco de dados que você está testando. Você não pode depurar esses scripts Transact\-SQL.  
   
@@ -53,7 +53,7 @@ Os procedimentos deste tópico descrevem como depurar objetos de banco de dados 
   
 ### <a name="to-set-an-increased-execution-context-timeout-to-enable-debugging-for-your-test-project"></a>Para definir o tempo limite maior do contexto de execução para habilitar a depuração do projeto de teste  
   
-1.  No menu **Arquivo**, aponte para **Abrir**e clique em **Arquivo**.  
+1.  No menu **Arquivo**, aponte para **Abrir** e clique em **Arquivo**.  
   
 2.  Navegue até a pasta que contém o projeto de teste e clique duas vezes no arquivo app.config.  
   
@@ -98,5 +98,4 @@ Os procedimentos deste tópico descrevem como depurar objetos de banco de dados 
   
 ## <a name="see-also"></a>Consulte Também  
 [Executar testes de unidade do SQL Server](../ssdt/running-sql-server-unit-tests.md)  
-[Depurar o Transact-SQL (Visual Studio 2010)](https://go.microsoft.com/fwlink/?LinkId=163975)  
-  
+[Depurar o Transact-SQL (Visual Studio 2010)](/previous-versions/visualstudio/visual-studio-2010/zefbf0t6(v=vs.100))  

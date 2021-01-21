@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.assetid: c28ffa44-7b8b-4efa-b755-c7a3b1c11ce4
 author: markingmyname
 ms.author: maghan
-ms.openlocfilehash: c26ab977839927751903eead0533256ab91fde2c
-ms.sourcegitcommit: e700497f962e4c2274df16d9e651059b42ff1a10
+ms.openlocfilehash: 1d16b944072ea4c6945b0358f576a73e40b8b117
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88370132"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596955"
 ---
 # <a name="local-audit-for-ssms-usage-and-diagnostic-data-collection"></a>Auditoria local para coleta de dados de diagnóstico e uso do SSMS
 [!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
-O SSMS (SQL Server Management Studio) contém recursos habilitados para Internet que podem coletar e enviar os dados anônimos de diagnóstico e uso de recursos à Microsoft. O SSMS pode coletar informações padrão do computador e informações de uso e desempenho que podem ser transmitidas à Microsoft e analisadas com a finalidade de aprimorar a qualidade, a segurança e a confiabilidade do SSMS. Não coletamos dados como seu nome, endereço ou outras informações de contato. Para obter detalhes, confira a [Declaração de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement) e [Suplemento de Privacidade do SQL Server](https://go.microsoft.com/fwlink/?LinkID=868444).
+O SSMS (SQL Server Management Studio) contém recursos habilitados para Internet que podem coletar e enviar os dados anônimos de diagnóstico e uso de recursos à Microsoft. O SSMS pode coletar informações padrão do computador e informações de uso e desempenho que podem ser transmitidas à Microsoft e analisadas com a finalidade de aprimorar a qualidade, a segurança e a confiabilidade do SSMS. Não coletamos dados como seu nome, endereço ou outras informações de contato. Para obter detalhes, confira a [Declaração de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement) e [Suplemento de Privacidade do SQL Server](../sql-server/sql-server-privacy.md).
 
 ## <a name="audit-feature-usage-and-diagnostic-data"></a>Auditar dados de diagnóstico e de uso do recurso
 
@@ -62,7 +62,7 @@ Para aceitar ou recusar a coleta de dados de uso para SSMS:
 
   Tipo de entrada `DWORD`: `0` é recusar; `1` é aceitar
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Configurar a coleta de dados de diagnóstico e uso do SQL Server](../sql-server/usage-and-diagnostic-data-configuration-for-sql-server.md)
-- [Auditoria local para coleta de dados de diagnóstico e uso do SQL Server](https://msdn.microsoft.com/library/mt743085.aspx)
+- [Auditoria local para coleta de dados de diagnóstico e uso do SQL Server](../sql-server/usage-and-diagnostic-data-in-local-audit.md)

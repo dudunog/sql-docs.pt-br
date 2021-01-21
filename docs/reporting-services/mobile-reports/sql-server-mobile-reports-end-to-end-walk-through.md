@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.assetid: e198575e-b154-4342-b944-2bf19ec49bfd
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 4013c119093adda0fbb721c376eef502a7b05a38
-ms.sourcegitcommit: ea0bf89617e11afe85ad85309e0ec731ed265583
+ms.openlocfilehash: df09e4168790a4607de19348f50e76a4fbd0f383
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92907242"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596539"
 ---
 # <a name="sql-server-mobile-reports-end-to-end-walk-through"></a>Relatórios móveis do SQL Server: Passo a passo completo
 Realize a criação de relatórios móveis para qualquer tamanho de tela com o [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilereptpub-long.md)] no portal da Web do [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] , e exiba-os nos aplicativos móveis do Power BI.
@@ -34,12 +34,12 @@ Para acompanhar, você precisa destes produtos:
   
 * Para criar fontes de dados e KPIs e publicar conjuntos de dados e relatórios móveis, você precisa acessar um [servidor de relatório no modo nativo do Reporting Services](../install-windows/install-reporting-services-native-mode-report-server.md).  
 * Para criar conjuntos de dados compartilhados, [instale o Construtor de Relatórios](../install-windows/install-report-builder.md).  
-* Para criar relatórios móveis, [instale o Publicador de Relatórios Móveis do SQL Server](https://go.microsoft.com/fwlink/?LinkId=717766).  
+* Para criar relatórios móveis, [instale o Publicador de Relatórios Móveis do SQL Server](../reporting-services-features-and-tasks-ssrs.md).  
 * [Bancos de dados de exemplo do AdventureWorks](https://github.com/Microsoft/sql-server-samples/releases).  
-*  OU: banco de dados de exemplo do World Wide Importers, disponível na página [Amostras do Microsoft SQL Server](../../sample/microsoft-sql-server-samples.md).
+*  OU: banco de dados de exemplo do World Wide Importers, disponível na página [Amostras do Microsoft SQL Server](../../samples/sql-samples-where-are.md).
 * Para exibir o resultado: 
   *   [Inscreva-se no serviço do Power BI](https://go.microsoft.com/fwlink/?LinkID=513879) e
-  *  [Baixe o aplicativo móvel do Power BI](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-apps-for-mobile-devices) em seu dispositivo móvel: iOS, telefone com Android ou dispositivo com Windows 10.  
+  *  [Baixe o aplicativo móvel do Power BI](/power-bi/consumer/mobile/mobile-apps-for-mobile-devices) em seu dispositivo móvel: iOS, telefone com Android ou dispositivo com Windows 10.  
 
   
 ## <a name="create-a-shared-data-source"></a>Criar uma fonte de dados compartilhados  
@@ -78,7 +78,7 @@ Use uma ferramenta de cliente existente do [!INCLUDE[PRODUCT_NAME](../../include
    
 4. No campo Nome, digite o nome do servidor onde você salvou a fonte de dados, neste formato:   
    
-   Nome: https:// *localhost* /ReportServer  
+   Nome: https://*localhost*/ReportServer  
    Itens do tipo: Fontes de dados (*.rsds)  
    
 5. Clique em **Abrir** e navegue até a fonte de dados que você criou no servidor.  
@@ -135,7 +135,7 @@ Crie KPIs direitamente no portal da Web do [!INCLUDE[PRODUCT_NAME](../../include
     
 ## <a name=""></a><a name="create-mobile-report">Criar um relatório móvel do Reporting Services</a>  
    
-Para criar um relatório móvel do Reporting Services, [instale o Publicador de Relatório do SQL Server Mobile](https://go.microsoft.com/fwlink/?LinkId=717766)ou o inicie no portal da Web do [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] . 
+Para criar um relatório móvel do Reporting Services, [instale o Publicador de Relatório do SQL Server Mobile](../reporting-services-features-and-tasks-ssrs.md)ou o inicie no portal da Web do [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] . 
 
 Ao abrir pela primeira vez o [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilereptpub-short.md)], você vê uma tela em branco na qual é possível criar relatórios móveis. Você pode começar criando primeiro os elementos visuais ou começar com seus dados. Se você criar os elementos visuais primeiro, o [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilereptpub-short.md)] gerará automaticamente os dados simulados que estão vinculados ao relatório e será alterado dinamicamente à medida que você altera suas seleções visuais. Tente isso.   
   
@@ -183,9 +183,9 @@ Ao abrir pela primeira vez o [!INCLUDE[PRODUCT_NAME](../../includes/ss-mobilerep
   
 4. Selecione o servidor e selecione o conjunto de dados que você criou.  
    
-3. Novamente na guia **Dados** , no painel **Propriedades de Dados** , altere **Tamanho Representa** , **Cor Representa** e outras propriedades para os campos em seus próprios dados. 
+3. Novamente na guia **Dados** , no painel **Propriedades de Dados** , altere **Tamanho Representa**, **Cor Representa** e outras propriedades para os campos em seus próprios dados. 
    
-   *  **Tamanho Representa** , **Cor Representa** e **Valor Central Personalizado** precisam ser campos com valores numéricos. 
+   *  **Tamanho Representa**, **Cor Representa** e **Valor Central Personalizado** precisam ser campos com valores numéricos. 
    *  **Agrupar por** é uma categoria, portanto, é um campo de texto.
    
    ![Captura de tela da seção Propriedades de dados.](../../reporting-services/mobile-reports/media/ssrs-mobile-report-data-properties.png)
@@ -200,7 +200,7 @@ Vamos adicionar um medidor para ver como as vendas anuais até o momento se comp
 
 2. Novamente, ela começa com dados simulados. 
 
-   Observe que em **Propriedades visuais** , por padrão **Valores maiores são melhores** e o **Rótulo delta** é uma **Porcentagem de destino**. Há **Paradas de intervalo** que você pode alterar, mas por enquanto elas estão certas.
+   Observe que em **Propriedades visuais**, por padrão **Valores maiores são melhores** e o **Rótulo delta** é uma **Porcentagem de destino**. Há **Paradas de intervalo** que você pode alterar, mas por enquanto elas estão certas.
 
    ![Captura de tela da seção Definir intervalos das propriedades da visualização de rosca do relatório móvel.](../../reporting-services/mobile-reports/media/ssrs-mobile-report-donut-visual-properties.png)
    
@@ -222,7 +222,7 @@ As listas de seleção atuam como segmentações de dados no Power BI e Excel. P
 
    ![Captura de tela da lista de seleção do relatório móvel.](../../reporting-services/mobile-reports/media/ssrs-mobile-report-selection-list.png)
 
-2. Na guia **Dados** , **Propriedades de dados** , defina **Chaves** e **Rótulos** para um campo em que você deseja filtrar seus dados.
+2. Na guia **Dados** , **Propriedades de dados**, defina **Chaves** e **Rótulos** para um campo em que você deseja filtrar seus dados.
 
    ![Captura de tela da seção de Propriedades de dados da lista de seleção do relatório móvel.](../../reporting-services/mobile-reports/media/ssrs-mobile-report-selection-list-data-properties.png)
    
@@ -232,7 +232,7 @@ Agora que você criou elementos visuais no layout mestre, poderá criar um relat
   
 1. No canto superior direito, clique no ícone da tela > **Telefone**.  
   
-2. Na guia Layout, em **Instâncias de Controle** , veja os dois gráficos que você criou.   
+2. Na guia Layout, em **Instâncias de Controle**, veja os dois gráficos que você criou.   
   
 3. Arraste o mapa de árvore até a tela do telefone e deixe-o com quatro colunas de largura e com três linhas de altura.  
   
@@ -303,8 +303,6 @@ Os KPIs e os relatórios móveis são exibidos nas mesmas pastas que estão no p
   
 ## <a name="see-also"></a>Confira também  
  
--  Exibir [relatórios móveis e KPIs do servidor de relatório local no aplicativo móvel do Power BI](https://docs.microsoft.com/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports) para dispositivos iOS e Android
+-  Exibir [relatórios móveis e KPIs do servidor de relatório local no aplicativo móvel do Power BI](/power-bi/consumer/mobile/mobile-app-ssrs-kpis-mobile-on-premises-reports) para dispositivos iOS e Android
 -  Exibir [relatórios móveis e KPIs do servidor de relatório local no aplicativo móvel do Power BI para dispositivos Windows 10](https://powerbi.microsoft.com/documentation/powerbi-mobile-win10-kpis-mobile-reports/)    
   
-   
-

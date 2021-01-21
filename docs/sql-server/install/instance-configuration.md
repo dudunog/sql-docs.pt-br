@@ -16,12 +16,12 @@ ms.assetid: 5bf822fc-6dec-4806-a153-e200af28e9a5
 author: cawrites
 ms.author: chadam
 robots: noindex,nofollow
-ms.openlocfilehash: 8a136b1158f31cf6369bb29f404f4f6f58d6901c
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: 08b7d5d8c1680be42902fe287c14418b2732f7f9
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98172408"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595445"
 ---
 # <a name="installation-wizard-help"></a>Ajuda do Assistente de Instalação
 
@@ -119,11 +119,11 @@ Se você estiver instalando o [!INCLUDE[ssGeminiShort](../../includes/ssgeminish
 **Especificar administradores**: Você deve especificar, pelo menos, um administrador de servidor para a instância do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Os usuários ou grupos que você especificar se tornarão membros da função de administrador de servidor da instância do [!INCLUDE[ssASnoversion](../../includes/ssasnoversion-md.md)] que está sendo instalada. Esses membros devem ter contas de usuário de domínio do Windows no mesmo domínio que o computador no qual você está instalando o software.  
   
 > [!NOTE]  
-> O UAC (Controle de Conta de Usuário) é um recurso de segurança do Windows que requer um administrador para aprovar especificamente aplicativos ou ações administrativas para que tenham permissão de execução. Como o UAC é ativado por padrão, será solicitado que você permita operações específicas que exijam privilégios elevados. É possível configurar o UAC para alterar o comportamento padrão ou personalizar o UAC para programas específicos. Para saber mais sobre o UAC e sua configuração, confira o [Guia passo a passo do Controle de Conta de Usuário](https://go.microsoft.com/fwlink/?linkid=196350) e [Controle de Conta de Usuário (Wikipedia)](https://go.microsoft.com/fwlink/?linkid=196351).  
+> O UAC (Controle de Conta de Usuário) é um recurso de segurança do Windows que requer um administrador para aprovar especificamente aplicativos ou ações administrativas para que tenham permissão de execução. Como o UAC é ativado por padrão, será solicitado que você permita operações específicas que exijam privilégios elevados. É possível configurar o UAC para alterar o comportamento padrão ou personalizar o UAC para programas específicos. Para saber mais sobre o UAC e sua configuração, confira o [Guia passo a passo do Controle de Conta de Usuário](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc709691(v=ws.10)) e [Controle de Conta de Usuário (Wikipedia)](https://go.microsoft.com/fwlink/?linkid=196351).  
   
 ### <a name="see-also"></a>Confira também
   
-* [Configurar contas de serviço &#40;Analysis Services&#41;](https://docs.microsoft.com/analysis-services/instances/configure-service-accounts-analysis-services)
+* [Configurar contas de serviço &#40;Analysis Services&#41;](/analysis-services/instances/configure-service-accounts-analysis-services)
 * [Configurar contas e permissões de serviço Windows](../../database-engine/configure-windows/configure-windows-service-accounts-and-permissions.md)  
 
 ## <a name="analysis-services-configuration---data-directories-page"></a>Página Configuração do Analysis Services - diretórios de dados
@@ -191,7 +191,7 @@ Os diretórios padrão na tabela a seguir podem ser configurados pelo usuário d
 #### <a name="see-also"></a>Confira também
 
 * Para saber mais sobre nomenclatura de ID de instância, locais de arquivos e diretórios, confira [Locais de arquivo para instâncias nomeadas e padrão do SQL Server](file-locations-for-default-and-named-instances-of-sql-server.md)  
-* [Permissões de compartilhamento e de NTFS em um servidor de arquivos](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/configuring-share-and-ntfs-permissions)
+* [Permissões de compartilhamento e de NTFS em um servidor de arquivos](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/configuring-share-and-ntfs-permissions)
 
 ## <a name="database-engine-configuration---server-configuration-page"></a><a name="serverconfig"></a> Configuração do Mecanismo de Banco de Dados – Página Configuração do Servidor
 
@@ -410,7 +410,7 @@ As seguintes recomendações se aplicam ao servidor de arquivos SMB:
 ### <a name="see-also"></a>Confira também
 
 * [Configurar contas e permissões de serviço Windows](../../database-engine/configure-windows/configure-windows-service-accounts-and-permissions.md)
-* [Permissões de compartilhamento e de NTFS em um servidor de arquivos](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/configuring-share-and-ntfs-permissions)  
+* [Permissões de compartilhamento e de NTFS em um servidor de arquivos](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/configuring-share-and-ntfs-permissions)  
 
 <!--
 The MaxDOP setting applies only to SQL Server 2019 and later.

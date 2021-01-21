@@ -10,12 +10,12 @@ author: cawrites
 ms.author: chadam
 ms.reviewer: pmasl
 monikerRange: '>=sql-server-2016'
-ms.openlocfilehash: 94939adb2934e16ed7d1c81c33ebab4631c4b114
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: aa8d71f36b4dbb0c8ddaaac3c47571d29c3896c0
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98172508"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595475"
 ---
 # <a name="what-are-extended-security-updates-for-sql-server"></a>Quais são as Atualizações de Segurança Estendidas para o SQL Server?
 [!INCLUDE [SQL Server Windows Only - ASDBMI ](../../includes/applies-to-version/sql-windows-only-asdbmi.md)]
@@ -353,7 +353,7 @@ Para obter conselhos sobre como otimizar o desempenho do [!INCLUDE[ssNoVersion](
 ## <a name="see-also"></a>Confira também
 
 - [Página do ciclo de vida do SQL Server 2008/2008 R2](https://support.microsoft.com/lifecycle/search?alpha=sql%20server%202008)
-- [Página de fim do suporte do SQL Server 2008/2008 R2](https://aka.ms/sqleos)
+- [Página de fim do suporte do SQL Server 2008/2008 R2](./sql-server-end-of-life-overview.md?WT.mc_id=akamseos)
 - [Perguntas frequentes sobre Atualizações de Segurança Estendidas](https://aka.ms/sqleosfaq)
 - [Microsoft Security Response Center (MSRC)](https://portal.msrc.microsoft.com/security-guidance/summary)
 - [Gerenciar atualizações do Windows com a Automação do Azure](/azure/automation/update-management/overview)
@@ -362,4 +362,3 @@ Para obter conselhos sobre como otimizar o desempenho do [!INCLUDE[ssNoVersion](
 - [Migrações para Azure: opções de lift-and-shift para mover seu SQL Server 2008/2008 R2 atual para uma VM do Azure](https://azure.microsoft.com/services/azure-migrate/)
 - [Cloud Adoption Framework para migração do SQL](/azure/cloud-adoption-framework/migrate/expanded-scope/sql-migration)
 - [Scripts relacionados a ESU no GitHub](https://github.com/microsoft/sql-server-samples/tree/master/samples/manage/sql-server-extended-security-updates/scripts)
-

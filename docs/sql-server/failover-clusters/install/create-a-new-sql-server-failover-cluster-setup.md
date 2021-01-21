@@ -17,12 +17,12 @@ helpviewer_keywords:
 ms.assetid: 30e06a7d-75e9-44e2-bca3-b3b0c4a33f61
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: 841644a1429b4c143b7f2b31b5d6ec669bb0ff58
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: c987fdf269db9787392caa5f228f97155cf673a8
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642841"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597150"
 ---
 # <a name="create-a-new-always-on-failover-cluster-instance-setup"></a>Criar uma instância de cluster de failover do Always On (instalação)
 
@@ -52,7 +52,7 @@ ms.locfileid: "97642841"
   
  [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] A instalação Avançada/Corporativa do cluster de failover consiste nas seguintes etapas:  
   
--   Em cada nó que seja um possível proprietário do novo cluster de failover do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] , siga as etapas de instalação de Preparar cluster de failover listadas na seção [Preparar](#prepare). Depois de executar a Preparação de Cluster de Failover em um nó, a Instalação criará o arquivo Configuration.ini que lista todas as configurações especificadas. Nos nós adicionais a serem preparados, em vez de seguir essas etapas, você pode fornecer o arquivo Configuration.ini gerado automaticamente do primeiro nó como uma entrada para a linha de comando de Instalação. Para obter mais informações, veja [Instalar o SQL Server 2016 usando um arquivo de configuração](../../../database-engine/install-windows/install-sql-server-2016-using-a-configuration-file.md). Essa etapa prepara os nós prontos para serem clusterizados, mas não há nenhuma instância operacional do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] no final dessa etapa.  
+-   Em cada nó que seja um possível proprietário do novo cluster de failover do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] , siga as etapas de instalação de Preparar cluster de failover listadas na seção [Preparar](#prepare). Depois de executar a Preparação de Cluster de Failover em um nó, a Instalação criará o arquivo Configuration.ini que lista todas as configurações especificadas. Nos nós adicionais a serem preparados, em vez de seguir essas etapas, você pode fornecer o arquivo Configuration.ini gerado automaticamente do primeiro nó como uma entrada para a linha de comando de Instalação. Para obter mais informações, veja [Instalar o SQL Server 2016 usando um arquivo de configuração](../../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md). Essa etapa prepara os nós prontos para serem clusterizados, mas não há nenhuma instância operacional do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] no final dessa etapa.  
   
 -   Depois que os nós estiverem preparados para clustering, execute a Instalação em um dos nós preparados. Essa etapa configura e conclui a instância de cluster de failover. No final dessa etapa, você terá uma instância de cluster de failover operacional do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], e todos os nós preparados anteriormente para essa instância serão os possíveis proprietários da instância de cluster de failover do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] recém-criada.  
   
@@ -69,7 +69,7 @@ ms.locfileid: "97642841"
   
  Para obter mais informações sobre a instalação remota, consulte [Atualizações de versão e edição com suporte](../../../database-engine/install-windows/supported-version-and-edition-upgrades.md).  
   
- Confira mais informações sobre como instalar o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] em um WSFC em [Como criar clusters do SQL Server Analysis Services](https://go.microsoft.com/fwlink/p/?LinkId=396548).  
+ Confira mais informações sobre como instalar o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] em um WSFC em [Como criar clusters do SQL Server Analysis Services](/previous-versions/sql/sql-server-2012/dn736073(v=msdn.10)).  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
  Antes de começar, examine os seguintes tópicos dos Manuais Online do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] :  
@@ -103,7 +103,7 @@ ms.locfileid: "97642841"
   
 8.  Na página Termos de Licença, leia o contrato de licença e marque a caixa de seleção para aceitar os termos e as condições da licença. Para ajudar a aperfeiçoar o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], você também pode habilitar a opção de uso de recursos e enviar relatórios à [!INCLUDE[msCoName](../../../includes/msconame-md.md)]. Clique em **Avançar** para continuar. Para finalizar a Instalação, clique em **Cancelar**.  
   
-9. Na página Seleção de Recursos, selecione os componentes para a instalação. Uma descrição de cada grupo de componentes é exibida no painel à direita depois que você seleciona o nome do recurso. Você pode selecionar qualquer combinação de caixas de seleção, mas apenas o [!INCLUDE[ssDE](../../../includes/ssde-md.md)], o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo de tabela e o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo multidimensional oferecem suporte ao clustering de failover. Outros componentes selecionados serão executados como um recurso autônomo, sem recurso de failover no nó atual em que você está executando a Instalação. Para obter mais informações sobre modos do [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] , consulte [Determina o Modo de Servidor de uma instância do Analysis Services](https://docs.microsoft.com/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
+9. Na página Seleção de Recursos, selecione os componentes para a instalação. Uma descrição de cada grupo de componentes é exibida no painel à direita depois que você seleciona o nome do recurso. Você pode selecionar qualquer combinação de caixas de seleção, mas apenas o [!INCLUDE[ssDE](../../../includes/ssde-md.md)], o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo de tabela e o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo multidimensional oferecem suporte ao clustering de failover. Outros componentes selecionados serão executados como um recurso autônomo, sem recurso de failover no nó atual em que você está executando a Instalação. Para obter mais informações sobre modos do [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] , consulte [Determina o Modo de Servidor de uma instância do Analysis Services](/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
   
      Os pré-requisitos dos recursos selecionados são exibidos no painel à direita. [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] A Instalação instalará os pré-requisitos ainda não instalados na etapa de instalação descrita posteriormente neste procedimento.  
   
@@ -171,7 +171,7 @@ ms.locfileid: "97642841"
   
 17. Na página Configuração do Servidor – Contas de Serviço, especifique as contas de logon dos serviços do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Os serviços reais configurados nessa página dependem dos recursos selecionados para instalação.  
   
-     Você pode atribuir a mesma conta de logon a todos os serviços do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] ou configurar cada conta de serviço individualmente. O tipo de inicialização é definido como manual para todos os serviços com suporte a cluster, inclusive a pesquisa de texto completo e o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] Agent, e não pode ser alterado durante a instalação. [!INCLUDE[msCoName](../../../includes/msconame-md.md)] recomenda que você configure contas de serviço individualmente para fornecer privilégios mínimos para cada serviço, em que os serviços do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] recebem as permissões mínimas para concluir suas tarefas. Para obter mais informações, consulte [Configuração do servidor — Contas de serviço](https://msdn.microsoft.com/library/c283702d-ab20-4bfa-9272-f0c53c31cb9f) e [Configurar contas de serviço e permissões do Windows](../../../database-engine/configure-windows/configure-windows-service-accounts-and-permissions.md).  
+     Você pode atribuir a mesma conta de logon a todos os serviços do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] ou configurar cada conta de serviço individualmente. O tipo de inicialização é definido como manual para todos os serviços com suporte a cluster, inclusive a pesquisa de texto completo e o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] Agent, e não pode ser alterado durante a instalação. [!INCLUDE[msCoName](../../../includes/msconame-md.md)] recomenda que você configure contas de serviço individualmente para fornecer privilégios mínimos para cada serviço, em que os serviços do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] recebem as permissões mínimas para concluir suas tarefas. Para obter mais informações, consulte [Configuração do servidor — Contas de serviço](../../../database-engine/install-windows/install-sql-server.md) e [Configurar contas de serviço e permissões do Windows](../../../database-engine/configure-windows/configure-windows-service-accounts-and-permissions.md).  
   
      Para especificar a mesma conta de logon para todas as contas de serviço nessa instância do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], forneça credenciais nos campos na parte inferior da página.  
   
@@ -226,7 +226,7 @@ ms.locfileid: "97642841"
 30. Para adicionar nós ao failover de um único nó que você acabou de criar, execute a Instalação em cada nó adicional e siga as etapas da operação AddNode. Saiba mais em [Adicionar ou remover nós em uma instância de cluster de failover do Always On &#40;Instalação&#41;](../../../sql-server/failover-clusters/install/add-or-remove-nodes-in-a-sql-server-failover-cluster-setup.md).  
   
     > [!NOTE]  
-    >  Se você estiver adicionando mais de um nó, poderá usar o arquivo de configuração para implantar as instalações. Para obter mais informações, veja [Instalar o SQL Server 2016 usando um arquivo de configuração](../../../database-engine/install-windows/install-sql-server-2016-using-a-configuration-file.md).  
+    >  Se você estiver adicionando mais de um nó, poderá usar o arquivo de configuração para implantar as instalações. Para obter mais informações, veja [Instalar o SQL Server 2016 usando um arquivo de configuração](../../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md).  
     >   
     >  A edição do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] que você está instalando deve combinar com todos os nós de uma instância cluster de failover do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)]. Ao adicionar um novo nó a uma instância de cluster de failover existente do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], especifique que a edição corresponde à edição dessa instância.  
   
@@ -257,7 +257,7 @@ ms.locfileid: "97642841"
   
 9. Na página Termos de Licença, leia o contrato de licença e marque a caixa de seleção para aceitar os termos e as condições da licença. Para ajudar a aperfeiçoar o [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], você também pode habilitar a opção de uso de recursos e enviar relatórios à [!INCLUDE[msCoName](../../../includes/msconame-md.md)]. Clique em **Avançar** para continuar. Para finalizar a Instalação, clique em **Cancelar**.  
   
-10. Na página Seleção de Recursos, selecione os componentes para a instalação. Uma descrição de cada grupo de componentes é exibida no painel à direita depois que você seleciona o nome do recurso. Você pode selecionar qualquer combinação de caixas de seleção, mas apenas o [!INCLUDE[ssDE](../../../includes/ssde-md.md)], o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo de tabela e o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo multidimensional oferecem suporte ao clustering de failover. Outros componentes selecionados serão executados como um recurso autônomo, sem recurso de failover no nó atual em que você está executando a Instalação. Para obter mais informações sobre modos do [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] , consulte [Determina o Modo de Servidor de uma instância do Analysis Services](https://docs.microsoft.com/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
+10. Na página Seleção de Recursos, selecione os componentes para a instalação. Uma descrição de cada grupo de componentes é exibida no painel à direita depois que você seleciona o nome do recurso. Você pode selecionar qualquer combinação de caixas de seleção, mas apenas o [!INCLUDE[ssDE](../../../includes/ssde-md.md)], o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo de tabela e o [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] no modo multidimensional oferecem suporte ao clustering de failover. Outros componentes selecionados serão executados como um recurso autônomo, sem recurso de failover no nó atual em que você está executando a Instalação. Para obter mais informações sobre modos do [!INCLUDE[ssASnoversion](../../../includes/ssasnoversion-md.md)] , consulte [Determina o Modo de Servidor de uma instância do Analysis Services](/analysis-services/instances/determine-the-server-mode-of-an-analysis-services-instance).  
   
      Os pré-requisitos dos recursos selecionados são exibidos no painel à direita. [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] A Instalação instalará os pré-requisitos ainda não instalados na etapa de instalação descrita posteriormente neste procedimento.  
   
@@ -320,7 +320,7 @@ ms.locfileid: "97642841"
   
 23. Se você for instruído a reiniciar o computador, faça-o agora. É importante ler a mensagem do Assistente de Instalação ao concluir a Instalação. Para obter informações sobre os arquivos de log da Instalação, veja [Exibir e ler arquivos de log da Instalação do SQL Server](../../../database-engine/install-windows/view-and-read-sql-server-setup-log-files.md).  
   
-24. Repita as etapas anteriores para preparar os outros nós da instância de cluster de failover. Você também pode usar o arquivo de configuração gerado automaticamente para executar a preparação nos outros nós. Para obter mais informações, veja [Instalar o SQL Server 2016 usando um arquivo de configuração](../../../database-engine/install-windows/install-sql-server-2016-using-a-configuration-file.md).  
+24. Repita as etapas anteriores para preparar os outros nós da instância de cluster de failover. Você também pode usar o arquivo de configuração gerado automaticamente para executar a preparação nos outros nós. Para obter mais informações, veja [Instalar o SQL Server 2016 usando um arquivo de configuração](../../../database-engine/install-windows/install-sql-server-using-a-configuration-file.md).  
   
 ## <a name="complete"></a>Concluído  
   
@@ -404,6 +404,5 @@ ms.locfileid: "97642841"
  Para obter mais informações sobre os locais de arquivo de log, consulte [Exibir e ler arquivos de log da Instalação do SQL Server](../../../database-engine/install-windows/view-and-read-sql-server-setup-log-files.md).  
   
 ## <a name="see-also"></a>Consulte Também  
- [Instalar o SQL Server 2016 do prompt de comando](../../../database-engine/install-windows/install-sql-server-2016-from-the-command-prompt.md)  
-  
+ [Instalar o SQL Server 2016 do prompt de comando](../../../database-engine/install-windows/install-sql-server-from-the-command-prompt.md)  
   

@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-jizho2
-ms.openlocfilehash: f522b856e759ec9821b5cc549ce3f801951b7283
-ms.sourcegitcommit: 4c3949f620d09529658a2172d00bfe37aeb1a387
+ms.openlocfilehash: e966e4f2f43ebe546d6baa0b757f682f3eca205b
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95011830"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596359"
 ---
 # <a name="introduction-to-microsoftdatasqlclient-namespace"></a>Introdução ao namespace Microsoft.Data.SqlClient
 
@@ -43,7 +43,7 @@ O Microsoft. Data.SqlClient v2.1 estende o suporte ao Always Encrypted nas segui
 
 ### <a name="azure-active-directory-device-code-flow-authentication"></a>Autenticação de fluxo de código do dispositivo do Azure Active Directory
 O Microsoft.Data.SqlClient v 2.1 dá suporte à autenticação de "fluxo de código do dispositivo" com o MSAL.NET.
-Documentação de referência: [Fluxo de concessão de autorização do dispositivo OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code)
+Documentação de referência: [Fluxo de concessão de autorização do dispositivo OAuth 2.0](/azure/active-directory/develop/v2-oauth2-device-code)
 
 Exemplo de cadeia de conexão:
 
@@ -60,7 +60,7 @@ public class ActiveDirectoryAuthenticationProvider
 ```
 
 ### <a name="azure-active-directory-managed-identity-authentication"></a>Autenticação de Identidade Gerenciada do Azure Active Directory
-O Microsoft.Data.SqlClient v 2.1 apresenta o suporte para autenticação do Azure Active Directory usando [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+O Microsoft.Data.SqlClient v 2.1 apresenta o suporte para autenticação do Azure Active Directory usando [identidades gerenciadas](/azure/active-directory/managed-identities-azure-resources/overview).
 
 Há suporte para as seguintes palavras-chave de modo de autenticação:
 - Identidade gerenciada do Active Directory

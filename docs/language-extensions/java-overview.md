@@ -9,12 +9,12 @@ ms.topic: overview
 ms.prod: sql
 ms.technology: language-extensions
 monikerRange: '>=sql-server-ver15||>=sql-server-linux-ver15'
-ms.openlocfilehash: f68821900b2e304028bccfd79e96f988f02267e9
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 4df5f2e96ff8795ac592c6aa61f7c79e03145c31
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97471717"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596298"
 ---
 # <a name="what-is-java-language-extension"></a>O que é a Extensão da Linguagem Java?
 [!INCLUDE [SQL Server 2019 and later](../includes/applies-to-version/sqlserver2019.md)]
@@ -27,7 +27,7 @@ O runtime do Java padrão é o Zulu Open JRE. Você também pode usar outro Java
 
 A Extensão de Linguagem Java usa a estrutura de extensibilidade para executar código Java externo. A execução de código é isolada dos principais processos de mecanismo, mas totalmente integrada à execução de consulta do SQL Server. Você pode executar o código Java na fonte dos dados, eliminando a necessidade de efetuar pull dos dados na rede.
 
-A linguagem Java externa é definida com [CREATE EXTERNAL LANGUAGE](https://docs.microsoft.com/sql/t-sql/statements/create-external-language-transact-sql). O procedimento armazenado do sistema [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) é usado como a interface para executar o código Java.
+A linguagem Java externa é definida com [CREATE EXTERNAL LANGUAGE](../t-sql/statements/create-external-language-transact-sql.md). O procedimento armazenado do sistema [sp_execute_external_script](../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) é usado como a interface para executar o código Java.
 
 ## <a name="get-started-with-java-language-extension"></a>Introdução à Extensão de Linguagem Java
 
@@ -37,8 +37,8 @@ A linguagem Java externa é definida com [CREATE EXTERNAL LANGUAGE](https://docs
 
     + Use o IDE de sua preferência para desenvolver código Java.
     + Instale o [SDK de Extensibilidade da Microsoft para Java](how-to/extensibility-sdk-java-sql-server.md) a fim de executar código Java no SQL Server.
-    + Use o [Azure Data Studio](../azure-data-studio/what-is.md) para executar código externo no SQL Server.
-    + Use o procedimento armazenado do sistema [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) para executar seu código Java no SQL Server.
+    + Use o [Azure Data Studio](../azure-data-studio/what-is-azure-data-studio.md) para executar código externo no SQL Server.
+    + Use o procedimento armazenado do sistema [sp_execute_external_script](../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) para executar seu código Java no SQL Server.
 
 1. Escreva seu primeiro código Java.
 

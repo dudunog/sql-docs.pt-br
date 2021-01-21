@@ -12,12 +12,12 @@ ms.reviewer: ''
 ms.custom: seo-lt-2019
 ms.date: 03/14/2017
 monikerRange: '>=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current'
-ms.openlocfilehash: f8e9ba976f3b5c0689eb69aec3a10bba38f70fd7
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: 51eaabf3196c2b7142228908dcef3587bc819b94
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97466407"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595097"
 ---
 # <a name="add-transact-sql-snippets"></a>Adicionar snippets de Transact-SQL
 
@@ -26,7 +26,7 @@ ms.locfileid: "97466407"
 Você pode adicionar seus próprios snippets de código Transact-SQL ao conjunto de snippets predefinidos incluídos em [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
 
 ## <a name="creating-a-transact-sql-snippet-file"></a>Criando um arquivo de snippet Transact-SQL  
- A primeira parte da criação de um snippet de código do [!INCLUDE[tsql](../../includes/tsql-md.md)] é criar um arquivo XML com o texto do seu snippet de código. O arquivo deve ter uma extensão .snippet e atender as requisitos do [Esquema de trechos de código](https://go.microsoft.com/fwlink/?LinkId=207504). Defina a linguagem do snippet como SQL.  
+ A primeira parte da criação de um snippet de código do [!INCLUDE[tsql](../../includes/tsql-md.md)] é criar um arquivo XML com o texto do seu snippet de código. O arquivo deve ter uma extensão .snippet e atender as requisitos do [Esquema de trechos de código](/previous-versions/visualstudio/visual-studio-2015/ide/code-snippets-schema-reference). Defina a linguagem do snippet como SQL.  
   
  Você pode usar os snippets predefinidos fornecidos com o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] como exemplos. Para encontrar os snippets predefinidos, abra [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)], selecione o menu **Ferramentas** e clique em **Gerenciador de Snippets de Código**. Selecione **SQL** na caixa de listagem **Linguagem** ; o caminho para os snippets do [!INCLUDE[tsql](../../includes/tsql-md.md)] será exibido na caixa **Local** .  
   
@@ -116,5 +116,4 @@ Você pode adicionar seus próprios snippets de código Transact-SQL ao conjunto
 5.  Navegue até a pasta que contém TryCatch.snippet, clique no arquivo TryCatch.snippet e clique em **Abrir** . Agora, você deve ter um snippet TryCatch na pasta **Meus Snippets de Código**.  
   
 ## <a name="see-also"></a>Consulte Também  
- [Inserir snippets Transact-SQL com Surround](../../relational-databases/scripting/insert-surround-with-transact-sql-snippets.md)  
-    
+ [Inserir snippets Transact-SQL com Surround](./insert-surround-with-transact-sql-snippets.md)  

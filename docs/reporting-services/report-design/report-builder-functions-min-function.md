@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: aa1ee96f-9fc4-4775-b9d4-c6187dc37e27
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 4ea5098d06e66813fb91d27ca9d56c31732080a2
-ms.sourcegitcommit: 93e4fd75e8fe0cc85e7949c9adf23b0e1c275465
+ms.openlocfilehash: f5870998f24f0b92a5c582a387c583d6d86f8dcf
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84255569"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595997"
 ---
 # <a name="report-builder-functions---min-function"></a>Funções do Construtor de Relatórios – Função Min
   Retorna o valor mínimo de todos os valores numéricos não nulos especificados pela expressão, no contexto do escopo fornecido.  
@@ -43,7 +43,7 @@ Min(expression, scope, recursive)
  Determinado pelo tipo da expressão.  
   
 ## <a name="remarks"></a>Comentários  
- O conjunto de dados especificado na expressão deve ter o mesmo tipo de dados. Para converter dados que têm vários tipos de dados numéricos no mesmo tipo de dados, use funções de conversão, como **CInt**, **CDbl** ou **CDec**. Para obter mais informações, consulte [Funções de conversão de tipo](https://go.microsoft.com/fwlink/?LinkId=96142).  
+ O conjunto de dados especificado na expressão deve ter o mesmo tipo de dados. Para converter dados que têm vários tipos de dados numéricos no mesmo tipo de dados, use funções de conversão, como **CInt**, **CDbl** ou **CDec**. Para obter mais informações, consulte [Funções de conversão de tipo](/dotnet/visual-basic/language-reference/functions/type-conversion-functions).  
   
  O valor de *scope* deve ser uma constante de cadeia de caracteres e não pode ser uma expressão. Para agregações externas ou que não especificam outras agregações, *scope* deve se referir ao escopo atual ou a um escopo contentor. Para agregações de agregações, as agregações aninhadas podem especificar um escopo filho.  
   
@@ -53,7 +53,7 @@ Min(expression, scope, recursive)
   
 -   *Scope* para agregações aninhadas não pode ser o nome de um conjunto de dados.  
   
--   *Expression* não deve conter a função **First**, **Last**, **Previous**ou **RunningValue** .  
+-   *Expression* não deve conter a função **First**, **Last**, **Previous** ou **RunningValue** .  
   
 -   *Expression* não deve conter agregações aninhadas que especifiquem *recursive*.  
   
@@ -73,5 +73,4 @@ Min(expression, scope, recursive)
  [Exemplos de expressões &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/expression-examples-report-builder-and-ssrs.md)   
  [Tipos de dados em expressões &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/data-types-in-expressions-report-builder-and-ssrs.md)   
  [Escopo das expressões para totais, agregações e coleções internas &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/expression-scope-for-totals-aggregates-and-built-in-collections.md)  
-  
   

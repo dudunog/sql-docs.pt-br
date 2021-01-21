@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: a6b595dc-f775-4a53-8554-74a0bf9335ec
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 2ba53f3fa33bdb8b0f09c13b1afa9aba9398ff87
-ms.sourcegitcommit: e572f1642f588b8c4c75bc9ea6adf4ccd48a353b
+ms.openlocfilehash: 075dac12d1a4b5e393ead71da7bbf297fe40ae69
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84779138"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596768"
 ---
 # <a name="add-a-chart-to-a-report-report-builder-and-ssrs"></a>Adicionar um gráfico a um relatório (Construtor de Relatórios e SSRS)
   Para resumir dados em um formato visual em um relatório paginado do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] , use uma região de dados do gráfico. É importante escolher um tipo de gráfico apropriado para o tipo de dados que você está apresentando. Isso influencia a interpretação dos dados quando colocados em formato de gráfico. Para obter mais informações, consulte [Gráficos &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/charts-report-builder-and-ssrs.md).  
@@ -31,7 +31,7 @@ ms.locfileid: "84779138"
 1.  > [!NOTE]  
     >  O Assistente de Gráfico só está disponível no Construtor de Relatórios.  
   
-     Na guia **Inserir** , clique em **Gráfico**e em **Assistente de Gráfico**.  
+     Na guia **Inserir** , clique em **Gráfico** e em **Assistente de Gráfico**.  
   
 2.  Siga as etapas no Assistente de **Novo** Gráfico.  
   
@@ -43,7 +43,7 @@ ms.locfileid: "84779138"
   
 1.  Crie um relatório e defina um conjunto de dados. Para obter mais informações, consulte [Conjuntos de dados de relatório &#40;SSRS&#41;](../../reporting-services/report-data/report-datasets-ssrs.md).  
   
-2.  Na guia **Inserir** , clique em **Gráfico**e em **Inserir Gráfico**.  
+2.  Na guia **Inserir** , clique em **Gráfico** e em **Inserir Gráfico**.  
   
 3.  Clique na superfície de design em que você deseja o canto superior esquerdo do gráfico e arraste até o local do canto inferior direito do gráfico.  
   
@@ -69,9 +69,8 @@ ms.locfileid: "84779138"
  [Gráficos &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/charts-report-builder-and-ssrs.md)   
  [Tipos de gráficos &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/chart-types-report-builder-and-ssrs.md)   
  [Pontos de dados vazios e nulos em gráficos &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/empty-and-null-data-points-in-charts-report-builder-and-ssrs.md)   
- [Tutorial: Adicionar um gráfico de barras ao relatório (Construtor de Relatórios)](https://go.microsoft.com/fwlink/?LinkId=198052)   
- [Tutorial: Adicionar um gráfico de barras a um relatório (Designer de Relatórios)](https://go.microsoft.com/fwlink/?LinkId=198042)   
- [Tutorial: Adicionar um gráfico de pizza ao relatório (Construtor de Relatórios)](https://go.microsoft.com/fwlink/?LinkId=198051)   
- [Tutorial: Adicionar um gráfico de pizza a um relatório (Designer de Relatórios)](https://go.microsoft.com/fwlink/?LinkId=198041)  
-  
+ [Tutorial: Adicionar um gráfico de barras ao relatório (Construtor de Relatórios)](../tutorial-add-a-bar-chart-to-your-report-report-builder.md)   
+ [Tutorial: Adicionar um gráfico de barras a um relatório (Designer de Relatórios)](/previous-versions/sql/sql-server-2008-r2/cc281302(v=sql.105))   
+ [Tutorial: Adicionar um gráfico de pizza ao relatório (Construtor de Relatórios)](../tutorial-add-a-pie-chart-to-your-report-report-builder.md)   
+ [Tutorial: Adicionar um gráfico de pizza a um relatório (Designer de Relatórios)](/previous-versions/sql/sql-server-2008-r2/cc281304(v=sql.105))  
   

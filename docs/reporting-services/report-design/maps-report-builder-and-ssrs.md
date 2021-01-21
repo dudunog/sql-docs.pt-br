@@ -16,12 +16,12 @@ f1_keywords:
 ms.assetid: b5e9ef21-11b7-4ed2-838e-d8eecdb5c5f0
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 9e6dde5a520b845cac47fbfd3c4820d35958c9ba
-ms.sourcegitcommit: ea0bf89617e11afe85ad85309e0ec731ed265583
+ms.openlocfilehash: a88bd03c8dd4b545fdadf3bd809f9ce64191db79
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92907254"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596795"
 ---
 # <a name="maps-report-builder-and-ssrs"></a>Mapas (Construtor de Relatórios e SSRS)
   Para visualizar dados comerciais em uma tela de fundo geográfica, você pode acrescentar um mapa ao seu relatório paginado do [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)] . O tipo de mapa selecionado depende de qual informação você deseja comunicar no seu relatório. Você pode adicionar um mapa que só exibe locais ou um mapa de bolhas que varia o tamanho da bolha com base no número de residências em uma área, ou um mapa de marcador que varia o estilo de marcador com base no produto mais lucrativo para cada loja, ou um mapa de linha que exibe rotas entre lojas.  
@@ -58,7 +58,7 @@ ms.locfileid: "92907254"
  Para visualizar dados em um mapa, os dados analíticos e os dados espaciais devem ter uma relação. Quando os dados espaciais e os dados analíticos são provenientes da mesma origem, a relação é conhecida. Quando os dados espaciais e os dados analíticos vêm de origens diferentes, você deve especificar campos de correspondência para relacioná-los.  
   
 ### <a name="spatial-data"></a>Dados espaciais  
- Os dados espaciais consistem em conjuntos de coordenadas. Os dados espaciais de uma fonte de dados podem ser um único ponto, vários pontos, uma única linha, várias linhas ou um conjunto de polígonos. Cada conjunto de coordenadas define um *elemento do mapa* , por exemplo, um polígono que representa a estrutura de um município, uma linha que representa uma estrada ou um ponto que representa o local de uma cidade.  
+ Os dados espaciais consistem em conjuntos de coordenadas. Os dados espaciais de uma fonte de dados podem ser um único ponto, vários pontos, uma única linha, várias linhas ou um conjunto de polígonos. Cada conjunto de coordenadas define um *elemento do mapa*, por exemplo, um polígono que representa a estrutura de um município, uma linha que representa uma estrada ou um ponto que representa o local de uma cidade.  
   
  Os dados espaciais se baseiam em um dos seguintes sistemas de coordenadas:  
   
@@ -161,7 +161,7 @@ ms.locfileid: "92907254"
   
  Para obter instruções passo a passo, consulte [Adicionar, alterar ou excluir um mapa ou uma camada do mapa &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/add-change-or-delete-a-map-or-map-layer-report-builder-and-ssrs.md).  
   
- Para obter mais informações sobre peças, consulte [Sistema de Peças do Bing Maps](https://go.microsoft.com/fwlink/?linkid=147315). Para obter mais informações sobre o uso de peças de mapa do Bing no seu relatório, consulte [termos de uso adicionais](https://go.microsoft.com/fwlink/?LinkId=151371).  
+ Para obter mais informações sobre peças, consulte [Sistema de Peças do Bing Maps](/bingmaps/articles/bing-maps-tile-system). Para obter mais informações sobre o uso de peças de mapa do Bing no seu relatório, consulte [termos de uso adicionais](https://go.microsoft.com/fwlink/?LinkId=151371).  
   
 ##  <a name="understanding-map-layers-and-map-elements"></a><a name="MapLayers"></a> Entendendo camadas e elementos do mapa  
  Um mapa pode ter várias camadas. Há três tipos de camadas: Cada camada exibe um tipo de dados espaciais:  
@@ -252,5 +252,4 @@ ms.locfileid: "92907254"
  [Adicionar locais personalizados a um mapa &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/add-custom-locations-to-a-map-report-builder-and-ssrs.md)  
   
  [Solucionar problemas de relatórios: Mapear relatórios &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/troubleshoot-reports-map-reports-report-builder-and-ssrs.md)  
-  
   

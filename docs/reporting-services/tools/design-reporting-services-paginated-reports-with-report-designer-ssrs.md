@@ -11,18 +11,18 @@ helpviewer_keywords:
 ms.assetid: 3a26dccc-6ad6-48f5-a882-f96c6c0dd405
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 8f83c1f169706af4a02d1940049d2a1814bc26ca
-ms.sourcegitcommit: c8e1553ff3fdf295e8dc6ce30d1c454d6fde8088
+ms.openlocfilehash: 500ecc4e4b0dae80faa06f8d152b99423bb45251
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86914082"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597170"
 ---
 # <a name="design-reporting-services-paginated-reports-with-report-designer-ssrs"></a>Criar relatórios paginados do Reporting Services com o Designer de relatórios (SSRS)
 
 Use o Designer de Relatórios para criar relatórios paginados e soluções completas do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] . O Designer de Relatórios fornece uma interface gráfica na qual você pode definir fontes de dados, conjuntos de dados e consultas, posições do layout do relatório para regiões de dados e campos e recursos interativos, como parâmetros e conjuntos de relatórios que funcionam em conjunto.  
 
-O Designer de Relatórios é um recurso do  [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], um ambiente do Microsoft Visual Studio para criação de soluções de business intelligence. [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] não é incluído com o SQL Server. Baixar o [SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714). 
+O Designer de Relatórios é um recurso do  [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], um ambiente do Microsoft Visual Studio para criação de soluções de business intelligence. [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] não é incluído com o SQL Server. Baixar o [SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md). 
   
 ## <a name="benefits-of-report-projects"></a>Benefícios dos projetos de relatório  
 Os projetos de relatório atuam como contêineres para recursos e definições de relatório. Use projetos para:  
@@ -70,7 +70,7 @@ Relatórios paginados são arquivos armazenados em um projeto de relatório. Os 
   
 -   **Adicionar um item existente.** Uma definição de relatório existente (.rdl) é aberta no Designer de Relatórios. A abertura de um relatório ou projeto em uma versão anterior do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] pode atualizar o projeto automaticamente para a versão atual, e o relatório para o esquema atual. Para obter mais informações, consulte [Upgrade Reports](../../reporting-services/install-windows/upgrade-reports.md).  
   
--   **Importe um relatório do [!INCLUDE[msCoName](../../includes/msconame-md.md)] Access.** Importe todos os relatórios de um banco de dados do Access (.mdb, .accdb) ou arquivo de projeto (.adp). O Designer de Relatórios converte cada relatório em um arquivo de banco de dados ou de projeto em RDL e salva-o no projeto de relatório. Nem todas as funcionalidades de um relatório do Access são transferidas para um arquivo de definição de relatório (.rdl). Para obter mais informações, consulte [Importar relatórios do Microsoft Access &#40;Reporting Services&#41;](https://msdn.microsoft.com/library/4f29d5b8-b77d-4714-a84a-05523df55646) e [Recursos de relatórios do Access com suporte &#40;SSRS&#41;](https://msdn.microsoft.com/library/7ffec331-6365-4c13-8e58-b77a48cffb44).  
+-   **Importe um relatório do [!INCLUDE[msCoName](../../includes/msconame-md.md)] Access.** Importe todos os relatórios de um banco de dados do Access (.mdb, .accdb) ou arquivo de projeto (.adp). O Designer de Relatórios converte cada relatório em um arquivo de banco de dados ou de projeto em RDL e salva-o no projeto de relatório. Nem todas as funcionalidades de um relatório do Access são transferidas para um arquivo de definição de relatório (.rdl). Para obter mais informações, consulte [Importar relatórios do Microsoft Access &#40;Reporting Services&#41;](../reports/reporting-services-reports-ssrs.md) e [Recursos de relatórios do Access com suporte &#40;SSRS&#41;](../reports/reporting-services-reports-ssrs.md).  
   
     > [!NOTE]  
     >  Para usar o recurso de importação, você deve ter o Access 2002 ou uma versão posterior no mesmo computador que o Designer de Relatórios está instalado. A fonte de dados para os relatórios de Access deverá estar disponível quando os relatórios forem importados.  
@@ -117,7 +117,7 @@ Relatórios paginados são arquivos armazenados em um projeto de relatório. Os 
      Se você usar a configuração de projeto que cria um relatório mas não o implanta, o relatório especificado na propriedade **StartItem** da configuração atual será aberto em outra janela de visualização.  
   
     > [!NOTE]  
-    >  Para usar o modo de Depuração, defina um item inicial. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto de relatório, clique em **Propriedades**e, em **StartItem**, selecione o nome do relatório a ser exibido.  
+    >  Para usar o modo de Depuração, defina um item inicial. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto de relatório, clique em **Propriedades** e, em **StartItem**, selecione o nome do relatório a ser exibido.  
   
      Se quiser visualizar um relatório específico que não é o item inicial do projeto, selecione uma configuração que cria o relatório, mas que não o implanta (por exemplo, a configuração DebugLocal), clique com o botão direito do mouse no relatório e clique em **Executar**. Escolha uma configuração que não implante o relatório, caso contrário, o relatório será publicado no servidor de relatórios em vez de ser exibido localmente na janela de visualização.  
   
@@ -145,7 +145,7 @@ Relatórios paginados são arquivos armazenados em um projeto de relatório. Os 
  No Designer de Relatórios, é importante entender que você cria um relatório por meio do esquema de definição de relatório com suporte da versão atual do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] no [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]. Quando você define propriedades de implantação de projeto para um servidor de relatório específico ou site do SharePoint e, em seguida, salva o relatório, o Designer de Relatórios salva a definição de relatório no diretório de compilação no esquema que corresponde à versão no servidor de relatório de destino. Para criar relatórios que podem ser publicados em um servidor de relatório de versão anterior, o Designer de Relatórios remove itens de relatório que não existem no esquema de destino. Isto ocorre automaticamente e sem solicitar. Quando isso ocorre, a definição de relatório original é preservada na pasta do projeto. A definição de relatório modificada que é implantada está na pasta de compilação.  
   
 > [!NOTE]  
->  Para depurar erros de expressões e de implantação, exiba a definição de relatório na pasta de compilação. Não use **Exibir Código-Fonte**. A opção**Exibir Código-Fonte** exibe a origem da definição de relatório na pasta do projeto.  
+>  Para depurar erros de expressões e de implantação, exiba a definição de relatório na pasta de compilação. Não use **Exibir Código-Fonte**. A opção **Exibir Código-Fonte** exibe a origem da definição de relatório na pasta do projeto.  
   
  Para obter mais informações, veja [Implantação e suporte de versão no SQL Server Data Tools &#40;SSRS&#41;](../../reporting-services/tools/deployment-and-version-support-in-sql-server-data-tools-ssrs.md).  
   
@@ -181,7 +181,7 @@ Relatórios paginados são arquivos armazenados em um projeto de relatório. Os 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Baixe o SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714)  
+[Baixe o SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md)  
 [Reporting Services no SQL Server Data Tools](../../reporting-services/tools/reporting-services-in-sql-server-data-tools-ssdt.md)   
 [Ferramentas de Design da Consulta](../../reporting-services/report-data/query-design-tools-ssrs.md)   
 [Implantação e suporte de versão no SQL Server Data Tools](../../reporting-services/tools/deployment-and-version-support-in-sql-server-data-tools-ssrs.md)  

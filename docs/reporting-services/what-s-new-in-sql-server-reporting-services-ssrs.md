@@ -10,12 +10,12 @@ ms.author: maggies
 ms.reviewer: ''
 ms.custom: ''
 ms.date: 12/05/2019
-ms.openlocfilehash: eaef4f651b65b2097aa4cfe0f41c97442469f193
-ms.sourcegitcommit: f29f74e04ba9c4d72b9bcc292490f3c076227f7c
+ms.openlocfilehash: 67881fc6668aed8120feae0c10449652f8ea6d1c
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98171438"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596584"
 ---
 # <a name="whats-new-in-sql-server-reporting-services-ssrs"></a>Novidades do SQL Server Reporting Services (SSRS)
 
@@ -23,7 +23,7 @@ ms.locfileid: "98171438"
 
 Saiba mais sobre as novidades nas diferentes versões do SQL Server [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)]. Esse artigo aborda as principais áreas de recurso e é atualizado à medida que novos itens são lançados.
 
-Para obter informações sobre o Servidor de Relatórios do Power BI, consulte [O que é o Servidor de Relatórios do Power BI?](https://docs.microsoft.com/power-bi/report-server/get-started).
+Para obter informações sobre o Servidor de Relatórios do Power BI, consulte [O que é o Servidor de Relatórios do Power BI?](/power-bi/report-server/get-started).
 
 ::: moniker range=">=sql-server-ver15"
 
@@ -81,7 +81,7 @@ Para obter mais informações, consulte [Adicionar comentários a um relatório 
 
 ### <a name="dax-queries-in-reporting-tools"></a>Consultas DAX em ferramentas de relatório
 
-Nas versões mais recentes do Construtor de Relatórios e no SQL Server Data Tools, é possível criar consultas DAX nativas em modelos de dados de tabela do SQL Server Analysis Services. Você pode arrastar e soltar campos nos designers de consultas. Consulte o [blog do Reporting Services](https://blogs.msdn.microsoft.com/sqlrsteamblog/2017/03/09/query-designer-support-for-dax-now-available-in-report-builder-and-sql-server-data-tools/).
+Nas versões mais recentes do Construtor de Relatórios e no SQL Server Data Tools, é possível criar consultas DAX nativas em modelos de dados de tabela do SQL Server Analysis Services. Você pode arrastar e soltar campos nos designers de consultas. Consulte o [blog do Reporting Services](/archive/blogs/sqlrsteamblog/query-designer-support-for-dax-now-available-in-report-builder-and-sql-server-data-tools).
 
 ### <a name="rest-api-support"></a>Suporte à API REST
 
@@ -91,10 +91,10 @@ Para possibilitar o desenvolvimento de aplicativos modernos e personalização, 
 
 No Construtor de Relatórios e no SQL Server Data Tools, agora é possível criar consultas DAX nativas em modelos de dados de tabela do SQL Server Analysis Services com suporte. Use o designer de consultas em ambas as ferramentas para arrastar e soltar os campos desejados. Em seguida, a consulta DAX é gerada para você.
 
-Leia mais sobre o [blog do Reporting Services](https://blogs.msdn.microsoft.com/sqlrsteamblog/2017/03/09/query-designer-support-for-dax-now-available-in-report-builder-and-sql-server-data-tools/).
+Leia mais sobre o [blog do Reporting Services](/archive/blogs/sqlrsteamblog/query-designer-support-for-dax-now-available-in-report-builder-and-sql-server-data-tools).
 
 * Baixe o [Construtor de Relatórios do SQL Server](https://go.microsoft.com/fwlink/?LinkId=734968).
-* Baixe o [SQL Server Data Tools – versão Release Candidate](https://docs.microsoft.com/sql/ssdt/sql-server-data-tools-ssdt-release-candidate).
+* Baixe o [SQL Server Data Tools – versão Release Candidate](../ssdt/download-sql-server-data-tools-ssdt.md).
 
 > [!NOTE]
 > só é possível usar o designer de consultas para DAX com fontes de dados de tabela do SSAS criadas no SQL Server 2016+.
@@ -123,7 +123,7 @@ Para saber mais sobre o [!INCLUDE[ssRSWebPortal-Non-Markdown](../includes/ssrswe
 
 Você pode personalizar o [!INCLUDE[ssRSWebPortal-Non-Markdown](../includes/ssrswebportal-non-markdown-md.md)] com o logotipo e cores da sua organização usando um pacote de identidade visual.  
 
-Para obter mais informações sobre identidade visual personalizada, consulte [Identidade visual do portal da Web](https://msdn.microsoft.com/6dac97f7-02a6-4711-81a3-e850a6b40bf1)
+Para obter mais informações sobre identidade visual personalizada, consulte [Identidade visual do portal da Web](./branding-the-web-portal.md)
 
 #### <a name="key-performance-indicators-kpi-in-the-ssrswebportal-non-markdown"></a>KPI (indicadores chave de desempenho) [!INCLUDE[ssRSWebPortal-Non-Markdown](../includes/ssrswebportal-non-markdown-md.md)] 
 
@@ -131,7 +131,7 @@ Você pode criar KPIs contextuais no [!INCLUDE[ssRSWebPortal-Non-Markdown](../in
 
 ![Captura de tela mostrando KPIs no portal do SQL Server Reporting Services.](../reporting-services/media/ssrs-webportal-kpi.png)
 
-Para obter mais informações, consulte [Working with KPIs in the web portal](https://msdn.microsoft.com/a28cf500-6d47-4268-a248-04837e7a09eb) (Trabalhando com KPIs no portal da Web)
+Para obter mais informações, consulte [Working with KPIs in the web portal](./working-with-kpis-in-reporting-services.md) (Trabalhando com KPIs no portal da Web)
 
 ### <a name="mobile-reports"></a>Relatórios móveis
 
@@ -192,7 +192,7 @@ Para obter mais informações sobre o suporte ao navegador, veja [Suporte ao nav
 2. Escolha o painel no qual você deseja fixar o item.
 3. Escolha a frequência desejada de atualização do bloco no painel.
 
-![observação](https://docs.microsoft.com/analysis-services/analysis-services/instances/install-windows/media/ssrs-fyi-note.png "observação") A atualização é gerenciada pelas assinaturas do [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)] e, depois que o item é fixado, você pode editar a assinatura e configurar outro agendamento de atualização.
+![observação](/analysis-services/analysis-services/instances/install-windows/media/ssrs-fyi-note.png "observação") A atualização é gerenciada pelas assinaturas do [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)] e, depois que o item é fixado, você pode editar a assinatura e configurar outro agendamento de atualização.
 
 ![Captura de tela mostrando a caixa de diálogo Fixar ao Dashboard do Power BI.](../reporting-services/media/ssrs-pin-to-powerbi.png) 
 
@@ -227,7 +227,7 @@ Para obter mais informações, consulte [Habilitar e desabilitar a impressão do
 
 ### <a name="sql-server-data-tools-ssdt"></a>SQL Server Data Tools (SSDT)
 
-A nova versão do SSDT inclui os modelos de projeto para [!INCLUDE[ssRSCurrent](../includes/ssrscurrent-md.md)]: Assistente de Projeto do Servidor de Relatório e Projeto do Servidor de Relatório. Para saber mais sobre como baixar o SSDT, veja [Ferramentas de Dados do SQL Server para Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=827542).  
+A nova versão do SSDT inclui os modelos de projeto para [!INCLUDE[ssRSCurrent](../includes/ssrscurrent-md.md)]: Assistente de Projeto do Servidor de Relatório e Projeto do Servidor de Relatório. Para saber mais sobre como baixar o SSDT, veja [Ferramentas de Dados do SQL Server para Visual Studio 2015](../ssdt/download-sql-server-data-tools-ssdt.md).  
 
 ### <a name="report-builder-improvements"></a>Aprimoramentos do Construtor de Relatórios
 
@@ -245,11 +245,11 @@ A nova versão do SSDT inclui os modelos de projeto para [!INCLUDE[ssRSCurrent](
 
 - [Aprimoramentos de dimensionamento de DPI do Windows 8.1](https://blogs.windows.com/windowsexperience/2013/07/15/windows-8-1-dpi-scaling-enhancements/)  
 
-- [Alto DPI e Windows 8.1](https://technet.microsoft.com/library/dn528848.aspx)  
+- [Alto DPI e Windows 8.1](/previous-versions/windows/it-pro/windows-8.1-and-8/dn528848(v=win.10))  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Novidades do Analysis Services](https://msdn.microsoft.com/aa69c299-b8f4-4969-86d8-b3292fe13f08)  
+[Novidades do Analysis Services](/analysis-services/what-s-new-in-sql-server-analysis-services?viewFallbackFrom=sql-server-ver15)  
 [Compatibilidade com versões anteriores](reporting-services-backward-compatibility.md)  
 [Recursos do Reporting Services compatíveis com as edições do SQL Server](../reporting-services/reporting-services-features-supported-by-the-editions-of-sql-server-2016.md)  
 [Atualizar e migrar o Reporting Services](../reporting-services/install-windows/upgrade-and-migrate-reporting-services.md)  

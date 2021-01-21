@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 51ad69d8-fe92-4662-a7cd-d235692f0c03
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 22f5064c4d861c3f10f88ce4ff1a5727f545fb72
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+ms.openlocfilehash: 60d621e9bb833615aaed5e6f622afb9591916037
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91934962"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597060"
 ---
 # <a name="tutorial-how-to-locate-and-start-reporting-services-tools-ssrs"></a>Tutorial: Como localizar e iniciar as Ferramentas do SSRS (Reporting Services)
 
@@ -89,7 +89,7 @@ Antes de poder abrir o Portal da Web, é necessário ter permissões suficientes
 
 ## <a name="management-studio"></a><a name="bkmk_managements_studio"></a> Management Studio
 
-Os administradores de servidor de relatório podem usar o [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] para gerenciar um servidor de relatório com outros servidores de componente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . Para obter mais informações, consulte o tutorial do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/tutorials/tutorial-sql-server-management-studio).
+Os administradores de servidor de relatório podem usar o [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] para gerenciar um servidor de relatório com outros servidores de componente do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] . Para obter mais informações, consulte o tutorial do [SQL Server Management Studio](../../ssms/quickstarts/ssms-connect-query-sql-server.md).
 
 ### <a name="to-start-sql-server-management-studio"></a>Para iniciar o SQL Server Management Studio
 
@@ -99,7 +99,7 @@ Os administradores de servidor de relatório podem usar o [!INCLUDE[ssManStudio]
 
     **Or**
 
-    Clique em **Iniciar**e em **Todos os Programas**. Em seguida, clique em [!INCLUDE[ssCurrentUI](../../includes/sscurrentui-md.md)]e em **SQL Server Management Studio**. A caixa de diálogo **Conectar-se ao Servidor** é exibida.
+    Clique em **Iniciar** e em **Todos os Programas**. Em seguida, clique em [!INCLUDE[ssCurrentUI](../../includes/sscurrentui-md.md)]e em **SQL Server Management Studio**. A caixa de diálogo **Conectar-se ao Servidor** é exibida.
 
 2. Se a caixa de diálogo **Conectar ao Servidor** não aparecer, no **Pesquisador de Objetos**, clique em **Conectar** e selecione **Reporting Services**.
 
@@ -115,13 +115,13 @@ Você tem a opção de duas ferramentas diferentes para criar relatórios pagina
 
 O Designer de Relatórios está disponível em [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)] -Visual Studio. A superfície de design do Designer de Relatórios inclui janelas tabuladas, assistentes e menus usados para acessar recursos de criação de relatórios. A ferramenta do designer de relatórios torna-se disponível quando você escolhe um modelo de Projeto do Report Server ou um Assistente do Report Server em [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]. Para saber mais, consulte [Reporting Services no SQL Server Data Tools &#40;SSDT&#41;](../../reporting-services/tools/reporting-services-in-sql-server-data-tools-ssdt.md).
 
-Baixar o [SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714).
+Baixar o [SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md).
 
 ### <a name="to-start-report-designer"></a>Para iniciar o Designer de Relatórios
 
 1. Abra o **SQL Server Data Tools**.
 
-2. No menu **Arquivo** , aponte para **Novo**e clique em **Projeto**.
+2. No menu **Arquivo** , aponte para **Novo** e clique em **Projeto**.
 
 3. Na lista **Tipos de Projeto** , clique em **Projetos de Business Intelligence**.
 
@@ -139,7 +139,7 @@ Para iniciar seu primeiro relatório, consulte [Criar um relatório de tabela b�
 
 O [Construtor de Relatórios no SQL Server](../../reporting-services/report-builder/report-builder-in-sql-server-2016.md) é um aplicativo autônomo que você pode usar para criar relatórios paginados fora do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Você pode personalizar e atualizar todos os relatórios existentes, quer tenham sido criados no Designer de Relatórios ou em versões anteriores do [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)]. Instale-o por meio do portal da Web do [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ou do Centro de Download da Microsoft.
 
-Quando seu relatório paginado estiver pronto, publique-o em um servidor de relatório ou [salve-o no serviço do Power BI](https://docs.microsoft.com/power-bi/paginated-reports-save-to-power-bi-service).\
+Quando seu relatório paginado estiver pronto, publique-o em um servidor de relatório ou [salve-o no serviço do Power BI](/power-bi/paginated-reports-save-to-power-bi-service).\
 [Baixe o Construtor de Relatórios](https://go.microsoft.com/fwlink/?LinkID=219138) do Centro de Download da Microsoft.
 
 ### <a name="to-start-ssrbnoversion"></a>Para iniciar o [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)]
@@ -181,7 +181,7 @@ Você pode instalá-lo do portal da Web [!INCLUDE[ssNoVersion](../../includes/ss
 
 [Baixar Publicador de Relatórios Móveis do SQL Server](https://go.microsoft.com/fwlink/?LinkID=733527)  
 [Baixe o Construtor de Relatórios](https://go.microsoft.com/fwlink/?LinkID=219138)  
-[Baixe o SQL Server Data Tools](https://go.microsoft.com/fwlink/?LinkID=616714)  
+[Baixe o SQL Server Data Tools](../../ssdt/download-sql-server-data-tools-ssdt.md)  
 [Instalar o Reporting Services no modo do SharePoint](../../reporting-services/install-windows/install-reporting-services-sharepoint-mode.md)  
 [Servidor de Relatório do Reporting Services](../../reporting-services/report-server-sharepoint/reporting-services-report-server.md)  
 [Ferramentas de Design da Consulta](../../reporting-services/report-data/query-design-tools-ssrs.md)  

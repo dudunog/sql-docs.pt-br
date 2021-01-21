@@ -13,18 +13,18 @@ ms.assetid: 9ccb390a-67a9-4593-85ea-2b4c41c4620f
 author: rothja
 ms.author: jroth
 monikerRange: = sql-server-2016
-ms.openlocfilehash: dc92ae7c943729e7c95529b948caca95404dec3a
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: f183c3d44525d85c26a6ba36345eb347ba1c38d3
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97474527"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98594842"
 ---
 # <a name="sql-server-2012-release-notes"></a>Notas de Versão do SQL Server 2012
 [!INCLUDE [SQL Server Azure SQL Database ](../includes/applies-to-version/sqlserver.md)]
 Este documento de notas sobre a versão descreve problemas conhecidos que você precisa saber antes de instalar ou solucionar problemas do [Microsoft SQL Server 2012](https://go.microsoft.com/fwlink/?LinkId=238647). Este documento de Notas de versão está disponível somente online, não em mídia de instalação, e é atualizado periodicamente.  
   
-Para obter informações sobre como iniciar e instalar o SQL Server 2012, consulte o Leiame do SQL Server 2012. O documento Leiame está disponível na mídia de instalação e na página de download [Leiame](https://download.microsoft.com/download/3/B/D/3BD9DD65-D3E3-43C3-BB50-0ED850A82AD5/ENU/Readme.htm) . Você também pode encontrar mais informações em [Manuais Online do SQL Server](https://go.microsoft.com/fwlink/?LinkId=190948) e nos [Fóruns do SQL Server](https://go.microsoft.com/fwlink/?LinkId=213599).  
+Para obter informações sobre como iniciar e instalar o SQL Server 2012, consulte o Leiame do SQL Server 2012. O documento Leiame está disponível na mídia de instalação e na página de download [Leiame](https://download.microsoft.com/download/3/B/D/3BD9DD65-D3E3-43C3-BB50-0ED850A82AD5/ENU/Readme.htm) . Você também pode encontrar mais informações em [Manuais Online do SQL Server](/previous-versions/sql/sql-server-2012/ms130214(v=sql.110)) e nos [Fóruns do SQL Server](https://go.microsoft.com/fwlink/?LinkId=213599).  
   
 ## <a name="10-before-you-install"></a><a name="Install"></a>1.0 Antes da instalação  
 Antes de instalar o [!INCLUDE[ssCurrent](../includes/sscurrent-md.md)], considere as seguintes informações.  
@@ -92,7 +92,7 @@ Você pode instalar o SQL Server no Windows Server 2008 R2 Server Core SP1 com a
   
 -   Não é possível instalar o Microsoft SQL Server 2012 lado a lado com versões anteriores do SQL Server em um computador executando o Windows Server 2008 R2 Server Core SP1.  
   
--   Nem todos os recursos do SQL Server 2012 têm suporte no sistema operacional Server Core. Para saber mais sobre os recursos com suporte e sobre a instalação do SQL Server 2012 no Server Core, veja [Instalar o SQL Server 2012 no Server Core](https://msdn.microsoft.com/library/hh231669(SQL.110).aspx).  
+-   Nem todos os recursos do SQL Server 2012 têm suporte no sistema operacional Server Core. Para saber mais sobre os recursos com suporte e sobre a instalação do SQL Server 2012 no Server Core, veja [Instalar o SQL Server 2012 no Server Core](/previous-versions/sql/sql-server-2012/hh231669(v=sql.110)).  
   
 ### <a name="16-semantic-search-requires-you-to-install-an-additional-dependency"></a>1.6 A pesquisa semântica requer que você instale uma dependência adicional  
 **Problema:** a Pesquisa Semântica Estatística tem um pré-requisito adicional, o banco de dados de estatísticas semânticas de idiomas, que não é instalado pelo programa de Instalação do SQL Server.  
@@ -162,7 +162,7 @@ Os tópicos a seguir descrevem o comportamento de instalação de itens de pré-
   
         **Use o Gerenciamento e Manutenção de Imagens de Implantação (DISM.exe) para habilitar o .NET Framework 3.5 SP1:**  
   
-        Você também pode habilitar o .NET Framework 3.5 SP1 usando o Gerenciamento e Manutenção de Imagens de Implantação (DISM.exe). Para saber mais sobre como habilitar os recursos do Windows online, veja [Habilitar ou desabilitar os recursos do Windows online](https://technet.microsoft.com/library/dd744582(WS.10).aspx). Veja a seguir as instruções para habilitar o .NET Framework 3.5 SP1:  
+        Você também pode habilitar o .NET Framework 3.5 SP1 usando o Gerenciamento e Manutenção de Imagens de Implantação (DISM.exe). Para saber mais sobre como habilitar os recursos do Windows online, veja [Habilitar ou desabilitar os recursos do Windows online](/previous-versions/windows/it-pro/windows-7/dd744582(v=ws.10)). Veja a seguir as instruções para habilitar o .NET Framework 3.5 SP1:  
   
         1.  No prompt de comando, digite o comando a seguir para listar todos os recursos disponíveis no sistema operacional.  
   
@@ -334,7 +334,7 @@ Há problemas com a Tarefa de Processamento do AS quando você trabalha com mode
 ### <a name="42-to-reinstall-data-quality-server-delete-the-dqs-objects-after-uninstalling-data-quality-server"></a>4.2 Para reinstalar o Data Quality Server, exclua os objetos DQS depois de desinstalar o Data Quality Server  
 **Problema:** se você desinstalar o servidor Data Quality Server, os objetos DQS (bancos de dados DQS, logons DQS e um procedimento armazenado DQS) não serão excluídos da instância do SQL Server.  
   
-**Solução alternativa:** para reinstalar o Data Quality Server no mesmo computador e na mesma instância do SQL Server, você deverá excluir manualmente os objetos DQS da instância do SQL Server. Além disso, você também deve excluir os arquivos de bancos de dados DQS (DQS_MAIN, DQS_PROJECTS, and DQS_STAGING_DATA) da pasta C:\Program Files\Microsoft SQL Server\MSSQL11.<SQL_Server_Instance>\MSSQL\DATA no computador, antes de reinstalar o Data Quality Server. Caso contrário, a instalação do Data Quality Server falhará. Mova os arquivos de banco de dados, em vez de excluí-los, se você quiser preservar dados, como bases de dados de conhecimentos ou projetos de qualidade de dados. Para saber mais sobre como remover objetos DQS após a conclusão do processo de desinstalação, veja [Remover objetos do Data Quality Server](https://msdn.microsoft.com/library/hh231667.aspx).  
+**Solução alternativa:** para reinstalar o Data Quality Server no mesmo computador e na mesma instância do SQL Server, você deverá excluir manualmente os objetos DQS da instância do SQL Server. Além disso, você também deve excluir os arquivos de bancos de dados DQS (DQS_MAIN, DQS_PROJECTS, and DQS_STAGING_DATA) da pasta C:\Program Files\Microsoft SQL Server\MSSQL11.<SQL_Server_Instance>\MSSQL\DATA no computador, antes de reinstalar o Data Quality Server. Caso contrário, a instalação do Data Quality Server falhará. Mova os arquivos de banco de dados, em vez de excluí-los, se você quiser preservar dados, como bases de dados de conhecimentos ou projetos de qualidade de dados. Para saber mais sobre como remover objetos DQS após a conclusão do processo de desinstalação, veja [Remover objetos do Data Quality Server](./install/remove-data-quality-server-objects.md).  
   
 ### <a name="43-indication-of-a-terminated-knowledge-discovery-or-interactive-cleansing-activity-is-delayed"></a>4.3 A indicação de uma descoberta de conhecimento terminada ou atividade de limpeza interativa está atrasada  
 **Problema:** se um administrador terminar uma atividade na tela Monitoramento de Atividades, um usuário interativo que estiver executando a atividade de descoberta de conhecimento, gerenciamento de domínio ou limpeza interativa não receberá nenhuma indicação de que sua atividade terminou, até executar a operação seguinte.  
@@ -578,10 +578,10 @@ Isso é devido a uma limitação no build CTP3. Os builds futuros não terão es
 **Solução alternativa:** use 'multisubnetfailover = true' na cadeia de conexão.  
   
 #### <a name="576-failure-to-create-new-availability-group-listeners-because-of-active-directory-quotas"></a>5.7.6 Falha ao criar novos ouvintes de grupo de disponibilidade devido a cotas do Active Directory  
-**Problema:** Pode haver falha na criação de um novo ouvinte de grupo de disponibilidade porque você atingiu uma cota do Active Directory para a conta da máquina do nó de cluster participante. Para saber mais, veja [Como solucionar problemas da conta do serviço de cluster quando ela modifica objetos de computador](https://support.microsoft.com/kb/307532) e [Cotas do Active Directory](https://technet.microsoft.com/library/cc904295(WS.10).aspx).  
+**Problema:** Pode haver falha na criação de um novo ouvinte de grupo de disponibilidade porque você atingiu uma cota do Active Directory para a conta da máquina do nó de cluster participante. Para saber mais, veja [Como solucionar problemas da conta do serviço de cluster quando ela modifica objetos de computador](https://support.microsoft.com/kb/307532) e [Cotas do Active Directory](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc904295(v=ws.10)).  
   
 #### <a name="577-netbios-conflicts-because-availability-group-listener-names-use-an-identical-15-character-prefix"></a>5.7.7 Conflitos de NetBIOS porque os nomes dos ouvintes de grupo de disponibilidade usam um prefixo de 15 caracteres idênticos  
-Se você tiver dois clusters do WSFC que sejam controlados pelo mesmo Active Directory e tentar criar ouvintes de grupo de disponibilidade nos dois clusters usando nomes com mais de 15 caracteres e um prefixo idêntico de 15 caracteres, você obterá um erro relatando que o recurso Nome de Rede virtual não pôde ser colocado online. Para saber mais sobre regras da nomenclatura de prefixos para nomes DNS, veja [Atribuindo nomes de domínio](https://technet.microsoft.com/library/cc731265(WS.10).aspx)  
+Se você tiver dois clusters do WSFC que sejam controlados pelo mesmo Active Directory e tentar criar ouvintes de grupo de disponibilidade nos dois clusters usando nomes com mais de 15 caracteres e um prefixo idêntico de 15 caracteres, você obterá um erro relatando que o recurso Nome de Rede virtual não pôde ser colocado online. Para saber mais sobre regras da nomenclatura de prefixos para nomes DNS, veja [Atribuindo nomes de domínio](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731265(v=ws.10))  
   
 ![horizontal_bar](media/horizontal-bar.png "horizontal_bar")  
   
@@ -641,4 +641,4 @@ Problema: quando você tentar instalar o Supervisor de Atualização em qualquer
   
 **Solução alternativa**: Localize o arquivo **SQLUA.msi** na sua mídia do SQL Server 2012 em `\1028_CHT_LP\x64\redist\Upgrade Advisor` ou em `\1028_CHT_LP\x86\redist\Upgrade Advisor`, dependendo da arquitetura do seu sistema operacional.  
   
-![horizontal_bar](media/horizontal-bar.png "horizontal_bar")  
+![horizontal_bar](media/horizontal-bar.png "horizontal_bar")

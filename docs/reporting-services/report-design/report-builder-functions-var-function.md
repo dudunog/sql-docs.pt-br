@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 7b2018ce-c5f9-4f8b-bd44-4201379a584b
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: b31b6e36d176cc8f11b34afa81935ab4e0a93c56
-ms.sourcegitcommit: e572f1642f588b8c4c75bc9ea6adf4ccd48a353b
+ms.openlocfilehash: 49fa0a76ffbf31ffccbb5b677e79d80e2a14ada2
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84779478"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596709"
 ---
 # <a name="report-builder-functions---var-function"></a>Funções do Construtor de Relatórios – Função Var
   Retorna a variação de todos os valores numéricos não nulos especificados pela expressão, avaliados no escopo fornecido.  
@@ -43,7 +43,7 @@ Var(expression, scope, recursive)
  Retorna um **Decimal** para expressões decimais e um **Double** para todas as outras expressões.  
   
 ## <a name="remarks"></a>Comentários  
- O conjunto de dados especificado na expressão deve ter o mesmo tipo de dados. Para converter dados que têm vários tipos de dados numéricos no mesmo tipo de dados, use funções de conversão, como **CInt**, **CDbl** ou **CDec**. Para obter mais informações, consulte [Funções de conversão de tipo](https://go.microsoft.com/fwlink/?LinkId=96142).  
+ O conjunto de dados especificado na expressão deve ter o mesmo tipo de dados. Para converter dados que têm vários tipos de dados numéricos no mesmo tipo de dados, use funções de conversão, como **CInt**, **CDbl** ou **CDec**. Para obter mais informações, consulte [Funções de conversão de tipo](/dotnet/visual-basic/language-reference/functions/type-conversion-functions).  
   
  O valor de *scope* deve ser uma constante de cadeia de caracteres e não pode ser uma expressão. Para agregações externas ou que não especificam outras agregações, *scope* deve se referir ao escopo atual ou a um escopo contentor. Para agregações de agregações, as agregações aninhadas podem especificar um escopo filho.  
   
@@ -53,7 +53,7 @@ Var(expression, scope, recursive)
   
 -   *Scope* para agregações aninhadas não pode ser o nome de um conjunto de dados.  
   
--   *Expression* não deve conter a função **First**, **Last**, **Previous**ou **RunningValue** .  
+-   *Expression* não deve conter a função **First**, **Last**, **Previous** ou **RunningValue** .  
   
 -   *Expression* não deve conter agregações aninhadas que especifiquem *recursive*.  
   
@@ -73,5 +73,4 @@ Var(expression, scope, recursive)
  [Exemplos de expressões &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/expression-examples-report-builder-and-ssrs.md)   
  [Tipos de dados em expressões &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/data-types-in-expressions-report-builder-and-ssrs.md)   
  [Escopo das expressões para totais, agregações e coleções internas &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/expression-scope-for-totals-aggregates-and-built-in-collections.md)  
-  
   

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 1c1e265e-52a2-4de3-96fd-ca4abae01c02
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: cdaaaa55756860e4b62f90cb7e01c88c63ad4b61
-ms.sourcegitcommit: 1a544cf4dd2720b124c3697d1e62ae7741db757c
+ms.openlocfilehash: ec946e008990e9cc4f75fc6a6eb0882756d25b8b
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97477057"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596559"
 ---
 # <a name="plan-for-report-design-and-report-deployment--reporting-services"></a>Planejar a criação e implantação de relatórios | Reporting Services
 [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] [!INCLUDE[ssRSnoversion](../includes/ssrsnoversion-md.md)] fornece várias abordagens para criar e implantar relatórios paginados. Saiba como planejar ambientes de criação de relatório e de servidor de relatório que funcionam juntos.
@@ -38,11 +38,11 @@ Este tópico apresenta uma visão geral do suporte para definição de relatóri
   
 -   [Esquemas XML do Microsoft SQL Server](https://go.microsoft.com/fwlink/?LinkId=31850)  
   
--   [Especificações da linguagem RDL](https://go.microsoft.com/fwlink/?linkid=116865)  
+-   [Especificações da linguagem RDL](/openspecs/sql_server_protocols/ms-rdl/53287204-7cd0-4bc9-a5cd-d42a5925dca1)  
   
 -   [Linguagem RDL &#40;SSRS&#41;](../reporting-services/reports/report-definition-language-ssrs.md)  
   
- Para obter mais informações sobre os controles ReportViewer, consulte [Controles ReportViewer (Visual Studio)](https://msdn.microsoft.com/library/ms251671.aspx).  
+ Para obter mais informações sobre os controles ReportViewer, consulte [Controles ReportViewer (Visual Studio)](/previous-versions/ms251671(v=vs.140)).  
   
 ##  <a name="report-server-and-rdl-schema-support"></a><a name="bkmk_report_server_rdl_schema_support"></a> Suporte para servidor de relatório e esquema RDL  
  Um arquivo de definição de relatório pode ser implantado em um servidor de relatório do [!INCLUDE[ssRSCurrent](../includes/ssrscurrent-md.md)] das seguintes maneiras:  
@@ -112,15 +112,14 @@ Em uma implantação do modo do SharePoint, vá para a biblioteca de documentos,
   
  Para saber mais, consulte o seguinte:  
   
--   [Convertendo arquivos RDLC em arquivos RDL](https://msdn.microsoft.com/library/ms252109.aspx)  
+-   [Convertendo arquivos RDLC em arquivos RDL](/previous-versions/ms252109(v=vs.140))  
   
--   [Controles ReportViewer (Visual Studio)](https://msdn.microsoft.com/library/ms251671.aspx)  
+-   [Controles ReportViewer (Visual Studio)](/previous-versions/ms251671(v=vs.140))  
   
--   [Adicionando e configurando controles ReportViewer](https://msdn.microsoft.com/library/ms252104.aspx)  
+-   [Adicionando e configurando controles ReportViewer](/previous-versions/ms252104(v=vs.140))  
   
 ## <a name="see-also"></a>Consulte Também  
  [Relatórios, partes de relatório e definições de relatório &#40;Construtor de Relatórios e SSRS&#41;](../reporting-services/report-design/reports-report-parts-and-report-definitions-report-builder-and-ssrs.md)   
  [Ferramentas do Reporting Services](../reporting-services/tools/reporting-services-tools.md)   
  [Linguagem RDL &#40;SSRS&#41;](../reporting-services/reports/report-definition-language-ssrs.md)  
-  
   

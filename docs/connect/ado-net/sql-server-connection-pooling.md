@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: a878d8250a3e402cd1043dc289eb1712af45f385
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 9538368cdcc39d3a037c609fc79f65d5d3cb8e45
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771517"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596377"
 ---
 # <a name="sql-server-connection-pooling-adonet"></a>Pool de conexões do SQL Server (ADO.NET)
 
@@ -73,7 +73,7 @@ O pool de conexões atende às solicitações de conexões realocando-as à medi
 > [!NOTE]
 > Não chame `Close` nem `Dispose` em um objeto `Connection`, em um `DataReader` nem em nenhum outro objeto gerenciado no método `Finalize` de sua classe. Em um finalizador, libere somente recursos não gerenciados que sua classe possui diretamente. Se a classe não tiver nenhum recurso não gerenciado, não inclua um método `Finalize` em sua definição de classe. Para obter mais informações, confira [Coleta de lixo](/dotnet/standard/garbage-collection/index).
 
-Para obter mais informações sobre os eventos associados à abertura e ao fechamento de conexões, confira [Classe de Evento Audit Login](/sql/relational-databases/event-classes/audit-login-event-class) e [Classe de Evento Audit Logout](/sql/relational-databases/event-classes/audit-logout-event-class) na documentação do SQL Server.
+Para obter mais informações sobre os eventos associados à abertura e ao fechamento de conexões, confira [Classe de Evento Audit Login](../../relational-databases/event-classes/audit-login-event-class.md) e [Classe de Evento Audit Logout](../../relational-databases/event-classes/audit-logout-event-class.md) na documentação do SQL Server.
 
 ## <a name="remove-connections"></a>Remover conexões
 

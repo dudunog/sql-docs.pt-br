@@ -11,12 +11,12 @@ helpviewer_keywords:
 ms.assetid: 323fd58a-a462-4c48-b188-77ebc0b4212e
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 46be46e47b7e5a5028b639ecb0e74cbe19c8446a
-ms.sourcegitcommit: ff82f3260ff79ed860a7a58f54ff7f0594851e6b
+ms.openlocfilehash: 237d056f8b42570fcab375330a9eb3172eb11758
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80217002"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596965"
 ---
 # <a name="creating-a-custom-report-item-design-time-component"></a>Criando um componente de tempo de design de item de relatório personalizado
   Um componente em tempo de design de item de relatório personalizado é um controle que pode ser usado no ambiente do Designer de Relatórios do Visual Studio. O componente em tempo de design de item de relatório personalizado oferece uma superfície de design ativada que pode aceitar operações de arrastar e soltar, a integração ao pesquisador de propriedade [!INCLUDE[vsprvs](../../includes/vsprvs-md.md)] e a capacidade de oferecer editores de propriedade personalizados.  
@@ -183,7 +183,7 @@ private void OnProportionalScaling(object sender, EventArgs e)
 ```  
   
 ### <a name="using-adornments"></a>Usando adornos  
- As classes de item de relatório personalizado também podem implementar uma classe **Microsoft.ReportDesigner.Design.Adornment**. Um adorno permite que o controle de item de relatório personalizado forneça áreas fora do retângulo principal da superfície de design. Essas áreas podem tratar eventos de interface do usuário, tais como cliques de mouse e operações de arrastar e soltar. A classe **Adornment** definida no namespace **Microsoft.ReportDesigner** do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] é uma implementação de passagem da classe <xref:System.Windows.Forms.Design.Behavior.Adorner> encontrada no Windows Forms. Para obter a documentação completa da classe **Adorner**, consulte [Visão geral do serviço de comportamento](https://go.microsoft.com/fwlink/?LinkId=116673) na biblioteca MSDN. Para obter um código de exemplo que implementa uma classe **Microsoft.ReportDesigner.Design.Adornment**, consulte [Amostras de produto do SQL Server Reporting Services](https://go.microsoft.com/fwlink/?LinkId=177889).  
+ As classes de item de relatório personalizado também podem implementar uma classe **Microsoft.ReportDesigner.Design.Adornment**. Um adorno permite que o controle de item de relatório personalizado forneça áreas fora do retângulo principal da superfície de design. Essas áreas podem tratar eventos de interface do usuário, tais como cliques de mouse e operações de arrastar e soltar. A classe **Adornment** definida no namespace **Microsoft.ReportDesigner** do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] é uma implementação de passagem da classe <xref:System.Windows.Forms.Design.Behavior.Adorner> encontrada no Windows Forms. Para obter a documentação completa da classe **Adorner**, consulte [Visão geral do serviço de comportamento](/previous-versions/ms171826(v=vs.140)) na biblioteca MSDN. Para obter um código de exemplo que implementa uma classe **Microsoft.ReportDesigner.Design.Adornment**, consulte [Amostras de produto do SQL Server Reporting Services](https://go.microsoft.com/fwlink/?LinkId=177889).  
   
  Para obter mais informações sobre como programar e usar o Windows Forms no [!INCLUDE[vsprvs](../../includes/vsprvs-md.md)], consulte estes tópicos no biblioteca MSDN:  
   
@@ -198,5 +198,4 @@ private void OnProportionalScaling(object sender, EventArgs e)
  [Criando um componente de item de relatório personalizado em tempo de execução](../../reporting-services/custom-report-items/creating-a-custom-report-item-run-time-component.md)   
  [Bibliotecas de classes de itens de relatório personalizados](../../reporting-services/custom-report-items/custom-report-item-class-libraries.md)   
  [Como: implantar um Item de relatório personalizado](../../reporting-services/custom-report-items/how-to-deploy-a-custom-report-item.md)  
-  
   

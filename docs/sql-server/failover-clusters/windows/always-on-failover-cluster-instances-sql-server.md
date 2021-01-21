@@ -20,12 +20,12 @@ helpviewer_keywords:
 ms.assetid: 86a15b33-4d03-4549-8ea2-b45e4f1baad7
 author: cawrites
 ms.author: chadam
-ms.openlocfilehash: ea1413b30c4706125b711493f64210c2a875ec0f
-ms.sourcegitcommit: 370cab80fba17c15fb0bceed9f80cb099017e000
+ms.openlocfilehash: a27efd6cb20a90bc1b3ce72a6e4cee74f74c3b61
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97642803"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595230"
 ---
 # <a name="always-on-failover-cluster-instances-sql-server"></a>Instâncias do cluster de failover do AlwaysOn (SQL Server)
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -35,9 +35,9 @@ ms.locfileid: "97642803"
  Uma FCI pode aproveitar os [Grupos de Disponibilidade](../../../database-engine/availability-groups/windows/always-on-availability-groups-sql-server.md) para fornecer recuperação remota de desastres no nível do banco de dados. Para obter mais informações, consulte [Clustering de failover e Grupos de Disponibilidade &#40;SQL Server&#41;](../../../database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server.md).  
  
  > [!NOTE]  
- > O Windows Server 2016 Datacenter Edition apresenta suporte para S2D (Espaços de Armazenamento Diretos). As instâncias de cluster de failover do SQL Server dão suporte ao S2D para recursos de armazenamento de cluster. Para obter mais informações, consulte [Espaços de Armazenamento Diretos no Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+ > O Windows Server 2016 Datacenter Edition apresenta suporte para S2D (Espaços de Armazenamento Diretos). As instâncias de cluster de failover do SQL Server dão suporte ao S2D para recursos de armazenamento de cluster. Para obter mais informações, consulte [Espaços de Armazenamento Diretos no Windows Server 2016](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
  > 
- >As instâncias de cluster de failover também dão suporte ao CSVs (Volumes Compartilhados de Cluster). Para obter mais informações, veja [Noções básicas sobre volumes compartilhados clusterizados em um cluster de failover](https://technet.microsoft.com/library/dd759255.aspx). 
+ >As instâncias de cluster de failover também dão suporte ao CSVs (Volumes Compartilhados de Cluster). Para obter mais informações, veja [Noções básicas sobre volumes compartilhados clusterizados em um cluster de failover](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759255(v=ws.11)). 
    
  **Neste tópico:**  
   
@@ -157,7 +157,6 @@ ms.locfileid: "97642803"
 |----------------------------|---------------|  
 |Descreve como instalar uma nova FCI do [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] .|[Criar um novo cluster de failover do SQL Server &#40;Instalação&#41;](../../../sql-server/failover-clusters/install/create-a-new-sql-server-failover-cluster-setup.md)|  
 |Descreve como atualizar para um cluster de failover do [!INCLUDE[ssCurrent](../../../includes/sscurrent-md.md)] .|[Atualizar uma Instância de Cluster de Failover do SQL Server](../../../sql-server/failover-clusters/windows/upgrade-a-sql-server-failover-cluster-instance.md)|  
-|Descreve conceitos de clustering de failover do Windows e fornece links para tarefas relativas ao clustering de failover do Windows.|[!INCLUDE[nextref_longhorn](../../../includes/nextref-longhorn-md.md)]: [Visão geral de clusters de failover](https://go.microsoft.com/fwlink/?LinkId=177878)<br /><br /> [!INCLUDE[nextref_longhorn](../../../includes/nextref-longhorn-md.md)] R2: [Visão geral de clusters de failover](https://go.microsoft.com/fwlink/?LinkId=177879)|  
+|Descreve conceitos de clustering de failover do Windows e fornece links para tarefas relativas ao clustering de failover do Windows.|[!INCLUDE[nextref_longhorn](../../../includes/nextref-longhorn-md.md)]: [Visão geral de clusters de failover](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730692(v=ws.10))<br /><br /> [!INCLUDE[nextref_longhorn](../../../includes/nextref-longhorn-md.md)] R2: [Visão geral de clusters de failover](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754482(v=ws.11))|  
 |Descreve as distinções em conceitos entre nós em uma FCI e réplicas dentro de um grupo de disponibilidade e considerações para usar uma FCI para hospedar uma réplica para um grupo de disponibilidade.|[Clustering de failover e Grupos de Disponibilidade &#40;SQL Server&#41;](../../../database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server.md)|  
-  
   

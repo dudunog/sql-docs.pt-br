@@ -12,12 +12,12 @@ ms.topic: conceptual
 author: David-Engel
 ms.author: v-daenge
 ms.reviewer: v-chmalh
-ms.openlocfilehash: 14442892bc59fc733c6a67153832b95c3f368b95
-ms.sourcegitcommit: c938c12cf157962a5541347fcfae57588b90d929
+ms.openlocfilehash: 12dfcb26484b468bed9f9262403806ea88829385
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2020
-ms.locfileid: "97771443"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595773"
 ---
 # <a name="configuring-parameters"></a>Configurar parâmetros
 
@@ -27,7 +27,7 @@ ms.locfileid: "97771443"
 
 Objetos de comando usam parâmetros para passar valores para instruções SQL ou procedimentos armazenados, fornecendo verificação de tipo e validação. Diferentemente do texto de comando, o parâmetro de entrada é tratado como um valor literal, não como código executável. Isso ajuda a proteger contra ataques de "Injeção de SQL", em que um invasor insere um comando que compromete a segurança no servidor em uma instrução SQL.
 
-Os comandos parametrizados também podem melhorar o desempenho de execução da consulta, porque ajudam o servidor de banco de dados a corresponder exatamente ao comando de entrada com um plano de consulta em cache apropriado. Para obter mais informações, confira [Reutilização e armazenamento em cache do plano de execução](/sql/relational-databases/query-processing-architecture-guide#execution-plan-caching-and-reuse) e [Parâmetros e reutilização de plano de execução](/sql/relational-databases/query-processing-architecture-guide#PlanReuse). Além dos benefícios de segurança e desempenho, os comandos parametrizados fornecem um método conveniente para organizar os valores passados para uma fonte de dados.
+Os comandos parametrizados também podem melhorar o desempenho de execução da consulta, porque ajudam o servidor de banco de dados a corresponder exatamente ao comando de entrada com um plano de consulta em cache apropriado. Para obter mais informações, confira [Reutilização e armazenamento em cache do plano de execução](../../relational-databases/query-processing-architecture-guide.md#execution-plan-caching-and-reuse) e [Parâmetros e reutilização de plano de execução](../../relational-databases/query-processing-architecture-guide.md#PlanReuse). Além dos benefícios de segurança e desempenho, os comandos parametrizados fornecem um método conveniente para organizar os valores passados para uma fonte de dados.
 
 Um objeto <xref:System.Data.Common.DbParameter> pode ser criado usando o construtor ou adicionando-o ao <xref:System.Data.Common.DbCommand.DbParameterCollection%2A> chamando o método `Add` da coleção <xref:System.Data.Common.DbParameterCollection>. O método `Add` utilizará como entrada argumentos de construtor ou um objeto de parâmetro existente, dependendo do provedor de dados.
 
@@ -103,7 +103,7 @@ Para obter mais informações, confira [Gerar comandos com CommandBuilders](gene
 Os procedimentos armazenados oferecem várias vantagens em aplicativos orientados a dados. Ao usar procedimentos armazenados, as operações de banco de dados podem ser encapsuladas em um único comando, otimizadas para melhor desempenho e aprimoradas com segurança adicional. Embora um procedimento armazenado possa ser chamado passando o nome do procedimento armazenado seguido por argumentos de parâmetros como uma instrução SQL, usar a coleção de <xref:System.Data.Common.DbCommand.Parameters%2A> do objeto <xref:System.Data.Common.DbCommand> do ADO.NET permite definir mais explicitamente os parâmetros de procedimento armazenados e acessar parâmetros de saída e valores de retorno.
 
 > [!NOTE]
-> As instruções parametrizadas são executadas no servidor usando `sp_executesql,` que permite a reutilização do plano de consulta. Os cursores locais ou variáveis no lote `sp_executesql` não são visíveis para os lotes que chamam `sp_executesql`. As alterações no contexto de banco de dados duram somente até o final da instrução `sp_executesql`. Para saber mais, confira [sp_executesql (Transact-SQL)](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql).
+> As instruções parametrizadas são executadas no servidor usando `sp_executesql,` que permite a reutilização do plano de consulta. Os cursores locais ou variáveis no lote `sp_executesql` não são visíveis para os lotes que chamam `sp_executesql`. As alterações no contexto de banco de dados duram somente até o final da instrução `sp_executesql`. Para saber mais, confira [sp_executesql (Transact-SQL)](../../relational-databases/system-stored-procedures/sp-executesql-transact-sql.md).
 
 Ao usar parâmetros com um <xref:Microsoft.Data.SqlClient.SqlCommand> para executar um procedimento armazenado do SQL Server, os nomes dos parâmetros adicionados à coleção de <xref:Microsoft.Data.SqlClient.SqlCommand.Parameters%2A> devem coincidir com os nomes dos marcadores de parâmetros no procedimento armazenado. O Provedor de Dados do Microsoft SqlClient para SQL Server não oferece suporte ao espaço reservado de ponto de interrogação (?) para transmitir parâmetros a uma instrução SQL ou a um procedimento armazenado. Ele trata parâmetros no procedimento armazenado como parâmetros nomeados e procura marcadores de parâmetro compatíveis. Por exemplo, o procedimento armazenado `CustOrderHist` é definido usando um parâmetro chamado `@CustomerID`. Quando o código executar o procedimento armazenado, também deverá usar um parâmetro chamado `@CustomerID`.
 

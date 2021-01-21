@@ -12,12 +12,12 @@ helpviewer_keywords:
 ms.assetid: 4de9c3dd-0ee7-49b3-88bb-209465ca9d86
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: b41e35d48f6add25f4ff8c535fb7e96ed7afe67f
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+ms.openlocfilehash: 53e005fcd5c4a11270a5bc2f7c307f521311c548
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935422"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596654"
 ---
 # <a name="configure-windows-authentication-on-the-report-server"></a>Configurar a Autenticação do Windows no servidor de relatório
   Por padrão, o [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] aceita solicitações que especificam a autenticação Negotiate ou NTLM. Se sua implantação incluir aplicativos cliente e navegadores que usam esses provedores de segurança, use os valores padrão sem nenhuma configuração adicional. Se desejar usar um provedor de segurança diferente para a segurança integrada do Windows (por exemplo, se desejar usar Kerberos diretamente) ou se tiver modificado os valores padrão e desejar restaurar as configurações originais, use as informações deste tópico para especificar configurações de autenticação no servidor de relatório.  
@@ -54,7 +54,7 @@ ms.locfileid: "91935422"
   
 2.  Localize \<**Authentication**>.  
   
-3.  Copie uma das estruturas XML a seguir que seja mais adequada para as suas necessidades. Você pode especificar **RSWindowsNegotiate**, **RSWindowsNTLM**e **RSWindowsKerberos** em qualquer ordem. Você deve habilitar a persistência de autenticação se desejar autenticar a conexão em vez de cada solicitação individual. Com a persistência de autenticação, todas as solicitações que precisam de autenticação serão permitidas durante a conexão.  
+3.  Copie uma das estruturas XML a seguir que seja mais adequada para as suas necessidades. Você pode especificar **RSWindowsNegotiate**, **RSWindowsNTLM** e **RSWindowsKerberos** em qualquer ordem. Você deve habilitar a persistência de autenticação se desejar autenticar a conexão em vez de cada solicitação individual. Com a persistência de autenticação, todas as solicitações que precisam de autenticação serão permitidas durante a conexão.  
   
      A primeira estrutura XML será a configuração padrão quando a conta de serviço do Servidor de Relatório for NetworkService ou LocalSystem:  
   
@@ -149,7 +149,7 @@ ms.locfileid: "91935422"
   
 -   Uma opção para converter o valor decimal para a forma hexadecimal é, para nós, a Calculadora do [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows. A Calculadora do Windows oferece suporte a vários modos que mostram as opções 'Dec' e 'Hex'. Selecione a opção 'Dec', cole ou digite no valor decimal encontrado no arquivo de log e, em seguida, selecione a opção 'Hex'.  
   
--   Em seguida, consulte o tópico [Atributo de controle da conta de usuário](https://go.microsoft.com/fwlink/?LinkId=183366) para derivar o atributo para a conta de serviço.  
+-   Em seguida, consulte o tópico [Atributo de controle da conta de usuário](/windows/win32/adschema/a-useraccountcontrol) para derivar o atributo para a conta de serviço.  
   
 ##### <a name="spns-configured-in-active-directory-for-the-reporting-services-service-account"></a>Os SPNs configurados no Active Directory para a conta de serviço do Reporting Services.  
  Para registrar os SPNs no arquivo de log de rastreamento de serviço do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] , você pode habilitar o recurso de Proteção Estendida do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] temporariamente.  
@@ -206,5 +206,4 @@ ms.locfileid: "91935422"
  [Configurar a autenticação Básica no servidor de relatório](../../reporting-services/security/configure-basic-authentication-on-the-report-server.md)   
  [Configurar a autenticação personalizada ou de formulários no servidor de relatório](../../reporting-services/security/configure-custom-or-forms-authentication-on-the-report-server.md)   
  [Proteção estendida para autenticação com o Reporting Services](../../reporting-services/security/extended-protection-for-authentication-with-reporting-services.md)  
-  
   

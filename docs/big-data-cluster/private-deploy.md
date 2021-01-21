@@ -9,12 +9,12 @@ ms.date: 08/20/2020
 ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
-ms.openlocfilehash: 4a55d7f6c9c55891f8d1a7bf97d8834c9df4a796
-ms.sourcegitcommit: 5da46e16b2c9710414fe36af9670461fb07555dc
+ms.openlocfilehash: f83c3d1e1a5bf0c9b74d058f144c4d07025c8c05
+ms.sourcegitcommit: fc24f7ecc155d97e789676fffe55e45840fcb088
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89283115"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98620266"
 ---
 # <a name="deploy-bdc-in-azure-kubernetes-service-aks-private-cluster"></a>Implantar o BDC no cluster privado do AKS (Serviço de Kubernetes do Azure)
 
@@ -36,7 +36,7 @@ Esta seção mostra como implantar um cluster do BDC no cluster privado do AKS (
 
 ## <a name="create-a-private-aks-cluster-with-advanced-networking"></a>Criar um cluster privado do AKS com rede avançada
 
-```console
+```bash
 
 export REGION_NAME=<your Azure region >
 export RESOURCE_GROUP=< your resource group name >
@@ -70,7 +70,7 @@ echo $SUBNET_ID
 
 Para poder avançar para a etapa a seguir, você precisa provisionar um cluster do AKS com Standard Load Balancer com recurso de cluster privado habilitado. O comando se parecerá com o seguinte: 
 
-```console
+```bash
 az aks create \
     --resource-group $RESOURCE_GROUP \
     --name $AKS_NAME \
@@ -90,7 +90,7 @@ Após uma implantação bem-sucedida, você pode ir para o grupo de recursos `<M
 
 ## <a name="connect-to-an-aks-cluster"></a>Conectar-se a um cluster do AKS
 
-```console
+```azurecli
 az aks get-credentials -n $AKS_NAME -g $RESOURCE_GROUP
 ```
 
@@ -98,13 +98,13 @@ az aks get-credentials -n $AKS_NAME -g $RESOURCE_GROUP
 
 Depois de se conectar a um cluster do AKS, você pode começar a implantar o BDC, preparar a variável de ambiente e iniciar uma implantação: 
 
-```console
+```azurecli
 azdata bdc config init --source aks-dev-test --target private-bdc-aks --force
 ```
 
 Gerar e configurar o perfil de implantação personalizada do BDC:
 
-```console
+```azurecli
 azdata bdc config replace -c private-bdc-aks/control.json -j "$.spec.docker.imageTag=2019-CU6-ubuntu-16.04"
 azdata bdc config replace -c private-bdc-aks/control.json -j "$.spec.storage.data.className=default"
 azdata bdc config replace -c private-bdc-aks/control.json -j "$.spec.storage.logs.className=default"
@@ -123,13 +123,13 @@ Caso você esteja [implantando um SQL-BDC (Cluster de Big Data do SQL Server) co
 
 O seguinte exemplo define `ServiceType` como `NodePort`:
 
-```console
+```azurecli
 azdata bdc config replace -c private-bdc-aks /bdc.json -j "$.spec.resources.master.spec.endpoints[1].serviceType=NodePort"
 ```
 
 ## <a name="deploy-bdc-in-aks-private-cluster"></a>Implantar o BDC no cluster privado do AKS
 
-```console
+```azurecli
 export AZDATA_USERNAME=<your bdcadmin username>
 export AZDATA_PASSWORD=< your bdcadmin password>
 

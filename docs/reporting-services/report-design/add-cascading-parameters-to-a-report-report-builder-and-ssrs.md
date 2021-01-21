@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 3a22eec3-57a7-478e-b6fc-102a9dbe0591
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: fba193af6ef9f76c50f33ffa45a7bc668a0edead
-ms.sourcegitcommit: b3a711a673baebb2ff10d7142b209982b46973ae
+ms.openlocfilehash: 77a96c10d94bb27d52f8527e6822ff036e4a214e
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364658"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596757"
 ---
 # <a name="add-cascading-parameters-to-a-report-report-builder-and-ssrs"></a>Adicionar parâmetros em cascata a um relatório (Construtor de Relatórios e SSRS)
   Os parâmetros em cascata fornecem um modo de gerenciar grandes volumes de dados de relatório. É possível definir um conjunto de parâmetros relacionados de forma que a lista de valores de um parâmetro dependa do valor escolhido em outro parâmetro. Por exemplo, o primeiro parâmetro é independente e pode apresentar uma lista de categorias de produtos. Quando o usuário seleciona uma categoria, o segundo parâmetro é dependente do valor do primeiro parâmetro. Seus valores são atualizados com uma lista de subcategorias dentro da categoria escolhida. Quando o usuário exibe o relatório, os valores dos dois parâmetros de categoria e subcategoria são usados para filtrar dados do relatório.  
@@ -26,19 +26,19 @@ ms.locfileid: "93364658"
   
  A ordem é importante para parâmetros em cascata porque a consulta do conjunto de dados para um parâmetro posterior na lista inclui uma referência a cada parâmetro anterior na lista. Em tempo de execução, a ordem dos parâmetros no painel de dados do relatório determina a ordem na qual as consultas de parâmetro aparecem no relatório e, portanto, a ordem na qual um usuário escolhe cada valor de parâmetro sucessivo.  
   
- Para obter informações sobre como criar parâmetros em cascata com diversos valores e o recurso Selecionar Tudo, consulte [Como ter um parâmetro em cascata de diversos valores com Selecionar Tudo](https://go.microsoft.com/fwlink/?LinkId=184757).  
+ Para obter informações sobre como criar parâmetros em cascata com diversos valores e o recurso Selecionar Tudo, consulte [Como ter um parâmetro em cascata de diversos valores com Selecionar Tudo](/archive/blogs/psssql/).  
   
 ## <a name="to-create-the-main-dataset-with-a-query-that-includes-multiple-related-parameters"></a>Para criar o conjunto de dados principal com uma consulta que inclui múltiplos parâmetros relacionados  
   
 1.  No painel Dados do Relatório, clique com o botão direito do mouse em uma fonte de dados e clique em **Adicionar Conjunto de Dados**.  
   
-2.  Em **Nome** , digite o nome do conjunto de dados.  
+2.  Em **Nome**, digite o nome do conjunto de dados.  
   
-3.  Em **Fonte de Dados** , escolha o nome da fonte de dados ou clique em **Nova** para criar uma.  
+3.  Em **Fonte de Dados**, escolha o nome da fonte de dados ou clique em **Nova** para criar uma.  
   
-4.  Em **Tipo de consulta** , escolha o tipo de consulta para a fonte de dados selecionada. Neste tópico, o tipo de consulta **Text** é assumido.  
+4.  Em **Tipo de consulta**, escolha o tipo de consulta para a fonte de dados selecionada. Neste tópico, o tipo de consulta **Text** é assumido.  
   
-5.  Em **Consulta** , digite a consulta a ser usada para recuperar dados para este relatório. A consulta deve incluir as seguintes partes:  
+5.  Em **Consulta**, digite a consulta a ser usada para recuperar dados para este relatório. A consulta deve incluir as seguintes partes:  
   
     1.  Uma lista de campos de fonte de dados. Por exemplo, em uma instrução [!INCLUDE[tsql](../../includes/tsql-md.md)] , a instrução SELECT especifica uma lista de nomes de colunas do banco de dados de uma determinada tabela ou exibição.  
   
@@ -57,13 +57,13 @@ ms.locfileid: "93364658"
   
 1.  No painel Dados do Relatório, clique com o botão direito do mouse em uma fonte de dados e clique em **Adicionar Conjunto de Dados**.  
   
-2.  Em **Nome** , digite o nome do conjunto de dados.  
+2.  Em **Nome**, digite o nome do conjunto de dados.  
   
-3.  Em **Fonte de Dados** , verifique se o nome é o nome da fonte de dados escolhida na etapa 1.  
+3.  Em **Fonte de Dados**, verifique se o nome é o nome da fonte de dados escolhida na etapa 1.  
   
-4.  Em **Tipo de consulta** , escolha o tipo de consulta para a fonte de dados selecionada. Neste tópico, o tipo de consulta **Text** é assumido.  
+4.  Em **Tipo de consulta**, escolha o tipo de consulta para a fonte de dados selecionada. Neste tópico, o tipo de consulta **Text** é assumido.  
   
-5.  Em **Consulta** , digite a consulta a ser usada para recuperar valores para este parâmetro. Normalmente, consultas de parâmetros independentes não contêm parâmetros de consulta. Por exemplo, para criar uma consulta para um parâmetro que fornece todos os valores de categoria, você pode usar uma instrução [!INCLUDE[tsql](../../includes/tsql-md.md)] semelhante à seguinte:  
+5.  Em **Consulta**, digite a consulta a ser usada para recuperar valores para este parâmetro. Normalmente, consultas de parâmetros independentes não contêm parâmetros de consulta. Por exemplo, para criar uma consulta para um parâmetro que fornece todos os valores de categoria, você pode usar uma instrução [!INCLUDE[tsql](../../includes/tsql-md.md)] semelhante à seguinte:  
   
     ```  
     SELECT DISTINCT <column name> FROM <table>  
@@ -81,13 +81,13 @@ ms.locfileid: "93364658"
   
 1.  No painel Dados do Relatório, na pasta Parâmetros, clique com o botão direito do mouse no primeiro parâmetro e clique em **Propriedades do Parâmetro**.  
   
-2.  Em **Nome** , verifique se o nome do parâmetro está correto.  
+2.  Em **Nome**, verifique se o nome do parâmetro está correto.  
   
 3.  Clique em **Valores Disponíveis**.  
   
 4.  Clique em **Obter valores de uma consulta**. Três campos são exibidos.  
   
-5.  Em **Conjunto de Dados** , na lista suspensa, clique no nome do conjunto de dados criado no procedimento anterior.  
+5.  Em **Conjunto de Dados**, na lista suspensa, clique no nome do conjunto de dados criado no procedimento anterior.  
   
 6.  No campo **Valor** , clique no nome do campo que fornece o valor do parâmetro.  
   
@@ -101,13 +101,13 @@ ms.locfileid: "93364658"
   
 1.  No painel Dados do Relatório, clique com o botão direito do mouse em uma fonte de dados e clique em **Adicionar Conjunto de Dados**.  
   
-2.  Em **Nome** , digite o nome do conjunto de dados.  
+2.  Em **Nome**, digite o nome do conjunto de dados.  
   
-3.  Em **Fonte de Dados** , verifique se o nome é o nome da fonte de dados escolhida na etapa 1.  
+3.  Em **Fonte de Dados**, verifique se o nome é o nome da fonte de dados escolhida na etapa 1.  
   
-4.  Em **Tipo de consulta** , escolha o tipo de consulta para a fonte de dados selecionada. Neste tópico, o tipo de consulta **Text** é assumido.  
+4.  Em **Tipo de consulta**, escolha o tipo de consulta para a fonte de dados selecionada. Neste tópico, o tipo de consulta **Text** é assumido.  
   
-5.  Em **Consulta** , digite a consulta a ser usada para recuperar valores para este parâmetro. Normalmente, consultas para parâmetros dependentes incluem parâmetros de consulta para cada parâmetro do qual este parâmetro é dependente. Por exemplo, para criar uma consulta para um parâmetro que fornece todos os valores de subcategoria (parâmetro dependente) para uma categoria (parâmetro independente), você pode usar uma instrução [!INCLUDE[tsql](../../includes/tsql-md.md)] semelhante à seguinte:  
+5.  Em **Consulta**, digite a consulta a ser usada para recuperar valores para este parâmetro. Normalmente, consultas para parâmetros dependentes incluem parâmetros de consulta para cada parâmetro do qual este parâmetro é dependente. Por exemplo, para criar uma consulta para um parâmetro que fornece todos os valores de subcategoria (parâmetro dependente) para uma categoria (parâmetro independente), você pode usar uma instrução [!INCLUDE[tsql](../../includes/tsql-md.md)] semelhante à seguinte:  
   
     ```  
     SELECT DISTINCT Subcategory FROM <table>   
@@ -124,13 +124,13 @@ ms.locfileid: "93364658"
   
 1.  No painel Dados do Relatório, na pasta Parâmetros, clique com o botão direito do mouse no primeiro parâmetro e clique em **Propriedades do Parâmetro**.  
   
-2.  Em **Nome** , verifique se o nome do parâmetro está correto.  
+2.  Em **Nome**, verifique se o nome do parâmetro está correto.  
   
 3.  Clique em **Valores Disponíveis**.  
   
 4.  Clique em **Obter valores de uma consulta**.  
   
-5.  Em **Conjunto de Dados** , na lista suspensa, clique no nome do conjunto de dados criado no procedimento anterior.  
+5.  Em **Conjunto de Dados**, na lista suspensa, clique no nome do conjunto de dados criado no procedimento anterior.  
   
 6.  No campo **Valor** , clique no nome do campo que fornece o valor do parâmetro.  
   
@@ -159,5 +159,4 @@ ms.locfileid: "93364658"
  [Tutoriais do Construtor de Relatórios](../../reporting-services/report-builder-tutorials.md)   
  [Adicionar filtros de conjunto de dados, de região de dados e de grupo &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/add-dataset-filters-data-region-filters-and-group-filters.md)   
  [Conjuntos de dados inseridos e compartilhados de relatório &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-data/report-embedded-datasets-and-shared-datasets-report-builder-and-ssrs.md)  
-  
   

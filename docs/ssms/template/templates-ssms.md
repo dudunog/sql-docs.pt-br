@@ -19,12 +19,12 @@ helpviewer_keywords:
 - scripts [SQL Server], SQL Server Management Studio
 ms.custom: seo-lt-2019
 ms.date: 03/13/2018
-ms.openlocfilehash: 4662b6e9bcea26bc93ab0d5bf07a767797a98d70
-ms.sourcegitcommit: 22dacedeb6e8721e7cdb6279a946d4002cfb5da3
+ms.openlocfilehash: ee33e30ef69b0c4a464e91576dc33e6d15ca4890
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92035934"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596969"
 ---
 # <a name="use-templates-in-sql-server-management-studio"></a>Usar modelos no SQL Server Management Studio
 
@@ -118,7 +118,7 @@ Você também pode criar um novo modelo no Navegador de Modelos. As etapas a seg
 
 O melhor modo de se familiarizar com o SSMS é praticando. Estes artigos com *tutoriais* e *instruções* ajudam nos diversos recursos disponíveis no SSMS.  Estes artigos ensinam a administrar os componentes do SSMS e a encontrar os recursos que você usa com regularidade.
 
-* [Conectar-se e consultar uma instância](../quickstarts/connect-query-sql-server.md)
+* [Conectar-se e consultar uma instância](../quickstarts/ssms-connect-query-sql-server.md)
 * [Script](../tutorials/scripting-ssms.md)
 * [Configuração do SSMS](../tutorials/ssms-configuration.md)
 * [Mais dicas e truques para usar o SSMS](../tutorials/ssms-tricks.md)

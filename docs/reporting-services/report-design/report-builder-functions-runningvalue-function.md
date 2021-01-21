@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.assetid: 6bee2f15-0e69-49c8-9689-b04544063b1d
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: 053efc8ddd1f9f00c528c626aa204d612cb82369
-ms.sourcegitcommit: 02b22274da4a103760a376c4ddf26c4829018454
+ms.openlocfilehash: 75b25a7cb08a7473e6a725a841e53011c6967756
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84681275"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596026"
 ---
 # <a name="report-builder-functions---runningvalue-function"></a>Funções do Construtor de Relatórios – Função RunningValue
   Retorna uma agregação contínua de todos os valores numéricos não nulos especificados pela expressão, avaliados para o escopo fornecido.  
@@ -34,7 +34,7 @@ RunningValue(expression, function, scope)
  A expressão na qual executar a agregação, por exemplo, `[Quantity]`.  
   
  *função*  
- (**Enum**) O nome da função de agregação a ser aplicado à expressão, por exemplo, **Sum**. Essa função não pode ser **RunningValue**, **RowNumber**ou **Aggregate**.  
+ (**Enum**) O nome da função de agregação a ser aplicado à expressão, por exemplo, **Sum**. Essa função não pode ser **RunningValue**, **RowNumber** ou **Aggregate**.  
   
  *escopo*  
  (**String**) Uma constante de cadeia de caracteres que é o nome de um conjunto de dados, região de dados, grupo ou nulo (**Nothing** no [!INCLUDE[vbprvb](../../includes/vbprvb-md.md)]), que especifica o contexto no qual avaliar a agregação. **Nothing** especifica o contexto mais externo, geralmente o conjunto de dados do relatório.  
@@ -47,9 +47,9 @@ RunningValue(expression, function, scope)
   
  **RunningValue** não pode ser usado em um filtro ou expressão de classificação.  
   
- O conjunto de dados para o qual o valor em execução é calculado deve ter o mesmo tipo de dados. Para converter dados que têm vários tipos de dados numéricos no mesmo tipo de dados, use funções de conversão, como **CInt**, **CDbl** ou **CDec**. Para obter mais informações, consulte [Funções de conversão de tipo](https://go.microsoft.com/fwlink/?LinkId=96142).  
+ O conjunto de dados para o qual o valor em execução é calculado deve ter o mesmo tipo de dados. Para converter dados que têm vários tipos de dados numéricos no mesmo tipo de dados, use funções de conversão, como **CInt**, **CDbl** ou **CDec**. Para obter mais informações, consulte [Funções de conversão de tipo](/dotnet/visual-basic/language-reference/functions/type-conversion-functions).  
   
- O*Scope* não pode ser uma expressão.  
+ O *Scope* não pode ser uma expressão.  
   
  *Expression* pode conter chamadas para funções de agregação aninhadas com as seguintes exceções e condições:  
   
@@ -57,7 +57,7 @@ RunningValue(expression, function, scope)
   
 -   O escopo para agregações aninhadas não pode ser o nome de um conjunto de dados.  
   
--   *Expression* não deve conter a função **First**, **Last**, **Previous**ou **RunningValue** .  
+-   *Expression* não deve conter a função **First**, **Last**, **Previous** ou **RunningValue** .  
   
 -   *Expression* não deve conter agregações aninhadas que especifiquem *recursive*.  
   
@@ -91,5 +91,4 @@ RunningValue(expression, function, scope)
  [Exemplos de expressões &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/expression-examples-report-builder-and-ssrs.md)   
  [Tipos de dados em expressões &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/data-types-in-expressions-report-builder-and-ssrs.md)   
  [Escopo das expressões para totais, agregações e coleções internas &#40;Construtor de Relatórios e SSRS&#41;](../../reporting-services/report-design/expression-scope-for-totals-aggregates-and-built-in-collections.md)  
-  
   

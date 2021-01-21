@@ -9,12 +9,12 @@ ms.author: alayu
 ms.reviewer: maghan
 ms.custom: seodec18
 ms.date: 12/9/2020
-ms.openlocfilehash: cd990278d7478c089df7b01fa4a3738ad36368c3
-ms.sourcegitcommit: d983ad60779d90bb1c89a34d7b3d6da18447fdd8
+ms.openlocfilehash: 796499f38c9af2d7b2f6af8f860bb945d14bdac2
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96933842"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98596514"
 ---
 # <a name="release-notes-for-azure-data-studio"></a>Notas sobre a versão relacionadas ao Azure Data Studio
 
@@ -50,7 +50,7 @@ ms.locfileid: "96933842"
 | Novo item | Detalhes | Solução alternativa |
 |----------|---------|------------|
 | Extensão do Azure Arc | [Problema conhecido:](https://github.com/microsoft/azuredatastudio/issues/13319) O botão "Script para Notebook" em implantações de Arc MIAA e PG não realiza a validação de campo antes de gerar o script do notebook. Isso significa que, se os usuários inserirem a senha errada nas entradas de confirmação de senha, eles poderão acabar com um notebook com o valor errado para a senha.| O botão "Implantar" funciona conforme o esperado, por isso os usuários devem usá-lo. |
-| Pesquisador de Objetos | As versões do ADS anteriores à 1.24.0 têm uma alteração da falha no Pesquisador de Objetos devido às alterações do mecanismo relacionadas ao [pool de SQL sem servidor do Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview). | Para continuar utilizando o Pesquisador de Objetos no Azure Data Studio com o pool de SQL sem servidor do Azure Synapse Analytics, você precisa do Azure Data Studio 1.24.0 ou posterior. |
+| Pesquisador de Objetos | As versões do ADS anteriores à 1.24.0 têm uma alteração da falha no Pesquisador de Objetos devido às alterações do mecanismo relacionadas ao [pool de SQL sem servidor do Azure Synapse Analytics](/azure/synapse-analytics/sql/on-demand-workspace-overview). | Para continuar utilizando o Pesquisador de Objetos no Azure Data Studio com o pool de SQL sem servidor do Azure Synapse Analytics, você precisa do Azure Data Studio 1.24.0 ou posterior. |
 
 Confira os [comentários sobre o Azure Data Studio](https://github.com/microsoft/azuredatastudio) para descobrir outros problemas conhecidos e fornecer comentários à equipe do produto.
 

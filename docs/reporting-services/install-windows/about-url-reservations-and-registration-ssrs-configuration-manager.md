@@ -13,12 +13,12 @@ helpviewer_keywords:
 ms.assetid: c2c460c3-e749-4efd-aa02-0f8a98ddbc76
 author: maggiesMSFT
 ms.author: maggies
-ms.openlocfilehash: c705c0ea22b7fcd4a92c94493035764864d1a3f6
-ms.sourcegitcommit: fe59f8dc27fd633f5dfce54519d6f5dcea577f56
+ms.openlocfilehash: 1203c1190b0c14a4d5d9c3f7218adc8d6ab5d57a
+ms.sourcegitcommit: d8cdbb719916805037a9167ac4e964abb89c3909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935180"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98595292"
 ---
 # <a name="about-url-reservations-and-registration--report-server-configuration-manager"></a>Sobre reservas e registro de URL (Gerenciador de Configurações do Servidor de Relatório)
   As URLs para aplicativos do Reporting Services são definidas como reservas de URL em HTTP.SYS. Uma reserva de URL define a sintaxe de um ponto de extremidade de URL para um aplicativo Web. As reservas de URL são definidas para o serviço Web Servidor de Relatórios e para o portal da Web quando você configura os aplicativos no servidor de relatório. As reservas de URL são criadas automaticamente quando você configura URLs através da instalação ou da ferramenta Configuração do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] :  
@@ -30,7 +30,7 @@ ms.locfileid: "91935180"
  A instalação e a ferramenta também irão atribuir permissões na URL para o serviço Servidor de Relatório, verificar se existem instâncias duplicadas e adicionar a reserva de URL a HTTP.SYS. Nunca crie ou modifique diretamente uma reserva de URL do Reporting Services usando HttpCfg.exe ou outra ferramenta. Se você pular uma etapa ou definir um valor inválido, ocorrerão problemas difíceis de diagnosticar ou corrigir.  
   
 > [!NOTE]  
-> HTTP.SYS é um componente do sistema operacional que escuta solicitações de rede e as roteia para uma fila de solicitações. Nesta versão do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)], HTTP.SYS estabelece e mantém a fila de solicitações para o serviço Web Servidor de Relatórios e o portal da Web. O IIS (Serviços de Informações da Internet) não mais é usado para hospedar ou acessar aplicativos do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] . Para saber mais sobre a funcionalidade HTTP.SYS, confira [HTTP Server API](https://go.microsoft.com/fwlink/?LinkId=92652).  
+> HTTP.SYS é um componente do sistema operacional que escuta solicitações de rede e as roteia para uma fila de solicitações. Nesta versão do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)], HTTP.SYS estabelece e mantém a fila de solicitações para o serviço Web Servidor de Relatórios e o portal da Web. O IIS (Serviços de Informações da Internet) não mais é usado para hospedar ou acessar aplicativos do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] . Para saber mais sobre a funcionalidade HTTP.SYS, confira [HTTP Server API](/windows/win32/http/http-api-start-page).  
   
 ##  <a name="urls-in-reporting-services"></a><a name="ReportingServicesURLs"></a> URLs no Reporting Services  
  Em uma instalação do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] , você pode acessar as seguintes ferramentas, aplicativos e itens usando URLs:  
@@ -47,11 +47,11 @@ ms.locfileid: "91935180"
 > Este artigo não descreve o acesso de URL a relatórios específicos armazenados no servidor de relatório. Para saber mais sobre o acesso de URL a esses itens, veja [Acessar itens do servidor de relatório usando o acesso de URL](../../reporting-services/access-report-server-items-using-url-access.md).  
   
 ##  <a name="url-reservation-and-registration"></a><a name="URLreservation"></a> Reserva e registro de URLs  
- Uma reserva de URL define as URLs que podem ser usadas para acessar um aplicativo do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] . [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] reservará uma ou mais URLs para o serviço Web do Servidor de Relatório e o [!INCLUDE[ssRSWebPortal](../../includes/ssrswebportal.md)] no HTTP.SYS e os registrará quando o servidor for iniciado. Ao acrescentar parâmetros à URL, você poderá abrir relatórios usando o serviço Web. As reservas e o registro são fornecidos por HTTP.SYS. Para saber mais, confira [Reservas, registro e roteamento de namespace](https://go.microsoft.com/fwlink/?LinkId=92653).  
+ Uma reserva de URL define as URLs que podem ser usadas para acessar um aplicativo do [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] . [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] reservará uma ou mais URLs para o serviço Web do Servidor de Relatório e o [!INCLUDE[ssRSWebPortal](../../includes/ssrswebportal.md)] no HTTP.SYS e os registrará quando o servidor for iniciado. Ao acrescentar parâmetros à URL, você poderá abrir relatórios usando o serviço Web. As reservas e o registro são fornecidos por HTTP.SYS. Para saber mais, confira [Reservas, registro e roteamento de namespace](/windows/win32/http/namespace-reservations-registrations-and-routing).  
   
  *Reserva de URL* consiste em um processo através do qual um ponto de extremidade de URL para um aplicativo Web é criado e armazenado em HTTP.SYS. HTTP.SYS é o repositório comum de todas as reservas de URL que estão definidas em um computador e define um conjunto de regras comuns que garantem reservas de URL exclusivas.  
   
- O*registro de URL* ocorre quando o serviço é iniciado. A fila de solicitações é criada, e HTTP.SYS começa a rotear solicitações para essa fila. Um ponto de extremidade de URL deve ser registrado antes que as solicitações direcionadas a ele sejam adicionadas à fila. Quando o serviço Servidor de Relatório for iniciado, ele registrará todas as URLs reservadas para todos os aplicativos habilitados. Isso significa que o serviço Web deve ser habilitado para que o registro ocorra. Se você definir a propriedade **WebServiceAndHTTPAccessEnabled** como **False** na Configuração da Área da Superfície para a faceta Reporting Services do Gerenciamento Baseado em Políticas, a URL do serviço Web não será registrada quando o serviço for iniciado.  
+ O *registro de URL* ocorre quando o serviço é iniciado. A fila de solicitações é criada, e HTTP.SYS começa a rotear solicitações para essa fila. Um ponto de extremidade de URL deve ser registrado antes que as solicitações direcionadas a ele sejam adicionadas à fila. Quando o serviço Servidor de Relatório for iniciado, ele registrará todas as URLs reservadas para todos os aplicativos habilitados. Isso significa que o serviço Web deve ser habilitado para que o registro ocorra. Se você definir a propriedade **WebServiceAndHTTPAccessEnabled** como **False** na Configuração da Área da Superfície para a faceta Reporting Services do Gerenciamento Baseado em Políticas, a URL do serviço Web não será registrada quando o serviço for iniciado.  
   
  As URLs terão o registro cancelado se você interromper o serviço ou reciclar o serviço Web ou o domínio do aplicativo do [!INCLUDE[ssRSWebPortal](../../includes/ssrswebportal.md)] . Se você modificar uma reserva de URL enquanto o serviço estiver em execução, o servidor de relatório reciclará o domínio do aplicativo imediatamente para que o registro da antiga URL seja cancelado e a nova URL possa ser usada.  
   
@@ -108,4 +108,3 @@ ms.locfileid: "91935180"
  [Configurar uma URL &#40;Gerenciador de Configurações do Servidor de Relatório&#41;](../../reporting-services/install-windows/configure-a-url-ssrs-configuration-manager.md)   
  [Sintaxe de reserva de URL &#40;Gerenciador de Configurações do Servidor de Relatório&#41;](../../reporting-services/install-windows/url-reservation-syntax-ssrs-configuration-manager.md)  
 
-  
